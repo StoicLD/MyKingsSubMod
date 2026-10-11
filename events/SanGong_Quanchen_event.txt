@@ -1,0 +1,1239 @@
+﻿namespace = SanGong_Quanchen_event
+
+
+SanGong_Quanchen_event.001 = {#权臣加衔事件
+    type = character_event
+    title = SanGong_Quanchen_event.001.t
+    desc = SanGong_Quanchen_event.001.desc
+    theme = dynasty
+    override_background = bedchamber
+    #window = clear_event_window_v2
+    right_portrait = {
+        character = scope:recipient
+        animation = emperor
+        camera = camera_event_scheme_left
+    }
+    immediate = {
+        save_scope_as = recipient
+        scope:employee = {
+            save_scope_as = new_minister
+            top_liege = {
+                save_scope_as = councillor_liege
+            }
+            scope:councillor_liege = {
+                appoint_court_position = {
+                    recipient = scope:new_minister
+                    court_position = QuanChen_minister_court_position
+                }
+            }
+        }
+    }
+    option = {#录尚书事、使持节
+        name = SanGong_Quanchen_event.001.a
+        trigger = {
+            scope:recipient = {
+                NOT = { has_character_flag = Quanchen_flag }
+            }
+        }
+        custom_tooltip = Quanchen_on_tt
+        scope:story = {
+			change_variable = {
+				name = Quanchen_var
+				add = 500
+			}
+		} 
+        top_liege = {
+            try_start_diarchy = regency
+            set_diarch = root
+            set_diarchy_swing = 50
+        }
+        scope:recipient = {
+            add_trait = SanGong_Quanchen
+            add_character_flag = Quanchen_flag
+            add_character_flag = QuanChen_shichijie
+        }
+    }
+
+    option = {#假黄钺、大都督内外诸军事
+        name = SanGong_Quanchen_event.001.b
+        trigger = {
+            scope:recipient = {
+                has_character_flag = Quanchen_flag
+                NOT = { has_character_flag = QuanChen_jiahuangyue }
+            }
+        }
+        random_owned_story = {
+            type = story_QuanChen
+            change_variable = {
+				name = Quanchen_var
+				add = 200
+			}
+        }
+        scope:recipient = {
+            remove_character_flag = QuanChen_shichijie
+            add_character_flag = QuanChen_jiahuangyue
+            add_character_flag = QuanChen_daduduneiwaijunshi
+        }
+    }
+
+    option = {#开府仪同三司
+        name = SanGong_Quanchen_event.001.c
+        trigger = {
+            scope:recipient = {
+                has_character_flag = QuanChen_daduduneiwaijunshi
+                NOT = { has_character_flag = QuanChen_kaitongyitongsansi }
+            }
+        }
+        random_owned_story = {
+            type = story_QuanChen
+            change_variable = {
+				name = Quanchen_var
+				add = 200
+			}
+        }
+        scope:recipient = {
+            add_character_flag = QuanChen_kaitongyitongsansi
+        }
+    }
+    option = {#司徒
+        name = SanGong_Quanchen_event.001.d
+        trigger = {
+            scope:recipient = {
+                has_character_flag = QuanChen_kaitongyitongsansi
+                NOR = { 
+                    has_character_flag = QuanChen_situ
+                    has_character_flag = QuanChen_taiwei
+                    has_character_flag = QuanChen_sikong
+                }
+            }
+        }
+        random_owned_story = {
+            type = story_QuanChen
+            change_variable = {
+				name = Quanchen_var
+				add = 200
+			}
+        }
+        scope:recipient = {
+            add_character_flag = QuanChen_situ
+        }
+    }
+    option = {#太尉
+        name = SanGong_Quanchen_event.001.e
+        trigger = {
+            scope:recipient = {
+                has_character_flag = QuanChen_kaitongyitongsansi
+                NOR = { 
+                    has_character_flag = QuanChen_situ
+                    has_character_flag = QuanChen_taiwei
+                    has_character_flag = QuanChen_sikong
+                }
+            }
+        }
+        random_owned_story = {
+            type = story_QuanChen
+            change_variable = {
+				name = Quanchen_var
+				add = 200
+			}
+        }
+        scope:recipient = {
+            add_character_flag = QuanChen_taiwei
+        }
+    }
+
+    option = {#司空
+        name = SanGong_Quanchen_event.001.f
+        trigger = {
+            scope:recipient = {
+                has_character_flag = QuanChen_kaitongyitongsansi
+                NOR = { 
+                    has_character_flag = QuanChen_situ
+                    has_character_flag = QuanChen_taiwei
+                    has_character_flag = QuanChen_sikong
+                }
+            }
+        }
+        random_owned_story = {
+            type = story_QuanChen
+            change_variable = {
+				name = Quanchen_var
+				add = 200
+			}
+        }
+        scope:recipient = {
+            add_character_flag = QuanChen_sikong
+        }
+    }
+     option = {#大司马
+        name = SanGong_Quanchen_event.001.g
+        trigger = {
+            scope:recipient = {
+                OR = { 
+                    has_character_flag = QuanChen_situ
+                    has_character_flag = QuanChen_taiwei
+                    has_character_flag = QuanChen_sikong
+                }
+                NOR = {
+                    has_character_flag = QuanChen_dasima
+                    has_character_flag = QuanChen_dachengxiang
+                    has_character_flag = QuanChen_xiangguo
+                }
+            }
+        }
+        random_owned_story = {
+            type = story_QuanChen
+            change_variable = {
+				name = Quanchen_var
+				add = 200
+			}
+        }
+        scope:recipient = {
+            add_character_flag = QuanChen_dasima
+        }
+    }
+    option = {#大丞相
+        name = SanGong_Quanchen_event.001.h
+        trigger = {
+            scope:recipient = {
+                has_character_flag = QuanChen_dasima
+            }
+            
+        }
+        random_owned_story = {
+            type = story_QuanChen
+            change_variable = {
+				name = Quanchen_var
+				add = 200
+			}
+        }
+        scope:recipient = {
+            add_character_flag = QuanChen_dachengxiang
+            remove_character_flag = QuanChen_dasima
+        }
+    }
+    option = {#相国
+        name = SanGong_Quanchen_event.001.i
+        trigger = {
+            scope:recipient = {
+                has_character_flag = QuanChen_dachengxiang
+            }
+        }
+        random_owned_story = {
+            type = story_QuanChen
+            change_variable = {
+				name = Quanchen_var
+				add = 200
+			}
+        }
+        scope:recipient = {
+            add_character_flag = QuanChen_xiangguo
+            remove_character_flag = QuanChen_dasima
+            remove_character_flag = QuanChen_dachengxiang
+        }
+    }
+    option = {#赞拜不名
+        name = SanGong_Quanchen_event.001.j
+        trigger = {
+            scope:recipient = {
+                has_character_flag = QuanChen_xiangguo
+                NOT = { has_character_flag = QuanChen_zanshubuming }
+            }
+        }
+        random_owned_story = {
+            type = story_QuanChen
+            change_variable = {
+				name = Quanchen_var
+				add = 300
+			}
+        }
+        scope:recipient = {
+            add_character_flag = QuanChen_zanshubuming
+        }
+    }
+    option = {#前后羽葆鼓吹
+        name = SanGong_Quanchen_event.001.m
+        trigger = {
+            scope:recipient = {
+                has_character_flag = QuanChen_zanshubuming
+                NOT = { has_character_flag = QuanChen_yubaichuigu }
+            }
+        }
+        random_owned_story = {
+            type = story_QuanChen
+            change_variable = {
+				name = Quanchen_var
+				add = 200
+			}
+        }
+        scope:recipient = {
+            add_character_flag = QuanChen_yubaichuigu
+        }
+    }
+    option = {#进位王，邑万户
+        name = SanGong_Quanchen_event.001.k
+        trigger = {
+            scope:recipient = {
+                has_character_flag = QuanChen_yubaichuigu
+                NOT = { has_character_flag = QuanChen_fengwang }
+            }
+        }
+        random_owned_story = {
+            type = story_QuanChen
+            change_variable = {
+				name = Quanchen_var
+				add = 500
+			}
+        }
+        scope:recipient = {
+            save_scope_as = QuanChen
+            #trigger_event = SanGong_Quanchen_event.002
+            trigger_event = SanGong_Quanchen_event.077
+            add_character_flag = QuanChen_fengwang
+        }
+    }
+    option = {#九锡
+        name = SanGong_Quanchen_event.001.l
+        trigger = {
+            scope:recipient = {
+                has_character_flag = QuanChen_fengwang
+                NOT = { has_character_flag = QuanChen_jiuxi }
+            }
+        }
+        random_owned_story = {
+            type = story_QuanChen
+            change_variable = {
+				name = Quanchen_var
+				add = 500
+			}
+        }
+        scope:recipient = {
+            add_character_flag = QuanChen_jiuxi
+        }
+    }
+    option = {#天子礼
+        name = SanGong_Quanchen_event.001.n
+        trigger = {
+            scope:recipient = {
+                has_character_flag = QuanChen_jiuxi
+                #NOT = { has_character_flag = QuanChen_tianzijingqi }
+            }
+        }
+        random_owned_story = {
+            type = story_QuanChen
+            change_variable = {
+				name = Quanchen_var
+				add = 1000
+			}
+        }
+        scope:recipient = {
+            add_character_flag = QuanChen_tianzijingqi
+        }
+    }
+    after = {
+        top_liege = {
+            every_vassal = {
+                trigger_event = {
+                    id = SanGong_Quanchen_event.011
+                    days = 3
+                }
+            }
+        }
+        
+    }
+}
+
+SanGong_Quanchen_event.002= {#进封王位（王国改名）
+    # 事件类型：角色事件（触发对象是单个角色）
+    type = character_event
+    # 事件标题：对应本地化文件中的 tgp_dynastic_cycle.9001.t 键值
+    title = SanGong_Quanchen_event.002.t
+    window = clear_event_window_v2
+    # 事件描述：对应本地化文件中的 tgp_dynastic_cycle.9001.desc 键值
+    desc = SanGong_Quanchen_event.002.desc
+    # 事件主题：归类为王朝循环主题（影响事件界面风格/背景音乐等）
+    theme = dynastic_cycle
+    right_portrait = {
+        character = scope:QuanChen  # 肖像显示事件触发者（root角色）
+        animation = emperor
+        camera = camera_activity_horse
+    }
+    # 事件触发条件（必须满足以下条件才会触发）
+    trigger = {
+        highest_held_title_tier >= tier_kingdom 
+    }
+
+    # 【核心控件】命名输入框（让玩家/AI选择/输入王朝名称）
+    widget = {
+        gui = "event_window_widget_enter_text"  # 使用“输入文本”类型的GUI界面
+        container = "dynamic_birth_name"  # 绑定的容器名称（界面布局用）
+        controller = {
+            type = text  # 控件类型：文本输入/选择
+            data = {
+                key = new_realm_title_name  # 存储输入/选择结果的变量名
+                default = {
+                    localization_key = dynn_title_tang  # 唐
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_tang } }
+                }
+                default = {
+                    localization_key = dynn_title_song  # 宋
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_song } }
+                }
+                default = {
+                    localization_key = dynn_title_yuan  # 元
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_yuan } }
+                }
+                default = {
+                    localization_key = dynn_title_jin  # 金
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_jin } }
+                }
+                default = {
+                    localization_key = dynn_title_han  # 汉
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_han } }
+                }
+                default = {
+                    localization_key = dynn_title_zhou  # 周
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_zhou } }
+                }
+                default = {
+                    localization_key = dynn_title_shu  # 蜀
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_shu } }
+                }
+                default = {
+                    localization_key = dynn_title_chu  # 楚
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_chu } }
+                }
+                default = {
+                    localization_key = dynn_title_yin  # 殷
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_yin } }
+                }
+                default = {
+                    localization_key = dynn_title_wei  # 魏
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_wei } }
+                }
+                default = {
+                    localization_key = dynn_title_wu  # 吴
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_wu } }
+                }
+                default = {
+                    localization_key = dynn_title_xia  # 夏
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_xia } }
+                }
+                default = {
+                    localization_key = dynn_title_yue  # 越
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_yue } }
+                }
+                default = {
+                    localization_key = dynn_title_qi  # 齐
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_qi } }
+                }
+                default = {
+                    localization_key = dynn_title_min  # 闽
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_min } }
+                }
+                default = {
+                    localization_key = dynn_title_liang  # 梁
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_liang } }
+                }
+                default = {
+                    localization_key = dynn_title_dai  # 代
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_dai } }
+                }
+                default = {
+                    localization_key = dynn_title_cai  # 蔡
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_cai } }
+                }
+                default = {
+                    localization_key = dynn_title_cao  # 曹
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_cao } }
+                }
+                default = {
+                    localization_key = dynn_title_dian  # 滇
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_dian } }
+                }
+                default = {
+                    localization_key = dynn_title_gui  # 桂
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_gui } }
+                }
+                default = {
+                    localization_key = dynn_title_huai  # 淮
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_huai } }
+                }
+                default = {
+                    localization_key = dynn_title_jing  # 荆
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_jing } }
+                }
+                default = {
+                    localization_key = dynn_title_lai  # 莱
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_lai } }
+                }
+                default = {
+                    localization_key = dynn_title_lu  # 鲁
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_lu } }
+                }
+                default = {
+                    localization_key = dynn_title_sui  # 隋
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_sui } }
+                }
+                default = {
+                    localization_key = dynn_title_xing  # 邢
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_xing } }
+                }
+                default = {
+                    localization_key = dynn_title_xu  # 徐
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_xu } }
+                }
+                default = {
+                    localization_key = dynn_title_yong  # 雍
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_yong } }
+                }
+                default = {
+                    localization_key = dynn_title_zhao  # 赵
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_zhao } }
+                }
+                default = {
+                    localization_key = dynn_title_ba  # 巴
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_ba } }
+                }
+                default = {
+                    localization_key = dynn_title_chen  # 陈
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_chen } }
+                }
+                default = {
+                    localization_key = dynn_title_gan  # 甘
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_gan } }
+                }
+                default = {
+                    localization_key = dynn_title_qian  # 黔
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_qian } }
+                }
+                default = {
+                    localization_key = dynn_title_xiang  # 湘
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_xiang } }
+                }
+                default = {
+                    localization_key = dynn_title_yang  # 扬
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_yang } }
+                }
+                default = {
+                    localization_key = dynn_title_zheng  # 郑
+                    trigger = { is_target_in_variable_list = { name = realm_title_names target = flag:dynn_title_zheng } }
+                }
+                # 备用默认选项：如果以上王朝名都不满足，显示首都公爵领/王国名
+                default = {
+                    localization_key = capital_duchy_name 
+                    trigger = { exists = scope:duchy_name }  #
+                }
+                default = {
+                    localization_key = capital_kingdom_name  
+                    trigger = { exists = scope:kingdom_name }  # 仅当王国作用域存在时显示
+                }
+            }
+        }
+        setup_scope = {
+            root = { save_scope_as = text_target }
+        }
+    }
+
+    # 事件立即执行的效果（事件弹出时立刻触发，无需要选择选项）
+    immediate = {
+        
+        hidden_effect = {  # 隐藏效果（玩家看不到）
+            clear_variable_list = realm_title_names  # 清空王朝名称候选列表变量
+            SanGong_China_FanGuo_name_effect = { TARGET = QuanChen }  # 调用自定义效果：分配中国王朝名称候选列表
+            # 如果候选列表数量 ≤1，补充首都相关名称到作用域
+            if = {
+                limit = {
+                    variable_list_size = {
+                        name = realm_title_names
+                        value <= 1
+                    }
+                }
+                # 获取角色首都郡所属的公爵领/王国，保存到对应作用域
+                scope:QuanChen = {
+                    capital_county ?= {
+                        duchy = {
+                            save_scope_as = duchy_name
+                        }
+                        kingdom = {
+                            save_scope_as = kingdom_name
+                        }
+                    }
+                }
+            }
+        }
+        # AI专属逻辑：随机选择一个王朝名称并赋值
+        if = {
+            limit = { is_ai = yes }
+            random_in_list = {
+                variable = realm_title_names  # 从候选列表随机选
+                save_scope_as = new_realm_title_name  # 保存到作用域
+                root = {
+                    # 将选中的名称赋值给角色变量 new_realm_title_name
+                    set_variable = {
+                        name = new_realm_title_name
+                        value = scope:new_realm_title_name
+                    }
+                }
+            }
+            # 容错：如果随机选择失败，默认用首都公爵领名称
+            if = {
+                limit = {
+                    NOT = { exists = root.var:new_realm_title_name }
+                }
+                root = {
+                    set_variable = {
+                        name = new_realm_title_name
+                        value = flag:capital_duchy_name
+                    }
+                }
+            }
+        }
+        # 播放王朝循环结束的背景音乐
+        play_music_cue = mx_cue_tgp_dynastic_cycle_end
+    }
+
+    # 事件选项（玩家点击确认的按钮）
+    option = {
+        name = SanGong_Quanchen_event.002.a  # 选项名称（本地化键值）
+        clear_variable_list = realm_title_names  # 清空王朝名称候选列表（清理内存）
+
+        if = {
+            limit = {
+                var:new_realm_title_name ?= flag:capital_duchy_name
+            }
+            scope:QuanChen = {
+                primary_title = {
+                    set_title_name_dynamic = capital_duchy_name  # 从变量读取名称
+                }
+            } 
+        }
+        # 3. 变量值为首都王国名称：设置为主头衔名称
+        else_if = {
+            limit = {
+                var:new_realm_title_name ?= flag:capital_kingdom_name
+            }
+            scope:QuanChen = {
+                primary_title = {
+                    set_title_name_dynamic = capital_kingdom_name  # 从变量读取名称
+                }
+            }
+        }
+        # 4. 存在自定义王朝名称变量：使用该变量值
+        else_if = {
+            limit = {
+                has_variable = new_realm_title_name
+            }
+            scope:QuanChen = {
+                primary_title = {
+                    set_title_name_dynamic = new_realm_title_name_from_var  # 从变量读取名称
+                }
+            }
+        }
+        else_if = {
+            scope:QuanChen = {
+                primary_title = {
+                    set_title_name_dynamic = new_realm_title_name_entered_text  # 从变量读取名称
+                }
+            }
+        }
+    }
+    option = {
+        name = SanGong_Quanchen_event.002.b  # 选项名称（本地化键值）
+        scope:QuanChen = {
+            primary_title = {
+                set_title_name_dynamic = new_realm_title_name_entered_text  # 从变量读取名称
+            }
+        }
+    }
+    # 事件结束后执行的效果（无论选哪个选项都会触发）
+    after = {
+
+    }
+}
+
+SanGong_Quanchen_event.003 = {##废立皇后
+    type = character_event
+    #window = big_event_window
+    title = SanGong_Quanchen_event.003.t
+    desc = SanGong_Quanchen_event.003.d
+    theme = bastardy
+    override_background = bedchamber
+    left_portrait = {
+        character = root.top_liege
+        animation = throne_room_conversation_4
+    }
+    right_portrait = {
+        character = root.top_liege.primary_spouse
+        animation = throne_room_curtsey_1
+    }
+	widget = {
+		is_shown = {
+			is_ai = no	
+		}
+		gui = "SanGong_character_selection_options"	
+		container = "custom_widgets_container"
+	}
+    immediate = {
+        if = {
+            limit = {
+                exists = dynasty
+            }
+            dynasty = {
+                ordered_dynasty_member = {
+                    order_by = {
+                        value = 0
+                        add = age
+                    }
+                    max = 100
+                    limit = {
+                        is_female = yes
+                        is_ruler = no
+                        is_adult = yes
+                        age < 45
+                        is_healthy = yes 
+                        NOT = {
+                            exists = primary_spouse
+                        }
+                    }
+                    root = {
+                        add_to_variable_list = {	
+                            name = SanGong_list_characters
+                            target = prev
+                        }
+                    }
+                }   
+            }
+
+        }
+    }
+    option = {
+        name = SanGong_Quanchen_event.003.a
+        if = {
+			limit = { exists = var:SanGong_selected_character }
+		}
+        FeiLiHuangHou_effect = { HuangHou = root.var:SanGong_selected_character TARGET = root }
+        root.top_liege.primary_spouse = {
+            save_scope_as = FeiHou
+        }
+        add_hook = {
+            target = scope:huanghou
+            type = FeiLiHuangHou_hook
+        }
+    }
+    after = {
+		clear_variable_list = SanGong_list_characters	
+		var:SanGong_selected_character = { remove_variable = SanGong_selected_character }	
+		remove_variable = SanGong_selected_character	
+	}
+}
+
+SanGong_Quanchen_event.004 = {##废立太子
+    type = character_event
+    #window = big_event_window
+    title = SanGong_Quanchen_event.004.t
+    desc = SanGong_Quanchen_event.004.d
+    theme = bastardy
+    override_background = bedchamber
+    left_portrait = {
+        character = root
+        animation = throne_room_conversation_4
+    }
+    right_portrait = {
+        character = scope:FeiTaizi
+        animation = throne_room_curtsey_1
+    }
+	widget = {
+		is_shown = {
+			is_ai = no	
+		}
+		gui = "SanGong_character_selection_options"	
+		container = "custom_widgets_container"
+	}
+    immediate = {
+            top_liege = {
+                every_child = {
+                    limit = {
+                        has_trait = SanGong_Taizi
+                    }
+                    save_scope_as = FeiTaizi
+                }
+            }
+            top_liege = {
+                ordered_child = {
+                    order_by = {
+                        value = 0
+                        add = age
+                    }
+                    max = 100
+                    limit = {
+                        is_male = yes
+                        NOT = { has_trait = SanGong_Taizi }
+                        is_independent_ruler = no
+                    }
+                    root = {
+                        add_to_variable_list = {	
+                            name = SanGong_list_characters
+                            target = prev
+                        }
+                    }
+                }   
+            }
+            ai_character_list_effect = {
+                LIST_TYPE = variable
+                LIST = SanGong_list_characters	
+                MAX = 1	
+            }
+            if = {
+                limit = { exists = scope:ai_char }	
+                scope:ai_char = {
+                    root = { set_variable = { name = SanGong_selected_character value = prev } }
+                    set_variable = SanGong_selected_character
+                }
+            }
+        
+    }
+    option = {
+        name = SanGong_Quanchen_event.004.a
+        if = {
+			limit = { exists = var:SanGong_selected_character }
+		}
+        root.var:SanGong_selected_character = {
+            save_scope_as = TaiZi_QuanChen
+            add_character_flag = QuanChen_ZhiChi
+        }
+        custom_tooltip = SanGong_Quanchen_event.004_tt1
+        add_hook = {
+            target = scope:TaiZi_QuanChen
+            type = QuanChen_hook
+        }
+        top_liege = {
+            trigger_event = SanGong_Quanchen_event.012
+        }
+    }
+    after = {
+		clear_variable_list = SanGong_list_characters	
+		var:SanGong_selected_character = { remove_variable = SanGong_selected_character }	
+		remove_variable = SanGong_selected_character	
+
+	}
+}
+
+
+SanGong_Quanchen_event.011 = {#权臣加衔事件（通知事件）
+    type = character_event
+    title = SanGong_Quanchen_event.001.t
+    desc = SanGong_Quanchen_event.011.desc
+    theme = dynasty
+    override_background = bedchamber
+    #window = clear_event_window_v2
+    right_portrait = {
+        character = scope:recipient
+        animation = emperor
+        camera = camera_event_scheme_left
+    }
+    immediate = {
+    }
+    option = {
+        name = SanGong_Quanchen_event.011.a
+    }
+}
+
+SanGong_Quanchen_event.012 = {##废立太子（皇帝通知）
+    type = character_event
+    window = big_event_window
+    title = SanGong_Quanchen_event.012.t
+    desc = SanGong_Quanchen_event.012.d
+    theme = bastardy
+    override_background = bedchamber
+
+    lower_left_portrait = {
+        character = scope:FeiTaizi
+        animation = dead
+    }
+	left_portrait = {
+		character = root
+		animation = personality_compassionate
+        camera = camera_body
+	}
+    right_portrait = {
+        character = root.top_liege
+        animation = map_disgust
+        camera = camera_event_left_forward
+    }
+    center_portrait = {
+        character = scope:TaiZi_QuanChen
+        animation = chaplain
+        camera = camera_activity_horse
+    }
+    immediate = {
+        root = {
+            save_scope_as = QuanChen
+        }
+        top_liege = {
+            save_scope_as = HuangDi
+        }
+        scope:FeiTaizi = {
+            SanGong_remove_cefeng_merit_modifiers_effect = yes
+            SanGong_ZongShi_remove_taizi_effect = yes
+        }
+        
+    }
+    option = {
+        name = SanGong_Quanchen_event.012.a
+        top_liege = {
+            save_scope_as = HuangDi
+            set_designated_heir = scope:TaiZi_QuanChen 
+        }
+
+        
+        scope:TaiZi_QuanChen = {
+            save_scope_as = taizi
+            remove_HuangZi_WangHao_effects = yes
+            SanGong_ZongShi_set_taizi_effect = yes
+            add_legitimacy = 200
+
+        }
+    }
+    after = {
+        every_vassal_or_below = {
+            trigger_event = {
+                id = SanGong_DianZhang.017
+                days = 3
+            }
+        }
+    }
+}
+
+SanGong_Quanchen_event.013 = {##废立皇后（皇帝通知）
+    type = character_event
+    window = big_event_window
+    title = SanGong_Quanchen_event.013.t
+    desc = SanGong_Quanchen_event.013.d
+    theme = bastardy
+    override_background = bedchamber
+
+    lower_left_portrait = {
+        character = scope:FeiHou
+        animation = dead
+    }
+	left_portrait = {
+		character = root
+		animation = personality_compassionate
+        camera = camera_body
+	}
+    right_portrait = {
+        character = scope:HuangDi
+        animation = map_disgust
+        camera = camera_event_left_forward
+    }
+    center_portrait = {
+        character = scope:huanghou
+        animation = chaplain
+        camera = camera_activity_horse
+    }
+    immediate = {
+        root = {
+            save_scope_as = QuanChen
+        }
+        top_liege = {
+            save_scope_as = HuangDi
+        } 
+    }
+    option = {
+        name = SanGong_Quanchen_event.013.a
+        scope:HuangDi = {
+            every_consort = {
+                remove_trait = SanGong_GongWei_1
+            }
+            trigger_event = {
+                id = SanGong_DianZhang.012
+                days = 3
+            }
+        }
+    }
+}
+
+SanGong_Quanchen_event.030 = {#清算权臣家族成员
+    type = character_event
+    title = SanGong_Quanchen_event.030.t
+    desc = SanGong_Quanchen_event.030.desc
+    theme = intrigue_intimidation_focus
+    override_background = armory
+    #window = clear_event_window_v2
+    right_portrait = {
+        character = scope:QuanChen
+        animation = severelywounded
+        camera = camera_event_scheme_far_right
+    }
+    immediate = {
+        hidden_effect = { 
+            scope:QuanChen = {
+                house ?= {
+                    every_house_member = {
+                        limit = {
+                            top_liege = {
+                               #has_character_flag = KuiLeIHuangDi
+                            }
+                        }
+                        add_to_list = QuanChenHouse_list
+                    }
+                }
+                every_consort = {
+                    add_to_list = QuanChenHouse_list
+                }
+            }
+        }
+    }
+    option = {#夷三族
+        name = SanGong_Quanchen_event.030.a
+        trigger_event = SanGong_Quanchen_event.031
+        every_in_list = { 
+            list = QuanChenHouse_list
+            add_gold = 12
+            #death = { killer = scope:NewHuangDi death_reason = SanGong_death25 } 
+		} 
+    }
+    option = {#处决家族男丁，女性收押进教司坊
+        name = SanGong_Quanchen_event.030.b
+        trigger_event = SanGong_Quanchen_event.031
+        every_in_list = { 
+            list = QuanChenHouse_list
+            limit = {
+                is_male = yes
+            }
+            add_gold = 12
+		} 
+        every_in_list = { 
+            list = QuanChenHouse_list
+            limit = {
+                is_male = no
+            }
+            add_gold = 22
+		}
+    }
+    option = {#只诛杀权臣，流放子嗣，永世不得录用,女性没入教坊司
+        name = SanGong_Quanchen_event.030.c
+        trigger_event = SanGong_Quanchen_event.031
+        every_in_list = { 
+            list = QuanChenHouse_list
+            limit = {
+                is_male = yes
+            }
+            add_gold = 12
+		} 
+        every_in_list = { 
+            list = QuanChenHouse_list
+            limit = {
+                is_male = no
+            }
+            add_gold = 22
+		}
+    }
+    
+}
+
+SanGong_Quanchen_event.031 = {#清算权臣党羽
+    type = character_event
+    title = SanGong_Quanchen_event.031.t
+    desc = SanGong_Quanchen_event.031.desc
+    theme = intrigue_intimidation_focus
+    override_background = armory
+    #window = clear_event_window_v2
+    right_portrait = {
+        character = scope:QuanChen
+        animation = severelywounded
+        camera = camera_event_scheme_far_right
+    }
+    immediate = {
+        hidden_effect = { 
+            scope:QuanChen = {
+                every_courtier_or_guest = {
+                    add_to_list = QuanChenDangYu_list
+                }
+                every_courtier_or_guest = {
+                    every_child = {
+                         add_to_list = QuanChenDangYu_list
+                    }
+                }
+                every_courtier_or_guest = {
+                    every_consort = {
+                         add_to_list = QuanChenDangYu_list
+                    }
+                }
+            }
+
+        }
+    }
+    option = {#夷族
+        name = SanGong_Quanchen_event.031.a
+        every_in_list = { 
+            list = QuanChenDangYu_list
+            add_gold = 1
+        } 
+    }
+    option = {#处决家族男丁，女性收押进教司坊
+        name = SanGong_Quanchen_event.031.b
+        every_in_list = { 
+            list = QuanChenDangYu_list
+            limit = {
+                is_male = yes
+            }
+            add_gold = 2
+		} 
+        every_in_list = { 
+            list = QuanChenDangYu_list
+            limit = {
+                is_male = no
+            }
+            add_gold = 3
+		}
+    }
+    option = {#只诛杀权臣，流放子嗣，永世不得录用
+        name = SanGong_Quanchen_event.031.c
+        every_in_list = { 
+            list = QuanChenDangYu_list
+            limit = {
+                is_male = yes
+            }
+            add_gold = 4
+		} 
+        every_in_list = { 
+            list = QuanChenDangYu_list
+            limit = {
+                is_male = no
+            }
+            add_gold = 5
+		}
+    }
+
+}
+
+
+
+
+
+SanGong_Quanchen_event.040 = {#权臣复位
+    type = character_event
+    title = SanGong_Quanchen_event.040_t
+    desc = SanGong_Quanchen_event.040_d
+    theme = memory_negative
+    override_background = bedchamber
+    window = List_event_window_v1
+    right_portrait = {
+        character = scope:old_diarch
+        animation = emperor
+        camera = camera_event_scheme_vs_center_look_left
+    }
+    trigger = {
+        scope:old_diarch = {
+            is_alive = yes           
+            has_trait = SanGong_Quanchen
+            is_independent_ruler = no
+            top_liege = scope:huangdi
+        }
+    }
+    immediate = {
+
+    }
+    option = {
+        name = SanGong_Quanchen_event.040.a
+        hidden_effect = {
+            scope:old_diarch = {
+                ZaiXiang_QuanBing_add_effect = yes
+                QuanChen_on_court_effect = yes
+            }
+            scope:huangdi = {
+                appoint_court_position = {
+                    recipient = scope:old_diarch
+                    court_position = QuanChen_minister_court_position
+                }
+            }
+        }
+        if = {
+            limit = {
+                scope:old_diarch = { NOT = { has_character_flag = QuanchenFuLi_1 } }
+            }
+            scope:old_diarch = { add_character_flag = QuanchenFuLi_1 }
+        }
+        else_if = {
+            limit = {
+                scope:old_diarch = { NOT = { has_character_flag = QuanchenFuLi_2 } }
+            }
+            scope:old_diarch = { add_character_flag = QuanchenFuLi_2 }
+        }
+        else_if = {
+            limit = {
+                scope:old_diarch = { NOT = { has_character_flag = QuanchenFuLi_3 } }
+            }
+            scope:old_diarch = { add_character_flag = QuanchenFuLi_3 }
+        }
+        custom_tooltip = SanGong_Quanchen_event.040_tt
+    }
+
+}
+
+
+
+
+
+
+SanGong_Quanchen_event.099 = {#权臣失势
+    type = character_event
+    title = SanGong_Quanchen_event.099.t
+    desc = SanGong_Quanchen_event.099.desc
+    theme = intrigue_intimidation_focus
+    override_background = armory
+    #window = clear_event_window_v2
+    right_portrait = {
+        character = scope:QuanChen
+        animation = severelywounded
+        camera = camera_event_scheme_far_right
+    }
+    immediate = {
+        save_scope_as = QuanChen
+        custom_tooltip = Quanchen_Bad_end_tt
+
+
+    }
+    option = {
+        name = SanGong_Quanchen_event.099.a
+        every_in_list = { 
+				list = QuanChenDangYu_list
+				#add_gold = 111
+			} 
+        trigger_event = SanGong_Quanchen_event.030
+        random_owned_story = {
+            type = story_QuanChen
+            #end_story = yes
+        }
+    }
+    option = {
+        name = SanGong_Quanchen_event.099.b
+        scope:QuanChen = { 
+               # death = { killer = scope:NewHuangDi death_reason = SanGong_death25 } 
+            } 
+    } 
+}
+
+SanGong_Quanchen_event.0100 = {#成为独立势力，无法当权臣
+    type = character_event
+    title = SanGong_Quanchen_event.100.t
+    desc = SanGong_Quanchen_event.100.desc
+    theme = legend
+    override_background = throne_room
+    #window = clear_event_window_v2
+    right_portrait = {
+        character = scope:QuanChen
+        animation = chancellor
+        camera = camera_event_table_center
+    }
+    immediate = {
+        save_scope_as = QuanChen
+        remove_trait = SanGong_Quanchen
+        remove_character_flag = Quanchen_flag
+    }
+    option = {
+        name = SanGong_Quanchen_event.100.a
+    }
+}

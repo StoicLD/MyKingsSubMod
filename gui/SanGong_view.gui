@@ -1,0 +1,226 @@
+﻿types SanGong_view
+{
+	type SanGong_view = widget {
+		name = "SanGong_view"
+		layoutpolicy_horizontal = expanding
+		size = { -1 220 }
+        background = {
+            texture = "gfx/interface/illustrations/event_scenes/tgp_chinese_corridor_day.dds" 
+            using = Mask_Rough_Edges 
+            alpha = 0.6
+            margin = { -1 -1 } 
+            size = { 400 500 }
+        }
+		using = Animation_ShowHide_Standard
+        flowcontainer = {   
+            parentanchor = bottom|left
+            margin = { 100 0 }
+            portrait_shoulders = {
+                visible = "[And( Character.IsValid, Character.HasTrait( GetTrait( 'SanGong_Taizi' ) ) )]"
+                datacontext = "[GetPlayer.GetTopLiege.GetPlayerHeir]"
+                margin = { 80 80 }
+                text_single = {
+                    text = "SanGong_TaiZi_GUI"
+                    margin_top = 120
+                    parentanchor = bottom|center
+                    fontsize = 20
+                    max_width = 200
+                    default_format = "#difficulty_medium"
+                    align = nobaseline
+                }   
+                button = {
+                    name = "FeiChu_taizi_interaction"
+                    size = { 35 35 }
+                    parentanchor = top|left
+                    texture = "gfx/interface/icons/traits/gallivanter.dds"
+                    visible = "[Character.IsPlayerInteractionShown('FeiChu_taizi_interaction')]"
+                    enabled = "[Character.IsPlayerInteractionValid('FeiChu_taizi_interaction')]"
+                    tooltip = "[Character.GetPlayerInteractionTooltip('FeiChu_taizi_interaction')]"
+                    onclick = "[Character.OpenPlayerInteraction('FeiChu_taizi_interaction')]"
+                }
+                blockoverride "portrait_size" { size = { 205 235 } }
+                blockoverride "coa" {}   
+                blockoverride "highlight_icon" {}
+                blockoverride "opinion_box" {}  
+                blockoverride "status_icons" {}
+            } 
+            dynamicgridbox = {
+                datamodel = "[GetPlayer.MakeScope.GetList('SanGong_TaiSun_list')]"
+                datamodel_wrap = 1
+                state = {
+                    name = get_taisun_list
+                    trigger_on_create = yes
+                    duration = 2
+                    on_start = "[GetScriptedGui('SanGong_TaiSun_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                    next = get_taisun_list
+                }
+                item = {
+                    portrait_shoulders = {
+                        datacontext = "[Scope.GetCharacter]"
+                        margin = { 80 80 }
+                        text_single = {
+                            text = "SanGong_TaiSun_GUI"
+                            margin_top = 120
+                            parentanchor = bottom|center
+                            fontsize = 20
+                            max_width = 200
+                            default_format = "#difficulty_medium"
+                            align = nobaseline
+                        }
+                        button = {
+                            name = "FeiChu_taisun_interaction"
+                            size = { 35 35 }
+                            parentanchor = top|left
+                            texture = "gfx/interface/icons/traits/gallivanter.dds"
+                            visible = "[Character.IsPlayerInteractionShown('FeiChu_taisun_interaction')]"
+                            enabled = "[Character.IsPlayerInteractionValid('FeiChu_taisun_interaction')]"
+                            tooltip = "[Character.GetPlayerInteractionTooltip('FeiChu_taisun_interaction')]"
+                            onclick = "[Character.OpenPlayerInteraction('FeiChu_taisun_interaction')]"
+                        }
+                        blockoverride "portrait_size" { size = { 205 235 } }
+                        blockoverride "coa" {}
+                        blockoverride "highlight_icon" {}
+                        blockoverride "opinion_box" {}
+                        blockoverride "status_icons" {}
+                    }
+                }
+            }
+        }
+        flowcontainer = {   
+            parentanchor = bottom|center
+            portrait_shoulders = {
+                datacontext = "[GetPlayer.GetTopLiege]"
+                margin = { 80 80 }
+                size = { 130 220 }
+                blockoverride "portrait_size" {
+                    size = { 205 235 } 
+                }
+                text_single = {
+                    parentanchor = top|center
+                    text = "[Character.Custom('DM_view_name')]"
+                    margin_top = 20
+                    fontsize_min = 14
+                    fontsize = 18
+                    default_format = "#difficulty_medium"
+                    align = nobaseline
+                }
+                blockoverride "coa" {}   
+                blockoverride "highlight_icon" {}
+                blockoverride "opinion_box" {}  
+                blockoverride "status_icons" {}
+            } 
+        }
+		flowcontainer = {   
+            parentanchor = bottom|right
+            margin = { 100 0 }
+            portrait_shoulders = {
+                visible = "[And( Character.IsValid, Character.HasTrait( GetTrait( 'SanGong_GongWei_1' ) ) )]"
+                datacontext = "[GetPlayer.GetTopLiege.GetPrimarySpouse]"
+                margin = { 80 80 }
+                text_single = {
+                    text = "SanGong_HuangHou_GUI"
+                    margin_top = 120
+                    parentanchor = bottom|center
+                    fontsize = 20
+                    max_width = 200
+                    default_format = "#difficulty_medium"
+                    align = nobaseline
+                }
+                blockoverride "portrait_size" { size = { 205 235 } }
+                blockoverride "coa" {}   
+                blockoverride "highlight_icon" {}
+                blockoverride "opinion_box" {}  
+                blockoverride "status_icons" {}
+            } 
+        }	  
+
+	}
+}
+
+types SanGong_XuanXiu_view
+{
+	type SanGong_XuanXiu_view = widget {
+		name = "SanGong_XuanXiu_view"
+		layoutpolicy_horizontal = expanding
+		size = { -1 220 }
+        background = {
+            texture = "gfx/interface/illustrations/event_scenes/tgp_study_asia.dds" 
+            using = Mask_Rough_Edges 
+            alpha = 0.6
+            margin = { -1 -1 } 
+            size = { 400 500 }
+        }
+		using = Animation_ShowHide_Standard   
+        flowcontainer = {   
+            parentanchor = bottom|center
+            position = { -50 0 }
+            spacing = 10     
+            dynamicgridbox = {
+                parentanchor = center
+                datamodel = "[GetPlayer.MakeScope.GetList('SanGong_HuangHou')]"
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                datamodel_wrap = 10
+                flipdirection = yes
+                state = {
+                    name = get_list
+                    trigger_on_create = yes
+                    duration = 2
+                    on_start = "[GetScriptedGui('SanGong_HuangHou_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                    next = get_list
+                }
+                item = {
+                    portrait_shoulders = {
+                        datacontext = "[Scope.GetCharacter]"
+                        margin = { 80 80 }
+                        size = { 130 220 }
+                        blockoverride "portrait_size" {
+                            size = { 205 235 } 
+                        }
+                    }
+                }
+            } 
+        }
+	}
+}
+
+
+types SanGong_XunGui_view
+{
+	type SanGong_XunGui_view = widget {
+		name = "SanGong_XunGui_view"
+		layoutpolicy_horizontal = expanding
+		size = { -1 220 }
+        background = {
+            texture = "gfx/interface/illustrations/event_scenes/tgp_study_asia.dds" 
+            using = Mask_Rough_Edges 
+            alpha = 0.6
+            margin = { -1 -1 } 
+            size = { 400 500 }
+        }
+		using = Animation_ShowHide_Standard   
+        flowcontainer = {   
+            parentanchor = bottom|center
+            position = { -50 0 }
+            spacing = 10     
+            dynamicgridbox = {
+                parentanchor = center
+                datamodel = "[GetPlayer.MakeScope.GetList('xungui_alive')]"
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                datamodel_wrap = 10
+                flipdirection = yes
+                item = {
+                    portrait_shoulders = {
+                        datacontext = "[Scope.GetCharacter]"
+                        margin = { 80 80 }
+                        size = { 130 220 }
+                        blockoverride "portrait_size" {
+                            size = { 205 235 } 
+                        }
+                    }
+                }
+            } 
+        }
+	}
+}

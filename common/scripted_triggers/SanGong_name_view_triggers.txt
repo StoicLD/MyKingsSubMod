@@ -1,0 +1,680 @@
+﻿
+SanGong_HuangShi_trigger = {#活着时候是皇朝子孙
+      if = {
+            limit = {
+                  exists = top_liege
+            }
+            top_liege.dynasty = this
+      }
+
+}
+
+
+SanGong_HuangHou_trigger = { # 皇后
+    OR = {
+        has_trait = SanGong_GongWei_1
+    }
+}
+
+SanGong_TaiHou_trigger = { # 皇后
+    OR = {
+      has_trait = SanGong_Taihou
+      has_trait = SanGong_TaiHuangTaihou   
+    }
+}
+
+SanGong_GongTing_trigger = {
+      trigger_if = {
+            limit = {
+                  is_alive = yes
+            }
+            is_independent_ruler = no
+      }
+      OR = {
+            has_trait = SanGong_Taihou
+            has_trait = SanGong_TaiHuangTaihou   
+            has_trait = SanGong_GongWei_1
+            has_trait = SanGong_GongWei_2
+            has_trait = SanGong_GongWei_2
+            has_trait = SanGong_GongWei_3
+            has_trait = SanGong_GongWei_4
+            has_trait = SanGong_GongWei_5
+            has_trait = SanGong_GongWei_6
+            has_trait = SanGong_GongWei_7
+            has_trait = SanGong_GongWei_8
+            has_trait = SanGong_GongWei_9
+            has_trait = SanGong_GongWei_10
+            has_trait = SanGong_GongWei_11            
+            has_trait = SanGong_GongWei_12
+            has_trait = SanGong_GongWei_13
+            has_trait = SanGong_GongWei_14
+            has_trait = SanGong_LengGongi_1
+            has_trait = SanGong_LengGongi_2
+            has_trait = SanGong_LengGongi_3
+            has_trait = SanGong_LengGongi_4
+            has_trait = SanGong_GongZhu
+            has_trait = SanGong_JunZhu
+      } 
+}
+
+
+
+
+
+SanGong_ZongShi_trigger = {
+	is_independent_ruler = no
+	OR = {
+            ZongFanShiHao_trigger = yes
+            SanGong_QinWang_trigger = yes
+		has_trait = SanGong_Taishanghuang
+		has_trait = SanGong_Taizi
+		has_trait = SanGong_TaiSun
+            has_trait = SanGong_JunWang
+            has_trait = SanGong_FanWang
+            SanGong_ZongShi_lower_rank_trigger = yes
+            has_character_flag = SanGong_ZongShi_lineage_member
+		trigger_if = {
+                  is_female = yes
+			limit = { exists = primary_spouse }
+			OR = {
+				primary_spouse = {
+					this != top_liege
+					father = top_liege
+					has_trait = SanGong_Taizi
+				}
+				primary_spouse = {
+					has_government = zongfan_government
+					OR = {
+						has_trait = SanGong_HuangSi
+						has_trait = SanGong_JunWang
+						has_trait = SanGong_FanWang
+					}
+				}
+				
+				primary_spouse = {
+                              
+					SanGong_QinWang_trigger = yes
+				}
+			}
+		}
+            trigger_if = {
+			limit = {
+                        is_female = yes
+                        NOT = { exists = primary_spouse }
+                  }
+                  any_child = {
+                        has_government = zongfan_government
+                        is_independent_ruler = no
+                        OR = {
+                              has_trait = SanGong_JunWang
+                              has_trait = SanGong_FanWang
+                        }
+                  }
+		}
+	}
+}
+
+
+SanGong_tianzi_view_trigger = {
+      
+}
+
+
+SanGong_FeiPin_trigger = { # 非皇后妃嫔
+      OR = { 
+            has_trait = SanGong_GongWei_2
+            has_trait = SanGong_GongWei_3
+            has_trait = SanGong_GongWei_4
+            has_trait = SanGong_GongWei_5
+            has_trait = SanGong_GongWei_6
+            has_trait = SanGong_GongWei_7
+            has_trait = SanGong_GongWei_8
+            has_trait = SanGong_GongWei_9
+            has_trait = SanGong_GongWei_10
+            has_trait = SanGong_GongWei_11            
+            has_trait = SanGong_GongWei_12
+            has_trait = SanGong_GongWei_13
+            has_trait = SanGong_GongWei_14
+      }
+      NOT = { 
+            OR = { 
+                  has_trait = SanGong_LengGongi_1
+                  has_trait = SanGong_LengGongi_2
+                  has_trait = SanGong_LengGongi_3
+                  has_trait = SanGong_LengGongi_4
+            }
+      }
+}
+
+
+
+
+SanGong_GongZhu_trigger = { # 公主
+      has_trait = SanGong_GongZhu
+}
+
+SanGong_TaiZiFei_trigger = {#太子妃
+      exists = primary_spouse
+      primary_spouse = {
+            this != top_liege
+            father = top_liege
+            has_trait = SanGong_Taizi
+      }
+}
+
+SanGong_FanWangFei_trigger = {#实地王妃
+      exists = primary_spouse
+      is_female = yes
+      primary_spouse = {
+            has_government = zongfan_government
+            is_ruler = yes
+            OR = {
+                  has_trait = SanGong_HuangSi
+                  has_trait = SanGong_JunWang
+                  has_trait = SanGong_FanWang
+            }
+            
+      }
+}
+
+SanGong_WangFei_trigger = {#虚衔王妃
+      exists = primary_spouse
+      is_female = yes
+      primary_spouse = {
+            SanGong_QinWang_trigger = yes
+      }
+}
+
+SanGong_TianZiMiaoShi_trigger = {
+      OR = {
+            has_nickname = DaLiNanZhaoQiJiaWang_history
+            has_nickname = DaLiNanZhaoXingXongWang_history
+            has_nickname = DaLiNanZhaoWeiChengWang_history
+            has_nickname = DaLiNanZhaoGuiYiWang_history
+            has_nickname = DaLiNanZhaoShenWuWang_history
+            has_nickname = DaLiNanZhaoXiaoHuanWang_history
+            has_nickname = DaLiNanZhaoXiaoHuiWang_history
+            has_nickname = DaLiNanZhaoYouWang_history
+            has_nickname = DaLiNanZhaoJingWang_history
+            has_nickname = DaLiNanZhaoZhaoChengWang_history
+            has_nickname = DaLiNanZhaoJingZhuangWang_history
+            has_nickname = DaLiNanZhaoWuXuanWang_history
+            has_nickname = DaLiNanZhaoXiaoAiWang_history
+            has_nickname = DaLiDaChangHeShengMingWang_history
+            has_nickname = DaLiDaChangHeSuWenWang_history
+            has_nickname = DaLiDaChangHeGongHuiWang_history
+            has_nickname = DaLiDaTianXingDaoKangWang_history
+            has_nickname = DaLiDaYiningSuGongWang_history
+            has_nickname = DaLiDaYiningYangZhao_history
+            has_nickname = DaLiTaiZuDuanSiPing_history
+            has_nickname = DaLiWenJingDiDuanSiYing_history
+            has_nickname = DaLiShengCiWenWuDiDuanSiLiang_history
+            has_nickname = DaLiZhiDaoDiDuanSiCong_history
+            has_nickname = DaLiYingDaoDiDuanSuShun_history
+            has_nickname = DaLiZhaoMingDiDuanSuYing_history
+            has_nickname = DaLiXuanSuDiDuanSuLian_history
+            has_nickname = DaLiBingYiDiDuanSuLong_history
+            has_nickname = DaLiShengDeDuanSuZhen_history
+            has_nickname = DaLiTianMingDiDuanSuXing_history
+            has_nickname = DaLiShiZongDuanSiLian_history
+            has_nickname = DaLiShangDeDiDuanLianYi_history
+            has_nickname = DaLiGuangAnDiBaiYiZhen_history
+            has_nickname = DaLiShangMingDiDuanShouHui_history
+            has_nickname = DaLiBaoDingDiDuanZhengMing_history
+            has_nickname = DaLiGaoShengTai_history
+            has_nickname = DaLiWenAnDiDuanZhengChun_history
+            has_nickname = DaLiXuanRenDiDuanHeYu_history
+            has_nickname = DaLiZhengKangDiDuanZhengXing_history
+            has_nickname = DaLiGongJiDiDuanZhiXing_history
+            has_nickname = RiBenKeitaiTianHuang_history
+            has_nickname = RiBenAnkanTianHuang_history
+            has_nickname = RiBenSenkaTianHuang_history
+            has_nickname = RiBenKinmeiTianHuang_history
+            has_nickname = RiBenBidatsuTianHuang_history
+            has_nickname = RiBenYomeiTianHuang_history
+            has_nickname = RiBenSushunTianHuang_history
+            has_nickname = RiBenSuikoTianHuang_history
+            has_nickname = RiBenJomeiTianHuang_history
+            has_nickname = RiBenKogyokuTianHuang_history
+            has_nickname = RiBenKotokuTianHuang_history
+            has_nickname = RiBenTenjiTianHuang_history
+            has_nickname = RiBenKobunTianHuang_history
+            has_nickname = RiBenTenmuTianHuang_history
+            has_nickname = RiBenJitoTianHuang_history
+            has_nickname = RiBenMonmuTianHuang_history
+            has_nickname = RiBenGenmeiTianHuang_history
+            has_nickname = RiBenGenshoTianHuang_history
+            has_nickname = RiBenShomuTianHuang_history
+            has_nickname = RiBenKokenTianHuang_history
+            has_nickname = RiBenJunninTianHuang_history
+            has_nickname = RiBenKoninTianHuang_history
+            has_nickname = RiBenKanmuTianHuang_history
+            has_nickname = RiBenHeizeiTianHuang_history
+            has_nickname = RiBenSagaTianHuang_history
+            has_nickname = RiBenJunnaTianHuang_history
+            has_nickname = RiBenNinmyoTianHuang_history
+            has_nickname = RiBenMontokuTianHuang_history
+            has_nickname = RiBenSeiwaTianHuang_history
+            has_nickname = RiBenYozeiTianHuang_history
+            has_nickname = RiBenKokoTianHuang_history
+            has_nickname = RiBenUdaTianHuang_history
+            has_nickname = RiBenDaigoTianHuang_history
+            has_nickname = RiBenSuzakuTianHuang_history
+            has_nickname = RiBenMurakamiTianHuang_history
+            has_nickname = RiBenReizeiTianHuang_history
+            has_nickname = RiBenEnyuTianHuang_history
+            has_nickname = RiBenKazanTianHuang_history
+            has_nickname = RiBenIchijoTianHuang_history
+            has_nickname = RiBenSanjoTianHuang_history
+            has_nickname = RiBenGoIchijoTianHuang_history
+            has_nickname = RiBenGoSuzakuTianHuang_history
+            has_nickname = RiBenGoReizeiTianHuang_history
+            has_nickname = RiBenGoSanjoTianHuang_history
+            has_nickname = RiBenShirakawaTianHuang_history
+            has_nickname = RiBenHorikawaTianHuang_history
+            has_nickname = RiBenTobaTianHuang_history
+            has_nickname = RiBenSutokuTianHuang_history
+            has_nickname = RiBenKonoeTianHuang_history
+            has_nickname = RiBenGoShirakawaTianHuang_history
+            has_nickname = RiBenNijoTianHuang_history
+            has_nickname = RiBenRokujoTianHuang_history
+            has_nickname = RiBenTakakuraTianHuang_history
+            has_nickname = RiBenAntokuTianHuang_history
+            has_nickname = RiBenTairaKiYoMoRi_history
+            has_nickname = RiBenKeitaiTianHuang_history
+            has_nickname = RiBenAnkanTianHuang_history
+            has_nickname = RiBenSenkaTianHuang_history
+            has_nickname = RiBenKinmeiTianHuang_history
+            has_nickname = RiBenBidatsuTianHuang_history
+            has_nickname = RiBenYomeiTianHuang_history
+            has_nickname = RiBenSushunTianHuang_history
+            has_nickname = RiBenSuikoTianHuang_history
+            has_nickname = RiBenJomeiTianHuang_history
+            has_nickname = RiBenKogyokuTianHuang_history
+            has_nickname = RiBenKotokuTianHuang_history
+            has_nickname = RiBenTenjiTianHuang_history
+            has_nickname = RiBenKobunTianHuang_history
+            has_nickname = RiBenTenmuTianHuang_history
+            has_nickname = RiBenJitoTianHuang_history
+            has_nickname = RiBenMonmuTianHuang_history
+            has_nickname = RiBenGenmeiTianHuang_history
+            has_nickname = RiBenGenshoTianHuang_history
+            has_nickname = RiBenShomuTianHuang_history
+            has_nickname = RiBenKokenTianHuang_history
+            has_nickname = RiBenJunninTianHuang_history
+            has_nickname = RiBenKoninTianHuang_history
+            has_nickname = RiBenKanmuTianHuang_history
+            has_nickname = RiBenHeizeiTianHuang_history
+            has_nickname = RiBenSagaTianHuang_history
+            has_nickname = RiBenJunnaTianHuang_history
+            has_nickname = RiBenNinmyoTianHuang_history
+            has_nickname = RiBenMontokuTianHuang_history
+            has_nickname = RiBenSeiwaTianHuang_history
+            has_nickname = RiBenYozeiTianHuang_history
+            has_nickname = RiBenKokoTianHuang_history
+            has_nickname = RiBenUdaTianHuang_history
+            has_nickname = RiBenDaigoTianHuang_history
+            has_nickname = RiBenSuzakuTianHuang_history
+            has_nickname = RiBenMurakamiTianHuang_history
+            has_nickname = RiBenReizeiTianHuang_history
+            has_nickname = RiBenEnyuTianHuang_history
+            has_nickname = RiBenKazanTianHuang_history
+            has_nickname = RiBenIchijoTianHuang_history
+            has_nickname = RiBenSanjoTianHuang_history
+            has_nickname = RiBenGoIchijoTianHuang_history
+            has_nickname = RiBenGoSuzakuTianHuang_history
+            has_nickname = RiBenGoReizeiTianHuang_history
+            has_nickname = RiBenGoSanjoTianHuang_history
+            has_nickname = RiBenShirakawaTianHuang_history
+            has_nickname = RiBenHorikawaTianHuang_history
+            has_nickname = RiBenTobaTianHuang_history
+            has_nickname = RiBenSutokuTianHuang_history
+            has_nickname = RiBenKonoeTianHuang_history
+            has_nickname = RiBenGoShirakawaTianHuang_history
+            has_nickname = RiBenNijoTianHuang_history
+            has_nickname = RiBenRokujoTianHuang_history
+            has_nickname = RiBenTakakuraTianHuang_history
+            has_nickname = RiBenAntokuTianHuang_history
+            has_nickname = RiBenTairaKiYoMoRi_history
+            has_nickname = RiBenShaoTokuTianHuang_history
+            has_nickname = RiBenTianJiTianHuang_history
+            has_nickname = RiBenKuSaKaBeiTianZi_history
+            has_nickname = RiBenFuJiWaLaYiShiFuSa_history
+            has_nickname = RiBenFuJiWaLaMoTuoTsuNe_history
+            has_nickname = RiBenFuJiWaLaTuoKiHiLa_history
+            has_nickname = RiBenFuJiWaLaTaDaHiLa_history
+            has_nickname = RiBenFuJiWaLaSaNeYoRi_history
+            has_nickname = RiBenFuJiWaLaKoReTaDa_history
+            has_nickname = RiBenFuJiWaLaKaNeMiChi_history
+            has_nickname = RiBenFuJiWaLaYoRiTaDa_history
+            has_nickname = RiBenFuJiWaLaKaNeIe_history
+            has_nickname = RiBenFuJiWaLaMiChiTaKe_history
+            has_nickname = RiBenFuJiWaLaMiChiNaGa_history
+            has_nickname = RiBenFuJiWaLaYoRiMiChi_history
+            has_nickname = RiBenFuJiWaLaNoRiMiChi_history
+            has_nickname = RiBenFuJiWaLaMoRoZaNe_history
+            has_nickname = RiBenFuJiWaLaMoRoMiChi_history
+            has_nickname = RiBenFuJiWaLaTaDaZaNe_history
+            has_nickname = RiBenFuJiWaLaTaDaMiChi_history
+            has_nickname = RiBenFuJiWaLaMoToZaNe_history
+            has_nickname = RiBenFuJiWaLaMoToFuSa_history
+            has_nickname = RiBenTairaKiYoMoRi_history
+            has_nickname = GaoLiTaiZuWangKon_history
+            has_nickname = GaoLiHuiZongWangWu_history
+            has_nickname = GaoLiDingZongWangZhao_history
+            has_nickname = GaoLiGuangZongWangXian_history
+            has_nickname = GaoLiJingZongWangYang_history
+            has_nickname = GaoLiChengZongWangXun_history
+            has_nickname = GaoLiMuZongWangSheng_history
+            has_nickname = GaoLiXuanZongWangYun_history
+            has_nickname = GaoLiDeZongWangHui_history
+            has_nickname = GaoLiJingZongWangHui_history
+            has_nickname = GaoLiWenZongWangHui_history
+            has_nickname = GaoLiShunZongWangJun_history
+            has_nickname = GaoLiXianZongWangYan_history
+            has_nickname = GaoLiXianZongWangHu_history
+            has_nickname = GaoLiSuZongWangYun_history
+            has_nickname = GaoLiYeZongWangHu_history
+            has_nickname = GaoLiYinZongWangHui_history
+            has_nickname = GaoLiYiZongWangYan_history
+            has_nickname = GaoLiUiBang_history
+            has_nickname = GaoLiJungBu_history
+            has_nickname = Tianzi_miaohao_FeiDi_WangHao
+            has_nickname = Tianzi_miaohao_FeiDi_ShiHao
+            has_nickname = LiaoTaiZuYeLvABaoJi_history
+            has_nickname = LiaoTaiZongYeLvDeGuang_history
+            has_nickname = LiaoShiZongYeLvRuan_history
+            has_nickname = LiaoMuZongYeLvJing_history
+            has_nickname = LiaoJingZongYeLvXian_history
+            has_nickname = LiaoShengZongYeLvLongXu_history
+            has_nickname = LiaoXingZongYeLvZongZhen_history
+            has_nickname = LiaoDaoZongYeLvHongJi_history
+            has_nickname = YeLvYanXi_history
+            has_nickname = GuangWuDi_history
+            has_nickname = MingDi_history
+            has_nickname = ZhangDi_history
+            has_nickname = HeDi_history
+            has_nickname = ShangDi_history
+            has_nickname = AnDi_history
+            has_nickname = BeiXiangHou_history
+            has_nickname = ShunDi_history
+            has_nickname = ChongDi_history
+            has_nickname = ZhiDi_history
+            has_nickname = HuanDi_history
+            has_nickname = LingDi_history
+            has_nickname = ShaoDiLiuBian_history
+            has_nickname = XianDi_history
+            has_nickname = WuDiSimaYan_history
+            has_nickname = HuiDiSimaZhong_history
+            has_nickname = HuaiDiSimaChi_history
+            has_nickname = MinDiSimaYe_history
+            has_nickname = YuanDiSimaRui_history
+            has_nickname = MingDiSimaYue_history
+            has_nickname = ChengDiSimaYan_history
+            has_nickname = KangDiSimaYao_history
+            has_nickname = MuDiSimaDan_history
+            has_nickname = AiDiSimaPi_history
+            has_nickname = FeiDiSimaYi_history
+            has_nickname = WenDiSimaXun_history
+            has_nickname = XiaoWuDiSimaYao_history
+            has_nickname = AnDiSimaDe_history
+            has_nickname = GongDiSimaChong_history
+            has_nickname = WenDiYangJian_history
+            has_nickname = YangDiYangGuang_history
+            has_nickname = GongDiYangYou_history
+            has_nickname = YongkangDiYangTong_history
+            has_nickname = GaoZuLiYuan_history
+            has_nickname = TaiZongLiShimin_history
+            has_nickname = GaoZongLiZhi_history
+            has_nickname = ZhongZongLiXian_history
+            has_nickname = RuiZongLiDan_history
+            has_nickname = WuZetian_history
+            has_nickname = XuanZongLiLongji_history
+            has_nickname = SuzongLiHen_history
+            has_nickname = DaizongLiYu_history
+            has_nickname = DeZongLiShi_history
+            has_nickname = XianZongLiYong_history
+            has_nickname = MuzongLiHeng_history
+            has_nickname = JingZongLiPan_history
+            has_nickname = WenZongLiAng_history
+            has_nickname = WuZongLiYan_history
+            has_nickname = XuanZongLiChen_history
+            has_nickname = YiZongLiCui_history
+            has_nickname = XiZongLiXun_history
+            has_nickname = ZhaozongLiYe_history
+            has_nickname = AiDiLiZhu_history
+            has_nickname = TaiZuZhaoKuangyin_history
+            has_nickname = TaiZongZhaoGuangyi_history
+            has_nickname = ZhenZongZhaoXie_history
+            has_nickname = RenZongZhaoZhen_history
+            has_nickname = YingZongZhaoShu_history
+            has_nickname = ShenZongZhaoXu_history
+            has_nickname = ZheZongZhaoXu_history
+            has_nickname = HuiZongZhaoJi_history
+            has_nickname = QinZongZhaoHuan_history
+            has_nickname = LiChongMao_history
+            has_nickname = ShunZongLiSong_history
+            has_nickname = VietDingXianHuang_history
+            has_nickname = VietDingFeiDi_history
+            has_nickname = VietLeDaXing_history
+            has_nickname = VietLeZhongZong_history
+            has_nickname = VietLeWoChao_history
+            has_nickname = VietLyTaiZu_history
+            has_nickname = VietLyTaiZong_history
+            has_nickname = VietLyShengZong_history
+            has_nickname = VietLyRenZong_history
+            has_nickname = VietLyGongDi_history
+            has_nickname = VietLyShenZong_history
+            has_nickname = VietLyYingZong_history
+            has_nickname = XiaTaiZu_history
+            has_nickname = XiaTaiZong_history
+            has_nickname = XiaJingZong_history
+            has_nickname = XiaYiZong_history
+            has_nickname = XiaHuiZong_history
+            has_nickname = XiaChongZong_history
+            has_nickname = JinTaiZu_history
+            has_nickname = JinTaiZong_history
+            has_nickname = JinXiZong_history
+            has_nickname = JinHaiLingWang_history
+            has_nickname = JinHuiZong_history
+            has_nickname = JinMingSuHuangDi_history
+            has_nickname = JinRuiZong_history
+            has_nickname = SongPuAnYiWang_history
+            has_nickname = SongPuAnYiHuang_history
+            has_nickname = SongXiuAnXiWang_history
+            has_trait = SanGong_miaohao_zdy
+            has_trait = SanGong_miaohao_01
+            has_trait = SanGong_miaohao_02
+            has_trait = SanGong_miaohao_03
+            has_trait = SanGong_miaohao_04
+            has_trait = SanGong_miaohao_05
+            has_trait = SanGong_miaohao_06
+            has_trait = SanGong_miaohao_07
+            has_trait = SanGong_miaohao_08
+            has_trait = SanGong_miaohao_09
+            has_trait = SanGong_miaohao_10
+            has_trait = SanGong_miaohao_11
+            has_trait = SanGong_miaohao_12
+            has_trait = SanGong_miaohao_13
+            has_trait = SanGong_miaohao_14
+            has_trait = SanGong_miaohao_15
+            has_trait = SanGong_miaohao_16
+            has_trait = SanGong_miaohao_17
+            has_trait = SanGong_miaohao_18
+            has_trait = SanGong_miaohao_19
+            has_trait = SanGong_miaohao_20
+            has_trait = SanGong_miaohao_21
+            has_trait = SanGong_miaohao_22
+            has_trait = SanGong_miaohao_23
+            has_trait = SanGong_miaohao_24
+            has_trait = SanGong_miaohao_25
+            has_trait = SanGong_miaohao_26
+            has_trait = SanGong_miaohao_27
+            has_trait = SanGong_miaohao_28
+            has_trait = SanGong_miaohao_29
+            has_trait = SanGong_miaohao_30
+            has_trait = SanGong_miaohao_31
+            has_trait = SanGong_miaohao_32
+            has_trait = SanGong_miaohao_33
+            has_trait = SanGong_miaohao_34
+            has_trait = SanGong_miaohao_35
+            has_trait = SanGong_miaohao_36
+            has_trait = SanGong_miaohao_37
+            has_trait = SanGong_miaohao_38
+            has_trait = SanGong_miaohao_39
+            has_trait = SanGong_miaohao_40
+            has_trait = SanGong_miaohao_41
+            has_trait = SanGong_miaohao_42
+            has_trait = SanGong_miaohao_43
+            has_trait = SanGong_miaohao_44
+            has_trait = SanGong_miaohao_45
+            has_trait = SanGong_miaohao_46
+            has_trait = SanGong_miaohao_47
+            has_trait = SanGong_miaohao_48
+            has_trait = SanGong_miaohao_49
+            has_trait = SanGong_miaohao_50
+            has_trait = SanGong_miaohao_51
+            has_trait = SanGong_miaohao_52
+            has_trait = SanGong_miaohao_53
+            has_trait = SanGong_miaohao_54
+            has_trait = SanGong_miaohao_55
+            has_trait = SanGong_miaohao_56
+            has_trait = SanGong_miaohao_57
+            has_trait = SanGong_miaohao_58
+            has_trait = SanGong_miaohao_59
+            has_trait = SanGong_miaohao_60
+            has_trait = SanGong_miaohao_61
+            has_trait = SanGong_miaohao_62
+            has_trait = SanGong_miaohao_63
+            has_trait = SanGong_miaohao_64
+            has_trait = SanGong_miaohao_65
+            has_trait = SanGong_miaohao_66
+            has_trait = SanGong_miaohao_67
+            has_trait = SanGong_miaohao_68
+            has_trait = SanGong_miaohao_69
+            has_trait = SanGong_miaohao_70
+            has_trait = SanGong_miaohao_71
+            has_trait = SanGong_miaohao_72
+            has_trait = SanGong_miaohao_73
+            has_trait = SanGong_miaohao_74
+            has_trait = SanGong_miaohao_75
+            has_trait = SanGong_miaohao_76
+            has_trait = SanGong_miaohao_77
+            has_trait = SanGong_miaohao_78
+            has_trait = SanGong_miaohao_79
+            has_trait = SanGong_miaohao_80
+            has_trait = SanGong_miaohao_81
+            has_trait = SanGong_miaohao_82
+            has_trait = SanGong_miaohao_83
+            has_trait = SanGong_miaohao_84
+            has_trait = SanGong_miaohao_85
+            has_trait = SanGong_miaohao_86
+            has_trait = SanGong_miaohao_87
+            has_trait = SanGong_miaohao_88
+            has_trait = SanGong_miaohao_89
+            has_nickname = Tianzi_miaoshi_zdy
+            has_nickname = nick_SanGong_Shihao_shang
+            has_nickname = nick_SanGong_Shihao_chong
+            has_nickname = nick_SanGong_Shihao_ai
+            has_nickname = nick_SanGong_Shihao_dao
+            has_nickname = nick_SanGong_Shihao_min
+            has_nickname = nick_SanGong_Shihao_huai
+            has_nickname = nick_SanGong_Shihao_zhi
+            has_nickname = nick_SanGong_Shihao_yin
+            has_nickname = nick_SanGong_Shihao_shao
+            has_nickname = nick_SanGong_Shihao_ru
+            has_nickname = nick_SanGong_Shihao_chong2
+            has_nickname = nick_SanGong_Shihao_yao
+            has_nickname = nick_SanGong_Shihao_li
+            has_nickname = nick_SanGong_Shihao_you
+            has_nickname = nick_SanGong_Shihao_yang
+            has_nickname = nick_SanGong_Shihao_ling
+            has_nickname = nick_SanGong_Shihao_huang
+            has_nickname = nick_SanGong_Shihao_li2
+            has_nickname = nick_SanGong_Shihao_chou
+            has_nickname = nick_SanGong_Shihao_miu
+            has_nickname = nick_SanGong_Shihao_zao
+            has_nickname = nick_SanGong_Shihao_qing
+            has_nickname = nick_SanGong_Shihao_hun
+            has_nickname = nick_SanGong_Shihao_luan
+            has_trait = SanGong_YouZhu
+      }
+      NOT = {
+            OR = { 
+                  has_trait = SanGong_GongWei_1
+                  has_trait = SanGong_Taihou
+                  has_trait = SanGong_TaiHuangTaihou
+            }
+      }
+}
+
+
+SanGong_TianZiMiaoShi_history_trigger = {
+      OR = {
+            has_nickname = SongPuAnYiHuang_history
+            has_nickname = GuangWuDi_history
+            has_nickname = MingDi_history
+            has_nickname = ZhangDi_history
+            has_nickname = HeDi_history
+            has_nickname = ShangDi_history
+            has_nickname = AnDi_history
+            has_nickname = BeiXiangHou_history
+            has_nickname = ShunDi_history
+            has_nickname = ChongDi_history
+            has_nickname = ZhiDi_history
+            has_nickname = HuanDi_history
+            has_nickname = LingDi_history
+            has_nickname = ShaoDiLiuBian_history
+            has_nickname = XianDi_history
+            has_nickname = WuDiSimaYan_history
+            has_nickname = HuiDiSimaZhong_history
+            has_nickname = HuaiDiSimaChi_history
+            has_nickname = MinDiSimaYe_history
+            has_nickname = YuanDiSimaRui_history
+            has_nickname = MingDiSimaYue_history
+            has_nickname = ChengDiSimaYan_history
+            has_nickname = KangDiSimaYao_history
+            has_nickname = MuDiSimaDan_history
+            has_nickname = AiDiSimaPi_history
+            has_nickname = FeiDiSimaYi_history
+            has_nickname = WenDiSimaXun_history
+            has_nickname = XiaoWuDiSimaYao_history
+            has_nickname = AnDiSimaDe_history
+            has_nickname = GongDiSimaChong_history
+            has_nickname = WenDiYangJian_history
+            has_nickname = YangDiYangGuang_history
+            has_nickname = GongDiYangYou_history
+            has_nickname = YongkangDiYangTong_history
+            has_nickname = GaoZuLiYuan_history
+            has_nickname = TaiZongLiShimin_history
+            has_nickname = GaoZongLiZhi_history
+            has_nickname = ZhongZongLiXian_history
+            has_nickname = RuiZongLiDan_history
+            has_nickname = WuZetian_history
+            has_nickname = XuanZongLiLongji_history
+            has_nickname = SuzongLiHen_history
+            has_nickname = DaizongLiYu_history
+            has_nickname = DeZongLiShi_history
+            has_nickname = XianZongLiYong_history
+            has_nickname = MuzongLiHeng_history
+            has_nickname = JingZongLiPan_history
+            has_nickname = WenZongLiAng_history
+            has_nickname = WuZongLiYan_history
+            has_nickname = XuanZongLiChen_history
+            has_nickname = YiZongLiCui_history
+            has_nickname = XiZongLiXun_history
+            has_nickname = ZhaozongLiYe_history
+            has_nickname = AiDiLiZhu_history
+            has_nickname = TaiZuZhaoKuangyin_history
+            has_nickname = TaiZongZhaoGuangyi_history
+            has_nickname = ZhenZongZhaoXie_history
+            has_nickname = RenZongZhaoZhen_history
+            has_nickname = YingZongZhaoShu_history
+            has_nickname = ShenZongZhaoXu_history
+            has_nickname = ZheZongZhaoXu_history
+            has_nickname = HuiZongZhaoJi_history
+            has_nickname = QinZongZhaoHuan_history
+            has_nickname = LiChongMao_history
+            has_nickname = ShunZongLiSong_history
+      }
+}

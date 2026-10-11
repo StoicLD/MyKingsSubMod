@@ -1,0 +1,357 @@
+﻿SanGong_dynastytreename = {#宗族显示
+	type = character
+    text = {#皇帝
+        trigger = {
+            is_alive = yes
+            SanGong_huangdi_trigger = yes
+        }
+        localization_key = Loc_SanGong_dynastytreename_TianZi
+    }
+    text = {#尊号嫔妃谥号
+		trigger = {
+            is_alive = no
+            ZunHao_HouFei_Trigger = yes
+		}
+		localization_key = Loc_SanGong_dynastytreename_ZunHaoFeiPin_ShiHao
+	}
+    text = {#尊号嫔妃
+		trigger = {
+            is_alive = yes
+            ZunHao_HouFei_Trigger = yes
+		}
+		localization_key = Loc_SanGong_dynastytreename_ZunHaoFeiPin
+	}
+
+    text = {#妃嫔谥号
+		trigger = {
+            is_alive = no
+            ALL_HouFei_trigger = yes
+		}
+		localization_key = Loc_SanGong_dynastytreename_FeiPin_ShiHao
+	}
+    text = {#妃嫔
+		trigger = {
+            is_alive = yes
+            ALL_HouFei_trigger = yes
+		}
+		localization_key = Loc_SanGong_dynastytreename_FeiPin
+	}
+
+    text = {#宗室谥号
+		trigger = {
+            is_alive = no
+            ZongFanShiHao_trigger = yes
+		}
+		localization_key = Loc_SanGong_dynastytreename_ZongShi_death
+	}
+    text = { #太孙谥号
+            trigger = {
+                has_trait = SanGong_TaiSun
+                is_alive = no
+            }
+        localization_key = Loc_SanGong_dynastytreename_Taisun
+    }
+    text = { #太子谥号
+            trigger = { 
+                has_trait = SanGong_Taizi
+                is_alive = no
+            } 
+        localization_key = Loc_SanGong_dynastytreename_TaiZi_ShiHao 
+    }
+    text = {#太孙
+		trigger = {
+			has_trait = SanGong_TaiSun
+		}
+		localization_key = Loc_SanGong_dynastytreename_Taisun
+	}
+    text = {#太子
+		trigger = {
+            has_trait = SanGong_Taizi
+		}
+		localization_key = Loc_SanGong_dynastytreename_TaiZi
+	}
+    text = {#亲王世子（死亡中间节点）
+        trigger = {
+            is_alive = yes
+            has_trait = SanGong_ZongShi_FanWangShiZi
+            father = {
+                is_alive = no
+                NOT = { has_trait = SanGong_FanWang }
+                father = { has_trait = SanGong_FanWang }
+            }
+        }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_FanWangShiZi_dead_branch
+    }
+    text = {#郡王世子（死亡中间节点）
+        trigger = {
+            is_alive = yes
+            has_trait = SanGong_ZongShi_JunWangShiZi
+            father = {
+                is_alive = no
+                NOT = { has_trait = SanGong_JunWang }
+                father = { has_trait = SanGong_JunWang }
+            }
+        }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_JunWangShiZi_dead_branch
+    }
+    text = {#亲王世子（两代死亡中间节点）
+        trigger = {
+            is_alive = yes
+            has_trait = SanGong_ZongShi_FanWangShiZi
+            father = {
+                is_alive = no
+                NOT = { has_trait = SanGong_FanWang }
+                father = {
+                    is_alive = no
+                    NOT = { has_trait = SanGong_FanWang }
+                    father = { has_trait = SanGong_FanWang }
+                }
+            }
+        }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_FanWangShiZi_dead_branch_2
+    }
+    text = {#郡王世子（两代死亡中间节点）
+        trigger = {
+            is_alive = yes
+            has_trait = SanGong_ZongShi_JunWangShiZi
+            father = {
+                is_alive = no
+                NOT = { has_trait = SanGong_JunWang }
+                father = {
+                    is_alive = no
+                    NOT = { has_trait = SanGong_JunWang }
+                    father = { has_trait = SanGong_JunWang }
+                }
+            }
+        }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_JunWangShiZi_dead_branch_2
+    }
+    text = {#亲王世子（三代死亡中间节点）
+        trigger = {
+            is_alive = yes
+            has_trait = SanGong_ZongShi_FanWangShiZi
+            father = {
+                is_alive = no
+                NOT = { has_trait = SanGong_FanWang }
+                father = {
+                    is_alive = no
+                    NOT = { has_trait = SanGong_FanWang }
+                    father = {
+                        is_alive = no
+                        NOT = { has_trait = SanGong_FanWang }
+                        father = { has_trait = SanGong_FanWang }
+                    }
+                }
+            }
+        }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_FanWangShiZi_dead_branch_3
+    }
+    text = {#郡王世子（三代死亡中间节点）
+        trigger = {
+            is_alive = yes
+            has_trait = SanGong_ZongShi_JunWangShiZi
+            father = {
+                is_alive = no
+                NOT = { has_trait = SanGong_JunWang }
+                father = {
+                    is_alive = no
+                    NOT = { has_trait = SanGong_JunWang }
+                    father = {
+                        is_alive = no
+                        NOT = { has_trait = SanGong_JunWang }
+                        father = { has_trait = SanGong_JunWang }
+                    }
+                }
+            }
+        }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_JunWangShiZi_dead_branch_3
+    }
+    text = {#亲王世子
+        trigger = { is_alive = yes has_trait = SanGong_ZongShi_FanWangShiZi }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_FanWangShiZi
+    }
+    text = {#郡王世子
+        trigger = { is_alive = yes has_trait = SanGong_ZongShi_JunWangShiZi }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_JunWangShiZi
+    }
+    text = {#镇国将军长子
+        trigger = { is_alive = yes has_trait = SanGong_ZongShi_ZhenGuoJiangJunZhangZi }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_ZhenGuoJiangJunZhangZi
+    }
+    text = {#辅国将军长子
+        trigger = { is_alive = yes has_trait = SanGong_ZongShi_FuGuoJiangJunZhangZi }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_FuGuoJiangJunZhangZi
+    }
+    text = {#奉国将军长子
+        trigger = { is_alive = yes has_trait = SanGong_ZongShi_FengGuoJiangJunZhangZi }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_FengGuoJiangJunZhangZi
+    }
+    text = {#镇国中尉长子
+        trigger = { is_alive = yes has_trait = SanGong_ZongShi_ZhenGuoZhongWeiZhangZi }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_ZhenGuoZhongWeiZhangZi
+    }
+    text = {#辅国中尉长子
+        trigger = { is_alive = yes has_trait = SanGong_ZongShi_FuGuoZhongWeiZhangZi }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_FuGuoZhongWeiZhangZi
+    }
+    text = {#奉国中尉长子
+        trigger = { is_alive = yes has_trait = SanGong_ZongShi_FengGuoZhongWeiZhangZi }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_FengGuoZhongWeiZhangZi
+    }
+    text = {#镇国将军
+        trigger = {
+            is_alive = yes
+            has_trait = SanGong_ZongShi_ZhenGuoJiangJun
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_ZhenGuoJiangJun
+    }
+    text = {#辅国将军
+        trigger = {
+            is_alive = yes
+            has_trait = SanGong_ZongShi_FuGuoJiangJun
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_FuGuoJiangJun
+    }
+    text = {#奉国将军
+        trigger = {
+            is_alive = yes
+            has_trait = SanGong_ZongShi_FengGuoJiangJun
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_FengGuoJiangJun
+    }
+    text = {#镇国中尉
+        trigger = {
+            is_alive = yes
+            has_trait = SanGong_ZongShi_ZhenGuoZhongWei
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_ZhenGuoZhongWei
+    }
+    text = {#辅国中尉
+        trigger = {
+            is_alive = yes
+            has_trait = SanGong_ZongShi_FuGuoZhongWei
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_FuGuoZhongWei
+    }
+    text = {#奉国中尉
+        trigger = {
+            is_alive = yes
+            has_trait = SanGong_ZongShi_FengGuoZhongWei
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_FengGuoZhongWei
+    }
+    text = {#普通宗室男性：尚未成年或奉国中尉的非袭爵子
+        trigger = {
+            is_alive = yes
+            is_male = yes
+            has_character_flag = SanGong_ZongShi_lineage_member
+            SanGong_ZongShi_rank_trait_trigger = no
+            NOT = { has_trait = SanGong_Taizi }
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+        localization_key = Loc_SanGong_dynastytreename_ZongShi_ordinary
+    }
+    text = {#王
+		trigger = {
+            is_ruler = yes
+            NOT = {
+                has_government = zongfan_government
+            }
+            has_trait = SanGong_FanWang
+        }
+		localization_key = Loc_SanGong_dynastytreename_ZongShi_3
+	}
+    text = {#王
+		trigger = {
+            is_ruler = yes
+            NOT = {
+                has_government = zongfan_government
+            }
+            has_trait = SanGong_JunWang
+        }
+		localization_key = Loc_SanGong_dynastytreename_ZongShi_4
+	}
+    text = {#王
+		trigger = {
+            is_ruler = yes
+        }
+		localization_key = Loc_SanGong_dynastytreename_ZongShi
+	}
+    text = {#王
+		trigger = {
+            is_ruler = no
+            has_trait = SanGong_FanWang
+        }
+		localization_key = Loc_SanGong_dynastytreename_ZongShi_1
+	}
+    text = {#王
+		trigger = {
+            is_ruler = no
+            has_trait = SanGong_JunWang
+        }
+		localization_key = Loc_SanGong_dynastytreename_ZongShi_2
+	}
+    text = {#公主
+		trigger = {
+            exists = primary_spouse
+            has_trait = SanGong_GongZhu
+            
+		}
+		localization_key = Loc_SanGong_dynastytreename_ZongShi_female_1
+	}
+    text = {#公主
+		trigger = {
+            OR = {
+                fater = { SanGong_huangdi_trigger = yes }
+                has_trait = SanGong_HuangSi
+                has_trait = SanGong_GongZhu
+            }
+		}
+		localization_key = Loc_SanGong_dynastytreename_ZongShi_female
+	}
+	text = {
+        fallback = yes
+		localization_key = Loc_fallback_dynastytreename
+	}
+}
+
+SanGong_name_dynastytreename = {
+    text = {#
+		trigger = {
+            is_alive = yes
+		}
+		localization_key = Loc_SanGong_DynastytChar_Name
+	}
+    text = {#
+		trigger = {
+            is_alive = no
+            OR = {
+                SanGong_TianZiMiaoShi_trigger = yes
+                SanGong_ZongShi_trigger = yes
+                SanGong_QinWang_trigger = yes
+                SanGong_JunWang_trigger = yes
+                OR = {
+                    fater = { SanGong_huangdi_trigger = yes }
+                    has_trait = SanGong_HuangSi
+                    has_trait = SanGong_GongZhu
+                }
+            }
+		}
+		localization_key = Loc_SanGong_DynastytChar_Name
+	}
+    text = {#
+		trigger = {
+            is_alive = no
+            NOT = {
+                
+            }
+		}
+		localization_key = Loc_SanGong_DynastytChar_Name_dead
+	}
+}

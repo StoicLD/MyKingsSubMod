@@ -1,0 +1,510 @@
+﻿
+SanGong_HouGong_list = {
+    scope = character
+    effect = {
+        close_all_views = yes
+        SanGong_PinFei_list_effect = yes
+        SanGong_TaiFei_list_effect = yes
+        SanGong_GongZhu_list_effect = yes
+        SanGong_HuangZi_list_effect = yes
+        SanGong_ZongWang_list_effect = yes
+        XunGui_GongJue_List_effect = yes
+        XunGui_HouJue_List_effect = yes
+        XunGui_BoJue_List_effect = yes
+        XunGui_ZiJue_List_effect = yes
+        WaiQi_PinFei_list_gui = yes
+        WaiQi_TaiHou_list_gui = yes
+        WaiQi_HuangHou_list_gui = yes
+    }
+}
+
+HouGong_close_guis = {
+    scope = character
+    effect = {
+        clear_variable_list = SanGong_PinFei_list
+        clear_variable_list = SanGong_TaiFei_list
+        clear_variable_list = SanGong_GongZhu_list
+        clear_variable_list = SanGong_HuangZi_list
+        clear_variable_list = SanGong_ZongWang_list
+        clear_variable_list = XunGui_GongJue_List
+        clear_variable_list = XunGui_HouJue_List
+        clear_variable_list = XunGui_BoJue_List
+        clear_variable_list = XunGui_ZiJue_List
+        clear_variable_list = WaiQi_PinFei_list
+        clear_variable_list = WaiQi_HuangHou_list
+        clear_variable_list = WaiQi_TaiHou_list
+    }
+ 
+}
+
+
+SanGong_ChaoTang_list = {
+    scope = character
+    effect = {
+        close_all_views = yes
+        ShouFu_PaiXi_List_effect = yes
+        ZunWang_PaiXi_List_effect = yes
+        XunGui_WuChen_List_effect = yes
+        XunGui_WenChen_List_effect = yes
+    }
+}
+
+ChaoTang_close_guis = {
+    scope = character
+    effect = {
+        clear_variable_list = ShouFu_PaiXi_List
+        clear_variable_list = ZunWang_PaiXi_List
+        clear_variable_list = XunGui_WuChen_List
+        clear_variable_list = XunGui_WenChen_List
+    }
+ 
+}
+
+
+SanGong_Guinv_Gui = {
+	scope = character
+    effect = {
+        clear_variable_list = SanGong_Guinv
+        top_liege = {
+            every_courtier_or_guest = {
+                limit = {
+                    has_trait = SanGong_GongWei_9
+                    has_trait = ChuShen_1
+                }
+                root = {
+                    add_to_variable_list = {
+                        name = SanGong_Guinv
+                        target = prev
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+SanGong_liangJiaNv_Gui = {
+	scope = character
+    effect = {
+        clear_variable_list = SanGong_liangJiaNv
+        top_liege = {
+            every_courtier_or_guest = {
+                limit = {
+                    has_trait = SanGong_GongWei_9
+                    NOT = { has_trait = ChuShen_1 }
+                }
+                root = {
+                    add_to_variable_list = {
+                        name = SanGong_liangJiaNv
+                        target = prev
+                    }
+                }
+            }
+        }
+    }
+}
+
+SanGong_XuanXiu_Gui = {
+	scope = character
+    effect = {
+        clear_variable_list = SanGong_XuanXiu
+        top_liege = {
+            every_courtier_or_guest = {
+                limit = {
+                    has_trait = SanGong_GongWei_9
+                    has_character_flag = xuanxiunvzi
+                }
+                root = {
+                    add_to_variable_list = {
+                        name = SanGong_XuanXiu
+                        target = prev
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+SanGong_FanWang_Guis = {
+	scope = character
+    effect = {
+        clear_variable_list = SanGong_FanWang
+        dynasty = {
+            ordered_dynasty_member = {
+                limit = {  
+                    OR = {
+                        has_trait = SanGong_FanWang
+                        has_trait = SanGong_JunWang
+                    }
+                    SanGong_JunWang_trigger = no
+                    SanGong_QinWang_trigger = no
+                    has_government = zongfan_government                                
+                }
+                order_by = {
+                    value = 1
+                    add = {
+                        value = primary_title.tier
+                        multiply = 15
+                    }
+                    add = {
+                        value = age
+                        multiply = 3
+                    }
+                }
+                min = 0
+                max = 500
+                root = {
+                    add_to_variable_list = {
+                        name = SanGong_FanWang
+                        target = prev
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+character_Shiqin = {
+	scope = character
+	effect = {
+        save_scope_as = actor
+		scope:recipient = {
+            add_stress = -66
+            save_scope_as = ShiQie
+            add_character_flag = {
+                flag = ShiQin_flag
+                days = 150
+            }
+        }
+        scope:actor = {
+            custom_tooltip = HuangDideShen_var
+            add_stress = -66
+            #add_legitimacy = -30
+            if = {
+                limit = { NOT = { has_variable = HuangDideShen_var } }
+                set_variable = { 
+                    name = HuangDideShen_var 
+                    value = 0 
+                }
+            }
+            if = {
+                limit = { has_variable = HuangDideShen_var }
+                change_variable = { name = HuangDideShen_var add = 1 }
+            }
+            trigger_event = SanGong_ShiQin.001
+        }
+	}
+}
+
+
+liangJia_XuanXiu = {
+    scope = character
+    is_shown = {
+      NOT = { has_character_flag = XuanXiu_flag }
+    }
+    effect = {
+        add_character_flag = {
+            flag = XuanXiu_flag
+            days = 15
+        }
+        trigger_event = SanGong_ShiQin.020
+    }
+}
+
+GuiNv_XuanXiu = {
+    scope = character
+    is_shown = {
+        NOT = { has_character_flag = XuanXiu_flag }
+    }
+    effect = {
+        add_character_flag = {
+            flag = XuanXiu_flag
+            days = 15
+        }
+        trigger_event = SanGong_ShiQin.021
+    }
+}
+
+ChuXiuGong_ui_down_1 = {
+    scope = character
+    is_shown = {
+        SanGong_liangjiaNv_var > 0
+    }
+}
+
+ChuXiuGong_ui_down_2 = {
+    scope = character
+    is_shown = {
+        SanGong_GuiNv_var > 0
+    }
+}
+
+ChuXiuGong_ui_down_3 = {
+    scope = character
+    is_shown = {
+        SanGong_GuiNv_var > 0
+        SanGong_liangjiaNv_var > 0
+    }
+}
+
+ChuGe_GuiS = {
+    scope = character
+    is_shown = {
+        age < 50
+        age >= 14
+        is_married = no
+    }
+}
+
+ZongFan_GuiS = {
+    scope = character
+    is_shown = {
+        is_landed = yes
+        has_government = zongfan_government
+    }
+}
+
+ZongFan_War_GuiS = {
+    scope = character
+    is_shown = {
+        is_landed = yes
+        is_at_war = yes
+        has_government = zongfan_government
+    }
+}
+
+SanGong_Shixi_tri_gui = {
+    scope = character
+    is_shown = {
+        is_adult = yes
+        any_child = {
+            is_male = yes
+            top_liege = root.top_liege
+            is_imprisoned = no
+            NOT = { OR = { has_trait = SanGong_FanWang has_trait = SanGong_JunWang } }
+            has_JueWei_trigger = no
+        }
+    }
+}
+
+
+
+
+# 皇太孙肖像列表：只扫描皇帝子女、在世太子支系、最近亡太子支系和宫廷，
+# 与 SanGong_ZongShi_clear_existing_taisun_effect 的搜索边界一致，不做全局扫描。
+SanGong_TaiSun_gui = {
+    scope = character
+    effect = {
+        clear_variable_list = SanGong_TaiSun_list
+        top_liege = {
+            every_child = {
+                limit = {
+                    is_alive = yes
+                    has_trait = SanGong_TaiSun
+                }
+                root = {
+                    if = {
+                        limit = { NOT = { is_target_in_variable_list = { name = SanGong_TaiSun_list target = prev } } }
+                        add_to_variable_list = { name = SanGong_TaiSun_list target = prev }
+                    }
+                }
+            }
+            every_child = {
+                limit = {
+                    is_alive = yes
+                    has_trait = SanGong_Taizi
+                }
+                every_child = {
+                    limit = {
+                        is_alive = yes
+                        has_trait = SanGong_TaiSun
+                    }
+                    root = {
+                        if = {
+                            limit = { NOT = { is_target_in_variable_list = { name = SanGong_TaiSun_list target = prev } } }
+                            add_to_variable_list = { name = SanGong_TaiSun_list target = prev }
+                        }
+                    }
+                }
+            }
+            if = {
+                limit = { exists = var:SanGong_latest_deceased_taizi }
+                var:SanGong_latest_deceased_taizi = {
+                    every_child = {
+                        limit = {
+                            is_alive = yes
+                            has_trait = SanGong_TaiSun
+                        }
+                        root = {
+                            if = {
+                                limit = { NOT = { is_target_in_variable_list = { name = SanGong_TaiSun_list target = prev } } }
+                                add_to_variable_list = { name = SanGong_TaiSun_list target = prev }
+                            }
+                        }
+                    }
+                }
+            }
+            every_courtier_or_guest = {
+                limit = {
+                    is_alive = yes
+                    has_trait = SanGong_TaiSun
+                }
+                root = {
+                    if = {
+                        limit = { NOT = { is_target_in_variable_list = { name = SanGong_TaiSun_list target = prev } } }
+                        add_to_variable_list = { name = SanGong_TaiSun_list target = prev }
+                    }
+                }
+            }
+        }
+    }
+}
+
+# 与 Cefeng_ZongShi_interaction 共用同一候选触发器。Execute 时
+# root 是玩家（皇帝），候选人在 scope:recipient 中。
+ZongWang_gui = {
+    scope = character
+    is_shown = {
+        exists = scope:recipient
+        scope:recipient = {
+            SanGong_ZongShi_virtual_wang_candidate_trigger = { EMPEROR = root }
+        }
+    }
+    is_valid = {
+        exists = scope:recipient
+        scope:recipient = {
+            SanGong_ZongShi_virtual_wang_candidate_trigger = { EMPEROR = root }
+        }
+    }
+    effect = {
+        scope:recipient = { 
+            save_scope_as = HuangZi
+        }
+        trigger_event = SanGong_CeFeng.001
+    }
+}
+
+EXTIS_liangGongTaiHou_GUIS = {
+    scope = character
+    is_shown = {
+        top_liege = {
+            OR = {
+                employs_court_position = DongGongTaiHou_court_position
+                employs_court_position = XiGongTaiHou_court_position
+                employs_court_position = TaiHuangTaiHou_court_position
+            }
+            
+        }
+    }
+}
+
+
+QinDing_Weifen_gui = {
+    scope = character
+
+    effect = {
+        make_concubine = scope:recipient
+    }
+}
+
+ChongDing_MiaoHao_gui = {
+    scope = character
+    is_shown = {
+        #dynasty ?= title:h_china.holder.dynasty
+        #SanGong_TianZiMiaoShi_trigger = yes   
+    }
+    effect = {
+        scope:recipient = {
+            save_scope_as = XianDi
+        }
+        trigger_event = HuangDi_miaoshi.005
+    }
+}
+
+XiuNVChuGong_gui = {
+    scope = character
+    effect = {
+        scope:recipient = {
+            remove_trait = SanGong_GongWei_9
+        }
+    }
+}
+
+
+HuaiYunZhong_gui = {
+    scope = character
+    is_shown = {
+        scope:character = {
+                    has_trait = SanGong_GongWei_2
+
+        }
+    }
+}
+
+
+CEshi_gui = {
+    scope = character
+    effect = {
+        add_trait = loyal
+        set_variable = {
+            name = great_misit_open
+            value = yes
+        }
+    }
+
+}
+
+XuanXiu_close_guis = {
+    scope = character
+    effect = {
+        remove_global_variable = SanGong_XuanXiu_Gobal
+        every_courtier_or_guest = {
+            limit = {
+                has_character_flag = xuanxiunvzi
+                has_trait = SanGong_GongWei_9
+            }
+            remove_trait = SanGong_GongWei_9
+         #   death = { death_reason = death_XuanXiuLuoXuan } 
+        }
+    }
+}
+CuanWei_close_guis = {
+    scope = character
+    effect = {
+        remove_global_variable = SanGong_CuanWei_Gobal
+        clear_variable_list = QianChaoHuangDi_list	
+        clear_variable_list = QianChaoPinFei_list	
+        clear_variable_list = QianChaoZongShi_list	
+    }
+}
+XuanXiu_GengHuan_guis = {
+    scope = character
+        is_shown = {
+            NOT = { has_character_flag = genghuanxiunv }
+        }
+    effect = {
+        remove_global_variable = SanGong_XuanXiu_Gobal
+        every_courtier_or_guest = {
+            limit = {
+                has_character_flag = xuanxiunvzi
+                has_trait = SanGong_GongWei_9
+            }
+            remove_trait = SanGong_GongWei_9
+           # death = { death_reason = death_XuanXiuLuoXuan } 
+        }
+        add_character_flag = { flag = genghuanxiunv years = 1 }
+        trigger_event = {
+            id = SanGong_GongTing_event.006
+            days = 3
+        }
+    }
+}
+

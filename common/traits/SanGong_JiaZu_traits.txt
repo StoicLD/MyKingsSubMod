@@ -1,0 +1,592 @@
+﻿SanGong_Taizi = {
+    name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_character_flag = taisun_flag }
+				desc = SanGong_Taizi_1
+			}
+			desc = SanGong_Taizi
+		}
+	}
+    good = yes
+    category = fame
+    icon = SanGong_Taizi.dds
+    desc = SanGong_Taizi_desc
+    random_creation_weight = 0
+    physical = yes
+    shown_in_ruler_designer = no
+    attraction_opinion = 25
+    spouse_opinion = 20
+    monthly_lifestyle_xp_gain_mult = 0.25
+    stress_gain_mult = -0.12
+    stress_loss_mult = 0.18
+    ai_sociability = very_high_positive_ai_value
+    negate_health_penalty_add = 1
+    monthly_prestige = 12.0
+    monthly_influence = 7.5
+    monthly_income = 15.0
+    character_max_merit_level_add = 10
+}
+SanGong_TaiSun = {
+    name = SanGong_TaiSun
+    good = yes
+    category = fame
+    icon = SanGong_Taizi.dds
+    desc = SanGong_TaiSun_desc
+    random_creation_weight = 0
+    physical = yes
+    shown_in_ruler_designer = no
+    attraction_opinion = 25
+    spouse_opinion = 20
+    monthly_lifestyle_xp_gain_mult = 0.2
+    stress_gain_mult = -0.15
+    stress_loss_mult = 0.18
+    ai_sociability = very_high_positive_ai_value
+    negate_health_penalty_add = 1
+    monthly_prestige = 10.0
+    monthly_influence = 5.0
+    monthly_income = 10.0
+    character_max_merit_level_add = 10
+}
+SanGong_Taishanghuang = {
+    good = yes
+    category = fame
+    icon = SanGong_Taizi.dds
+    desc = SanGong_Taishanghuang_desc
+    random_creation_weight = 0
+    physical = yes
+    shown_in_ruler_designer = no
+    stress_gain_mult = -0.99
+    ai_sociability = very_high_positive_ai_value
+    negate_health_penalty_add = 0.2
+    character_max_merit_level_add = -99
+    inheritance_blocker = all
+}
+SanGong_HuangSi = {
+    good = yes
+    category = fame
+    icon = SanGong_HuangSi.dds
+    desc = SanGong_HuangSi_desc
+    random_creation_weight = 0
+    physical = yes
+    shown_in_ruler_designer = no
+    attraction_opinion = 25
+    spouse_opinion = 20
+    ai_sociability = very_high_positive_ai_value
+}
+
+
+SanGong_Sizi = {
+    good = yes
+    category = fame
+    icon = bastard_founder.dds
+    desc = SanGong_Sizi_desc
+    random_creation_weight = 0
+    physical = yes
+    shown_in_ruler_designer = no
+    ai_sociability = very_high_positive_ai_value
+}
+
+SanGong_GongZhu = {
+    good = yes
+    category = fame
+    icon = SanGong_GongZhu.dds
+    shown_in_ruler_designer = no
+    desc = SanGong_GongZhu_desc
+    health = 0.5
+	fertility = 0.2
+	stress_gain_mult = -0.2
+	ai_energy = 50 
+}
+
+SanGong_JunZhu = {
+    good = yes
+    category = fame
+    icon = SanGong_GongZhu.dds
+    shown_in_ruler_designer = no
+    desc = SanGong_JunZhu_desc
+    health = 0.5
+	fertility = 0.2
+	stress_gain_mult = -0.2
+	ai_energy = 50 
+}
+
+
+SanGong_Taihou = {
+    good = yes                   
+    category = fame                 
+    icon = SanGong_Taihou.dds           
+    desc = SanGong_Taihou_desc            
+    shown_in_ruler_designer = no
+    random_creation_weight = 0
+    flag = can_not_marry
+    flag = cannot_inherit_titles
+    inheritance_blocker = all
+    claim_inheritance_blocker = all
+    courtly_opinion = 30
+    parochial_opinion = 30
+    dynasty_opinion = 30
+    stress_gain_mult = -0.1
+    stress_loss_mult = 0.1
+    negate_health_penalty_add = 1
+    character_max_merit_level_add = -10
+}
+SanGong_Taihou_1 = {
+    good = yes                   
+    category = fame                 
+    icon = SanGong_Taihou.dds           
+    desc = SanGong_Taihou_1_desc            
+    shown_in_ruler_designer = no
+    random_creation_weight = 0
+    flag = can_not_marry
+    flag = cannot_inherit_titles
+    inheritance_blocker = all
+    claim_inheritance_blocker = all
+    courtly_opinion = 30
+    parochial_opinion = 30
+    dynasty_opinion = 30
+    stress_gain_mult = -0.1
+    stress_loss_mult = 0.1
+    negate_health_penalty_add = 1
+    character_max_merit_level_add = -10
+}
+
+
+SanGong_TaiHuangTaihou = {
+    good = yes                   
+    category = fame                 
+    icon = SanGong_TaiHuangTaihou.dds           
+    desc = SanGong_TaiHuangTaihou_desc            
+    shown_in_ruler_designer = no
+    random_creation_weight = 0
+    flag = can_not_marry
+    flag = cannot_inherit_titles
+    inheritance_blocker = all
+    claim_inheritance_blocker = all
+    courtly_opinion = 30
+    parochial_opinion = 30
+    dynasty_opinion = 30
+    stress_gain_mult = -0.1
+    stress_loss_mult = 0.1
+    negate_health_penalty_add = 1
+    character_max_merit_level_add = -10
+}
+SanGong_FanWang = {
+    good = yes
+    category = fame
+    icon = SanGong_FanWang.dds
+    flag = fanwang_flag
+    shown_in_ruler_designer = no
+    desc = SanGong_FanWang_desc
+    random_creation_weight = 0
+    dynasty_opinion = 25
+    courtly_opinion = 20
+    monthly_prestige = 10.0
+    monthly_influence = 5.0
+    monthly_income = 10.0
+    stress_gain_mult = -0.15
+    monthly_lifestyle_xp_gain_mult = 0.2
+    negate_health_penalty_add = 1
+    character_max_merit_level_add = 10
+        inheritance_blocker = all
+
+}
+
+SanGong_JunWang = {
+    good = yes
+    category = fame
+    icon = SanGong_JunWang.dds
+    shown_in_ruler_designer = no
+    desc = SanGong_JunWang_desc
+    random_creation_weight = 0
+    dynasty_opinion = 15
+    courtly_opinion = 10
+    monthly_prestige = 8.0
+    monthly_influence = 4.0
+    monthly_income = 8.0
+    stress_gain_mult = -0.1
+    monthly_lifestyle_xp_gain_mult = 0.15
+    negate_health_penalty_add = 1
+    character_max_merit_level_add = 10
+}
+
+
+
+# 开国之君
+SanGong_KaiGuo = { 
+    good = yes
+    category = fame
+    icon = SanGong_KaiGuo.dds
+    shown_in_ruler_designer = no
+    desc = SanGong_KaiGuo_desc  # 专属描述标识
+    random_creation_weight = 0
+    character_max_merit_level_add = -99
+}
+
+# 中兴之主
+SanGong_ZhongXing = { 
+    good = yes
+    category = fame
+    icon = SanGong_ZhongXing.dds
+    shown_in_ruler_designer = no
+    desc = SanGong_ZhongXing_desc  # 专属描述标识
+    random_creation_weight = 0
+    character_max_merit_level_add = -99
+}
+
+# 盛世明君
+SanGong_XiongZhu = { 
+    good = yes
+    category = fame
+    icon = SanGong_XiongZhu.dds
+    shown_in_ruler_designer = no
+    desc = SanGong_XiongZhu_desc  # 专属描述标识
+    random_creation_weight = 0
+    character_max_merit_level_add = -99
+}
+
+# 守成之君
+SanGong_ShouCheng = { 
+    good = yes
+    category = fame
+    icon = SanGong_ShouCheng.dds
+    shown_in_ruler_designer = no
+    desc = SanGong_ShouCheng_desc  # 专属描述标识
+    random_creation_weight = 0
+    character_max_merit_level_add = -99
+}
+
+# 幼主（负面特质）
+SanGong_YouZhu = { 
+    good = no  # 修正：幼主为负面特质
+    category = fame
+    icon = SanGong_YouZhu.dds
+    shown_in_ruler_designer = no
+    desc = SanGong_YouZhu_desc  # 专属描述标识
+    random_creation_weight = 0
+    character_max_merit_level_add = -99
+}
+
+# 昏君（负面特质）
+SanGong_HunJun = { 
+    good = no  # 修正：昏君为负面特质
+    category = fame
+    icon = SanGong_HunJun.dds
+    shown_in_ruler_designer = no
+    desc = SanGong_HunJun_desc  # 专属描述标识
+    random_creation_weight = 0
+    character_max_merit_level_add = -99
+}
+
+#亡国之君
+SanGong_WangGuoJunZhu = {
+    good = no
+    category = fame
+    icon = SanGong_WangGuoJunZhu.dds
+    shown_in_ruler_designer = no
+    desc = SanGong_WangGuoJunZhu_desc
+    random_creation_weight = 0
+    #incapacitating = yes
+    character_max_merit_level_add = -99
+}
+
+SanGong_zibei = {#字辈特质
+    good = yes
+    category = fame
+    icon = SanGong_zibei.dds
+    shown_in_ruler_designer = no
+    desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = SanGong_zibei_desc
+			}
+			triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_zhaokuangyin
+                }
+                desc = SanGong_Zibei_zhaokuangyin_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_zhaoguangyi
+                }
+                desc = SanGong_Zibei_zhaoguangyi_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_zhaotingmei
+                }
+                desc = SanGong_Zibei_zhaotingmei_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_zhubiao
+                }
+                desc = SanGong_Zibei_zhubiao_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_zhudi
+                }
+                desc = SanGong_Zibei_zhudi_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_zhushuang
+                }
+                desc = SanGong_Zibei_zhushuang_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_zhugang
+                }
+                desc = SanGong_Zibei_zhugang_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_sisheng
+                }
+                desc = SanGong_Zibei_sisheng_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_01
+                }
+                desc = SanGong_Zibei_tongyong_01_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_01
+                }
+                desc = SanGong_Zibei_tongyong_01_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_02
+                }
+                desc = SanGong_Zibei_tongyong_02_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_03
+                }
+                desc = SanGong_Zibei_tongyong_03_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_04
+                }
+                desc = SanGong_Zibei_tongyong_04_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_05
+                }
+                desc = SanGong_Zibei_tongyong_05_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_06
+                }
+                desc = SanGong_Zibei_tongyong_06_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_07
+                }
+                desc = SanGong_Zibei_tongyong_07_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_08
+                }
+                desc = SanGong_Zibei_tongyong_08_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_09
+                }
+                desc = SanGong_Zibei_tongyong_09_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_10
+                }
+                desc = SanGong_Zibei_tongyong_10_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_11
+                }
+                desc = SanGong_Zibei_tongyong_11_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_12
+                }
+                desc = SanGong_Zibei_tongyong_12_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_13
+                }
+                desc = SanGong_Zibei_tongyong_13_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_14
+                }
+                desc = SanGong_Zibei_tongyong_14_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_15
+                }
+                desc = SanGong_Zibei_tongyong_15_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_16
+                }
+                desc = SanGong_Zibei_tongyong_16_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_17
+                }
+                desc = SanGong_Zibei_tongyong_17_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_18
+                }
+                desc = SanGong_Zibei_tongyong_18_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_19
+                }
+                desc = SanGong_Zibei_tongyong_19_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_20
+                }
+                desc = SanGong_Zibei_tongyong_20_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_21
+                }
+                desc = SanGong_Zibei_tongyong_21_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_22
+                }
+                desc = SanGong_Zibei_tongyong_22_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_23
+                }
+                desc = SanGong_Zibei_tongyong_23_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_24
+                }
+                desc = SanGong_Zibei_tongyong_24_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_25
+                }
+                desc = SanGong_Zibei_tongyong_25_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_26
+                }
+                desc = SanGong_Zibei_tongyong_26_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_27
+                }
+                desc = SanGong_Zibei_tongyong_27_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_28
+                }
+                desc = SanGong_Zibei_tongyong_28_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_29
+                }
+                desc = SanGong_Zibei_tongyong_29_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_30
+                }
+                desc = SanGong_Zibei_tongyong_30_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_31
+                }
+                desc = SanGong_Zibei_tongyong_31_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_32
+                }
+                desc = SanGong_Zibei_tongyong_32_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_33
+                }
+                desc = SanGong_Zibei_tongyong_33_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_34
+                }
+                desc = SanGong_Zibei_tongyong_34_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_35
+                }
+                desc = SanGong_Zibei_tongyong_35_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_36
+                }
+                desc = SanGong_Zibei_tongyong_36_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = Zibei_tongyong_37
+                }
+                desc = SanGong_Zibei_tongyong_37_desc
+            }
+            triggered_desc = {
+                trigger = {
+                    has_character_flag = SanGong_zibei_zdy01
+                }
+                desc = SanGong_zibei_zdy_desc
+            }
+			desc = SanGong_zibei_desc
+		}
+	}
+    random_creation_weight = 0
+}

@@ -1,0 +1,479 @@
+﻿on_death = {#死亡时触发
+    on_actions = {
+		on_death_huanghou
+		on_death_huangguifei
+        on_death_feipin
+        on_death_HuangDi
+        on_death_taishanghuang
+        Zongqin_shihao_action
+        TaiFei_YiGong_action
+        Taizi_Shihao_action
+        SanGong_ZongShi_record_deceased_taizi_action
+        SanGong_ZongShi_transfer_taizi_pointer_action
+        CeliTaisun_action
+	}
+}
+
+
+
+
+
+
+
+TaiFei_YiGong_action = {#太妃移宫
+    trigger = {
+        SanGong_huangdi_trigger = yes
+        primary_heir = { dynasty = root.dynasty }
+    }
+    effect = {
+        save_scope_as = XianDi
+        every_courtier_or_guest = {
+            limit = {
+                has_trait = SanGong_Taihou
+            }
+            add_to_list = TaiFei_list
+        }
+        primary_spouse = {
+            add_to_list = TaiFei_list
+            add_character_flag = {
+                flag = huanghou_flag
+                days = 60
+            }
+        }
+        every_consort = { add_to_list = TaiFei_list }
+        primary_heir = {
+            save_scope_as = huangdi
+            trigger_event = { id = SanGong_DianZhang.031 days = 20 }
+        }
+    }
+}
+
+
+
+on_death_HuangDi = { #皇帝死亡。盖棺定论
+    trigger = {
+        has_game_rule = MiaoShi_on
+        SanGong_huangdi_trigger = yes
+        primary_heir = { dynasty = root.dynasty }
+	}
+    effect = {
+        save_scope_as = XianDi
+        if = {#开国君主
+            limit = {
+                OR = {
+                    has_trait = SanGong_KaiGuo
+                    has_trait = SanGong_ZhongXing
+                }
+            }
+            primary_heir = { trigger_event = { id = HuangDi_miaoshi.009 days = 3 } }
+        }
+        else_if = {#中兴之主
+            limit = {
+                prestige_level >= 4
+                has_title = title:h_china
+                has_variable = SanGong_Zhongxing_var
+                situation:dynastic_cycle ?= {
+                    OR = {
+                        situation_current_phase = situation_dynastic_cycle_phase_stability_expansion
+                        situation_current_phase = situation_dynastic_cycle_phase_stability_advancement
+                    }
+                }
+            }
+            add_trait = SanGong_ZhongXing
+            primary_heir = { trigger_event = { id = HuangDi_miaoshi.009 days = 3 } }
+        }
+        else_if = {#明君
+            limit = {
+                prestige_level >= 4
+                sub_realm_size >= var:SanGong_XiongZhu_var
+            }
+            add_trait = SanGong_XiongZhu
+            primary_heir = { trigger_event = { id = HuangDi_miaoshi.009 days = 3 } }
+        }
+        else_if = {#幼主
+            limit = {
+                age < 16
+            }
+            add_trait = SanGong_YouZhu
+            primary_heir = { trigger_event = { id = HuangDi_miaoshi.009 days = 3 } }
+        }
+        else_if = {#昏君
+            limit = {
+                OR = {
+                    sub_realm_size < var:SanGong_HunJun_var
+                    AND = {
+                        has_variable = SanGong_HunJun_var2
+                        has_title = title:h_china
+                        situation:dynastic_cycle ?= {
+                            OR = {
+                                situation_current_phase = situation_dynastic_cycle_phase_chaos
+                                situation_current_phase = situation_dynastic_cycle_phase_instability_conquest
+                                situation_current_phase = situation_dynastic_cycle_phase_instability
+                            }
+                        }
+                    }
+                }
+            }
+            add_trait = SanGong_HunJun
+            primary_heir = { trigger_event = { id = HuangDi_miaoshi.009 days = 3 } }
+        }
+        else_if = {#兜底：守成
+            add_trait = SanGong_ShouCheng
+            primary_heir = { trigger_event = { id = HuangDi_miaoshi.009 days = 3 } }
+        }
+    }
+}
+
+
+on_death_taishanghuang = {#太上皇庙号
+	trigger = {
+        HouGong_Shihao_trigger = { GONGWEI = SanGong_Taishanghuang }
+	}
+    effect = {
+ 		save_scope_as = XianDi
+		remove_nickname = yes
+        if = {
+            limit = {
+                NOT = { primary_title = title:e_great_liao }
+            }
+            give_nickname = Tianzi_guohao
+        }
+        if = {
+            limit = {
+                primary_title = title:e_great_liao
+            }
+            give_nickname = Tianzi_guohao_liao
+        }
+        if = {
+            limit = {
+                OR = {
+                    has_trait = SanGong_KaiGuo
+                    has_trait = SanGong_ZhongXing
+                    has_trait = SanGong_XiongZhu
+                    has_trait = SanGong_ShouCheng
+                }
+            }
+            top_liege = { trigger_event = { id = HuangDi_miaoshi.009 days = 1 } }
+        }
+	}
+}
+
+
+
+Zongqin_shihao_action = { #宗室谥号
+	trigger = {
+        ZongWang_ShiHao_trigger = yes
+	}
+    effect = {
+        if = {
+            limit = {
+                NOT = {
+                    OR = { has_trait = SanGong_FanWang has_trait = SanGong_JunWang }
+                }
+            }
+            if = {
+                limit = {
+                    SanGong_QinWang_trigger = yes
+                }
+                SanGong_ZongShi_sync_title_wang_effect = { WANG = SanGong_FanWang }
+            }
+            else_if = {
+                limit = {
+                    SanGong_JunWang_trigger = yes
+                }
+                SanGong_ZongShi_sync_title_wang_effect = { WANG = SanGong_JunWang }
+            }
+        }
+        save_scope_as = FanWang
+        remove_nickname = yes
+        if = {
+            limit = {#实地藩王
+                ZongFan_trigger = yes
+            }
+            give_nickname = nick_the_SanGong_JunWangShi_a
+        }
+        else_if = {
+            limit = {#无地藩王
+                OR = {
+                    SanGong_QinWang_trigger = yes
+                    SanGong_JunWang_trigger = yes
+                }
+            }
+            give_nickname = nick_the_SanGong_JunWangShi
+        }
+        if = {
+            limit = {
+                has_character_flag = SanGong_ZongShi_JueWei_ZDY
+            }
+            top_liege = {
+                trigger_event = {
+                    id = ZongWang_ShiHao.014
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                has_trait = SanGong_FanWang
+            }
+            top_liege = {
+                trigger_event = {
+                    id = ZongWang_ShiHao.007
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                has_trait = SanGong_JunWang
+            }
+            top_liege = {
+                trigger_event = {
+                    id = ZongWang_ShiHao.008
+                }
+            }
+        }
+        else = {
+            top_liege = { trigger_event = ZongWang_ShiHao.007 }
+        }
+    }
+}
+
+Taizi_Shihao_action = {#太子谥号
+	trigger = {
+        has_trait = SanGong_Taizi
+        is_independent_ruler = no
+        top_liege = {
+            SanGong_huangdi_trigger = yes
+        }
+        house = top_liege.house
+	}
+    effect = {
+        remove_nickname = yes
+ 		save_scope_as = Taizi
+        if = {
+            limit = {
+                scope:Taizi = { is_adult = yes }
+            }
+            top_liege = {
+                trigger_event = { id = ZongWang_ShiHao.020 days = 1 }
+            }
+        }
+        if = {
+            limit = {
+                scope:Taizi = { is_adult = no }
+            }
+            top_liege = {
+                trigger_event = { id = ZongWang_ShiHao.021 days = 1 }
+            }
+        }
+	}
+}
+
+
+CeliTaisun_action = {#立太孙
+    trigger = {
+        has_trait = SanGong_Taizi
+        is_independent_ruler = no
+        exists = father
+        father = {
+            is_ai = no
+            SanGong_huangdi_trigger = yes
+        }
+	}
+    effect = {
+        save_scope_as = Taizi
+        if = {
+            limit = {
+                has_trait = SanGong_Taizi
+                is_independent_ruler = no
+                exists = father
+                father = {
+                    SanGong_huangdi_trigger = yes
+                }
+                any_child = {
+                    is_male = yes
+                }
+            }
+            father = {
+                set_variable = {
+                    name = SanGong_latest_deceased_taizi
+                    value = scope:Taizi
+                }
+                trigger_event = { id = SanGong_Zongzu.002 days = 7 }
+            }
+        }
+	}
+}
+
+SanGong_ZongShi_record_deceased_taizi_action = {
+    trigger = {
+        is_male = yes
+        NOT = { SanGong_huangdi_trigger = yes }
+        OR = {
+            has_trait = SanGong_Taizi
+            has_character_flag = SanGong_ZongShi_former_taizi
+        }
+        OR = {
+            AND = {
+                exists = father
+                father = { SanGong_huangdi_trigger = yes }
+            }
+            AND = {
+                exists = top_liege
+                top_liege = { SanGong_huangdi_trigger = yes }
+            }
+        }
+    }
+    effect = {
+        save_scope_as = SanGong_ZongShi_dead_taizi
+        if = {
+            limit = {
+                exists = father
+                father = { SanGong_huangdi_trigger = yes }
+            }
+            father = {
+                set_variable = {
+                    name = SanGong_latest_deceased_taizi
+                    value = scope:SanGong_ZongShi_dead_taizi
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                exists = top_liege
+                top_liege = { SanGong_huangdi_trigger = yes }
+            }
+            top_liege = {
+                set_variable = {
+                    name = SanGong_latest_deceased_taizi
+                    value = scope:SanGong_ZongShi_dead_taizi
+                }
+            }
+        }
+    }
+}
+
+SanGong_ZongShi_transfer_taizi_pointer_action = {
+    trigger = {
+        SanGong_huangdi_trigger = yes
+        exists = primary_heir
+        primary_heir = { dynasty = root.dynasty }
+        exists = var:SanGong_latest_deceased_taizi
+    }
+    effect = {
+        save_scope_as = SanGong_ZongShi_dead_huangdi
+        primary_heir = {
+            set_variable = {
+                name = SanGong_latest_deceased_taizi
+                value = scope:SanGong_ZongShi_dead_huangdi.var:SanGong_latest_deceased_taizi
+            }
+        }
+    }
+}
+
+
+on_death_huanghou = {## 皇后、太后、太皇太后谥号
+	trigger = {
+        OR = {
+            HouGong_Shihao_trigger = { GONGWEI = SanGong_GongWei_1 }
+            HouGong_Shihao_trigger = { GONGWEI = SanGong_Taihou }
+            HouGong_Shihao_trigger = { GONGWEI = SanGong_TaiHuangTaihou }
+        }
+	}
+	effect = {
+ 		save_scope_as = HuangHou
+		top_liege = {
+            save_scope_as = HuangDi
+            trigger_event = { id = HouGong_ShiHao.001 days = 1 }
+		}
+        scope:HuangHou = {
+            create_character_memory = { type = mem_HouFei_death  participants = { owner = scope:HuangHou huangdi = scope:HuangDi } }
+        }
+        scope:HuangDi = {
+            create_character_memory = { type = mem_HouFei_death  participants = { owner = scope:HuangHou huangdi = scope:HuangDi } }
+        }
+	}
+}
+
+
+
+on_death_huangguifei = {#皇贵妃谥号
+	trigger = {
+		HouGong_Shihao_trigger = { GONGWEI = SanGong_GongWei_2 }
+	}
+    effect = {
+ 		save_scope_as = Huangguifei
+		top_liege = {
+            save_scope_as = HuangDi
+            trigger_event = { id = HouGong_ShiHao.002 days = 1 }
+		}
+	}
+}
+
+on_death_feipin = {#妃嫔死亡通知
+    trigger = {
+        HouGongPinFei_trigger = yes
+	}
+    effect = {
+        save_scope_as = death_feipin
+		top_liege = { trigger_event = SanGong_hidden.003 }
+    }
+}
+
+
+
+
+
+#on_death_fanwang = { #藩王谥号
+#	trigger = {
+#        ZongWang_ShiHao_trigger = yes
+#	}
+#    effect = {
+#        save_scope_as = FanWang
+#        hidden_effect = {
+#            remove_nickname = yes
+#            if = {
+#                limit = {
+#                    SanGong_QinWang_trigger = no
+#                    SanGong_JunWang_trigger = no
+#                }
+#                give_nickname = nick_the_SanGong_JunWangShi_a
+#            }
+#            if = {
+#                limit = {
+#                    OR = {
+#                        SanGong_QinWang_trigger = yes
+#                        SanGong_JunWang_trigger = yes
+#                    }
+#                }
+#                give_nickname = nick_the_SanGong_JunWangShi
+#            }
+#        }
+#        if = {
+#            limit = {
+#                has_trait = SanGong_FanWang
+#            }
+#            top_liege = {
+#                trigger_event = {
+#                    id = ZongWang_ShiHao.007
+#                }
+#            }
+#        }
+#        else_if = {
+#            limit = {
+#                has_trait = SanGong_JunWang
+#            }
+#            top_liege = {
+#                trigger_event = {
+#                    id = ZongWang_ShiHao.008
+#                }
+#            }
+#        }
+#        else_if = {
+#            top_liege = {
+#                trigger_event = {
+#                    id = ZongWang_ShiHao.001
+#                }
+#            }
+#        }
+#    }
+#}

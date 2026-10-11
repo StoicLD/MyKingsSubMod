@@ -1,0 +1,124 @@
+﻿on_16th_birthday = {#角色成年
+    on_actions = {
+        CeFeng_GongZhu_action
+        add_waiqi_action
+        SanGong_ZongShi_rank_adult_action
+        HuangZiMianshi_action
+    }
+}
+
+CeFeng_GongZhu_action = {#册封公主
+    trigger = {
+        has_game_rule = CeFeng_GongZhu_on
+        is_female = yes
+        YeZhong_trigger = no
+        father ?= { SanGong_huangdi_trigger = yes }
+    }
+    effect = {
+        save_scope_as = GongZhu
+		father = {
+            trigger_event = {
+                id = SanGong_CeFeng.030
+                days = 5
+            }
+        }
+    }
+}
+
+
+HuangZiMianshi_action = {#皇族免试
+    trigger = {
+        OR = {
+            has_trait = SanGong_HuangSi
+            father ?= { SanGong_huangdi_trigger = yes }
+        }
+    }
+    effect = {
+        add_character_flag = passed_provincial_exam
+        #add_character_modifier = tgp_passed_provincial_exam_modifier
+        add_character_flag = passed_metropolitan_exam
+       # add_character_modifier = tgp_passed_metropolitan_exam_modifier
+        add_character_flag = passed_palace_exam
+       # add_character_modifier = tgp_passed_palace_exam_modifier
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+add_waiqi_action = {#添加外戚
+    trigger = {
+        dynasty ?= {
+            has_dynasty_modifier = SanGong_Waiqihouse_modifier
+        }
+        top_liege = { SanGong_huangdi_trigger = yes }
+        is_male = yes
+        NOT = {
+            any_relation = {
+                type = junshang_relation
+            }
+        }
+    }
+    effect = {
+        add_trait = loyal
+        save_scope_as = target
+        top_liege = {
+            set_relation_waiqi_relation = { target = scope:target }
+        }
+    }
+}
+
+
+on_3rd_birthday = {#3岁生日
+    on_actions = {
+        CeFengQinWang_action
+    }
+}
+
+
+
+CeFengQinWang_action = {#册封亲王
+	trigger = {
+        has_game_rule = CeFengQinWang_on
+        is_male = yes
+        NOT = {
+            OR = {
+                has_trait = SanGong_Taizi
+                has_trait = SanGong_TaiSun
+            }
+        }
+        YeZhong_trigger = no
+        father ?= { SanGong_huangdi_trigger = yes }
+    }
+    effect = {
+        save_scope_as = HuangZi
+        if = {
+            limit = {
+                father = {
+                    is_ai = yes
+                    has_title = title:h_china
+                }
+            }
+            father = {
+                trigger_event = SanGong_CeFeng.011
+            }
+        }
+		else_if = {
+            limit = {
+                father = {
+                    is_ai = no
+                }
+            }
+            father = {
+                trigger_event = SanGong_CeFeng.011
+            }
+        }
+    }
+}

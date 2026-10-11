@@ -1,0 +1,137 @@
+﻿SanGong_visual_huangsi = {#皇子
+	usage = game
+	priority = 3
+	SG_HuangZi = {#皇子红袍
+		dna_modifiers = {
+			accessory = {
+                mode = add
+                gene = hairstyles
+                template = tgp_chinese_hairstyles
+                accessory = m_hair_tgp_chinese_03
+            }
+            accessory = {
+                mode = add
+                gene = legwear
+                template = tgp_chinese_high_nobility_legwear
+                accessory = m_legwear_sec_tgp_chinese_hi_nob_01
+            }
+            accessory = {
+                mode = add
+                gene = clothes
+                template = tgp_chinese_ministers
+                accessory = m_clothes_sec_tgp_chinese_roy_01_m4
+            }
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 200
+				is_male = yes
+                is_at_war = no
+				has_global_variable = SanGong_HuanZhuang_on
+				has_trait = SanGong_HuangSi
+                dynasty = {
+					has_variable = huangzi_fuzhi_hong
+				}
+			}
+		}
+	}
+	SG_Taizi = {#太子黄袍
+		dna_modifiers = {
+			accessory = {
+                mode = add
+                gene = hairstyles
+                template = tgp_chinese_hairstyles
+                accessory = m_hair_tgp_chinese_03
+            }
+            accessory = {
+                mode = add
+                gene = legwear
+                template = tgp_chinese_high_nobility_legwear
+                accessory = m_legwear_sec_tgp_chinese_hi_nob_01
+            }
+            accessory = {
+                mode = add
+                gene = clothes
+                template = tgp_chinese_ministers
+                accessory = m_clothes_sec_tgp_chinese_nob_01_m6
+            }
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 500
+                is_at_war = no
+				has_global_variable = SanGong_HuanZhuang_on
+				 has_trait = SanGong_Taizi
+                dynasty = {
+					has_variable = huangzi_fuzhi_huang
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+SanGong_visual_epe_huangsi = {#皇子
+	usage = game
+	priority = 6
+	SG_epe_HuangZi = {#皇子红袍
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = tgp_chinese_clothes
+				accessory = m_clothes_sec_tgp_chinese_roy_01_m4
+			}
+		}
+		weight = {
+			base = -200
+			modifier = {
+				add = 500
+				exists = global_var:EPE_is_loaded
+				is_male = yes
+                is_at_war = no
+				has_global_variable = SanGong_HuanZhuang_on
+				OR = {
+					has_trait = SanGong_HuangSi
+					father = { SanGong_huangdi_trigger = yes }
+				}
+			}
+		}
+	}
+	SG_epe_Taizi = {#太子黄袍
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = tgp_chinese_clothes
+				accessory = m_clothes_sec_tgp_chinese_nob_01_m6
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 500
+				exists = global_var:EPE_is_loaded
+				has_global_variable = SanGong_HuanZhuang_on
+                is_at_war = no
+				OR = {
+					has_trait = SanGong_Taizi
+					has_trait = SanGong_TaiSun
+				}
+				dynasty = {
+					has_variable = huangzi_fuzhi_huang
+				}
+			}
+		}
+	}
+}

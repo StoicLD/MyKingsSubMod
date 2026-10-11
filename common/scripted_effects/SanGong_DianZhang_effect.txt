@@ -1,0 +1,446 @@
+﻿BaZhanTaifei_effect = {#霸占太妃
+    make_concubine = scope:pinfei
+    if = {
+		limit = {
+            scope:pinfei = { has_trait = SanGong_Taihou }
+        }
+        custom_tooltip = SanGong_DianZhang.031_tt4
+        dynasty ?= {
+            add_dynasty_prestige = -3000
+        }
+        add_legitimacy = -500
+        add_prestige = -1000
+        add_piety = -1000
+        add_influence = -1000
+        add_character_flag = HunJun_flag_5
+        scope:pinfei = {
+            remove_trait = SanGong_GongWei_1    # 中宫皇后
+            remove_trait = SanGong_GongWei_2    # 皇贵妃
+            remove_trait = SanGong_GongWei_3    # 贵妃
+            remove_trait = SanGong_GongWei_4    # 妃
+            remove_trait = SanGong_GongWei_5    # 嫔
+            remove_trait = SanGong_GongWei_6    # 昭仪
+            remove_trait = SanGong_GongWei_7    # 美人
+            remove_trait = SanGong_GongWei_8    # 选侍
+            remove_trait = SanGong_GongWei_9    # 淑女
+            remove_trait = SanGong_GongWei_10   # 太妃
+            remove_trait = SanGong_GongWei_11   # 太嫔
+            remove_trait = SanGong_GongWei_12   # 皇考昭仪
+            remove_trait = SanGong_GongWei_13   # 皇考美人
+            remove_trait = SanGong_GongWei_14   # 皇考选侍
+            remove_trait = SanGong_LengGongi_1
+            remove_trait = SanGong_LengGongi_2
+            remove_trait = SanGong_LengGongi_3
+            remove_trait = SanGong_LengGongi_4
+            SanGong_remove_cefeng_merit_modifiers_effect = yes
+            remove_trait = SanGong_FanWang
+            remove_trait = SanGong_JunWang
+            remove_trait = SanGong_JunWang
+            remove_trait = SanGong_SangOu
+            remove_trait = celibate
+        }
+	}
+    else = {
+        custom_tooltip = SanGong_DianZhang.031_tt5
+        dynasty ?= {
+            add_dynasty_prestige = -1000
+        }
+        add_legitimacy = -200
+        add_prestige = -500
+        add_piety = -500
+        add_influence = -500
+        add_character_flag = HunJun_flag_2
+        scope:pinfei = {
+            remove_trait = SanGong_GongWei_1    # 中宫皇后
+            remove_trait = SanGong_GongWei_2    # 皇贵妃
+            remove_trait = SanGong_GongWei_3    # 贵妃
+            remove_trait = SanGong_GongWei_4    # 妃
+            remove_trait = SanGong_GongWei_5    # 嫔
+            remove_trait = SanGong_GongWei_6    # 昭仪
+            remove_trait = SanGong_GongWei_7    # 美人
+            remove_trait = SanGong_GongWei_8    # 选侍
+            remove_trait = SanGong_GongWei_9    # 淑女
+            remove_trait = SanGong_GongWei_10   # 太妃
+            remove_trait = SanGong_GongWei_11   # 太嫔
+            remove_trait = SanGong_GongWei_12   # 皇考昭仪
+            remove_trait = SanGong_GongWei_13   # 皇考美人
+            remove_trait = SanGong_GongWei_14   # 皇考选侍
+            remove_trait = SanGong_LengGongi_1
+            remove_trait = SanGong_LengGongi_2
+            remove_trait = SanGong_LengGongi_3
+            remove_trait = SanGong_LengGongi_4
+            SanGong_remove_cefeng_merit_modifiers_effect = yes
+            remove_trait = SanGong_FanWang
+            remove_trait = SanGong_JunWang
+            remove_trait = SanGong_JunWang
+            remove_trait = SanGong_SangOu
+            remove_trait = celibate
+        }
+	}
+    #every_in_list = {
+    #    list = TaiFei_list
+    #    limit = {
+    #        NOT = {
+    #            has_trait = SanGong_Taihou
+    #            has_trait = SanGong_TaiHuangTaihou
+    #        }
+    #    }
+    #    remove_trait = SanGong_GongWei_1    # 中宫皇后
+    #    remove_trait = SanGong_GongWei_2    # 皇贵妃
+    #    remove_trait = SanGong_GongWei_3    # 贵妃
+    #    remove_trait = SanGong_GongWei_4    # 妃
+    #    remove_trait = SanGong_GongWei_5    # 嫔
+    #    remove_trait = SanGong_GongWei_6    # 昭仪
+    #    remove_trait = SanGong_GongWei_7    # 美人
+    #    remove_trait = SanGong_GongWei_8    # 选侍
+    #    remove_trait = SanGong_GongWei_9    # 淑女
+    #    remove_trait = SanGong_GongWei_10   # 太妃
+    #    remove_trait = SanGong_GongWei_11   # 太嫔
+    #    remove_trait = SanGong_GongWei_12   # 皇考昭仪
+    #    remove_trait = SanGong_GongWei_13   # 皇考美人
+    #    remove_trait = SanGong_GongWei_14   # 皇考选侍
+    #    remove_trait = SanGong_LengGongi_1
+    #    remove_trait = SanGong_LengGongi_2
+    #    remove_trait = SanGong_LengGongi_3
+    #    remove_trait = SanGong_LengGongi_4
+    #    remove_trait = SanGong_FanWang
+    #    remove_trait = SanGong_JunWang
+    #    remove_trait = SanGong_JunWang
+    #    remove_trait = SanGong_SangOu
+    #    remove_trait = celibate
+    #}
+}
+
+remove_laonian_trait = {#清除老年病
+    remove_trait = fragile_bones
+    remove_trait = faltering_heart
+    remove_trait = clouded_eyes
+    remove_trait = withering_mind
+    remove_trait = infirm
+    remove_trait = ill
+    remove_trait = pneumonic
+    remove_trait = great_pox
+    remove_trait = early_great_pox
+    remove_trait = lovers_pox
+    remove_trait = leper
+    remove_trait = maimed
+    remove_trait = disfigured
+    remove_trait = infirm
+    remove_trait = gout_ridden
+    remove_trait = consumption
+    remove_trait = cancer
+    remove_trait = typhus
+    remove_trait = bubonic_plague
+    remove_trait = smallpox
+    remove_trait = blind
+    remove_trait = one_eyed
+    remove_trait = hunchbacked
+    remove_trait = albino
+    remove_trait = scaly
+    remove_trait = SanGong_SangOu
+}
+
+
+Xuanxiu_Gui_effcet = {#选秀大典
+    if = {
+        limit = {
+            has_character_flag = XuanXiu_LiangJia_flag
+        }
+        Liangjia_xuanxiu_effect = yes
+    }
+    else_if = {
+        limit = {
+            has_character_flag = XuanXiu_MingMen_flag
+        }
+        MingMen_xuanxiu_effect = yes
+    }
+}
+
+
+DengJiKaiGuo_effect = {#登基开国
+	# 1. 保存当前执行者为【新天子】临时作用域
+	save_scope_as = new_son_of_heaven
+	# 给新天子设置临时变量，持续2天（防止作用域丢失）
+	set_variable = {
+		name = new_son_of_heaven
+		value = scope:new_son_of_heaven
+		days = 2
+	}
+	# ------------------------------
+	# 7. 新天子自身的全部强化效果
+	# ------------------------------
+	scope:new_son_of_heaven = {
+		# 子项3：天命加冕奖励（隐藏效果）
+			add_treasury = { value = gold min = 1000 }  # 至少1000金币
+			change_influence = { value = monumental_influence_gain multiply = 4 }  # 大量影响力
+			#add_legitimacy = mandate_legitimacy_max  # 满正统性
+		# 家族获得巨额家族威望
+		dynasty = {
+			add_dynasty_prestige = excessive_dynasty_prestige_value
+		}
+		# 添加宣称天命专属修正（属性/效果加成）
+		add_character_modifier = claim_mandate_decision_modifier
+	}
+	# -----------------------------
+	# 8. 转换所有合格封臣为【天朝行政制】
+	# ------------------------------
+	custom_tooltip = {
+		text = claim_mandate_turn_vassal_celestial_desc  # UI提示文本
+		# 遍历所有下级封臣
+		every_vassal_or_below = {
+			limit = {
+				highest_held_title_tier >= tier_county  # 至少伯爵级
+				NOR = {  # 排除：共和制/神权制/无法封臣的政府
+					government_has_flag = government_is_republic
+					government_has_flag = government_is_theocracy
+					government_has_flag = cannot_be_vassal_or_liege
+				}
+				capital_province ?= {  # 领地类型合格
+					OR = {
+						has_holding_type = castle_holding
+						has_holding_type = city_holding
+						has_holding_type = temple_citadel_holding
+					}
+				}
+				is_ai = yes  # 仅AI
+			}
+
+			# 非天朝政府 → 转为天朝行政制
+			if = {
+				limit = {
+					NOT = { government_has_flag = government_is_celestial }
+				}
+				change_to_administrative_effect = yes
+			}
+
+			# 按爵位/年龄/属性给予才干值
+			change_merit = {
+				value = assign_merit_based_on_tier_value
+				add = { value = age multiply = 2 }
+				add = { value = sum_of_all_skills_value multiply = 2 }
+			}
+			assign_completed_exams_based_on_merit_effect = yes  # 自动科举
+		}
+	}
+}
+
+create_BenJi_story_effect = {#生成皇帝本纪
+    if = {
+        limit = {
+            NOT = { exists = story_BenJi }
+        }
+        save_scope_as = HUANGDI
+        create_story = story_BenJi
+        random_owned_story = {
+            type = story_BenJi
+            set_variable = {
+                name = huangdi_character
+                value = scope:HUANGDI
+            }
+        }
+    }
+}
+
+
+
+SanGong_Dengji_after_effect = {
+    if = {#登基修正继承法
+        limit = {
+            NOT = { has_title_law = SanGong_zongfa_succession_law }
+        }
+        add_realm_law_skip_effects = SanGong_zongfa_succession_law
+        #primary_title = {
+        #    hidden_effect = { clear_title_laws = yes }
+        #    add_title_law = SanGong_zongfa_succession_law
+        #}
+    }
+    if = {#登基征服者
+        limit = {
+            has_game_rule = HuangDi_KaiGuoZhengFuZhe_on
+            has_trait = SanGong_KaiGuo
+        }
+        add_trait = conqueror
+        create_story = story_conqueror
+    }
+    if = {#登基加冕
+        limit = {
+            has_game_rule = HuangDi_ZiDongJiaMian_on
+        }
+        if = {
+            limit = { highest_held_title_tier >= tier_empire }
+            add_realm_law = crowned_emperor
+        }
+        if = {
+            limit = { highest_held_title_tier = tier_kingdom }
+            add_realm_law = crowned_king
+        }
+    }
+    if = {#字辈登基改名
+        limit = {
+            SG_has_zibei_trigger = yes
+            has_game_rule = SanGong_ZiBeiGaiMing_dengji
+        }
+        trigger_event = { id = SanGong_Zongzu.014 days = 3 }
+    }
+    every_vassal_or_below = {#封臣通知登基
+		trigger_event = { id = SanGong_DianZhang.062 days = 7 }
+	}
+}
+
+
+
+
+
+
+
+
+Liangjia_xuanxiu_effect = {
+    create_xiunv_effect = yes
+    create_xiunv_effect = yes
+    create_xiunv_effect = yes
+    create_xiunv_effect = yes
+    create_xiunv_effect = yes
+    create_xiunv_effect = yes
+    create_xiunv_effect = yes
+    create_xiunv_effect = yes
+    create_xiunv_effect = yes
+    create_xiunv_effect = yes
+    create_xiunv_effect = yes
+    create_xiunv_effect = yes
+    create_xiunv_effect = yes
+    create_xiunv_effect = yes
+    create_xiunv_effect = yes
+    create_xiunv_effect = yes
+    create_xiunv_effect = yes
+    create_xiunv_effect = yes
+    create_xiunv_effect = yes
+    create_xiunv_effect = yes
+}
+
+MingMen_xuanxiu_effect = {
+    create_guinv_effect = yes
+    create_guinv_effect = yes
+    create_guinv_effect = yes
+    create_guinv_effect = yes
+    create_guinv_effect = yes
+    create_guinv_effect = yes
+    create_guinv_effect = yes
+    create_guinv_effect = yes
+    create_guinv_effect = yes
+    create_guinv_effect = yes
+    create_guinv_effect = yes
+    create_guinv_effect = yes
+    create_guinv_effect = yes
+    create_guinv_effect = yes
+    create_guinv_effect = yes
+    create_guinv_effect = yes
+    create_guinv_effect = yes
+    create_guinv_effect = yes
+    create_guinv_effect = yes
+    create_guinv_effect = yes
+}
+
+Dynasty_ChuJi = {
+    set_house = scope:zuzhang.house
+    remove_trait = SanGong_HuangSi
+    remove_gongtingtrait_effect = yes
+    remove_HuangZi_WangHao_effects = yes
+    remove_ZongWang_all_effect = yes
+}
+
+Dynasty_lowborn = {
+    set_house = scope:zuzhang.house
+    set_to_lowborn = yes
+	move_to_pool = yes
+    remove_trait = SanGong_HuangSi
+    remove_gongtingtrait_effect = yes
+    remove_HuangZi_WangHao_effects = yes
+    remove_ZongWang_all_effect = yes
+}
+
+
+TaiZiDongGong_effect = {#建立太子东宫头衔
+    hidden_effect = {
+        if = {
+            limit = {
+                NOT = { exists = global_var:SanGong_donggong_down }
+            }
+            scope:taizi.top_liege = {
+                save_scope_as = huangdi
+            }
+            if = {
+                limit = {
+                    scope:taizi.top_liege = { primary_title.tier = tier_hegemony }
+                }
+                scope:taizi.top_liege = { primary_title.tier = tier_hegemony }
+                create_dynamic_title = { tier = empire name = TaiZiDG }
+            }
+            else_if = {
+                limit = {
+                    scope:taizi.top_liege = { primary_title.tier = tier_empire }
+                }
+                create_dynamic_title = { tier = kingdom name = TaiZiDG }
+            }
+            else = {
+                limit = {
+                    scope:taizi.top_liege = { primary_title.tier = tier_kingdom }
+                }
+                create_dynamic_title = { tier = duchy name = TaiZiDG }
+            }
+
+            create_title_and_vassal_change = {
+                type = created
+                save_scope_as = change
+                add_claim_on_loss = no
+            }
+            # 配置刚创建的头衔全部属性
+            scope:new_title = {
+                set_coa = h_china
+                set_capital_county = scope:taizi.top_liege.capital_county
+                set_landless_title = yes
+                set_destroy_on_succession = yes
+                set_variable = { name = titular_title value = yes }
+                set_variable = SanGong_DongGong_title
+                #set_delete_on_destroy = yes # 头衔销毁后彻底清除存档数据，无残留
+                set_no_automatic_claims = yes
+                set_definitive_form = yes
+                set_can_be_named_after_dynasty = no
+                set_can_use_nomadic_naming = no
+                change_title_holder = {
+                    holder = scope:huangdi
+                    change = scope:change
+                }
+                set_variable = {
+                    name = taizidonggong
+                    value = scope:new_title
+                }
+            }
+            # 执行预定义的头衔变更操作，正式完成头衔发放逻辑
+            resolve_title_and_vassal_change = scope:change
+        }
+    }
+}
+
+TaiZiDongGong_after_effect = {#给予太子东宫头衔
+    if = {
+        limit = {
+            NOT = { exists = global_var:SanGong_donggong_down }
+        }
+        create_title_and_vassal_change = {
+            type = granted
+            save_scope_as = change
+            add_claim_on_loss = no
+        }
+        scope:new_title = {
+            change_title_holder = {
+                holder = scope:taizi
+                change = scope:change
+                take_baronies = no
+            }
+        }
+        resolve_title_and_vassal_change = scope:change
+
+        custom_tooltip = SanGong_DianZhang.016_taizidonggong
+    }
+
+}

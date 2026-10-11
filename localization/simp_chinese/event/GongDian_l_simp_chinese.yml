@@ -1,0 +1,440 @@
+﻿l_simp_chinese:
+
+
+# 后妃嘉号
+  # ========== 德品类 ==========
+  FengHao_xian: "贤"
+  FengHao_shu: "淑"
+  FengHao_de: "德"
+  FengHao_zhuang: "庄"
+  FengHao_hui: "惠"
+  FengHao_duan: "端"
+  FengHao_liang: "良"
+  FengHao_yi: "懿"
+  FengHao_shen: "慎"
+  FengHao_gong: "恭"
+  FengHao_jing: "敬"
+  FengHao_yong: "雍"
+  # ========== 祥瑞类 ==========
+  FengHao_an: "安"
+  FengHao_ning: "宁"
+  FengHao_he: "和"
+  FengHao_kang: "康"
+  FengHao_xiang: "祥"
+  FengHao_xi: "禧"
+  FengHao_fu: "福"
+  FengHao_shun: "顺"
+  FengHao_rui: "瑞"
+  FengHao_ji: "吉"
+  FengHao_qing: "庆"
+  FengHao_yia: "怡"
+
+  # ========== 娴静类 ==========
+  FengHao_xian2: "娴"
+  FengHao_jing2: "静"
+  FengHao_wan: "婉"
+  FengHao_rou: "柔"
+  FengHao_chun: "纯"
+  FengHao_tian: "恬"
+  FengHao_mu: "穆"
+  FengHao_qing2: "清"
+  FengHao_su: "素"
+  FengHao_shu2: "舒"
+  FengHao_wen: "温"
+  FengHao_ya: "雅"
+
+  # ========== 芳仪类 ==========
+  FengHao_fang: "芳"
+  FengHao_lan: "兰"
+  FengHao_zhen: "珍"
+  FengHao_yu: "玉"
+  FengHao_hua: "华"
+  FengHao_ying: "瑛"
+  FengHao_lin: "琳"
+  FengHao_shu3: "姝"
+  FengHao_yan: "妍"
+  FengHao_xin: "馨"
+  FengHao_qiong: "琼"
+  FengHao_yao: "瑶"
+
+  # ========== 才慧类 ==========
+  FengHao_hui2: "慧"
+  FengHao_wen2: "文"
+  FengHao_ling: "灵"
+  FengHao_ying2: "颖"
+  FengHao_zhi: "智"
+  FengHao_qiao: "巧"
+  FengHao_ming: "明"
+  FengHao_zhe: "哲"
+  FengHao_min: "敏"
+  FengHao_si: "思"
+  FengHao_da: "达"
+  FengHao_rui2: "睿"
+
+  # ========== 尊荣类 ==========
+  FengHao_rong: "荣"
+  FengHao_gui: "贵"
+  FengHao_chong: "崇"
+  FengHao_xian3: "显"
+  FengHao_xi2: "熙"
+  FengHao_long: "隆"
+  FengHao_chang: "昌"
+  FengHao_sheng: "盛"
+  FengHao_yao2: "耀"
+  FengHao_chen: "宸"
+  FengHao_xi3: "曦"
+  FengHao_hao: "昊"
+  FengHao_Xingshi: "[ROOT.GetDynastyHouseNameNoTooltip]"
+  set_chang_gongwei1: "皇后"
+  set_chang_gongwei2: "皇后"
+  set_chang_gongwei3: "贵妃"
+  set_chang_gongwei4: "妃"
+  set_chang_gongwei5: "嫔"
+  set_chang_gongwei6: "昭仪"#位份修改位置
+  set_chang_gongwei7: "美人"#位份修改位置
+  set_chang_gongwei8: "选侍"#位份修改位置
+  set_chang_gongwei9: "淑女"#位份修改位置
+
+
+
+
+#冷宫
+
+
+
+  LengGong_ChangMen_han: "长门宫"
+  LengGong_ZhaoTai_han: "昭台宫"
+  LengGong_YaoHua_han: "瑶华殿"
+  LengGong_ChangXin_han: "长信宫"
+  LengGong_AnLe_ming: "安乐堂"
+  LengGong_JingYang_ming: "景阳宫"
+  LengGong_JiaDao_ming: "安乐夹道"
+  LengGong_HuanYi_ming: "浣衣局"
+  LengGong_QianXiWuSuo_ming: "乾西五所"
+  LengGong_BeiSanSuo_qing: "北三所"
+  LengGong_ZhongCui_qing: "钟粹宫"
+  LengGong_QianXiWuSuo_qing: "乾西五所"
+  LengGong_ShouKangPianDian_qing: "寿康宫偏殿"
+  LengGong_YongHeLengYuan_qing: "永和宫冷院"
+  LengGong_ChuXiuPianYuan_qing: "储秀宫偏院"
+  LengGong_YanXiLengYuan_qing: "延禧宫冷院"
+  LengGong_JingRenLengShi_qing: "景仁宫冷室"
+  LengGong_ShangYang_tang: "上阳宫"
+  LengGong_PengLaiCeYuan_tang: "蓬莱宫侧院"
+### 东六宫
+  LiuGong_kunning: "#Y 坤宁宫#!"
+  LiuGong_dong_jingren: "#Y 景仁宫#!" # 妃子居住
+  LiuGong_dong_jingren_1: "#Y 景仁宫_东配殿#!" # 嫔、昭仪居住
+  LiuGong_dong_jingren_2: "#Y 景仁宫_西配殿#!" # 嫔、昭仪居住
+  LiuGong_dong_chengqian: "#Y 承乾宫#!" # 妃子居住
+  LiuGong_dong_chengqian_1: "#Y 承乾宫_东配殿#!" # 才人、选侍居住
+  LiuGong_dong_chengqian_2: "#Y 承乾宫_西配殿#!" # 才人、选侍居住
+  LiuGong_dong_zhongcui: "#Y 钟粹宫#!" # 妃子居住
+  LiuGong_dong_zhongcui_1: "#Y 钟粹宫_东配殿#!" # 嫔、昭仪居住
+  LiuGong_dong_zhongcui_2: "#Y 钟粹宫_西配殿#!" # 嫔、昭仪居住
+  LiuGong_dong_yonghe: "#Y 永和宫#!" # 妃子居住
+  LiuGong_dong_yonghe_1: "#Y 永和宫_东配殿#!" # 嫔级（协理宫务）居住
+  LiuGong_dong_yonghe_2: "#Y 永和宫_西配殿#!" # 嫔级（协理宫务）居住
+  LiuGong_dong_yanxi: "#Y 延禧宫#!" # 妃子居住
+  LiuGong_dong_yanxi_1: "#Y 延禧宫_东配殿#!" # 低阶才人、淑女居住
+  LiuGong_dong_yanxi_2: "#Y 延禧宫_西配殿#!" # 低阶才人、淑女居住
+  LiuGong_dong_jingyang: "#Y 景阳宫#!" # 妃子居住
+  LiuGong_dong_jingyang_1: "#Y 景阳宫_东配殿#!" # 无宠妃嫔、低位份侍妾居住
+  LiuGong_dong_jingyang_2: "#Y 景阳宫_西配殿#!" # 无宠妃嫔、低位份侍妾居住
+
+## 西六宫
+  LiuGong_xi_yongshou: "#Y 永寿宫#!" # 妃子居住
+  LiuGong_xi_yongshou_1: "#Y 永寿宫_东配殿#!" # 贵妃（侧居）居住
+  LiuGong_xi_yongshou_2: "#Y 永寿宫_西配殿#!" # 贵妃（侧居）居住
+  LiuGong_xi_yikun: "#Y 翊坤宫#!" # 妃子居住
+  LiuGong_xi_yikun_1: "#Y 翊坤宫_延洪殿#!" # 皇贵妃（协理六宫）居住
+  LiuGong_xi_yikun_2: "#Y 翊坤宫_元和殿#!" # 皇贵妃（协理六宫）居住
+  LiuGong_xi_chuxiu: "#Y 储秀宫#!" # 妃子居住
+  LiuGong_xi_chuxiu_1: "#Y 储秀宫_养和殿#!" # 妃级（主位协理）居住
+  LiuGong_xi_chuxiu_2: "#Y 储秀宫_绥福殿#!" # 妃级（主位协理）居住
+  LiuGong_xi_chuxiu_3: "#Y 储秀宫_丽景轩#!" # 妃级（主位协理）居住
+  LiuGong_xi_chuxiu_4: "#Y 储秀宫后院_凤光室#!" # 妃级（主位协理）居住
+  LiuGong_xi_chuxiu_5: "#Y 储秀宫后院_猗兰馆#!" # 妃级（主位协理）居住
+  LiuGong_xi_changchun: "#Y 长春宫#!" # 妃子居住
+  LiuGong_xi_changchun_1: "#Y 长春宫_绥寿殿#!" # 嫔、昭仪居住
+  LiuGong_xi_changchun_2: "#Y 长春宫_承禧殿#!" # 嫔、昭仪居住
+  LiuGong_xi_qixiang: "#Y 启祥宫#!" # 妃子居住
+  LiuGong_xi_qixiang_1: "#Y 启祥宫_东配殿#!" # 才人居住
+  LiuGong_xi_qixiang_2: "#Y 启祥宫_西配殿#!" # 才人居住
+  LiuGong_xi_xianfu: "#Y 咸福宫#!" # 妃子居住
+  LiuGong_xi_xianfu_1: "#Y 咸福宫_东配殿#!" # 选侍、淑女居住
+  LiuGong_xi_xianfu_2: "#Y 咸福宫_西配殿#!" # 选侍、淑女居住
+
+#皇太后、太妃宫
+  LiuGong_tai_cining: "#Y 慈宁宫#!" # 皇太后居住（嘉靖后太后正宫），亦供皇贵太妃居住
+  LiuGong_tai_cining_1: "#Y 慈宁宫_东配殿#!" # 太妃居住
+  LiuGong_tai_cining_2: "#Y 慈宁宫_西配殿#!" # 太妃居住
+  LiuGong_tai_shouan: "#Y 寿安宫#!" # 皇太后、太妃、嫔级太妃居住
+  LiuGong_tai_shouan_1: "#Y 寿安宫_东配殿#!" # 低位太妃居住
+  LiuGong_tai_shouan_2: "#Y 寿安宫_西配殿#!" # 低位太妃居住
+  LiuGong_tai_shouan_3: "#Y 寿安宫_福宜斋#!" # 太妃居住
+  LiuGong_tai_shouan_4: "#Y 寿安宫_萱寿堂#!" # 太妃居住
+  LiuGong_tai_ciqing: "#Y 慈庆宫#!" # 太皇太后、皇太后居住（嘉靖后太皇太后正宫），崇祯后改称端本宫（太子居所）
+  LiuGong_tai_ciqing_1: "#Y 慈庆宫_东配殿#!" # 太妃居住
+  LiuGong_tai_ciqing_2: "#Y 慈庆宫_西配殿#!" # 太妃居住
+  LiuGong_fall: "" # 太妃居住
+
+
+
+#出家寺庙
+  SiMiao_yaoguang: "#G 瑶光寺#!" # 北魏顶级皇家尼寺，孝文废后冯清、宣武皇后高氏、孝明皇后胡氏等废后出家终老
+  SiMiao_zhaoyi: "#G 昭仪尼寺#!" # 阉官所立皇家尼寺，安置妃嫔、贵女为尼
+  SiMiao_yongtai: "#G 永泰寺#!" # 原名明练寺，永泰公主出家地，亦有妃嫔修行
+  SiMiao_miaosheng: "#G 妙胜尼寺#!" # 北齐皇家尼寺，昭信皇后李祖娥、济南王妃李难胜等在此出家
+  SiMiao_wanshan: "#G 万善尼寺#!" # 北周静帝大象二年建，宣帝朱满月、陈月仪、元乐尚、尉迟炽繁四位皇后出家处
+  SiMiao_ganye: "#G 感业寺#!" # 长安禁苑皇家尼寺，唐太宗无子妃嫔出家地，武则天曾在此修行
+  SiMiao_deye: "#G 德业寺#!" # 禁内皇家尼寺，安置宫妃、公主、宫女，寺尼有官阶
+  SiMiao_shengshan: "#G 圣善寺#!" # 洛阳皇家寺院，杨玉环出家为女冠，法号太真
+  SiMiao_wangji: "#G 罔极寺#!" # 太平公主为母武则天所建，后妃可修行
+  SiMiao_yongzuo: "#G 永祚寺#!" # 双流皇家寺庙，唐僖宗姑母李永祚公主出家地
+  SiMiao_qingan: "#G 清安禅寺#!" # 辽阳皇家尼寺，贞懿皇后李氏（金世宗母）出家地，法号通慧圆明大师
+  SiMiao_lingyan: "#G 灵岩寺#!" # 千山灵岩寺，贞懿皇后曾在此静修多年
+  SiMiao_laoshantaiping: "#G 崂山太平宫#!" # 原名太平兴国院，南宋谢丽、谢安二妃出家后更名
+  SiMiao_laoshanbaifu: "#G 崂山百福庵#!" # 明末养艳姬、蔺婉玉二位宫廷嫔妃出家地，整理崂山道乐
+
+#宫婢女工作地方
+  GongBi_1: "#E 浣衣局#!"
+  GongBi_2: "#E 织室#!"
+  GongBi_3: "#E 针工局#!"
+  GongBi_4: "#E 尚衣局#!"
+  GongBi_5: "#E 膳房#!"
+  GongBi_6: "#E 茶房#!"
+  GongBi_7: "#E 酒醋面局#!"
+  GongBi_8: "#E 司苑局#!"
+  GongBi_9: "#E 柴炭局#!"
+  GongBi_10: "#E 洒扫房#!"
+  GongBi_11: "#E 器物库#!"
+  GongBi_12: "#E 浣染所#!"
+  GongBi_13: "#E 浆洗房#!"
+  GongBi_14: "#E 灯烛局#!"
+  GongBi_15: "#E 香烛局#!"
+  GongBi_16: "#E 役作所#!"
+#冷宫
+  DaruLengGong_1: "掖庭"
+  DaruLengGong_2: "长门宫"
+  DaruLengGong_3: "昭台宫"
+  DaruLengGong_4: "暴室"
+  DaruLengGong_5: "金墉城"
+  DaruLengGong_6: "上阳宫"
+  DaruLengGong_7: "景阳宫"
+  DaruLengGong_8: "乾西五所"
+  DaruLengGong_9: "安乐堂"
+  DaruLengGong_10: "北三所"
+
+#迁宫相关事件
+  SanGong_GongDian.005_title: "册封主位"
+  SanGong_JiaLi.available_palace_title: "谨遵内廷宫室规制，于东西六宫各宫院之中审慎择选吉和宜居之所，为其钦定相应宫室居所。\n循依内廷旧例备办宫中陈设、日用器用，整饬宫院以候移居。\n择取良辰吉日移居就位，入主所定宫室，安奉日常起居，以合宫闱规矩、顺内廷常制。\n"
+  SanGong_JiaLi.LiuGong_zhong_title: "\n#color_white #bold 中宫：#!#!"
+  SanGong_JiaLi.available_LiuGong_kunning: "\n#color_white #bold 【坤宁宫】#! #color_dark_gray 中宫正殿，尚虚主位#!"
+  SanGong_JiaLi.occupied_LiuGong_kunning:  "\n#color_yellow #bold 【坤宁宫】#! #color_white 主位：[LiuGong_kunning.Custom('GongWei_FengHao')][LiuGong_kunning.Custom('GongWei_name')]  [LiuGong_kunning.GetDynastyHouseNameNoTooltip]氏（[LiuGong_kunning.GetDynasty.GetBaseNameNoTooltip][LiuGong_kunning.GetUIFirstNameOnlyNotMeNoTooltip]）#!"
+
+  SanGong_JiaLi.LiuGong_dong_title: "\n#color_white #bold 东六宫：#!#!"
+  SanGong_JiaLi.available_LiuGong_dong_jingren: "\n#color_white 【景仁宫】#! #color_dark_gray 殿宇清闲 尚虚主位#!"
+  SanGong_JiaLi.available_LiuGong_dong_chengqian: "\n#color_white 【承乾宫】#! #color_dark_gray 殿宇清闲 尚虚主位#!"
+  SanGong_JiaLi.available_LiuGong_dong_zhongcui: "\n#color_white 【钟粹宫】#! #color_dark_gray 殿宇清闲 尚虚主位#!"
+  SanGong_JiaLi.available_LiuGong_dong_yonghe: "\n#color_white 【永和宫】#! #color_dark_gray 殿宇清闲 尚虚主位#!"
+  SanGong_JiaLi.available_LiuGong_dong_yanxi: "\n#color_white 【延禧宫】#! #color_dark_gray 殿宇清闲 尚虚主位#!"
+  SanGong_JiaLi.available_LiuGong_dong_jingyang: "\n#color_white 【景阳宫】#! #color_dark_gray 殿宇清闲 尚虚主位#!"
+  SanGong_JiaLi.occupied_LiuGong_dong_jingren:  "\n#color_yellow #bold 【景仁宫】#! #color_white 主位：[LiuGong_dong_jingren.Custom('GongWei_FengHao')][LiuGong_dong_jingren.Custom('GongWei_name')]  [LiuGong_dong_jingren.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_jingren.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_jingren.GetUIFirstNameOnlyNotMeNoTooltip]）#!"
+  SanGong_JiaLi.occupied_LiuGong_dong_chengqian: "\n#color_yellow #bold 【承乾宫】#! #color_white 主位：[LiuGong_dong_chengqian.Custom('GongWei_FengHao')][LiuGong_dong_chengqian.Custom('GongWei_name')]  [LiuGong_dong_chengqian.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_chengqian.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_chengqian.GetUIFirstNameOnlyNotMeNoTooltip]）#!"
+  SanGong_JiaLi.occupied_LiuGong_dong_zhongcui: "\n#color_yellow #bold 【钟粹宫】#! #color_white 主位：[LiuGong_dong_zhongcui.Custom('GongWei_FengHao')][LiuGong_dong_zhongcui.Custom('GongWei_name')]  [LiuGong_dong_zhongcui.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_zhongcui.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_zhongcui.GetUIFirstNameOnlyNotMeNoTooltip]）#!"
+  SanGong_JiaLi.occupied_LiuGong_dong_yonghe:  "\n#color_yellow #bold 【永和宫】#! #color_white 主位：[LiuGong_dong_yonghe.Custom('GongWei_FengHao')][LiuGong_dong_yonghe.Custom('GongWei_name')]  [LiuGong_dong_yonghe.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_yonghe.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_yonghe.GetUIFirstNameOnlyNotMeNoTooltip]）#!"
+  SanGong_JiaLi.occupied_LiuGong_dong_yanxi:   "\n#color_yellow #bold 【延禧宫】#! #color_white 主位：[LiuGong_dong_yanxi.Custom('GongWei_FengHao')][LiuGong_dong_yanxi.Custom('GongWei_name')]   [LiuGong_dong_yanxi.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_yanxi.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_yanxi.GetUIFirstNameOnlyNotMeNoTooltip]）#!"
+  SanGong_JiaLi.occupied_LiuGong_dong_jingyang: "\n#color_yellow #bold 【景阳宫】#! #color_white 主位：[LiuGong_dong_jingyang.Custom('GongWei_FengHao')][LiuGong_dong_jingyang.Custom('GongWei_name')]   [LiuGong_dong_jingyang.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_jingyang.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_jingyang.GetUIFirstNameOnlyNotMeNoTooltip]）#!"
+
+  SanGong_JiaLi.LiuGong_xi_title: "\n#color_white #bold 西六宫：#!#!"
+  SanGong_JiaLi.available_LiuGong_xi_yongshou: "\n#color_white 【永寿宫】#! #color_dark_gray 殿宇清闲 尚虚主位#!"
+  SanGong_JiaLi.available_LiuGong_xi_yikun: "\n#color_white 【翊坤宫】#! #color_dark_gray 殿宇清闲 尚虚主位#!"
+  SanGong_JiaLi.available_LiuGong_xi_chuxiu: "\n#color_white 【储秀宫】#! #color_dark_gray 殿宇清闲 尚虚主位#!"
+  SanGong_JiaLi.available_LiuGong_xi_changchun: "\n#color_white 【长春宫】#! #color_dark_gray 殿宇清闲 尚虚主位#!"
+  SanGong_JiaLi.available_LiuGong_xi_qixiang: "\n#color_white 【启祥宫】#! #color_dark_gray 殿宇清闲 尚虚主位#!"
+  SanGong_JiaLi.available_LiuGong_xi_xianfu: "\n#color_white 【咸福宫】#! #color_dark_gray 殿宇清闲 尚虚主位#!"
+
+  SanGong_JiaLi.occupied_LiuGong_xi_yongshou: "\n#color_yellow #bold 【永寿宫】#! #color_white 主位：[LiuGong_xi_yongshou.Custom('GongWei_FengHao')][LiuGong_xi_yongshou.Custom('GongWei_name')]  [LiuGong_xi_yongshou.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_yongshou.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_yongshou.GetUIFirstNameOnlyNotMeNoTooltip]）#!"
+  SanGong_JiaLi.occupied_LiuGong_xi_yikun: "\n#color_yellow #bold 【翊坤宫】#! #color_white 主位：[LiuGong_xi_yikun.Custom('GongWei_FengHao')][LiuGong_xi_yikun.Custom('GongWei_name')]  [LiuGong_xi_yikun.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_yikun.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_yikun.GetUIFirstNameOnlyNotMeNoTooltip]）#!"
+  SanGong_JiaLi.occupied_LiuGong_xi_chuxiu: "\n#color_yellow #bold 【储秀宫】#! #color_white 主位：[LiuGong_xi_chuxiu.Custom('GongWei_FengHao')][LiuGong_xi_chuxiu.Custom('GongWei_name')]  [LiuGong_xi_chuxiu.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_chuxiu.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_chuxiu.GetUIFirstNameOnlyNotMeNoTooltip]）#!"
+  SanGong_JiaLi.occupied_LiuGong_xi_changchun: "\n#color_yellow #bold 【长春宫】#! #color_white 主位：[LiuGong_xi_changchun.Custom('GongWei_FengHao')][LiuGong_xi_changchun.Custom('GongWei_name')]  [LiuGong_xi_changchun.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_changchun.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_changchun.GetUIFirstNameOnlyNotMeNoTooltip]）#!"
+  SanGong_JiaLi.occupied_LiuGong_xi_qixiang: "\n#color_yellow #bold 【启祥宫】#! #color_white 主位：[LiuGong_xi_qixiang.Custom('GongWei_FengHao')][LiuGong_xi_qixiang.Custom('GongWei_name')]  [LiuGong_xi_qixiang.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_qixiang.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_qixiang.GetUIFirstNameOnlyNotMeNoTooltip]）#!"
+  SanGong_JiaLi.occupied_LiuGong_xi_xianfu: "\n#color_yellow #bold 【咸福宫】#! #color_white 主位：[LiuGong_xi_xianfu.Custom('GongWei_FengHao')][LiuGong_xi_xianfu.Custom('GongWei_name')]  [LiuGong_xi_xianfu.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_xianfu.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_xianfu.GetUIFirstNameOnlyNotMeNoTooltip]）#!"
+  
+  SanGong_GongDian.005.a: "赐居#color_yellow #bold 【景仁宫】# #!#color_white 正殿，为景仁宫主位#!      #color_dark_gray 东六宫 #!"
+  SanGong_GongDian.005.b: "赐居#color_yellow #bold 【承乾宫】# #!#color_white 正殿，为承乾宫主位#!      #color_dark_gray 东六宫 #!"
+  SanGong_GongDian.005.c: "赐居#color_yellow #bold 【钟粹宫】# #!#color_white 正殿，为钟粹宫主位#!      #color_dark_gray 东六宫 #!"
+  SanGong_GongDian.005.d: "赐居#color_yellow #bold 【永和宫】# #!#color_white 正殿，为永和宫主位#!      #color_dark_gray 东六宫 #!"
+  SanGong_GongDian.005.e: "赐居#color_yellow #bold 【延禧宫】# #!#color_white 正殿，为延禧宫主位#!      #color_dark_gray 东六宫 #!"
+  SanGong_GongDian.005.f: "赐居#color_yellow #bold 【景阳宫】# #!#color_white 正殿，为景阳宫主位#!      #color_dark_gray 东六宫 #!"
+  SanGong_GongDian.005.g: "赐居#color_yellow #bold 【永寿宫】# #!#color_white 正殿，为永寿宫主位#!      #color_dark_gray 西六宫 #!"
+  SanGong_GongDian.005.h: "赐居#color_yellow #bold 【翊坤宫】# #!#color_white 正殿，为翊坤宫主位#!      #color_dark_gray 西六宫 #!"
+  SanGong_GongDian.005.i: "赐居#color_yellow #bold 【储秀宫】# #!#color_white 正殿，为储秀宫主位#!      #color_dark_gray 西六宫 #!"
+  SanGong_GongDian.005.j: "赐居#color_yellow #bold 【长春宫】# #!#color_white 正殿，为长春宫主位#!      #color_dark_gray 西六宫 #!"
+  SanGong_GongDian.005.k: "赐居#color_yellow #bold 【启祥宫】# #!#color_white 正殿，为启祥宫主位#!      #color_dark_gray 西六宫 #!"
+  SanGong_GongDian.005.l: "赐居#color_yellow #bold 【咸福宫】# #!#color_white 正殿，为咸福宫主位#!      #color_dark_gray 西六宫 #!"
+  SanGong_JiaLi.available_LiuGong_dong_jingren_1: "\n#color_goldy_yellow #bold 【景仁宫_东配殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.available_LiuGong_dong_jingren_2: "\n#color_goldy_yellow #bold 【景仁宫_西配殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.occupied_LiuGong_dong_jingren_1: "\n#color_goldy_yellow #bold 【景仁宫_东配殿】#! #color_white  [LiuGong_dong_jingren_1.Custom('GongWei_FengHao')][LiuGong_dong_jingren_1.Custom('GongWei_name')]  [LiuGong_dong_jingren_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_jingren_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_jingren_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.occupied_LiuGong_dong_jingren_2: "\n#color_goldy_yellow #bold 【景仁宫_西配殿】#! #color_white [LiuGong_dong_jingren_2.Custom('GongWei_FengHao')][LiuGong_dong_jingren_2.Custom('GongWei_name')]  [LiuGong_dong_jingren_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_jingren_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_jingren_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.available_LiuGong_dong_chengqian_1: "\n#color_goldy_yellow #bold 【承乾宫_东配殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.available_LiuGong_dong_chengqian_2: "\n#color_goldy_yellow #bold 【承乾宫_西配殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.occupied_LiuGong_dong_chengqian_1: "\n#color_goldy_yellow #bold 【承乾宫_东配殿】#! #color_white [LiuGong_dong_chengqian_1.Custom('GongWei_FengHao')][LiuGong_dong_chengqian_1.Custom('GongWei_name')]  [LiuGong_dong_chengqian_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_chengqian_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_chengqian_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.occupied_LiuGong_dong_chengqian_2: "\n#color_goldy_yellow #bold 【承乾宫_西配殿】#! #color_white [LiuGong_dong_chengqian_2.Custom('GongWei_FengHao')][LiuGong_dong_chengqian_2.Custom('GongWei_name')]  [LiuGong_dong_chengqian_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_chengqian_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_chengqian_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.available_LiuGong_dong_zhongcui_1: "\n#color_goldy_yellow #bold 【钟粹宫_东配殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.available_LiuGong_dong_zhongcui_2: "\n#color_goldy_yellow #bold 【钟粹宫_西配殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.occupied_LiuGong_dong_zhongcui_1: "\n#color_goldy_yellow #bold 【钟粹宫_东配殿】#! #color_white [LiuGong_dong_zhongcui_1.Custom('GongWei_FengHao')][LiuGong_dong_zhongcui_1.Custom('GongWei_name')]  [LiuGong_dong_zhongcui_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_zhongcui_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_zhongcui_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.occupied_LiuGong_dong_zhongcui_2: "\n#color_goldy_yellow #bold 【钟粹宫_西配殿】#! #color_white [LiuGong_dong_zhongcui_2.Custom('GongWei_FengHao')][LiuGong_dong_zhongcui_2.Custom('GongWei_name')]  [LiuGong_dong_zhongcui_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_zhongcui_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_zhongcui_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.available_LiuGong_dong_yonghe_1: "\n#color_goldy_yellow #bold 【永和宫_东配殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.available_LiuGong_dong_yonghe_2: "\n#color_goldy_yellow #bold 【永和宫_西配殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.occupied_LiuGong_dong_yonghe_1: "\n#color_goldy_yellow #bold 【永和宫_东配殿】#! #color_white [LiuGong_dong_yonghe_1.Custom('GongWei_FengHao')][LiuGong_dong_yonghe_1.Custom('GongWei_name')]  [LiuGong_dong_yonghe_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_yonghe_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_yonghe_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.occupied_LiuGong_dong_yonghe_2: "\n#color_goldy_yellow #bold 【永和宫_西配殿】#! #color_white [LiuGong_dong_yonghe_2.Custom('GongWei_FengHao')][LiuGong_dong_yonghe_2.Custom('GongWei_name')]  [LiuGong_dong_yonghe_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_yonghe_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_yonghe_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.available_LiuGong_dong_yanxi_1: "\n#color_goldy_yellow #bold 【延禧宫_东配殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.available_LiuGong_dong_yanxi_2: "\n#color_goldy_yellow #bold 【延禧宫_西配殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.occupied_LiuGong_dong_yanxi_1: "\n#color_goldy_yellow #bold 【延禧宫_东配殿】#! #color_white [LiuGong_dong_yanxi_1.Custom('GongWei_FengHao')][LiuGong_dong_yanxi_1.Custom('GongWei_name')]  [LiuGong_dong_yanxi_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_yanxi_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_yanxi_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.occupied_LiuGong_dong_yanxi_2: "\n#color_goldy_yellow #bold 【延禧宫_西配殿】#! #color_white [LiuGong_dong_yanxi_2.Custom('GongWei_FengHao')][LiuGong_dong_yanxi_2.Custom('GongWei_name')]  [LiuGong_dong_yanxi_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_yanxi_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_yanxi_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.available_LiuGong_dong_jingyang_1: "\n#color_goldy_yellow #bold 【景阳宫_东配殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.available_LiuGong_dong_jingyang_2: "\n#color_goldy_yellow #bold 【景阳宫_西配殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.occupied_LiuGong_dong_jingyang_1: "\n#color_goldy_yellow #bold 【景阳宫_东配殿】#! #color_white [LiuGong_dong_jingyang_1.Custom('GongWei_FengHao')][LiuGong_dong_jingyang_1.Custom('GongWei_name')]  [LiuGong_dong_jingyang_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_jingyang_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_jingyang_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.occupied_LiuGong_dong_jingyang_2: "\n#color_goldy_yellow #bold 【景阳宫_西配殿】#! #color_white [LiuGong_dong_jingyang_2.Custom('GongWei_FengHao')][LiuGong_dong_jingyang_2.Custom('GongWei_name')]  [LiuGong_dong_jingyang_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_jingyang_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_jingyang_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_GongDian.006_title: "赐居配殿"
+  SanGong_GongDian.006.a: "赐居#color_goldy_yellow #bold 【景仁宫_东配殿】#!      #color_dark_gray 东六宫景仁宫配殿 #!"
+  SanGong_GongDian.006.b: "赐居#color_goldy_yellow #bold 【景仁宫_西配殿】#!      #color_dark_gray 东六宫景仁宫配殿 #!"
+  SanGong_GongDian.006.c: "赐居#color_goldy_yellow #bold 【承乾宫_东配殿】#!      #color_dark_gray 东六宫承乾宫配殿 #!"
+  SanGong_GongDian.006.d: "赐居#color_goldy_yellow #bold 【承乾宫_西配殿】#!      #color_dark_gray 东六宫承乾宫配殿 #!"
+  SanGong_GongDian.006.e: "赐居#color_goldy_yellow #bold 【钟粹宫_东配殿】#!      #color_dark_gray 东六宫钟粹宫配殿 #!"
+  SanGong_GongDian.006.f: "赐居#color_goldy_yellow #bold 【钟粹宫_西配殿】#!      #color_dark_gray 东六宫钟粹宫配殿 #!"
+  SanGong_GongDian.006.g: "赐居#color_goldy_yellow #bold 【永和宫_东配殿】#!      #color_dark_gray 东六宫永和宫配殿 #!"
+  SanGong_GongDian.006.h: "赐居#color_goldy_yellow #bold 【永和宫_西配殿】#!      #color_dark_gray 东六宫永和宫配殿 #!"
+  SanGong_GongDian.006.i: "赐居#color_goldy_yellow #bold 【延禧宫_东配殿】#!      #color_dark_gray 东六宫延禧宫配殿 #!"
+  SanGong_GongDian.006.j: "赐居#color_goldy_yellow #bold 【延禧宫_西配殿】#!      #color_dark_gray 东六宫延禧宫配殿 #!"
+  SanGong_GongDian.006.k: "赐居#color_goldy_yellow #bold 【景阳宫_东配殿】#!      #color_dark_gray 东六宫景阳宫配殿 #!"
+  SanGong_GongDian.006.l: "赐居#color_goldy_yellow #bold 【景阳宫_西配殿】#!      #color_dark_gray 东六宫景阳宫配殿 #!"
+  SanGong_GongDian.006.tooltip_a: "#color_dark_gray Tips:明永乐十八年建，初名长安宫，嘉靖年间更名景仁宫，东配殿为宫人侍值、起居辅殿；清顺治重修，孝康章皇后居此时，此殿为贴身宫人值宿之所，亦供宫眷休憩。#!"
+  SanGong_GongDian.006.tooltip_b: "#color_dark_gray Tips:明代为景仁宫辅殿，专供妃嫔女红、休憩之用；清乾隆朝令贵妃居此宫时，常于西配殿教导宫人教养，为宫眷习礼、针线之所。#!"
+  SanGong_GongDian.006.tooltip_c: "#color_dark_gray Tips:明永乐始建，初名永宁宫，崇祯年间更名承乾宫，东配殿为高位妃嫔礼佛、抄经之所；清顺治重修，孝献皇后董鄂氏居此时，于此静心礼佛、抄写经文。#!"
+  SanGong_GongDian.006.tooltip_d: "#color_dark_gray Tips:明代为承乾宫配殿，专司存放妃嫔服饰、器物，配套主殿起居；清道光朝孝全成皇后曾于此临时御见臣妇，亦为宫装、首饰储物辅殿。#!"
+  SanGong_GongDian.006.tooltip_e: "#color_dark_gray Tips:明永乐建，初名咸阳宫，嘉靖更名钟粹宫，曾作太子东宫辅殿、宫人值房；清咸丰朝慈安太后居此时，东配殿为宫人侍疾轮值之所，供皇后起居配套。#!"
+  SanGong_GongDian.006.tooltip_f: "#color_dark_gray Tips:明代为太子读书、典藏典籍之处，后改为妃嫔辅殿；清同治朝慈安太后常于此阅览经卷、教导同治帝读书，殿内珍藏宫廷典籍书画。#!"
+  SanGong_GongDian.006.tooltip_g: "#color_dark_gray Tips:明永乐十八年建，初名永安宫，嘉靖更名永和宫，东配殿为妃嫔文墨、书房之所；清光绪朝瑾妃居此时，于此研墨作画，存放笔墨纸砚等文房器具。#!"
+  SanGong_GongDian.006.tooltip_h: "#color_dark_gray Tips:明代为永和宫配殿，供膳食备办、宫人杂役值守；清光绪朝瑾妃喜研饮食，于此督造宫廷点心，为宫内小膳房、饮食备办之所。#!"
+  SanGong_GongDian.006.tooltip_i: "#color_dark_gray Tips:明永乐建，初名长寿宫，嘉靖改延祺宫，清定名延禧宫，东配殿为低位妃嫔、宫人居住；清道光朝恬嫔于此养病，屡经火患重修，为延禧宫保存较完整的配殿。#!"
+  SanGong_GongDian.006.tooltip_j: "#color_dark_gray Tips:明代为延禧宫杂役值房、储物之所，因宫位偏僻少用；清光绪朝珍妃居此时，将西配殿改为存放西洋器物、奇巧小物的储物室，一改旧用。#!"
+  SanGong_GongDian.006.tooltip_k: "#color_dark_gray Tips:明永乐建，初名长阳宫，嘉靖更名景阳宫，为妃嫔静居、侍从办公辅殿；清康熙重修后，改为宫廷刻本、古籍藏书室，极少安排宫眷居住。#!"
+  SanGong_GongDian.006.tooltip_l: "#color_dark_gray Tips:明代为景阳宫宫人、太监值房，因宫址偏僻，多为无宠宫人暂住；清沿为守宫太监值房，环境清静，常作为无宠嫔御临时居住之所。#!"
+  SanGong_GongDian.007_title: "赐居配殿"
+  SanGong_JiaLi.available_LiuGong_xi_yongshou_1: "\n#color_goldy_yellow #bold 【永寿宫_东配殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.available_LiuGong_xi_yongshou_2: "\n#color_goldy_yellow #bold 【永寿宫_西配殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.occupied_LiuGong_xi_yongshou_1: "\n#color_goldy_yellow #bold 【永寿宫_东配殿】#! #color_white  [LiuGong_xi_yongshou_1.Custom('GongWei_FengHao')][LiuGong_xi_yongshou_1.Custom('GongWei_name')]  [LiuGong_xi_yongshou_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_yongshou_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_yongshou_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.occupied_LiuGong_xi_yongshou_2: "\n#color_goldy_yellow #bold 【永寿宫_西配殿】#! #color_white [LiuGong_xi_yongshou_2.Custom('GongWei_FengHao')][LiuGong_xi_yongshou_2.Custom('GongWei_name')]  [LiuGong_xi_yongshou_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_yongshou_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_yongshou_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.available_LiuGong_xi_yikun_1: "\n#color_goldy_yellow #bold 【翊坤宫_延洪殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.available_LiuGong_xi_yikun_2: "\n#color_goldy_yellow #bold 【翊坤宫_元和殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.occupied_LiuGong_xi_yikun_1: "\n#color_goldy_yellow #bold 【翊坤宫_延洪殿】#! #color_white  [LiuGong_xi_yikun_1.Custom('GongWei_FengHao')][LiuGong_xi_yikun_1.Custom('GongWei_name')]  [LiuGong_xi_yikun_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_yikun_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_yikun_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.occupied_LiuGong_xi_yikun_2: "\n#color_goldy_yellow #bold 【翊坤宫_元和殿】#! #color_white [LiuGong_xi_yikun_2.Custom('GongWei_FengHao')][LiuGong_xi_yikun_2.Custom('GongWei_name')]  [LiuGong_xi_yikun_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_yikun_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_yikun_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.available_LiuGong_xi_chuxiu_1: "\n#color_goldy_yellow #bold 【储秀宫_养和殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.available_LiuGong_xi_chuxiu_2: "\n#color_goldy_yellow #bold 【储秀宫_绥福殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.occupied_LiuGong_xi_chuxiu_1: "\n#color_goldy_yellow #bold 【储秀宫_养和殿】#! #color_white  [LiuGong_xi_chuxiu_1.Custom('GongWei_FengHao')][LiuGong_xi_chuxiu_1.Custom('GongWei_name')]  [LiuGong_xi_chuxiu_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_chuxiu_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_chuxiu_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.occupied_LiuGong_xi_chuxiu_2: "\n#color_goldy_yellow #bold 【储秀宫_绥福殿】#! #color_white [LiuGong_xi_chuxiu_2.Custom('GongWei_FengHao')][LiuGong_xi_chuxiu_2.Custom('GongWei_name')]  [LiuGong_xi_chuxiu_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_chuxiu_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_chuxiu_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.available_LiuGong_xi_changchun_1: "\n#color_goldy_yellow #bold 【长春宫_绥寿殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.available_LiuGong_xi_changchun_2: "\n#color_goldy_yellow #bold 【长春宫_承禧殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.occupied_LiuGong_xi_changchun_1: "\n#color_goldy_yellow #bold 【长春宫_绥寿殿】#! #color_white  [LiuGong_xi_changchun_1.Custom('GongWei_FengHao')][LiuGong_xi_changchun_1.Custom('GongWei_name')]  [LiuGong_xi_changchun_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_changchun_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_changchun_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.occupied_LiuGong_xi_changchun_2: "\n#color_goldy_yellow #bold 【长春宫_承禧殿】#! #color_white [LiuGong_xi_changchun_2.Custom('GongWei_FengHao')][LiuGong_xi_changchun_2.Custom('GongWei_name')]  [LiuGong_xi_changchun_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_changchun_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_changchun_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.available_LiuGong_xi_qixiang_1: "\n#color_goldy_yellow #bold 【启祥宫_东配殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.available_LiuGong_xi_qixiang_2: "\n#color_goldy_yellow #bold 【启祥宫_西配殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.occupied_LiuGong_xi_qixiang_1: "\n#color_goldy_yellow #bold 【启祥宫_东配殿】#! #color_white  [LiuGong_xi_qixiang_1.Custom('GongWei_FengHao')][LiuGong_xi_qixiang_1.Custom('GongWei_name')]  [LiuGong_xi_qixiang_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_qixiang_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_qixiang_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.occupied_LiuGong_xi_qixiang_2: "\n#color_goldy_yellow #bold 【启祥宫_西配殿】#! #color_white [LiuGong_xi_qixiang_2.Custom('GongWei_FengHao')][LiuGong_xi_qixiang_2.Custom('GongWei_name')]  [LiuGong_xi_qixiang_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_qixiang_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_qixiang_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.available_LiuGong_xi_xianfu_1: "\n#color_goldy_yellow #bold 【咸福宫_东配殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.available_LiuGong_xi_xianfu_2: "\n#color_goldy_yellow #bold 【咸福宫_西配殿】#! #color_dark_gray 偏殿清闲 尚虚侧居#!"
+  SanGong_JiaLi.occupied_LiuGong_xi_xianfu_1: "\n#color_goldy_yellow #bold 【咸福宫_东配殿】#! #color_white  [LiuGong_xi_xianfu_1.Custom('GongWei_FengHao')][LiuGong_xi_xianfu_1.Custom('GongWei_name')]  [LiuGong_xi_xianfu_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_xianfu_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_xianfu_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_JiaLi.occupied_LiuGong_xi_xianfu_2: "\n#color_goldy_yellow #bold 【咸福宫_西配殿】#! #color_white [LiuGong_xi_xianfu_2.Custom('GongWei_FengHao')][LiuGong_xi_xianfu_2.Custom('GongWei_name')]  [LiuGong_xi_xianfu_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_xianfu_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_xianfu_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!侧居在此"
+  SanGong_GongDian.007.a: "赐居#color_goldy_yellow #bold 【永寿宫_东配殿】#!      #color_dark_gray 西六宫永寿宫配殿 #!"
+  SanGong_GongDian.007.b: "赐居#color_goldy_yellow #bold 【永寿宫_西配殿】#!      #color_dark_gray 西六宫永寿宫配殿 #!"
+  SanGong_GongDian.007.c: "赐居#color_goldy_yellow #bold 【翊坤宫_延洪殿】#!      #color_dark_gray 西六宫翊坤宫配殿 #!"
+  SanGong_GongDian.007.d: "赐居#color_goldy_yellow #bold 【翊坤宫_元和殿】#!      #color_dark_gray 西六宫翊坤宫配殿 #!"
+  SanGong_GongDian.007.e: "赐居#color_goldy_yellow #bold 【储秀宫_养和殿】#!      #color_dark_gray 西六宫储秀宫配殿 #!"
+  SanGong_GongDian.007.f: "赐居#color_goldy_yellow #bold 【储秀宫_绥福殿】#!      #color_dark_gray 西六宫储秀宫配殿 #!"
+  SanGong_GongDian.007.g: "赐居#color_goldy_yellow #bold 【咸福宫_东配殿】#!      #color_dark_gray 西六宫咸福宫配殿 #!"
+  SanGong_GongDian.007.h: "赐居#color_goldy_yellow #bold 【咸福宫_西配殿】#!      #color_dark_gray 西六宫咸福宫配殿 #!"
+  SanGong_GongDian.007.i: "赐居#color_goldy_yellow #bold 【长春宫_绥寿殿】#!      #color_dark_gray 西六宫长春宫配殿 #!"
+  SanGong_GongDian.007.j: "赐居#color_goldy_yellow #bold 【长春宫_承禧殿】#!      #color_dark_gray 西六宫长春宫配殿 #!"
+  SanGong_GongDian.007.k: "赐居#color_goldy_yellow #bold 【启祥宫_东配殿】#!      #color_dark_gray 西六宫启祥宫配殿 #!"
+  SanGong_GongDian.007.l: "赐居#color_goldy_yellow #bold 【启祥宫_西配殿】#!      #color_dark_gray 西六宫启祥宫配殿 #!"
+  SanGong_GongDian.007.tooltip_c: "#color_dark_gray 明万历建翊坤宫延洪殿，初为妃嫔接见亲眷之所；清乾隆重修，令懿皇贵妃（孝仪纯皇后）居翊坤宫时，于此处理宫务、接见宫眷。#!"
+  SanGong_GongDian.007.tooltip_d: "#color_dark_gray 明代翊坤宫元和殿为存放珍宝、首饰之所；清同治朝懿贵妃（慈禧）居翊坤宫时，于此存放私房器物、召见心腹太监。#!"
+  SanGong_GongDian.007.tooltip_e: "#color_dark_gray 明崇祯建储秀宫养和殿，为妃嫔静养、安胎之所；清咸丰朝兰昭仪（慈禧）居储秀宫时，于此诞下同治帝，后改为纪念性辅殿。#!"
+  SanGong_GongDian.007.tooltip_f: "#color_dark_gray 明代储秀宫绥福殿为女红、制衣之所；清光绪朝珍妃居储秀宫时，于此研习西学、存放西洋钟表等物。#!"
+  SanGong_GongDian.007.tooltip_g: "#color_dark_gray 明嘉靖建咸福宫东配殿，为低位妃嫔居住之所；清道光朝彤贵妃居咸福宫时，于此教导宫中宫女读书、识字。#!"
+  SanGong_GongDian.007.tooltip_h: "#color_dark_gray 明代咸福宫西配殿为膳房、茶房之所；清光绪朝瑾妃居咸福宫时，于此督造宫廷茶点，喜研茶道，常邀姐妹品茶小聚。#!"
+  SanGong_GongDian.007.tooltip_i: "#color_dark_gray 明永乐建长春宫绥寿殿，为妃嫔礼佛、抄经之所；清乾隆朝孝贤纯皇后居长春宫时，于此抄写佛经、祈福延寿。#!"
+  SanGong_GongDian.007.tooltip_j: "#color_dark_gray 明代长春宫承禧殿为接待赏赐、领受恩旨之所；清同治朝慈安太后居长春宫时，于此接受妃嫔请安、颁下懿旨。#!"
+  SanGong_GongDian.007.tooltip_k: "#color_dark_gray 明永乐建启祥宫，初名未央宫，东配殿为宫人值宿之所；清康熙重修，此殿为无宠嫔御临时居住、避世静养之地。#!"
+  SanGong_JiaLi.014.tooltip_l: "#color_dark_gray 明代启祥宫西配殿为存放典籍、书画之所；清乾隆朝将其改为太监值房，因启祥宫位置偏僻，少有人至，常年清静。#!"
+
+  SanGong_GongDian.020_desc: "朕惟宫闱之制，所以辨等威、正名分也。[recipient.Custom('GongWei_name')][recipient.GetDynastyHouseNameNoTooltip]氏淑慎端良，久侍禁闱，今当钦定寝宫，俾得安居，以顺六宫之序，以固内廷之宁。其择吉所安置，毋违礼制。"
+  SanGong_GongDian.020_title: "移居新宫"
+  SanGong_GongDian.020_title_3: " 奉旨腾宫"
+  SanGong_GongDian.020_desc_2: "#v 朕惟六宫居所，轮替有章，原宫另属，宜徙新址。[recipient.Custom('GongWei_name')][recipient.GetDynastyHouseNameNoTooltip]氏既出旧宫，当另择寝宫安插，钦命迁居别所，顺承内廷之序，恪遵礼制毋违。#!"
+  SanGong_GongDian.020.a: "迁入正宫   #color_dark_gray （东六宫） #!"
+  SanGong_GongDian.020.b: "迁入正宫   #color_dark_gray （西六宫） #!"
+  SanGong_GongDian.020.c: "   驻跸配殿   #color_dark_gray （东六宫配殿） #!"
+  SanGong_GongDian.020.d: "   驻跸配殿   #color_dark_gray （西六宫配殿） #!"
+  SanGong_GongDian_020_t1: "#color_dark_gray 主宫正殿为妃位以上高位嫔妃所居，殿宇崇宏、礼制森严，依位份配属宫人、器物、俸禄，以别尊卑、明等级，乃后宫位望尊崇之象征。#!"
+  SanGong_GongDian_020_t2: "#color_dark_gray 东六宫为后宫常制居所，侧殿多安置位阶稍次者，规制略降于主宫，院落规整、居处清雅，一应供给皆循内廷旧例，合于六宫次序。#!"
+  SanGong_GongDian_020_t3: "#color_dark_gray 西六宫同属内廷常制，侧殿规制与东六宫相仿，位份、用度、侍从皆依典章定例，静谧宜居，用以安处嫔妃、整肃宫闱秩序。#!"
+  SanGong_GongDian.021_desc: "朕惟宫闱之制，秩崇则居崇，升降自有常典。[recipient.Custom('GongWei_name')][recipient.GetDynastyHouseNameNoTooltip]氏晋膺新秩，淑慎有加，宜更定寝宫以崇其位，辨等威、正名分，顺六宫之序，安内廷之规。其择吉徙居，恪遵礼制。"
+  SanGong_GongDian.021_title: "晋秩迁居"
+  SanGong_GongDian.021.a: "迁入主宫   # color_dark_gray 东六宫 #!"
+  SanGong_GongDian.021.b: "迁入主宫   #color_dark_gray 西六宫 #!"
+  SanGong_GongDian.021.c: "安置于配殿   #color_dark_gray 东六宫配殿 #!"
+  SanGong_GongDian.021.d: "安置于配殿   #color_dark_gray 西六宫配殿 #!"
+  SanGong_GongDian.022_desc: "朕惟宫闱名分，位降则居徙，法度昭然。[recipient.Custom('GongWei_name')][recipient.GetDynastyHouseNameNoTooltip]氏既降旧秩，宜更居所以守规制、自省愆尤。今徙居次等宫室，顺六宫之序，安内廷之宁。其如期移徙，毋得违滞。"
+  SanGong_GongDian.022_title: "降秩徙居"
+  SanGong_GongDian.022.a: "徙居别宫"
+  SanGong_GongDian.022.b: "徙居东六宫偏殿居所"
+  SanGong_GongDian.022.c: "徙居西六宫偏殿居所"
+  SanGong_GongDian.023_desc: "朕惟宫闱规制，殿宇各有攸归，位次宜循典章。今因定省攸宜、分位更定，[recipient.Custom('GongWei_name')][recipient.GetDynastyHouseNameNoTooltip]氏着即迁出原居，另择宫室安插，以肃禁闱之序、正宫掖之规。其即刻移徙，毋得迟滞。"
+  SanGong_GongDian.023_title: "腾宫迁出"
+  SanGong_GongDian.023.a: "徙居别宫主殿"
+  SanGong_GongDian.023.b: "徙居东六宫偏殿居所"
+  SanGong_GongDian.023.c: "徙居西六宫偏殿居所"
+  GongDian_youzhu_dong_jingren: "#v 【景仁宫】已经有主#!#color_white \n[LiuGong_dong_jingren.Custom('GongWei_FengHao')][LiuGong_dong_jingren.Custom('GongWei_name')]  [LiuGong_dong_jingren.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_jingren.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_jingren.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_dong_jingren_1: "#v 【景仁宫_东配殿】已经有主#!#color_white \n[LiuGong_dong_jingren_1.Custom('GongWei_FengHao')][LiuGong_dong_jingren_1.Custom('GongWei_name')]  [LiuGong_dong_jingren_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_jingren_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_jingren_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_dong_jingren_2: "#v 【景仁宫_西配殿】已经有主#!#color_white \n[LiuGong_dong_jingren_2.Custom('GongWei_FengHao')][LiuGong_dong_jingren_2.Custom('GongWei_name')]  [LiuGong_dong_jingren_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_jingren_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_jingren_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_dong_chengqian: "#v 【承乾宫】已经有主#!#color_white \n[LiuGong_dong_chengqian.Custom('GongWei_FengHao')][LiuGong_dong_chengqian.Custom('GongWei_name')]  [LiuGong_dong_chengqian.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_chengqian.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_chengqian.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_dong_chengqian_1: "#v 【承乾宫_东配殿】已经有主#!#color_white \n[LiuGong_dong_chengqian_1.Custom('GongWei_FengHao')][LiuGong_dong_chengqian_1.Custom('GongWei_name')]  [LiuGong_dong_chengqian_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_chengqian_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_chengqian_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_dong_chengqian_2: "#v 【承乾宫_西配殿】已经有主#!#color_white \n[LiuGong_dong_chengqian_2.Custom('GongWei_FengHao')][LiuGong_dong_chengqian_2.Custom('GongWei_name')]  [LiuGong_dong_chengqian_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_chengqian_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_chengqian_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_dong_zhongcui: "#v 【钟粹宫】已经有主#!#color_white \n[LiuGong_dong_zhongcui.Custom('GongWei_FengHao')][LiuGong_dong_zhongcui.Custom('GongWei_name')]  [LiuGong_dong_zhongcui.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_zhongcui.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_zhongcui.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_dong_zhongcui_1: "#v 【钟粹宫_东配殿】已经有主#!#color_white \n[LiuGong_dong_zhongcui_1.Custom('GongWei_FengHao')][LiuGong_dong_zhongcui_1.Custom('GongWei_name')]  [LiuGong_dong_zhongcui_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_zhongcui_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_zhongcui_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_dong_zhongcui_2: "#v 【钟粹宫_西配殿】已经有主#!#color_white \n[LiuGong_dong_zhongcui_2.Custom('GongWei_FengHao')][LiuGong_dong_zhongcui_2.Custom('GongWei_name')]  [LiuGong_dong_zhongcui_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_zhongcui_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_zhongcui_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_dong_yonghe: "#v 【永和宫】已经有主#!#color_white \n[LiuGong_dong_yonghe.Custom('GongWei_FengHao')][LiuGong_dong_yonghe.Custom('GongWei_name')]  [LiuGong_dong_yonghe.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_yonghe.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_yonghe.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_dong_yonghe_1: "#v 【永和宫_东配殿】已经有主#!#color_white \n[LiuGong_dong_yonghe_1.Custom('GongWei_FengHao')][LiuGong_dong_yonghe_1.Custom('GongWei_name')]  [LiuGong_dong_yonghe_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_yonghe_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_yonghe_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_dong_yonghe_2: "#v 【永和宫_西配殿】已经有主#!#color_white \n[LiuGong_dong_yonghe_2.Custom('GongWei_FengHao')][LiuGong_dong_yonghe_2.Custom('GongWei_name')]  [LiuGong_dong_yonghe_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_yonghe_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_yonghe_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_dong_yanxi: "#v 【延禧宫】已经有主#!#color_white \n[LiuGong_dong_yanxi.Custom('GongWei_FengHao')][LiuGong_dong_yanxi.Custom('GongWei_name')]  [LiuGong_dong_yanxi.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_yanxi.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_yanxi.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_dong_yanxi_1: "#v 【延禧宫_东配殿】已经有主#!#color_white \n[LiuGong_dong_yanxi_1.Custom('GongWei_FengHao')][LiuGong_dong_yanxi_1.Custom('GongWei_name')]  [LiuGong_dong_yanxi_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_yanxi_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_yanxi_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_dong_yanxi_2: "#v 【延禧宫_西配殿】已经有主#!#color_white \n[LiuGong_dong_yanxi_2.Custom('GongWei_FengHao')][LiuGong_dong_yanxi_2.Custom('GongWei_name')]  [LiuGong_dong_yanxi_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_yanxi_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_yanxi_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_dong_jingyang: "#v 【景阳宫】已经有主#!#color_white \n[LiuGong_dong_jingyang.Custom('GongWei_FengHao')][LiuGong_dong_jingyang.Custom('GongWei_name')]  [LiuGong_dong_jingyang.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_jingyang.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_jingyang.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_dong_jingyang_1: "#v 【景阳宫_东配殿】已经有主#!#color_white \n[LiuGong_dong_jingyang_1.Custom('GongWei_FengHao')][LiuGong_dong_jingyang_1.Custom('GongWei_name')]  [LiuGong_dong_jingyang_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_jingyang_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_jingyang_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_dong_jingyang_2: "#v 【景阳宫_西配殿】已经有主#!#color_white \n[LiuGong_dong_jingyang_2.Custom('GongWei_FengHao')][LiuGong_dong_jingyang_2.Custom('GongWei_name')]  [LiuGong_dong_jingyang_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_dong_jingyang_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_dong_jingyang_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_yongshou: "#v 【永寿宫】已经有主#!#color_white \n[LiuGong_xi_yongshou.Custom('GongWei_FengHao')][LiuGong_xi_yongshou.Custom('GongWei_name')]  [LiuGong_xi_yongshou.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_yongshou.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_yongshou.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_yongshou_1: "#v 【永寿宫_东配殿】已经有主#!#color_white \n[LiuGong_xi_yongshou_1.Custom('GongWei_FengHao')][LiuGong_xi_yongshou_1.Custom('GongWei_name')]  [LiuGong_xi_yongshou_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_yongshou_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_yongshou_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_yongshou_2: "#v 【永寿宫_西配殿】已经有主#!#color_white \n[LiuGong_xi_yongshou_2.Custom('GongWei_FengHao')][LiuGong_xi_yongshou_2.Custom('GongWei_name')]  [LiuGong_xi_yongshou_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_yongshou_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_yongshou_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_yikun: "#v 【翊坤宫】已经有主#!#color_white \n[LiuGong_xi_yikun.Custom('GongWei_FengHao')][LiuGong_xi_yikun.Custom('GongWei_name')]  [LiuGong_xi_yikun.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_yikun.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_yikun.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_yikun_1: "#v 【翊坤宫_延洪殿】已经有主#!#color_white \n[LiuGong_xi_yikun_1.Custom('GongWei_FengHao')][LiuGong_xi_yikun_1.Custom('GongWei_name')]  [LiuGong_xi_yikun_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_yikun_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_yikun_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_yikun_2: "#v 【翊坤宫_元和殿】已经有主#!#color_white \n[LiuGong_xi_yikun_2.Custom('GongWei_FengHao')][LiuGong_xi_yikun_2.Custom('GongWei_name')]  [LiuGong_xi_yikun_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_yikun_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_yikun_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_chuxiu: "#v 【储秀宫】已经有主#!#color_white \n[LiuGong_xi_chuxiu.Custom('GongWei_FengHao')][LiuGong_xi_chuxiu.Custom('GongWei_name')]  [LiuGong_xi_chuxiu.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_chuxiu.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_chuxiu.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_chuxiu_1: "#v 【储秀宫_养和殿】已经有主#!#color_white \n[LiuGong_xi_chuxiu_1.Custom('GongWei_FengHao')][LiuGong_xi_chuxiu_1.Custom('GongWei_name')]  [LiuGong_xi_chuxiu_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_chuxiu_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_chuxiu_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_chuxiu_2: "#v 【储秀宫_绥福殿】已经有主#!#color_white \n[LiuGong_xi_chuxiu_2.Custom('GongWei_FengHao')][LiuGong_xi_chuxiu_2.Custom('GongWei_name')]  [LiuGong_xi_chuxiu_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_chuxiu_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_chuxiu_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_chuxiu_3: "#v 【储秀宫_丽景轩】已经有主#!#color_white \n[LiuGong_xi_chuxiu_3.Custom('GongWei_FengHao')][LiuGong_xi_chuxiu_3.Custom('GongWei_name')]  [LiuGong_xi_chuxiu_3.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_chuxiu_3.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_chuxiu_3.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_chuxiu_4: "#v 【储秀宫后院_凤光室】已经有主#!#color_white \n[LiuGong_xi_chuxiu_4.Custom('GongWei_FengHao')][LiuGong_xi_chuxiu_4.Custom('GongWei_name')]  [LiuGong_xi_chuxiu_4.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_chuxiu_4.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_chuxiu_4.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_chuxiu_5: "#v 【储秀宫后院_猗兰馆】已经有主#!#color_white \n[LiuGong_xi_chuxiu_5.Custom('GongWei_FengHao')][LiuGong_xi_chuxiu_5.Custom('GongWei_name')]  [LiuGong_xi_chuxiu_5.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_chuxiu_5.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_chuxiu_5.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_changchun: "#v 【长春宫】已经有主#!#color_white \n[LiuGong_xi_changchun.Custom('GongWei_FengHao')][LiuGong_xi_changchun.Custom('GongWei_name')]  [LiuGong_xi_changchun.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_changchun.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_changchun.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_changchun_1: "#v 【长春宫_绥寿殿】已经有主#!#color_white \n[LiuGong_xi_changchun_1.Custom('GongWei_FengHao')][LiuGong_xi_changchun_1.Custom('GongWei_name')]  [LiuGong_xi_changchun_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_changchun_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_changchun_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_changchun_2: "#v 【长春宫_承禧殿】已经有主#!#color_white \n[LiuGong_xi_changchun_2.Custom('GongWei_FengHao')][LiuGong_xi_changchun_2.Custom('GongWei_name')]  [LiuGong_xi_changchun_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_changchun_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_changchun_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_qixiang: "#v 【启祥宫】已经有主#!#color_white \n[LiuGong_xi_qixiang.Custom('GongWei_FengHao')][LiuGong_xi_qixiang.Custom('GongWei_name')]  [LiuGong_xi_qixiang.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_qixiang.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_qixiang.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_qixiang_1: "#v 【启祥宫_东配殿】已经有主#!#color_white \n[LiuGong_xi_qixiang_1.Custom('GongWei_FengHao')][LiuGong_xi_qixiang_1.Custom('GongWei_name')]  [LiuGong_xi_qixiang_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_qixiang_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_qixiang_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_qixiang_2: "#v 【启祥宫_西配殿】已经有主#!#color_white \n[LiuGong_xi_qixiang_2.Custom('GongWei_FengHao')][LiuGong_xi_qixiang_2.Custom('GongWei_name')]  [LiuGong_xi_qixiang_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_qixiang_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_qixiang_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_xianfu: "#v 【咸福宫】已经有主#!#color_white \n[LiuGong_xi_xianfu.Custom('GongWei_FengHao')][LiuGong_xi_xianfu.Custom('GongWei_name')]  [LiuGong_xi_xianfu.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_xianfu.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_xianfu.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_xianfu_1: "#v 【咸福宫_东配殿】已经有主#!#color_white \n[LiuGong_xi_xianfu_1.Custom('GongWei_FengHao')][LiuGong_xi_xianfu_1.Custom('GongWei_name')]  [LiuGong_xi_xianfu_1.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_xianfu_1.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_xianfu_1.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_xi_xianfu_2: "#v 【咸福宫_西配殿】已经有主#!#color_white \n[LiuGong_xi_xianfu_2.Custom('GongWei_FengHao')][LiuGong_xi_xianfu_2.Custom('GongWei_name')]  [LiuGong_xi_xianfu_2.GetDynastyHouseNameNoTooltip]氏（[LiuGong_xi_xianfu_2.GetDynasty.GetBaseNameNoTooltip][LiuGong_xi_xianfu_2.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"
+  GongDian_youzhu_LiuGong_kunning: "#v 【坤宁宫】已经有主#!#color_white \n[LiuGong_kunning.Custom('GongWei_FengHao')][LiuGong_kunning.Custom('GongWei_name')]  [LiuGong_kunning.GetDynastyHouseNameNoTooltip]氏（[LiuGong_kunning.GetDynasty.GetBaseNameNoTooltip][LiuGong_kunning.GetUIFirstNameOnlyNotMeNoTooltip]）#!#v  将会腾宫迁居#!"

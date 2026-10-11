@@ -1,0 +1,173 @@
+﻿# 宗室八等爵位体系的下级衍生爵位。
+# 亲王、郡王和皇太子仍由原 mod 定义；本文件只定义从镇国将军到奉国中尉。
+# 爵位之间的互斥由 SanGong_ZongShi_rank_effects.txt 统一维护，避免直接 add_trait 造成并存。
+
+SanGong_ZongShi_ZhenGuoJiangJun = { # 镇国将军
+    good = yes
+    category = fame
+    icon = SanGong_Juewei.dds
+    shown_in_ruler_designer = no
+    random_creation_weight = 0
+    monthly_prestige = 6.0
+    monthly_influence = 3.0
+    monthly_income = 6.0
+    desc = trait_SanGong_ZongShi_ZhenGuoJiangJun_desc
+}
+
+SanGong_ZongShi_FuGuoJiangJun = { # 辅国将军
+    good = yes
+    category = fame
+    icon = SanGong_Juewei.dds
+    shown_in_ruler_designer = no
+    random_creation_weight = 0
+    monthly_prestige = 5.0
+    monthly_influence = 2.5
+    monthly_income = 5.0
+    desc = trait_SanGong_ZongShi_FuGuoJiangJun_desc
+}
+
+SanGong_ZongShi_FengGuoJiangJun = { # 奉国将军
+    good = yes
+    category = fame
+    icon = SanGong_Juewei.dds
+    shown_in_ruler_designer = no
+    random_creation_weight = 0
+    monthly_prestige = 4.0
+    monthly_influence = 2.0
+    monthly_income = 4.0
+    desc = trait_SanGong_ZongShi_FengGuoJiangJun_desc
+}
+
+SanGong_ZongShi_ZhenGuoZhongWei = { # 镇国中尉
+    good = yes
+    category = fame
+    icon = SanGong_Juewei.dds
+    shown_in_ruler_designer = no
+    random_creation_weight = 0
+    monthly_prestige = 3.0
+    monthly_influence = 1.5
+    monthly_income = 3.0
+    desc = trait_SanGong_ZongShi_ZhenGuoZhongWei_desc
+}
+
+SanGong_ZongShi_FuGuoZhongWei = { # 辅国中尉
+    good = yes
+    category = fame
+    icon = SanGong_Juewei.dds
+    shown_in_ruler_designer = no
+    random_creation_weight = 0
+    monthly_prestige = 2.0
+    monthly_influence = 1.0
+    monthly_income = 2.0
+    desc = trait_SanGong_ZongShi_FuGuoZhongWei_desc
+}
+
+SanGong_ZongShi_FengGuoZhongWei = { # 奉国中尉
+    good = yes
+    category = fame
+    icon = SanGong_Juewei.dds
+    shown_in_ruler_designer = no
+    random_creation_weight = 0
+    monthly_prestige = 1.0
+    monthly_influence = 0.5
+    monthly_income = 1.0
+    desc = trait_SanGong_ZongShi_FengGuoZhongWei_desc
+}
+
+# 继承人身份与正式爵位分离：世子/长子按普通兄弟应得的下一级发放数值，
+# 父爵死亡时再由继承效果将其提升为正式爵位。
+SanGong_ZongShi_FanWangShiZi = { # 亲王世子，等同镇国将军
+    good = yes
+    category = fame
+    icon = SanGong_Juewei.dds
+    shown_in_ruler_designer = no
+    random_creation_weight = 0
+    monthly_prestige = 6.0
+    monthly_influence = 3.0
+    monthly_income = 6.0
+    desc = trait_SanGong_ZongShi_FanWangShiZi_desc
+}
+
+SanGong_ZongShi_JunWangShiZi = { # 郡王世子，等同镇国将军
+    good = yes
+    category = fame
+    icon = SanGong_Juewei.dds
+    shown_in_ruler_designer = no
+    random_creation_weight = 0
+    monthly_prestige = 6.0
+    monthly_influence = 3.0
+    monthly_income = 6.0
+    desc = trait_SanGong_ZongShi_JunWangShiZi_desc
+}
+
+SanGong_ZongShi_ZhenGuoJiangJunZhangZi = { # 镇国将军长子，等同辅国将军
+    good = yes
+    category = fame
+    icon = SanGong_Juewei.dds
+    shown_in_ruler_designer = no
+    random_creation_weight = 0
+    monthly_prestige = 5.0
+    monthly_influence = 2.5
+    monthly_income = 5.0
+    desc = trait_SanGong_ZongShi_ZhenGuoJiangJunZhangZi_desc
+}
+
+SanGong_ZongShi_FuGuoJiangJunZhangZi = { # 辅国将军长子，等同奉国将军
+    good = yes
+    category = fame
+    icon = SanGong_Juewei.dds
+    shown_in_ruler_designer = no
+    random_creation_weight = 0
+    monthly_prestige = 4.0
+    monthly_influence = 2.0
+    monthly_income = 4.0
+    desc = trait_SanGong_ZongShi_FuGuoJiangJunZhangZi_desc
+}
+
+SanGong_ZongShi_FengGuoJiangJunZhangZi = { # 奉国将军长子，等同镇国中尉
+    good = yes
+    category = fame
+    icon = SanGong_Juewei.dds
+    shown_in_ruler_designer = no
+    random_creation_weight = 0
+    monthly_prestige = 3.0
+    monthly_influence = 1.5
+    monthly_income = 3.0
+    desc = trait_SanGong_ZongShi_FengGuoJiangJunZhangZi_desc
+}
+
+SanGong_ZongShi_ZhenGuoZhongWeiZhangZi = { # 镇国中尉长子，等同辅国中尉
+    good = yes
+    category = fame
+    icon = SanGong_Juewei.dds
+    shown_in_ruler_designer = no
+    random_creation_weight = 0
+    monthly_prestige = 2.0
+    monthly_influence = 1.0
+    monthly_income = 2.0
+    desc = trait_SanGong_ZongShi_ZhenGuoZhongWeiZhangZi_desc
+}
+
+SanGong_ZongShi_FuGuoZhongWeiZhangZi = { # 辅国中尉长子，等同奉国中尉
+    good = yes
+    category = fame
+    icon = SanGong_Juewei.dds
+    shown_in_ruler_designer = no
+    random_creation_weight = 0
+    monthly_prestige = 1.0
+    monthly_influence = 0.5
+    monthly_income = 1.0
+    desc = trait_SanGong_ZongShi_FuGuoZhongWeiZhangZi_desc
+}
+
+SanGong_ZongShi_FengGuoZhongWeiZhangZi = { # 奉国中尉长子，终级同等
+    good = yes
+    category = fame
+    icon = SanGong_Juewei.dds
+    shown_in_ruler_designer = no
+    random_creation_weight = 0
+    monthly_prestige = 1.0
+    monthly_influence = 0.5
+    monthly_income = 1.0
+    desc = trait_SanGong_ZongShi_FengGuoZhongWeiZhangZi_desc
+}

@@ -1,0 +1,171 @@
+﻿GongWei_name = {
+    type = character
+    text = { trigger = { has_trait = SanGong_GongWei_1 } localization_key = SanGong_GongWei_1 }
+    text = { trigger = { has_trait = SanGong_GongWei_2 } localization_key = SanGong_GongWei_2 }
+    text = { trigger = { has_trait = SanGong_GongWei_3 } localization_key = SanGong_GongWei_3 }
+    text = { trigger = { has_trait = SanGong_GongWei_4 } localization_key = SanGong_GongWei_4 }
+    text = { trigger = { has_trait = SanGong_GongWei_5 } localization_key = SanGong_GongWei_5 }
+    text = { trigger = { has_trait = SanGong_GongWei_6 } localization_key = SanGong_GongWei_6 }
+    text = { trigger = { has_trait = SanGong_GongWei_7 } localization_key = SanGong_GongWei_7 }
+    text = { trigger = { has_trait = SanGong_GongWei_8 } localization_key = SanGong_GongWei_8 }
+    text = { trigger = { has_trait = SanGong_GongWei_9 } localization_key = SanGong_GongWei_9 }
+    text = { trigger = { has_trait = SanGong_GongWei_10 } localization_key = SanGong_GongWei_10 }
+    text = { trigger = { has_trait = SanGong_GongWei_11 } localization_key = SanGong_GongWei_11 }
+    text = { trigger = { has_trait = SanGong_GongWei_12 } localization_key = SanGong_GongWei_12 }
+    text = { trigger = { has_trait = SanGong_GongWei_13 } localization_key = SanGong_GongWei_13 }
+    text = { trigger = { has_trait = SanGong_GongWei_14 } localization_key = SanGong_GongWei_14 }
+    text = { trigger = { has_trait = SanGong_Taihou } localization_key = SanGong_Taihou }
+    text = { trigger = { has_trait = SanGong_TaiHuangTaihou } localization_key = SanGong_TaiHuangTaihou }
+    text = { fallback = yes localization_key = SanGong_GongWei_name_fallback }
+}
+
+
+HuangDi_miaohao = {
+    type = character
+    text = { trigger = { has_trait = SanGong_miaohao_zdy } localization_key = SanGong_miaohao_zdy }
+    text = { trigger = { has_trait = SanGong_miaohao_01 } localization_key = SanGong_miaohao_01 }
+    text = { trigger = { has_trait = SanGong_miaohao_02 } localization_key = SanGong_miaohao_02 }
+    text = { trigger = { has_trait = SanGong_miaohao_03 } localization_key = SanGong_miaohao_03 }
+    text = { trigger = { has_trait = SanGong_miaohao_04 } localization_key = SanGong_miaohao_04 }
+    text = { trigger = { has_trait = SanGong_miaohao_05 } localization_key = SanGong_miaohao_05 }
+    text = { trigger = { has_trait = SanGong_miaohao_06 } localization_key = SanGong_miaohao_06 }
+    text = { trigger = { has_trait = SanGong_miaohao_07 } localization_key = SanGong_miaohao_07 }
+    text = { trigger = { has_trait = SanGong_miaohao_08 } localization_key = SanGong_miaohao_08 }
+    text = { trigger = { has_trait = SanGong_miaohao_09 } localization_key = SanGong_miaohao_09 }
+    text = { trigger = { has_trait = SanGong_miaohao_10 } localization_key = SanGong_miaohao_10 }
+    text = { trigger = { has_trait = SanGong_miaohao_11 } localization_key = SanGong_miaohao_11 }
+    text = { trigger = { has_trait = SanGong_miaohao_12 } localization_key = SanGong_miaohao_12 }
+    text = { trigger = { has_trait = SanGong_miaohao_13 } localization_key = SanGong_miaohao_13 }
+    text = { trigger = { has_trait = SanGong_miaohao_14 } localization_key = SanGong_miaohao_14 }
+    text = { trigger = { has_trait = SanGong_miaohao_15 } localization_key = SanGong_miaohao_15 }
+    text = { trigger = { has_trait = SanGong_miaohao_16 } localization_key = SanGong_miaohao_16 }
+    text = { trigger = { has_trait = SanGong_miaohao_17 } localization_key = SanGong_miaohao_17 }
+    text = { trigger = { has_trait = SanGong_miaohao_18 } localization_key = SanGong_miaohao_18 }
+    text = { trigger = { has_trait = SanGong_miaohao_19 } localization_key = SanGong_miaohao_19 }
+    text = { trigger = { has_trait = SanGong_miaohao_20 } localization_key = SanGong_miaohao_20 }
+    text = { trigger = { has_trait = SanGong_miaohao_21 } localization_key = SanGong_miaohao_21 }
+    text = { trigger = { has_trait = SanGong_miaohao_22 } localization_key = SanGong_miaohao_22 }
+    text = { trigger = { has_trait = SanGong_miaohao_23 } localization_key = SanGong_miaohao_23 }
+    text = { trigger = { has_trait = SanGong_miaohao_24 } localization_key = SanGong_miaohao_24 }
+    text = { trigger = { has_trait = SanGong_miaohao_25 } localization_key = SanGong_miaohao_25 }
+    text = { trigger = { has_trait = SanGong_miaohao_26 } localization_key = SanGong_miaohao_26 }
+    text = { trigger = { has_trait = SanGong_miaohao_27 } localization_key = SanGong_miaohao_27 }
+    text = { trigger = { has_trait = SanGong_miaohao_28 } localization_key = SanGong_miaohao_28 }
+    text = { trigger = { has_trait = SanGong_miaohao_29 } localization_key = SanGong_miaohao_29 }
+    text = { trigger = { has_trait = SanGong_miaohao_30 } localization_key = SanGong_miaohao_30 }
+    text = { trigger = { has_trait = SanGong_miaohao_31 } localization_key = SanGong_miaohao_31 }
+    text = { trigger = { has_trait = SanGong_miaohao_32 } localization_key = SanGong_miaohao_32 }
+    text = { trigger = { has_trait = SanGong_miaohao_33 } localization_key = SanGong_miaohao_33 }
+    text = { trigger = { has_trait = SanGong_miaohao_34 } localization_key = SanGong_miaohao_34 }
+    text = { trigger = { has_trait = SanGong_miaohao_35 } localization_key = SanGong_miaohao_35 }
+    text = { trigger = { has_trait = SanGong_miaohao_36 } localization_key = SanGong_miaohao_36 }
+    text = { trigger = { has_trait = SanGong_miaohao_37 } localization_key = SanGong_miaohao_37 }
+    text = { trigger = { has_trait = SanGong_miaohao_38 } localization_key = SanGong_miaohao_38 }
+    text = { trigger = { has_trait = SanGong_miaohao_39 } localization_key = SanGong_miaohao_39 }
+    text = { trigger = { has_trait = SanGong_miaohao_40 } localization_key = SanGong_miaohao_40 }
+    text = { trigger = { has_trait = SanGong_miaohao_41 } localization_key = SanGong_miaohao_41 }
+    text = { trigger = { has_trait = SanGong_miaohao_42 } localization_key = SanGong_miaohao_42 }
+    text = { trigger = { has_trait = SanGong_miaohao_43 } localization_key = SanGong_miaohao_43 }
+    text = { trigger = { has_trait = SanGong_miaohao_44 } localization_key = SanGong_miaohao_44 }
+    text = { trigger = { has_trait = SanGong_miaohao_45 } localization_key = SanGong_miaohao_45 }
+    text = { trigger = { has_trait = SanGong_miaohao_46 } localization_key = SanGong_miaohao_46 }
+    text = { trigger = { has_trait = SanGong_miaohao_47 } localization_key = SanGong_miaohao_47 }
+    text = { trigger = { has_trait = SanGong_miaohao_48 } localization_key = SanGong_miaohao_48 }
+    text = { trigger = { has_trait = SanGong_miaohao_49 } localization_key = SanGong_miaohao_49 }
+    text = { trigger = { has_trait = SanGong_miaohao_50 } localization_key = SanGong_miaohao_50 }
+    text = { trigger = { has_trait = SanGong_miaohao_51 } localization_key = SanGong_miaohao_51 }
+    text = { trigger = { has_trait = SanGong_miaohao_52 } localization_key = SanGong_miaohao_52 }
+    text = { trigger = { has_trait = SanGong_miaohao_53 } localization_key = SanGong_miaohao_53 }
+    text = { trigger = { has_trait = SanGong_miaohao_54 } localization_key = SanGong_miaohao_54 }
+    text = { trigger = { has_trait = SanGong_miaohao_55 } localization_key = SanGong_miaohao_55 }
+    text = { trigger = { has_trait = SanGong_miaohao_56 } localization_key = SanGong_miaohao_56 }
+    text = { trigger = { has_trait = SanGong_miaohao_57 } localization_key = SanGong_miaohao_57 }
+    text = { trigger = { has_trait = SanGong_miaohao_58 } localization_key = SanGong_miaohao_58 }
+    text = { trigger = { has_trait = SanGong_miaohao_59 } localization_key = SanGong_miaohao_59 }
+    text = { trigger = { has_trait = SanGong_miaohao_60 } localization_key = SanGong_miaohao_60 }
+    text = { trigger = { has_trait = SanGong_miaohao_61 } localization_key = SanGong_miaohao_61 }
+    text = { trigger = { has_trait = SanGong_miaohao_62 } localization_key = SanGong_miaohao_62 }
+    text = { trigger = { has_trait = SanGong_miaohao_63 } localization_key = SanGong_miaohao_63 }
+    text = { trigger = { has_trait = SanGong_miaohao_64 } localization_key = SanGong_miaohao_64 }
+    text = { trigger = { has_trait = SanGong_miaohao_65 } localization_key = SanGong_miaohao_65 }
+    text = { trigger = { has_trait = SanGong_miaohao_66 } localization_key = SanGong_miaohao_66 }
+    text = { trigger = { has_trait = SanGong_miaohao_67 } localization_key = SanGong_miaohao_67 }
+    text = { trigger = { has_trait = SanGong_miaohao_68 } localization_key = SanGong_miaohao_68 }
+    text = { trigger = { has_trait = SanGong_miaohao_69 } localization_key = SanGong_miaohao_69 }
+    text = { trigger = { has_trait = SanGong_miaohao_70 } localization_key = SanGong_miaohao_70 }
+    text = { trigger = { has_trait = SanGong_miaohao_71 } localization_key = SanGong_miaohao_71 }
+    text = { trigger = { has_trait = SanGong_miaohao_72 } localization_key = SanGong_miaohao_72 }
+    text = { trigger = { has_trait = SanGong_miaohao_73 } localization_key = SanGong_miaohao_73 }
+    text = { trigger = { has_trait = SanGong_miaohao_74 } localization_key = SanGong_miaohao_74 }
+    text = { trigger = { has_trait = SanGong_miaohao_75 } localization_key = SanGong_miaohao_75 }
+    text = { trigger = { has_trait = SanGong_miaohao_76 } localization_key = SanGong_miaohao_76 }
+    text = { trigger = { has_trait = SanGong_miaohao_77 } localization_key = SanGong_miaohao_77 }
+    text = { trigger = { has_trait = SanGong_miaohao_78 } localization_key = SanGong_miaohao_78 }
+    text = { trigger = { has_trait = SanGong_miaohao_79 } localization_key = SanGong_miaohao_79 }
+    text = { trigger = { has_trait = SanGong_miaohao_80 } localization_key = SanGong_miaohao_80 }
+    text = { trigger = { has_trait = SanGong_miaohao_81 } localization_key = SanGong_miaohao_81 }
+    text = { trigger = { has_trait = SanGong_miaohao_82 } localization_key = SanGong_miaohao_82 }
+    text = { trigger = { has_trait = SanGong_miaohao_83 } localization_key = SanGong_miaohao_83 }
+    text = { trigger = { has_trait = SanGong_miaohao_84 } localization_key = SanGong_miaohao_84 }
+    text = { trigger = { has_trait = SanGong_miaohao_85 } localization_key = SanGong_miaohao_85 }
+    text = { trigger = { has_trait = SanGong_miaohao_86 } localization_key = SanGong_miaohao_86 }
+    text = { trigger = { has_trait = SanGong_miaohao_87 } localization_key = SanGong_miaohao_87 }
+    text = { trigger = { has_trait = SanGong_miaohao_88 } localization_key = SanGong_miaohao_88 }
+    text = { trigger = { has_trait = SanGong_miaohao_89 } localization_key = SanGong_miaohao_89 }
+    text = { trigger = { has_trait = SanGong_miaohao_90 } localization_key = SanGong_miaohao_90 }
+    text = { trigger = { has_trait = SanGong_miaohao_91 } localization_key = SanGong_miaohao_91 }
+    text = { trigger = { has_trait = SanGong_miaohao_92 } localization_key = SanGong_miaohao_92 }
+    text = { trigger = { has_trait = SanGong_miaohao_93 } localization_key = SanGong_miaohao_93 }
+    text = { trigger = { has_trait = SanGong_miaohao_94 } localization_key = SanGong_miaohao_94 }
+    text = { trigger = { has_trait = SanGong_miaohao_95 } localization_key = SanGong_miaohao_95 }
+    text = { trigger = { has_trait = SanGong_miaohao_96 } localization_key = SanGong_miaohao_96 }
+    text = { trigger = { has_trait = SanGong_miaohao_97 } localization_key = SanGong_miaohao_97 }
+    text = { trigger = { has_trait = SanGong_miaohao_98 } localization_key = SanGong_miaohao_98 }
+    text = { trigger = { has_trait = SanGong_miaohao_99 } localization_key = SanGong_miaohao_99 }
+    text = { trigger = { has_trait = SanGong_miaohao_100 } localization_key = SanGong_miaohao_100 }
+}
+
+
+ErWangSanKe = {
+    text = { trigger = { OR = { has_character_flag = Feidi_anlegong has_dead_character_variable = Feidi_anlegong } } localization_key = Feidi_anlegong }
+    text = { trigger = { OR = { has_character_flag = Feidi_guiyigong has_dead_character_variable = Feidi_guiyigong } } localization_key = Feidi_guiyigong }
+    text = { trigger = { OR = { has_character_flag = Feidi_huaidegong has_dead_character_variable = Feidi_huaidegong } } localization_key = Feidi_huaidegong }
+    text = { trigger = { OR = { has_character_flag = Feidi_shunzhenggong has_dead_character_variable = Feidi_shunzhenggong } } localization_key = Feidi_shunzhenggong }
+    text = { trigger = { OR = { has_character_flag = Feidi_qinshungong has_dead_character_variable = Feidi_qinshungong } } localization_key = Feidi_qinshungong }
+    text = { trigger = { OR = { has_character_flag = Feidi_baodegong has_dead_character_variable = Feidi_baodegong } } localization_key = Feidi_baodegong }
+    text = { trigger = { OR = { has_character_flag = Feidi_jiangong has_dead_character_variable = Feidi_jiangong } } localization_key = Feidi_jiangong }
+    text = { trigger = { OR = { has_character_flag = Feidi_fengchenggong has_dead_character_variable = Feidi_fengchenggong } } localization_key = Feidi_fengchenggong }
+    text = { trigger = { OR = { has_character_flag = Feidi_muyigong has_dead_character_variable = Feidi_muyigong } } localization_key = Feidi_muyigong }
+    text = { trigger = { OR = { has_character_flag = Feidi_ningjigong has_dead_character_variable = Feidi_ningjigong } } localization_key = Feidi_ningjigong }
+    text = { trigger = { OR = { has_character_flag = Feidi_hundegong has_dead_character_variable = Feidi_hundegong } } localization_key = Feidi_hundegong }
+    text = { trigger = { OR = { has_character_flag = Feidi_huangzonggong has_dead_character_variable = Feidi_huangzonggong } } localization_key = Feidi_huangzonggong }
+    text = { trigger = { OR = { has_character_flag = Feidi_mimiugong has_dead_character_variable = Feidi_mimiugong } } localization_key = Feidi_mimiugong }
+    text = { trigger = { OR = { has_character_flag = Feidi_jiaobaogong has_dead_character_variable = Feidi_jiaobaogong } } localization_key = Feidi_jiaobaogong }
+    text = { trigger = { OR = { has_character_flag = Feidi_beimangong has_dead_character_variable = Feidi_beimangong } } localization_key = Feidi_beimangong }
+    text = { trigger = { OR = { has_character_flag = Feidi_qingwugong has_dead_character_variable = Feidi_qingwugong } } localization_key = Feidi_qingwugong }
+    text = { trigger = { OR = { has_character_flag = Feidi_qidegong has_dead_character_variable = Feidi_qidegong } } localization_key = Feidi_qidegong }
+    text = { trigger = { OR = { has_character_flag = Feidi_shidaogong has_dead_character_variable = Feidi_shidaogong } } localization_key = Feidi_shidaogong }
+    text = { trigger = { OR = { has_character_flag = Feidi_manminggong has_dead_character_variable = Feidi_manminggong } } localization_key = Feidi_manminggong }
+    text = { trigger = { OR = { has_character_flag = Feidi_beidegong has_dead_character_variable = Feidi_beidegong } } localization_key = Feidi_beidegong }
+    text = { trigger = { OR = { has_character_flag = Feidi_guiminghou has_dead_character_variable = Feidi_guiminghou } } localization_key = Feidi_guiminghou }
+    text = { trigger = { OR = { has_character_flag = Feidi_shunhuahou has_dead_character_variable = Feidi_shunhuahou } } localization_key = Feidi_shunhuahou }
+    text = { trigger = { OR = { has_character_flag = Feidi_huaininghou has_dead_character_variable = Feidi_huaininghou } } localization_key = Feidi_huaininghou }
+    text = { trigger = { OR = { has_character_flag = Feidi_anyuanhou has_dead_character_variable = Feidi_anyuanhou } } localization_key = Feidi_anyuanhou }
+    text = { trigger = { OR = { has_character_flag = Feidi_mudehou has_dead_character_variable = Feidi_mudehou } } localization_key = Feidi_mudehou }
+    text = { trigger = { OR = { has_character_flag = Feidi_fengyihou has_dead_character_variable = Feidi_fengyihou } } localization_key = Feidi_fengyihou }
+    text = { trigger = { OR = { has_character_flag = Feidi_huairenhou has_dead_character_variable = Feidi_huairenhou } } localization_key = Feidi_huairenhou }
+    text = { trigger = { OR = { has_character_flag = Feidi_ningbianhou has_dead_character_variable = Feidi_ningbianhou } } localization_key = Feidi_ningbianhou }
+    text = { trigger = { OR = { has_character_flag = Feidi_baoyihou has_dead_character_variable = Feidi_baoyihou } } localization_key = Feidi_baoyihou }
+    text = { trigger = { OR = { has_character_flag = Feidi_guishunhou has_dead_character_variable = Feidi_guishunhou } } localization_key = Feidi_guishunhou }
+    text = { trigger = { OR = { has_character_flag = Feidi_weiminghou has_dead_character_variable = Feidi_weiminghou } } localization_key = Feidi_weiminghou }
+    text = { trigger = { OR = { has_character_flag = Feidi_zhonghunhou has_dead_character_variable = Feidi_zhonghunhou } } localization_key = Feidi_zhonghunhou }
+    text = { trigger = { OR = { has_character_flag = Feidi_haichunhou has_dead_character_variable = Feidi_haichunhou } } localization_key = Feidi_haichunhou }
+    text = { trigger = { OR = { has_character_flag = Feidi_fudehou has_dead_character_variable = Feidi_fudehou } } localization_key = Feidi_fudehou }
+    text = { trigger = { OR = { has_character_flag = Feidi_beiyihou has_dead_character_variable = Feidi_beiyihou } } localization_key = Feidi_beiyihou }
+    text = { trigger = { OR = { has_character_flag = Feidi_manshanghou has_dead_character_variable = Feidi_manshanghou } } localization_key = Feidi_manshanghou }
+    text = { trigger = { OR = { has_character_flag = Feidi_shizhonghou has_dead_character_variable = Feidi_shizhonghou } } localization_key = Feidi_shizhonghou }
+    text = { trigger = { OR = { has_character_flag = Feidi_kuangbeihou has_dead_character_variable = Feidi_kuangbeihou } } localization_key = Feidi_kuangbeihou }
+    text = { trigger = { OR = { has_character_flag = Feidi_yuanhou has_dead_character_variable = Feidi_yuanhou } } localization_key = Feidi_yuanhou }
+    text = { trigger = { OR = { has_character_flag = Feidi_huangmihou has_dead_character_variable = Feidi_huangmihou } } localization_key = Feidi_huangmihou }
+    text = { trigger = { } localization_key = SanGong_ErWangSanKe }
+}

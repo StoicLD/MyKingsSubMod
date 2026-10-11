@@ -1,0 +1,193 @@
+﻿SanGong_CuanWei_ErWangSanKe_guis = {#二王三恪
+	scope = character
+	effect = {
+		scope:recipient = {
+			add_trait = SanGong_QianChaoHuangZu	
+			add_trait = SanGong_ErWangSanKe
+			save_scope_as = XianDi
+		}
+		scope:recipient = {
+			dynasty ?= {
+                every_dynasty_member = {
+                    remove_gongtingtrait_effect = yes
+                    remove_ZongWang_all_effect = yes
+                }
+            }
+			house ?= {
+				every_house_member = {
+					add_trait = SanGong_QianChaoHuangZu	
+				}
+			}
+		}
+		every_in_list = { 
+			variable = QianChaoPinFei_list
+			remove_gongtingtrait_effect = yes
+		}
+		trigger_event = SanGong_CeFeng.090   
+		clear_HuangZu_list_effcet = yes	
+	}
+}
+
+SanGong_CuanWei_ZhanSha_guis = {#诛杀皇帝
+	scope = character
+	effect = {
+		scope:recipient = {
+			save_scope_as = XianDi
+		}
+		trigger_event = SanGong_ZhongJie.020
+	}
+}
+
+
+SanGong_CuanWei_all_shifang_pinfei_guis = {#嫔妃全部释放
+	scope = character
+	is_shown = {
+		any_in_list = { variable = QianChaoPinFei_list count > 0 }
+	}
+	effect = {
+		trigger_event = SanGong_ZhongJie.022
+	}
+}
+
+SanGong_CuanWei_all_Guannu_pinfei_guis = {#嫔妃全部充为官奴
+	scope = character
+	is_shown = {
+		any_in_list = { variable = QianChaoPinFei_list count > 0 }
+	}
+	effect = {
+		trigger_event = SanGong_ZhongJie.021
+	}
+}
+
+SanGong_CuanWei_all_ZhuSha_pinfei_guis = {#嫔妃诛杀全部
+	scope = character
+	is_shown = {
+		any_in_list = { variable = QianChaoPinFei_list count > 0 }
+	}
+	effect = {
+		trigger_event = SanGong_ZhongJie.023
+
+	}
+}
+
+SanGong_CuanWei_ShiFang_guis = {#嫔妃单体释放
+	scope = character
+	is_shown = {
+		any_in_list = { list = QianChaoPinFei_list count > 0 }
+	}
+	effect = {
+		scope:recipient = {
+			change_merit = { subtract = merit }
+            add_prestige = { subtract = prestige }
+		}
+		remove_list_variable = { name = QianChaoPinFei_list target = scope:recipient }
+		remove_list_variable = { name = QianChaoZongShi_list target = scope:recipient }
+	}
+}
+SanGong_CuanWei_ZhuSha_guis = {#嫔妃单体诛杀
+	scope = character
+	effect = {
+		scope:recipient = { death = { death_reason = SanGong_death25 killer = root } }
+		remove_list_variable = { name = QianChaoPinFei_list target = scope:recipient }
+		remove_list_variable = { name = QianChaoZongShi_list target = scope:recipient }
+	}
+}
+
+SanGong_CuanWei_PinFei_end_guis = {#嫔妃全部处理完成，下一步按钮
+	scope = character
+	is_shown = {
+		any_in_list = { 
+			variable = QianChaoPinFei_list 
+			is_alive = yes
+			NOT = { has_character_flag = chuliduixiang_flag } 
+			count = 0 
+		}
+	}
+	effect = {
+		remove_global_variable = SanGong_CuanWei_main_2
+		set_global_variable = SanGong_CuanWei_main_3
+	}
+}
+
+
+SanGong_CuanWei_zongshi_gaixing_guis = {#宗室改姓
+	scope = character
+	is_shown = {
+		is_male = yes
+	}
+	effect = {
+		scope:recipient = { 
+			if = {
+                limit = { exists = father }
+                father = { save_scope_as = SanGong_ZongShi_previous_father }
+            }
+			remove_trait = SanGong_HuangSi
+			add_trait = SanGong_QianChaoHuangZu
+			if = {
+                limit = {
+                    exists = real_mother #
+                    NOT = { real_mother = mother } #
+                }
+                set_mother = real_mother #
+            }
+            if = {
+                limit = {
+                    exists = real_father #
+                    NOT = { real_father = father } #
+                }
+                set_father = real_father #
+                SanGong_ZongShi_reconcile_parent_change_effect = yes
+            }
+			remove_gongtingtrait_effect = yes
+			remove_HuangZi_WangHao_effects = yes
+			remove_ZongWang_all_effect = yes
+			set_to_lowborn = yes 
+			move_to_pool = yes
+		}
+		remove_list_variable = { name = QianChaoZongShi_list target = scope:recipient }
+	}
+}
+
+
+SanGong_CuanWei_all_shifang_ZongShi_guis = {#宗室全部释放
+	scope = character
+	is_shown = {
+		any_in_list = { variable = QianChaoZongShi_list count > 0 }
+	}
+	effect = {
+		trigger_event = SanGong_ZhongJie.024
+	}
+}
+
+SanGong_CuanWei_all_Guannu_ZongShi_guis = {#宗室全部充为官奴
+	scope = character
+	is_shown = {
+		any_in_list = { variable = QianChaoZongShi_list count > 0 }
+	}
+	effect = {
+		trigger_event = SanGong_ZhongJie.025
+	}
+}
+
+SanGong_CuanWei_all_ZhuSha_ZongShi_guis = {#宗室诛杀全部
+	scope = character
+	is_shown = {
+		any_in_list = { variable = QianChaoZongShi_list count > 0 }
+	}
+	effect = {
+		trigger_event = SanGong_ZhongJie.026
+
+	}
+}
+
+
+SanGong_CuanWei_ZongShi_end_guis = {#宗室全部处理完成，下一步按钮
+	scope = character
+	is_shown = {
+		any_in_list = { variable = QianChaoZongShi_list count = 0 }
+	}
+	effect = {
+		clear_HuangZu_list_effcet = yes	
+		trigger_event = SanGong_ZhongJie.031
+	}
+}

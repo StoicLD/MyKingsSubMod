@@ -1,0 +1,321 @@
+﻿l_simp_chinese:
+## 一、分类标题
+
+  interaction_category_diplomacy:0 "内宫宗室"
+  SANGONG_ACTIONS:0 "内宫宗室互动"
+
+
+## 二、后宫位份管理（升降位、改嘉号、废立皇后）
+
+  SanGong_Weifen_interaction: "钦定位份"
+  SanGong_ShengWei: "#V @friend_icon! 升擢位份"
+  NOT_SanGong_ShengWei: "[recipient.Custom('GongWei_FengHao')][recipient.Custom('hanfan_jiexian_guanjie')] 无可再升，皇后需要专门册封"
+  NOT_SanGong_ShengWei_2: "[recipient.GetFirstName] 不具备升位条件 #weak （冷宫嫔妃、无位份无法升位）"
+  NOT_SanGong_ShengWei_3: "[recipient.GetFirstName] 没有后宫位份，需要先钦定位份"
+
+  SanGong_JiangWei: "#V @rival_icon! 贬黜位份"
+  NOT_SanGong_03: "皇后乃国母，身系国本，不可私自废黜"
+  NOT_SanGong_TiBaQiZu: "[recipient.GetFirstName] 已入冷宫，身无位份可废"
+  NOT_SanGong_05: "[recipient.GetFirstName] 位份已定，无由轻改"
+  NOT_SanGong_ShengWei_4: "[recipient.GetFirstName] 不具备降位条件 #weak （冷宫嫔妃、淑女无法降位）"
+  SanGong_05_name: "#V @dynasty_prestige_icon! 嘉号更替"
+  NOT_SanGong_GengHuanJiaHao: "[recipient.GetFirstName] 不具备更换嘉号条件 #weak （只有皇贵妃、贵妃、妃、嫔才可以更换嘉号）"
+
+  SanGong_CeliHuanghou_interaction: "#color_green 册立皇后#!"
+  SanGong_CeliHuanghou_interaction_desc: "后位空悬，册立皇后"
+  SanGong_CeliHuanghou_interaction_tooltip: "必须拥有贵妃、皇贵妃、妃特质或者是主要配偶"
+  SanGong_CeliHuanghou_interaction.custom_tooltip: "一年内无法再次册封[GetTrait('SanGong_GongWei_1').GetName( GetNullCharacter )]"
+  CeLi_huanghou: "@册立皇后"
+  recipient_secondary_CeLi_huanghou: "#color_green #bold 中宫之主#"
+
+  SanGong_divorce_character_interaction: "废黜皇后"
+  SanGong_divorce_character_interaction_tt: "#R 无故废黜中宫，于礼不合、于制有违#!"
+  SanGong_divorce_character_interaction_tt1: "#E 皇后失德败行、罪证确凿，自当废黜以正宫规、肃清朝纲！#!"
+  SanGong_divorce_character_interaction_tt2: "#R 孽种已除！#!"
+
+
+## 三、宫人遣散与遴选（出宫、选民间/勋贵女子入宫）
+
+  QianSan_chuGong_interaction: "遣散出宫"
+  QianSan_chuGong_interaction_desc: "遣散这些没有位份的女子出宫嫁人"
+  Qiansan_send_1: "遣散25岁以上淑女出宫"
+  Qiansan_send_2: "遣散40岁以上淑女出宫"
+  Qiansan_send_3: "遣散所有没有位份的淑女出宫"
+  Qiansan_send_4: "遣散所有出身卑微的宫人"
+  QianSan_chuGong_tt1: "遣散25岁以上,且没有任何宫廷职位的淑女离开你的宫廷"
+  QianSan_chuGong_tt2: "遣散没有任何宫廷职位的淑女离开你的宫廷"
+  QianSan_chuGong_tt3: "遣散没有任何宫廷职位的出身卑微的宫人离开你的宫廷"
+
+  LinXuan_LiangJia: "遴选良家"
+  LinXuan_LiangJia_desc: "从民间遴选良家女子入宫\n(宫廷及宾客#v 淑女#!<=15时可用,当前#v [GetPlayer.MakeScope.ScriptValue('SanGong_liangjiaNv_var')]#!人)"
+  LinXuan_GuiNv: "遴选贵女"
+  LinXuan_GuiNv_desc: "从高门勋贵之家挑选淑女\n(宫廷及宾客#v 贵女#!<=15时可用,当前#v [GetPlayer.MakeScope.ScriptValue('SanGong_GuiNv_var')]#!人)"
+  SanGong_LianYin: "士族联姻"
+  SanGong_LianYin_desc: "挑选封臣家族女人充实后宫"
+  recipient_secondary_SanGong_LianYin: "#color_green #bold 联姻家族#"
+  SanGong_LianYin.custom_tooltip: "[secondary_recipient.GetPrimaryTitle.GetBaseNameNoTierNoTooltip][secondary_recipient.GetShortUINamePossessive]的[secondary_recipient.Custom2('RelationToMe', target1)][target1.GetFirstName]年芳 [target1.GetAge] ，如今尚在闺中。"
+
+
+## 四、后宫侍寝、召幸相关
+
+  SanGong_ShiQin: "侍寝"
+  SanGong_ShiQin_desc: "雷霆雨露，皆是君恩"
+  ShiQin_not_1: "[recipient.Custom('GongWei_FengHao')][recipient.Custom('GongWei_name')] [recipient.GetDynastyHouseNameNoTooltip]氏已经怀孕了"
+  ShiQin_not_2: "150天内同一角色只能侍寝一次"
+  HuangDideShen_var: "令其侍寝\n#V #BOLD 你的精气：[GetPlayer.MakeScope.Var('HuangDideShen_var').GetValue|0V] / 36"
+
+  SanGong_Zhaoxing: "召幸"
+  recipient_secondary_SanGong_Zhaoxing: "#color_green #bold 临幸嫔妃#"
+  SanGong_roguelike: "随缘召幸"
+
+
+## 五、储君、太后相关互动
+
+  CeLi_taizi_interaction: "册立太子"
+  recipient_secondary_CeLi_taizi_interaction: "#color_green #bold 东宫储君#"
+  CeLi_taizi_interaction_tooltip: "#V 皇子[secondary_recipient.GetDynastyHouseNameNoTooltip][secondary_recipient.GetUIFirstNameOnlyNotMeNoTooltip]，温恭懋著，孝友天成，持身有道，器识夙成。朕仰遵祖制，俯顺舆情，特遣使持节，册立为皇太子，授以储位，重固国本，上承宗庙，下安兆民。#!"
+  CeLi_taisun_interaction: "册封皇太孙"
+  recipient_secondary_CeLi_taisun_interaction: "#color_green #bold 皇太子之继承人#"
+  CeLi_taisun_interaction_tt1: "角色必须采用指定的立储法。"
+  CeLi_taisun_interaction_tooltip: "#V 皇孙[secondary_recipient.GetDynastyHouseNameNoTooltip][secondary_recipient.GetUIFirstNameOnlyNotMeNoTooltip]，系出东宫，德才兼备。朕特遣使持节，册封为皇太孙，承皇太子之后，重固国本。#!"
+
+  FeiChu_taizi_interaction: "废黜太子"
+  FeiChu_taizi_interaction_tooltip: "#V 太子[recipient.GetDynastyHouseNameNoTooltip][recipient.GetUIFirstNameOnlyNotMeNoTooltip]，失德罔检，行止不端，不堪承继宗庙，难抚天下兆民。朕为社稷苍生计，不得已废黜其太子之位，以肃国本，安朝野之心。#!"
+  FeiChu_taisun_interaction: "废黜皇太孙"
+  FeiChu_taisun_interaction_tooltip: "#V 皇太孙[recipient.GetDynastyHouseNameNoTooltip][recipient.GetUIFirstNameOnlyNotMeNoTooltip]，今废其皇太孙之位，收回储位名分，以正国本。#!"
+
+  ZunFeng_taihou: "@court_gardener_court_position_icon!尊封太后"
+  ZunFeng_taihou_DESC: "角色母亲不存在或已逝世时无法使用"
+
+
+## 六、皇子、公主、宗室婚嫁与册封
+
+  SanGong_HuangZi: "皇子纳妃"
+  SAN_GONG_ALREADY_HAS_SPOUSE_TO_CONCUBINE: "[secondary_actor.GetFirstName]已有正妃，将[secondary_recipient.GetFirstName]纳为侧妃（庶妃）。"
+  SAN_GONG_MARRY_AS_PRIMARY_SPOUSE: "[secondary_actor.GetFirstName]尚无正妃，册立[secondary_recipient.GetFirstName]为正妃（王妃）。"
+  actor_secondary_SanGong_HuangZi: "#color_green #bold 适龄皇子#"
+
+  SanGong_Cefeng_Gongzhu_interaction: "册立公主"
+  SanGong_Cefeng_Gongzhu_interaction_desc: "赐号于皇女，册为公主"
+  recipient_secondary_SanGong_Cefeng_Gongzhu_interaction: "#color_green #bold 帝姬#"
+
+  SanGong_Cefeng_Junzhu_interaction: "册封郡主"
+  SanGong_Cefeng_Junzhu_interaction_desc: "恩封宗室女子，授郡主之位"
+  recipient_secondary_SanGong_Cefeng_Junzhu_interaction: "#color_green #bold 宗姬#"
+
+  SanGong_FuMa: "钦择驸马"
+  SanGong_FuMa_desc: "为公主钦选佳婿，缔结良缘\n（公主必须满16岁）"
+  actor_secondary_SanGong_FuMa: "#color_green #bold 适龄公主#"
+  SanGong_huangzi_custom_tooltip: "[secondary_recipient.GetDynastyHouseNameNoTooltip]氏之女[secondary_recipient.GetFirstName]，现年[secondary_recipient.GetAge]岁，待字闺中。"
+
+  SanGong_royal_espousal_interaction: "下嫁公主"
+  SanGong_royal_espousal_interaction_desc: "择选朝臣子嗣，将皇室公主赐婚与之，缔结天家姻亲。"
+  actor_secondary_SanGong_royal_espousal_interaction: "#color_green #bold 公主#"
+  CiHun_Heli_primary_spouse: "[secondary_recipient.GetName]与原配夫人[secondary_recipient_yuanpei.GetName]和离"
+  SanGong_royal_espousal_CeFeng_GongZhu: "册封[secondary_actor.GetName]为公主"
+  royal_espousal_accept_toast: "赐婚"
+  royal_espousal_accept_toast_desc: "兹以[secondary_actor.Custom('SanGong_Gongzhu_FengHao')]公主降嫁[secondary_recipient.GetFirstName]，永结姻亲，同心辅政"
+  royal_espousal_accept_toast_desc2: "兹以[recipient.Custom('SanGong_Gongzhu_FengHao')]公主降嫁[secondary_recipient.GetFirstName]，永结姻亲，同心辅政"
+  SanGong_royal_espousal_CeFeng_GongZhu2: "册封[recipient.GetName]为皇室公主"
+  XunGuiLianYin_interaction: "与勋贵联姻"
+  actor_secondary_XunGuiLianYin_interaction: "#color_green #bold 联姻家族#"
+  XunGuiLianYin_interaction_tt1: "选择联姻的勋贵家族"
+
+
+## 七、藩王、宗藩管理（分封、就藩、裁藩、褫夺王号、过继）
+
+  SanGong_HuangziJiuFan_interaction: "皇子就藩"
+  recipient_secondary_SanGong_HuangziJiuFan_interaction: "#color_green #bold 天家贵胄#"
+
+  SanGong_ZongFanCeFeng_interaction: "册封宗藩"
+  SanGong_ZongFanCeFeng_interaction_desc: "分封宗室子弟，令其就藩立国。"
+  recipient_secondary_SanGong_ZongFanCeFeng_interaction: "#color_green #bold 天家贵胄#"
+
+  SanGong_GuoJiFanWang_interaction: "立嗣过继"
+  SanGong_GuoJiFanWang_interaction_desc: "遣子过继，补藩王宗嗣之缺"
+  SanGong_GuoJiFanWang_interaction_vaild: "你没有可以过继给藩王的儿子\n#weak （年龄>=14,非统治者，无藩王相关特质）"
+  recipient_secondary_SanGong_GuoJiFanWang_interaction: "#color_green #bold 出继皇子#"
+  SanGong_GuoJiFanWang_interaction_tt: "[secondary_recipient.GetFirstNameNoTooltip] 自此脱离宗支谱系"
+  fanwang_1_localization: "册封为亲王"
+  fanwang_2_localization: "册封为郡王"
+  ChiDuo_ZongWang_interaction: "夺爵"
+  ChiDuo_ZongWang_interaction_custom_tooltip: "[Zongshi.GetFirstNameNoTooltip]德行有失，遂除其爵。"
+
+  SanGong_Xuefan_interaction: "裁藩集权"
+  SanGong_Xuefan_interaction_desc: "裁撤藩国"
+  SanGong_Xuefan_interaction_prompt: "选择赴任流官"
+  recipient_secondary_SanGong_Xuefan_interaction: "#color_green #bold 赴任流官#"
+  SanGong_Xuefan_interaction_custom_tooltip: "[FanWang.GetName]不堪任事，遂削藩王爵号，废其封国。命[LiuGuan.GetName]改任[FanWang.GetPrimaryTitle.GetBaseNameNoTierNoTooltip]地，总领故地诸事。"
+
+  actor_secondary_SanGong_Xuefan_interaction: "#color_green #bold 赴任流官#"
+  fei_fan_2_custom_tooltip: "#R 销毁藩王头衔，藩王改为当地流官，藩王所有非流官封臣改为流官#!"
+  fei_fan_3_custom_tooltip: "#R 销毁藩王头衔，没收藩王及其下属封臣所有领地，改为皇帝直辖#!"
+  fei_fan_4_custom_tooltip: "#R 藩王保留王爵，没收藩王直辖领地，封臣改为皇帝直辖#!"
+  fei_fan_5_custom_tooltip: "#R 销毁藩王所有荣誉头衔，所有！！！#!"
+
+  Cefeng_ZongShi_interaction: "赐爵(宗室)"
+  Cefeng_ZongShi_interaction_desc: "加封宗室王爵，并无实土"
+
+  Chang_ZongFan_FanWang: "裂土封藩(亲王)"
+  Chang_ZongFan_JunWang: "裂土封藩(郡王)"
+  Chang_ZongFan_desc: "裂土分封宗室，使就藩建国，自治其地，以固国本。"
+
+  TeJin_ShuHao: "特进殊号"
+  Chang_ZongFan_1: "罢职归乡"
+  Chang_ZongFan_1_tooltip: "罢职归乡"
+
+  Chang_ZongFan_2: "留镇摄政"
+  Chang_ZongFan_2_tooltip: "留镇摄政"
+
+  Chang_ZongFan_3: "召回另用"
+  Chang_ZongFan_3_tooltip: "召回另用"
+ SanGong_jianli_fenjia_interaction:0 "建立分家"
+ SanGong_jianli_fenjia_interaction_desc:0 "令[recipient.GetFirstName]建立分家，另立门户，开创属于自己一脉的支系。"
+ SanGong_fenjia_three_children_tooltip:0 "建立分家的角色必须拥有至少#V 3#!个在世的孩子"
+
+
+## 八、收编、阉割、赏赐类互动
+
+  CuanWei_ShouRuHouGong_interaction: "收入后宫"
+  CuanWei_ShouRuHouGong_1_interaction: "收入后宫"
+  CuanWei_ShangCiShouXia_interaction: "赏赐功臣"
+  recipient_secondary_CuanWei_ShangCiShouXia_interaction: "#color_green #bold 从龙大臣#"
+  CuanWei_YanGeRuGong_interaction: "阉割囚犯"
+  CuanWei_YanGeRuGong_interaction_desc: "让[recipient.GetShortUINameNoTooltip]成为[GetTrait('eunuch_1').GetName( GetPlayer )]或[GetTrait('beardless_eunuch').GetName( GetNullCharacter )]"
+  YanGeRuGong_send_1: "留在宫中"
+  YanGeRuGong_send_2: "驱逐出去"
+
+
+## 九、爵位、勋赏、袭爵管理
+
+  recipient_title: "[recipient.GetPrimaryTitle.GetBaseNameNoTierNoTooltip][recipient.GetTitleTierName]"
+  recipient_name: "[recipient.GetDynastyHouseNameNoTooltip][recipient.GetUIFirstNameOnlyNotMeNoTooltip]"
+  recipient_juewei: "[recipient.Custom('SanGong_Juewei_GuoHao')][recipient.Custom('SanGong_Juewei_Junxian')][recipient.Custom('SanGong_Juewei_xianbo')][recipient.Custom('SanGong_Juewei_bo_tinghou')][recipient.Custom('SanGong_Juewei_Gongjue_loc')][recipient.Custom('SanGong_Juewei_Houjue_loc')][recipient.Custom('SanGong_Juewei_Bojue_loc')][recipient.Custom('SanGong_Juewei_ZiJue_loc')]"
+  SanGong_FengJue_effect_GongXun_tt: "朕闻赏功酬勋，国之令典；旌善显能，君之要务。\n咨尔$recipient_title$,$recipient_name$，器宇宏深，才略明敏，或运筹帷幄，克定邦家；或拓境安边，屡摧强敌。忠勤著于内外，勋绩纪于旂常。宜加爵秩，以昭宠渥。"
+
+  SanGong_FengJue_interaction: "论功行赏，赐爵酬勋"
+  SanGong_FengJue_interaction_desc: "春风得意马蹄疾，一朝封爵耀门庭"
+  SanGong_FengJue_cost_GongXun_1_tt: "武勋 >= 200或文治 >= 500时可用\n当前武勋：[recipient.MakeScope.ScriptValue('WuXun_var')]\n当前文治：[recipient.MakeScope.ScriptValue('WenZhi_var')]"
+  SanGong_FengJue_send_1_name: "授[GetTrait('SanGong_Juewei_ZiJue').GetName( GetNullCharacter )]"
+  SanGong_FengJue_send_2_name: "授[GetTrait('SanGong_Juewei_BoJue').GetName( GetNullCharacter )]"
+  SanGong_FengJue_send_3_name: "授[GetTrait('SanGong_Juewei_HouJue').GetName( GetNullCharacter )]"
+  SanGong_FengJue_send_4_name: "授[GetTrait('SanGong_Juewei_GongJue').GetName( GetNullCharacter )]"
+  SanGong_FengJue_send_fallback: "无爵可授"
+  NOT_SanGong_FengJue_send_2: "武勋 >= 400或文治 >= 700时可用\n当前武勋：[recipient.MakeScope.ScriptValue('WuXun_var')]\n当前文治：[recipient.MakeScope.ScriptValue('WenZhi_var')]"
+  NOT_SanGong_FengJue_send_3: "武勋 >= 600或文治 >= 1500时可用\n当前武勋：[recipient.MakeScope.ScriptValue('WuXun_var')]\n当前文治：[recipient.MakeScope.ScriptValue('WenZhi_var')]"
+  NOT_SanGong_FengJue_send_4: "武勋 >= 1000或文治 >= 2500时可用\n当前武勋：[recipient.MakeScope.ScriptValue('WuXun_var')]\n当前文治：[recipient.MakeScope.ScriptValue('WenZhi_var')]"
+
+  SanGong_qiangxing_tiba_interaction: "强行授勋"
+  SanGong_qiangxing_tiba_interaction_desc: "消耗威望，强行拔擢一位臣属"
+  send_QiangXingTiBa_1_loc: "强授子爵勋"
+  send_QiangXingTiBa_2_loc: "强授伯爵勋"
+  send_QiangXingTiBa_3_loc: "强授侯爵勋"
+  send_QiangXingTiBa_4_loc: "强授公爵勋"
+  wenzhi_xp_add_500_desc: "增加文治：500"
+  wenzhi_xp_add_700_desc: "增加文治：700"
+  wenzhi_xp_add_1500_desc: "增加文治：1500"
+  wenzhi_xp_add_2500_desc: "增加文治：2500"
+
+  SanGong_ZhiDingXiJue_interaction:0 "指定袭爵人选"
+  SanGong_ZhiDingXiJue_effect_desc:0 "上奏天子请准 [Xungui.GetName] 承袭你的爵位，天子将圣裁准否"
+  SanGong_ZhiDingXiJue_interaction_desc: "上奏天子请准指定家中成员承袭你的爵位"
+  SanGong_ZhiDingXiJue_interaction_valid_tt: "家中存在指定袭爵人选"
+  SanGong_ZhiDingXiJue_flag:0 "已被指定袭爵"
+  SanGong_ZhiDingXiJue_flag_desc:0 "此子已被指定承袭爵位"
+  SanGong_ShiXi_interaction:0 "查看爵位世系"
+  SanGong_ShiXi_interaction_desc:0 "打开勋贵世系面板，查看宗族历代爵位继承情况"
+
+
+  SanGong_shixiwangti_interaction: "赐世袭罔替"
+  SanGong_revoke_shixiwangti_interaction: "收世袭罔替"
+
+  SanGong_shixiwangti_desc: "敕曰：朕惟宗藩屏翰之重，当以殊礼待之。若赐世袭罔替，则其爵禄永传，子孙世守，虽百代不易。若收此制，则降从常例，以彰朝廷进退之权。卿其钦哉。"
+
+  SanGong_ZongShi_strip_self_interaction: "夺爵（本人）"
+  SanGong_ZongShi_strip_self_interaction_desc: "只夺去本人宗室爵位，不影响其子孙的现有爵位、土地和封臣关系。"
+  SanGong_ZongShi_strip_self_interaction_tt: "只夺去[recipient.GetName]本人的宗室爵位；其子孙不受影响。"
+  SanGong_ZongShi_strip_lineage_interaction: "夺爵（世系）"
+  SanGong_ZongShi_strip_lineage_interaction_desc: "从此人为起点，递归夺去男性子孙的宗室爵位，不改变土地、封臣和政府。"
+  SanGong_ZongShi_strip_lineage_interaction_tt: "从[recipient.GetName]开始，递归夺去男性世系成员的宗室爵位；土地、封臣和政府不变。"
+  SanGong_ZongShi_supplement_rank_interaction: "增补爵位（宗室）"
+  SanGong_ZongShi_supplement_rank_interaction_desc: "为同宗族、成年且尚无宗室爵位的男性补授一项非王爵宗室爵位。"
+
+  SanGong_grant_shixiwangti_tooltip: "诏赐[recipient.GetName]爵位世袭罔替之典\n\n#weak [recipient.GetName]死后，其子满足条件则自动世袭爵位，不再弹出相关爵位承袭事件。\n（宗藩制藩王不适用该互动）"
+  SanGong_revoke_shixiwangti_tooltip: "诏收[recipient.GetName]世袭罔替之典\n\n#weak [recipient.GetName]死后，将会弹出相关爵位承袭事件\n（宗藩制藩王不适用该互动）"
+
+
+
+
+SanGong_chakan_juewei_jichengren_interaction: "查看爵位继承人（宗室）"
+SanGong_chakan_juewei_jichengren_desc: "查看当前藩王爵位的继承人信息"
+SanGong_chakan_juewei_holder_tooltip: "#weak tips:此互动仅作为查看爵位继承人之用，并无实际效果\n\n下方若无角色显示则无继承人袭爵，死后夺爵"
+SanGong_chakan_juewei_heir_tooltip: "#v 爵位继承人\n\n#weak tips:此互动仅作为查看爵位继承人之用，并无实际效果"
+SanGong_chakan_juewei_no_heir_tooltip: "#v \n\n无满足条件继承人，薨后夺爵除国\n\n继承人条件：\n\n     是爵位持有者的孩子\n     与现任爵位持有者效忠同一最高领主\n      男性\n      未被囚禁\n      不能拥有宗室王爵\n      不能拥有勋贵爵位"
+
+
+SanGong_chakan_xungui_jichengren_interaction: "查看爵位继承人（勋贵）"
+SanGong_chakan_juewei_jichengren_desc: "查看当前爵位的继承人信息"
+SanGong_chakan_juewei_holder_tooltip: "此乃爵位之现任持有者"
+SanGong_buyun_shixi_tooltip: "此人不得袭爵，薨后夺爵除国"
+SanGong_zhiding_xijue_heir_tooltip: "指定袭爵之继承人"
+SanGong_zhangzi_heir_tooltip: "长子继承"
+SanGong_zhangsun_heir_tooltip: "长孙继承"
+SanGong_zengsun_heir_tooltip: "曾孙继承"
+SanGong_jinqin_heir_tooltip: "同族近亲继承"
+SanGong_chakan_juewei_no_heir_tooltip: "无满足条件之继承人，薨后夺爵"
+
+
+
+## 十、外戚拔擢相关
+
+  SanGong_Tiba_Waiqi_interaction: "优叙外戚"
+  SanGong_Tiba_Waiqi_interaction_desc: "恩荫拔擢外戚"
+  Tiba_Waiqi_send_1_not: "该员近期已破格升迁#color_dark_gray （半年冷却时间）#!"
+  Tiba_Waiqi_send_1_name: "密谕吏部破格任用"
+  Tiba_Waiqi_send_2_name: "特授科名，赐同进士出身，正途入仕"
+  Tiba_Waiqi_send: "叙用外戚"
+  SanGong_Tiba_Waiqi_1_interaction: "推恩戚属，拔擢白身"
+  SanGong_Tiba_Waiqi_1_interaction_desc: "眷念姻亲，特施恩渥，为白身外戚破格授官。"
+  SanGong_Tiba_Waiqi_1: "[legitimacy_i]推恩戚属，拔擢白身"
+  recipient_secondary_SanGong_Tiba_Waiqi_1_interaction: "#color_green #bold 白身外戚#"
+
+
+## 十一、朝臣、勋贵奖惩与派系互动
+
+  demoted_xungui_interaction: "惩戒勋贵"
+  demoted_xungui_interaction_desc: "雷霆雨露，俱是君恩"
+  demoted_xungui_send_1: "罚俸削邑(暂无效果)"
+  demoted_xungui_send_2: "贬降爵秩"
+  demoted_xungui_send_3: "停其世袭"
+  demoted_xungui_send_3_tt: "#v $recipient_juewei$,$recipient_name$身故之后，爵秩追削，子孙不得承袭\n#v #bold $recipient_juewei$#!#v 爵位"
+
+  Bianchi_ChaoChen_interaction: "贬谪大臣"
+  Bianchi_ChaoChen_interaction_desc: "雷霆雨露，俱是君恩"
+  Bianchi_ChaoChen_trigger_tt1: "#R [recipient.GetNameNoTooltip]忠心侍主"
+  Bianchi_ChaoChen_interaction_tt1: "无端谪降朝臣，人心思动，朝堂局势不利于你（没有对[recipient.GetName]的囚禁理由）"
+  Bianchi_ChaoChen_interaction_tt2: "谪居期间，[recipient.GetName]不得参与朝堂纷争\n【贤能限制为1500】"
+  Bianchi_ChaoChen_trigger_tt2: "#R 二日凌空（皇权相权失衡）"
+  Bianchi_ChaoChen_NOTIFICATION: "门下：朕承大统，整肃朝纲，明赏罚，严典章。为人臣者，当守忠持正；若徇私结党，必加惩戒。尔身居要职，不思尽忠，攀附权臣，扰乱庙堂，致使政令不通。今依法贬谪，削去官职，以正朝风。呜呼！文武群臣当恪守臣节，切勿重蹈覆辙。主者施行。"
+
+  Qifu_ChaoChen_interaction: "召还谪臣"
+  Qifu_ChaoChen_interaction_desc: "雷霆雨露，俱是君恩"
+  AI_XIANGQUAN_QINGXIANG: "当前附于首辅 $VALUE|=0+$"
+  AI_HUANGQUAN_QINGXIANG: "当前依附于皇帝 $VALUE|=0+$"
+  beipan_cost: "背叛的代价：$VALUE|=0+$"
+  loyal_cost: "忠信：$VALUE|=0+$"
+  qinxin_cost: "拉拢成为亲信的代价：$VALUE|=0+$"
+  influence_level_in_huangdi_reason: "[actor.GetNameNoTooltip]与皇帝的影响力等级差距：$VALUE|=0+$"
+  SCHEME_AGENT_HOOK_STRONG_qinxin: "拉拢为亲信"
+  Lalong_Chaochen_interaction: "营结朝臣"
+  Lalong_Chaochen_interaction_desc: "朝堂分南北，派系互倾轧。巧言游说，令官员倾心相附。"
+  Lalong_Chaochen_interaction_tri_tt1: "他已经是是你的党派成员了"
+
+
+SanGong_establish_jiedushi_interaction: "赐旌节军号"
+SanGong_establish_jiedushi_interaction_desc: "赐旌节斧钺，授臣属为某军节度使，俾总戎律，作镇一方"
+
+SanGong_Maoren_Zuxian_interaction:0 "冒认先祖"
+ SanGong_Maoren_Zuxian_interaction_desc:0 "遍考[recipient.GetPrimaryTitle.GetAdjective]的历代持有者之一为先祖，触发认祖事件"
+ SanGong_Maoren_Zuxian_interaction_tooltip:0 "指认[recipient.GetFirstName]的主要头衔历代持有者之一为先祖，触发认祖事件"
+ SanGong_recipient_tier_higher_tooltip:0 "对方的主要头衔等级须高于我"
+SanGong_EstablishZibei_interaction_vaild:0 "没有检测到开局全局变量，字辈功能不能在游戏中途使用，必须重开新档使用"

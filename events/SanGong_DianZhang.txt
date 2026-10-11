@@ -1,0 +1,1677 @@
+﻿namespace = SanGong_DianZhang
+#001-010 MOD杂项
+#011-013 册立皇后相关
+#015-017 册立太子
+#021    尊封太后（封臣视角）
+#025    特进殊号
+#031-   新皇即位
+#041-050 藩国继承
+
+SanGong_DianZhang.001 = {#更新日志
+    type = character_event
+    title = SanGong_DianZhang.001_title
+    window = SanGong_text_event_window
+    desc = {
+        desc = SanGong_DianZhang.001_desc0
+        desc = SanGong_DianZhang.001_desc2
+		desc = SanGong_DianZhang.001_desc1
+		desc = SanGong_DianZhang.001_desc
+	}
+    theme = family
+    override_background = activity_feast
+    right_portrait = {
+        character = root
+        animation = love
+    }
+    immediate = {
+        hidden_effect = { HuangDi_Dengji_effect = yes }
+        set_global_variable = SanGong_HuanZhuang_on
+        if = {
+            limit = {
+                exists = global_var:hanfan_loaded
+                NOT = { exists = global_var:hanfan_global_variable }
+            }
+            set_global_variable = hanfan_global_variable
+            custom_tooltip = hanfan_global_variable_tt
+        }
+        if = {
+            limit = {
+                exists = global_var:orient_empires_loaded
+            }
+            OE_add_miaohao_effect = yes
+        }
+
+    }
+    option = {
+        name = SanGong_DianZhang.001.a
+
+    }
+}
+
+SanGong_DianZhang.003 = {#更换谥号法
+    type = character_event
+    title = SanGong_DianZhang.003.event_title
+    desc = SanGong_DianZhang.003.desc
+    theme = friendly
+    override_background = bedchamber
+    left_portrait = {
+        character = root
+        animation = steward
+        camera = camera_body
+    }
+    immediate = {
+
+    }
+
+    # 汉谥号
+    option = {
+        name = SanGong_DianZhang.003.a
+        trigger = { dynasty = { NOT = { has_variable = han_shifa } } }
+        ROOT.dynasty = {
+            remove_variable = tang_shifa
+            remove_variable = song_shifa
+            remove_variable = liaojin_shifa
+            remove_variable = gaoli_shifa
+            set_variable = han_shifa
+        }
+    }
+
+    # 唐谥号
+    option = {
+        name = SanGong_DianZhang.003.b
+        trigger = { dynasty = { NOT = { has_variable = tang_shifa } } }
+        dynasty = {
+            remove_variable = han_shifa
+            remove_variable = song_shifa
+            remove_variable = liaojin_shifa
+            remove_variable = gaoli_shifa
+            set_variable = tang_shifa
+        }
+    }
+
+    # 宋谥号
+    option = {
+        name = SanGong_DianZhang.003.c
+        trigger = { dynasty = { NOT = { has_variable = song_shifa } } }
+        dynasty = {
+            remove_variable = han_shifa
+            remove_variable = tang_shifa
+            remove_variable = liaojin_shifa
+            remove_variable = gaoli_shifa
+            set_variable = song_shifa
+        }
+    }
+
+    # 辽金谥号
+    option = {
+        name = SanGong_DianZhang.003.d
+        trigger = { dynasty = { NOT = { has_variable = liaojin_shifa } } }
+        dynasty = {
+            remove_variable = han_shifa
+            remove_variable = tang_shifa
+            remove_variable = song_shifa
+            remove_variable = gaoli_shifa
+            set_variable = liaojin_shifa
+        }
+    }
+
+    # 高丽谥法（放最后）
+    option = {
+        name = SanGong_DianZhang.003.e
+        trigger = { dynasty = { NOT = { has_variable = gaoli_shifa } } }
+        dynasty = {
+            remove_variable = han_shifa
+            remove_variable = tang_shifa
+            remove_variable = song_shifa
+            remove_variable = liaojin_shifa
+            set_variable = gaoli_shifa
+        }
+    }
+
+    # 关闭选项
+    option = {
+        name = SanGong_DianZhang.003.f
+    }
+}
+
+SanGong_DianZhang.004 = {# 切换王朝爵位制度
+    type = character_event
+    title = SanGong_DianZhang.004.event_title
+    desc = SanGong_DianZhang.004.desc
+    theme = friendly
+    override_background = bedchamber
+
+    left_portrait = {
+        character = root
+        animation = steward
+        camera = camera_body
+    }
+
+    immediate = { }
+
+    # 选项：启用【汉爵位制度】（互斥：取消另外两种）
+    option = {
+        name = SanGong_DianZhang.004.a
+        trigger = { is_ai = no dynasty = { NOT = { has_variable = han_juewei } } } # 未启用时可见
+        ROOT.dynasty = {
+            remove_variable = tangsong_juewei  # 关闭唐宋爵位
+            remove_variable = ming_juewei      # 关闭明爵位
+            set_variable = han_juewei          # 启用汉爵位
+        }
+        every_vassal_or_below = {
+            if = {
+                limit = { has_trait = SanGong_Juewei_GongJue }
+                add_trait_xp = { trait = SanGong_Juewei_GongJue track = Juewei_ChaoDai_name value = -100 }
+            }
+            if = {
+                limit = { has_trait = SanGong_Juewei_HouJue }
+                add_trait_xp = { trait = SanGong_Juewei_HouJue track = Juewei_ChaoDai_name value = -100 }
+            }
+            if = {
+                limit = { has_trait = SanGong_Juewei_BoJue }
+                add_trait_xp = { trait = SanGong_Juewei_BoJue track = Juewei_ChaoDai_name value = -100 }
+            }
+            if = {
+                limit = { has_trait = SanGong_Juewei_ZiJue }
+                add_trait_xp = { trait = SanGong_Juewei_ZiJue track = Juewei_ChaoDai_name value = -100 }
+            }
+        }
+        every_courtier = {
+            if = {
+                limit = { has_trait = SanGong_Juewei_GongJue }
+                add_trait_xp = { trait = SanGong_Juewei_GongJue track = Juewei_ChaoDai_name value = -100 }
+            }
+            if = {
+                limit = { has_trait = SanGong_Juewei_HouJue }
+                add_trait_xp = { trait = SanGong_Juewei_HouJue track = Juewei_ChaoDai_name value = -100 }
+            }
+            if = {
+                limit = { has_trait = SanGong_Juewei_BoJue }
+                add_trait_xp = { trait = SanGong_Juewei_BoJue track = Juewei_ChaoDai_name value = -100 }
+            }
+            if = {
+                limit = { has_trait = SanGong_Juewei_ZiJue }
+                add_trait_xp = { trait = SanGong_Juewei_ZiJue track = Juewei_ChaoDai_name value = -100 }
+            }
+        }
+    }
+
+    # 选项：启用【唐宋爵位制度】（互斥：取消另外两种）
+    option = {
+        name = SanGong_DianZhang.004.b
+        trigger = { dynasty = { NOT = { has_variable = tangsong_juewei } } } # 未启用时可见
+        dynasty = {
+            remove_variable = han_juewei      # 关闭汉爵位
+            remove_variable = ming_juewei      # 关闭明爵位
+            set_variable = tangsong_juewei     # 启用唐宋爵位
+        }
+        every_vassal_or_below = {
+            if = {
+                limit = { has_trait = SanGong_Juewei_GongJue }
+                add_trait_xp = { trait = SanGong_Juewei_GongJue track = Juewei_ChaoDai_name value = -100 }
+                add_trait_xp = { trait = SanGong_Juewei_GongJue track = Juewei_ChaoDai_name value = 50 }
+            }
+            if = {
+                limit = { has_trait = SanGong_Juewei_HouJue }
+                add_trait_xp = { trait = SanGong_Juewei_HouJue track = Juewei_ChaoDai_name value = -100 }
+                add_trait_xp = { trait = SanGong_Juewei_HouJue track = Juewei_ChaoDai_name value = 50 }
+            }
+            if = {
+                limit = { has_trait = SanGong_Juewei_BoJue }
+                add_trait_xp = { trait = SanGong_Juewei_BoJue track = Juewei_ChaoDai_name value = -100 }
+                add_trait_xp = { trait = SanGong_Juewei_BoJue track = Juewei_ChaoDai_name value = 50 }
+            }
+            if = {
+                limit = { has_trait = SanGong_Juewei_ZiJue }
+                add_trait_xp = { trait = SanGong_Juewei_ZiJue track = Juewei_ChaoDai_name value = -100 }
+                add_trait_xp = { trait = SanGong_Juewei_ZiJue track = Juewei_ChaoDai_name value = 50 }
+            }
+        }
+        every_courtier = {
+            if = {
+                limit = { has_trait = SanGong_Juewei_GongJue }
+                add_trait_xp = { trait = SanGong_Juewei_GongJue track = Juewei_ChaoDai_name value = -100 }
+                add_trait_xp = { trait = SanGong_Juewei_GongJue track = Juewei_ChaoDai_name value = 50 }
+            }
+            if = {
+                limit = { has_trait = SanGong_Juewei_HouJue }
+                add_trait_xp = { trait = SanGong_Juewei_HouJue track = Juewei_ChaoDai_name value = -100 }
+                add_trait_xp = { trait = SanGong_Juewei_HouJue track = Juewei_ChaoDai_name value = 50 }
+            }
+            if = {
+                limit = { has_trait = SanGong_Juewei_BoJue }
+                add_trait_xp = { trait = SanGong_Juewei_BoJue track = Juewei_ChaoDai_name value = -100 }
+                add_trait_xp = { trait = SanGong_Juewei_BoJue track = Juewei_ChaoDai_name value = 50 }
+            }
+            if = {
+                limit = { has_trait = SanGong_Juewei_ZiJue }
+                add_trait_xp = { trait = SanGong_Juewei_ZiJue track = Juewei_ChaoDai_name value = -100 }
+                add_trait_xp = { trait = SanGong_Juewei_ZiJue track = Juewei_ChaoDai_name value = 50 }
+            }
+        }
+    }
+
+    # 选项：启用【明爵位制度】（互斥：取消另外两种）
+    option = {
+        name = SanGong_DianZhang.004.c
+        trigger = { is_ai = no dynasty = { NOT = { has_variable = ming_juewei } } } # 未启用时可见
+        dynasty = {
+            remove_variable = han_juewei      # 关闭汉爵位
+            remove_variable = tangsong_juewei  # 关闭唐宋爵位
+            set_variable = ming_juewei         # 启用明爵位
+        }
+        every_vassal_or_below = {
+            if = {
+                limit = { has_trait = SanGong_Juewei_GongJue }
+                add_trait_xp = { trait = SanGong_Juewei_GongJue track = Juewei_ChaoDai_name value = 100 }
+            }
+            if = {
+                limit = { has_trait = SanGong_Juewei_HouJue }
+                add_trait_xp = { trait = SanGong_Juewei_HouJue track = Juewei_ChaoDai_name value = 100 }
+            }
+            if = {
+                limit = { has_trait = SanGong_Juewei_BoJue }
+                add_trait_xp = { trait = SanGong_Juewei_BoJue track = Juewei_ChaoDai_name value = 100 }
+            }
+            if = {
+                limit = { has_trait = SanGong_Juewei_ZiJue }
+                add_trait_xp = { trait = SanGong_Juewei_ZiJue track = Juewei_ChaoDai_name value = 100 }
+            }
+        }
+        every_courtier = {
+            if = {
+                limit = { has_trait = SanGong_Juewei_GongJue }
+                add_trait_xp = { trait = SanGong_Juewei_GongJue track = Juewei_ChaoDai_name value = 100 }
+            }
+            if = {
+                limit = { has_trait = SanGong_Juewei_HouJue }
+                add_trait_xp = { trait = SanGong_Juewei_HouJue track = Juewei_ChaoDai_name value = 100 }
+            }
+            if = {
+                limit = { has_trait = SanGong_Juewei_BoJue }
+                add_trait_xp = { trait = SanGong_Juewei_BoJue track = Juewei_ChaoDai_name value = 100 }
+            }
+            if = {
+                limit = { has_trait = SanGong_Juewei_ZiJue }
+                add_trait_xp = { trait = SanGong_Juewei_ZiJue track = Juewei_ChaoDai_name value = 100 }
+            }
+        }
+    }
+}
+
+SanGong_DianZhang.010 = {#登基大典
+    type = character_event
+    window = SanGong_Zhaoshu_event_window
+    title = SanGong_DianZhang.010.t
+    desc = {
+        first_valid = {
+			triggered_desc = {
+				trigger = {
+                    OR = {
+                        has_trait = SanGong_KaiGuo
+                        has_trait = SanGong_ZhongXing
+                    }
+                }
+				desc = SanGong_DianZhang.010.desc1
+			}
+            triggered_desc = {
+                trigger = {
+                    NOT = {
+                        OR = {
+                            has_trait = SanGong_KaiGuo
+                            has_trait = SanGong_ZhongXing
+                        }
+                    }
+                }
+				desc = SanGong_DianZhang.010.desc
+			}
+		}
+    }
+    theme = administrative
+    override_background = tgp_fullscreen_dynastic_cycle_stability
+    override_effect_2d = { reference = legend_glow }
+    right_portrait = {
+        character = scope:HUANGDI
+        animation = emperor
+        camera = camera_body
+    }
+    artifact = {
+        target = scope:TianZiLiuMian
+        position = lower_left_portrait
+		trigger = { exists = scope:TianZiLiuMian }
+    }
+    artifact = {
+        target = scope:TianZiMianfu
+        position = lower_center_portrait
+		trigger = { exists = scope:TianZiMianfu }
+    }
+    artifact = {
+        target = scope:TianZiJian
+        position = lower_right_portrait
+		trigger = { exists = scope:TianZiJian }
+    }
+    trigger = {
+        NOT = { has_character_flag = dengji_flag }
+    }
+    immediate = {
+        save_scope_as = huangdi
+        add_character_flag = dengji_flag
+        remove_nickname = yes
+        remove_ZongWang_all_effect = yes
+        remove_juewei_all_effect = yes
+        # 普通兄弟及其后代不应在新皇登基时被清理。
+        # 仅将已死亡、仍带旧皇太子来源的兄弟支系转换为普通亲王级衍生来源；
+        # 该效果保留现有爵位/世子特质，不调用 remove_taizi。
+        every_sibling = {
+            even_if_dead = yes
+            limit = {
+                is_alive = no
+                OR = {
+                    has_trait = SanGong_Taizi
+                    has_trait = SanGong_TaiSun
+                    has_character_flag = SanGong_ZongShi_crown_taizi_source
+                    has_character_flag = SanGong_ZongShi_crown_taisun_source
+                    has_character_flag = SanGong_ZongShi_former_taizi
+                }
+            }
+            SanGong_ZongShi_retire_deceased_crown_branch_effect = yes
+        }
+        every_child = {
+            even_if_dead = yes
+            add_trait = SanGong_HuangSi
+        }
+        custom_tooltip = SanGong_DianZhang.010_tt
+        hidden_effect = {
+            every_character_artifact = {
+                limit = {
+                    OR = {
+                        has_variable = TianZiLiuMian
+                        has_variable = TianZiMianfu
+                        has_variable = TianZiJian
+                    }
+                }
+                destroy_artifact = this
+            }
+        }
+        Dengji_artifact_effect = yes
+        create_BenJi_story_effect = yes
+        scope:HUANGDI = {
+            primary_title = {
+                ordered_past_holder = {
+                    even_if_dead = yes
+                    limit = {
+						house = scope:HUANGDI.house
+						this != scope:HUANGDI
+					}
+                    position = 0
+                    save_scope_as = xiandi
+                }
+
+            }
+        }
+    }
+    option = {
+        name = SanGong_DianZhang.010.a
+        create_character_memory = { type = mem_Dengji_jiwei }
+    }
+    after = {
+        SanGong_Dengji_after_effect = yes
+        create_character_QianChaoGuoHao_GongJuRen_effect = yes
+        create_character_TianChaoGuoHao_GongJuRen_effect = yes
+    }
+}
+
+SanGong_DianZhang.011 = { # 商议册立皇后事件
+    type = character_event
+    title = SanGong_DianZhang.011.title
+    window = List_event_window_v1
+    desc = SanGong_DianZhang.011.desc
+    theme = administrative
+    override_background = bedchamber
+
+    right_portrait = {
+        character = scope:target
+        animation = throne_room_messenger_3
+        camera = camera_body_left_slight
+    }
+    lower_center_portrait = {
+        character = root.primary_spouse
+        animation = steward
+    }
+    trigger = {
+        NOT = { has_character_flag = lihou_flag }
+        not_involved_activity_trigger = yes
+        exists = primary_spouse
+        is_married = yes
+        primary_spouse = {
+            NOT = {
+                has_trait = SanGong_GongWei_1
+            }
+        }
+    }
+    widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "SanGong_character_list_selection"
+		container = "custom_widgets_container"
+	}
+    immediate = {
+        save_scope_as = HuangDi
+        SanGong_NeiGeDachen_save_effect = yes
+        primary_spouse = {
+            save_scope_as = YuanPei
+        }
+        SanGong_HouGong_rank_effect = yes
+
+    }
+    option = {
+        name = SanGong_DianZhang.011.a
+        primary_spouse = {
+            save_scope_as = huanghou
+        }
+        trigger_event = SanGong_DianZhang.012
+        ai_chance = { base = 1000 }
+    }
+
+    option = {
+        name = SanGong_DianZhang.011.b
+        if = {
+			limit = { exists = var:SanGong_selected_character }
+            root.var:SanGong_selected_character = {
+                save_scope_as = huanghou
+            }
+            scope:HuangDi = {
+                divorce_effect = {
+                    DIVORCER = scope:HuangDi
+                    DIVORCEE = scope:YuanPei
+                }
+            }
+            custom_tooltip = SanGong_DianZhang.011.b_tt
+            marry = scope:huanghou
+            make_concubine = scope:YuanPei
+            trigger_event = SanGong_DianZhang.012
+		}
+        ai_chance = { base = 0 }
+    }
+
+    option = {
+        name = SanGong_DianZhang.011.c
+        add_character_flag = {
+            flag = lihou_flag
+            years = 3
+        }
+        custom_tooltip = SanGong_DianZhang.011.c_tt
+        ai_chance = { base = 0 }
+    }
+    after = {
+        clear_variable_list = SanGong_list_characters
+		var:SanGong_selected_character = { remove_variable = SanGong_selected_character }
+		remove_variable = SanGong_selected_character
+    }
+}
+
+SanGong_DianZhang.012 = {#册立皇后
+    type = character_event
+    window = SanGong_Zhaoshu_event_window
+    title = SanGong_DianZhang.012.t
+    desc = SanGong_DianZhang.012.desc
+    theme = administrative
+    override_background = estate
+    right_portrait = {
+        character = scope:huanghou
+        animation = steward
+        camera = camera_body
+    }
+    artifact = {
+        target = scope:HuangHouFengGuan
+        position = lower_left_portrait
+		trigger = { exists = scope:HuangHouFengGuan }
+    }
+    artifact = {
+        target = scope:HuangHouDiYi
+        position = lower_center_portrait
+		trigger = { exists = scope:HuangHouDiYi }
+    }
+    immediate = {
+        scope:HuangDi = {
+            add_prestige = 150
+            add_influence = 150
+            add_legitimacy = 150
+            set_relation_houfei_relation = { target = scope:huanghou }
+            add_character_modifier = SanGong_ZhongGongYIDing_modifier
+        }
+        scope:YuanPei = {
+            remove_trait = SanGong_GongWei_1
+            add_trait = SanGong_GongWei_4
+        }
+        scope:huanghou = {
+            remove_sangong_pinfeijiahao_effect = yes
+            remove_gongtingtrait_effect = yes
+            add_trait = SanGong_GongWei_1
+            add_character_modifier = hg_my_modifier
+            CeHou_artifact_effect = yes
+        }
+
+        scope:huanghou = {
+            create_character_memory = { type = mem_add_gongwei_1  participants = { owner = scope:huanghou huangdi = scope:HuangDi } }
+        }
+        scope:HuangDi = {
+            create_character_memory = { type = mem_add_gongwei_1  participants = { owner = scope:huanghou huangdi = scope:HuangDi } }
+        }
+    }
+    option = {
+        name = SanGong_DianZhang.012.a
+        scope:huanghou = {
+            dynasty ?= {
+                add_dynasty_prestige = 1500
+            }
+            house ?= {
+                every_house_member = {
+                    limit = {
+                        is_male = yes
+                        top_liege = scope:HuangDi
+                        is_adult = yes
+                        is_imprisoned = no
+                    }
+                    add_prestige_level = 1
+                    add_influence_level = 1
+                }
+            }
+        }
+    }
+    after = {
+        every_vassal_or_below = {
+            trigger_event = SanGong_DianZhang.013
+        }
+    }
+}
+
+SanGong_DianZhang.013 = {#册立皇后(封臣视角)
+    type = character_event
+    window = SanGong_Zhaoshu_event_window
+    title = SanGong_DianZhang.012.t
+    desc = SanGong_DianZhang.012.desc
+    theme = administrative
+    override_background = estate
+    right_portrait = {
+        character = scope:huanghou
+        animation = steward
+        camera = camera_body
+    }
+    option = {
+        name = SanGong_DianZhang.012.b
+
+    }
+}
+
+SanGong_DianZhang.014 = {#册立太孙
+    type = character_event
+    window = clear_event_window_v2
+    title = SanGong_DianZhang.014.t
+    desc = SanGong_DianZhang.014.desc
+    theme = administrative
+    right_portrait = {
+        character = scope:taisun
+        animation = steward
+        camera = camera_body
+    }
+
+    immediate = {
+        scope:taisun = {
+            remove_HuangZi_WangHao_effects = yes
+            SanGong_ZongShi_set_taisun_effect = yes
+        }
+        add_legitimacy = 200
+    }
+    option = {
+        name = SanGong_DianZhang.014.a
+        add_realm_law_skip_effects = SanGong_zongfa_succession_law
+       #if = {
+       #    limit = {
+       #        NOT = { primary_title = { has_title_law = SanGong_zongfa_succession_law } }
+       #    }
+       #    primary_title = {
+       #        hidden_effect = { clear_title_laws = yes }
+       #        add_title_law = SanGong_zongfa_succession_law
+       #    }
+       #}
+        if = {
+            limit = {
+                scope:taisun = {
+                    is_landed = no
+                    is_ruler = no
+                    NOT = { is_courtier_of = scope:actor }
+                }
+            }
+            add_courtier = scope:taisun
+        }
+    }
+    after = {
+        every_vassal_or_below = {
+            trigger_event = SanGong_DianZhang.017
+        }
+    }
+}
+
+SanGong_DianZhang.015 = {#册立太子（AI使用）
+    type = character_event
+    window = clear_event_window_v2
+    title = SanGong_DianZhang.015.t
+    desc = SanGong_DianZhang.015.desc
+    theme = administrative
+    right_portrait = {
+        character = scope:taizi
+        animation = steward
+        camera = camera_body
+    }
+    trigger = {
+        is_ai = yes
+        SanGong_huangdi_trigger = yes
+        primary_spouse = {
+            has_trait = SanGong_GongWei_1
+        }
+        NOT = { any_child = { has_trait = SanGong_Taizi } }
+        any_child = { is_male = yes }
+    }
+    immediate = {
+        save_scope_as = HuangDi
+        ordered_child = {
+            limit = {
+                top_liege = scope:HuangDi
+            }
+            order_by = {
+                value = age
+                if = {
+                    limit = { mother = { has_trait = SanGong_GongWei_1 } }
+                    add = 50
+                }
+
+                if = {
+                    limit = { has_trait = intellect_good_3 }
+                    add = 30
+                }
+                if = {
+                    limit = { is_male = yes }
+                    add = 100
+                }
+                if = {
+                    limit = { has_trait = beauty_good_3 }
+                    add = 30
+                }
+                if = {
+                    limit = {
+                        OR = {
+                            has_trait = beauty_bad_1
+                            has_trait = beauty_bad_2
+                            has_trait = beauty_bad_3
+                            has_trait = intellect_bad_1
+                            has_trait = intellect_bad_2
+                            has_trait = intellect_bad_3
+                            has_trait = great_pox
+                            has_trait = early_great_pox
+                            has_trait = lovers_pox
+                            has_trait = leper
+                            has_trait = maimed
+                            has_trait = disfigured
+                            has_trait = eunuch
+                            has_trait = blind
+                            has_trait = one_eyed
+                            has_trait = one_legged
+                            has_trait = clubfooted
+                            has_trait = hunchbacked
+                            has_trait = lisping
+                            has_trait = stuttering
+                        }
+                        }
+                    add = -100
+                }
+            }
+            save_scope_as = taizi
+        }
+        TaiZiDongGong_effect = yes
+    }
+    option = {
+        name = SanGong_DianZhang.015.a
+        scope:taizi = {
+            remove_HuangZi_WangHao_effects = yes
+            SanGong_ZongShi_set_taizi_effect = yes
+            add_gold = 300
+        }
+        add_realm_law_skip_effects = SanGong_zongfa_succession_law
+       # if = {
+       #     limit = {
+       #         NOT = { primary_title = { has_title_law = SanGong_zongfa_succession_law } }
+       #     }
+       #     primary_title = {
+       #         hidden_effect = { clear_title_laws = yes }
+       #         add_title_law = SanGong_zongfa_succession_law
+       #     }
+       # }
+        if = {
+            limit = {
+                scope:taizi = {
+                    is_landed = no
+                    is_ruler = no
+                    NOT = { is_courtier_of = root }
+                }
+            }
+            add_courtier = scope:taizi
+        }
+    }
+    after = {
+        TaiZiDongGong_after_effect = yes
+        every_vassal_or_below = {
+            trigger_event = SanGong_DianZhang.017
+        }
+    }
+}
+
+SanGong_DianZhang.016 = {#册立太子(Gui玩家使用)
+    type = character_event
+    window = SanGong_Zhaoshu_event_window
+    title = SanGong_DianZhang.015.t
+    desc = SanGong_DianZhang.015.desc
+    theme = administrative
+    right_portrait = {
+        character = scope:taizi
+        animation = steward
+        camera = camera_body
+    }
+
+    immediate = {
+        scope:taizi = {
+            remove_HuangZi_WangHao_effects = yes
+            SanGong_ZongShi_set_taizi_effect = yes
+        }
+        add_legitimacy = 200
+        TaiZiDongGong_effect = yes
+    }
+    option = {
+        name = SanGong_DianZhang.015.a
+        scope:actor = {
+            add_realm_law_skip_effects = SanGong_zongfa_succession_law
+         #  if = {
+         #      limit = {
+         #          NOT = { primary_title = { has_title_law = SanGong_zongfa_succession_law } }
+         #      }
+         #      primary_title = {
+         #          hidden_effect = { clear_title_laws = yes }
+         #          add_title_law = SanGong_zongfa_succession_law
+         #      }
+         #  }
+        }
+        scope:taizi = {
+            create_character_memory = { type = mem_add_taizi  participants = { owner = scope:taizi huangdi = scope:HuangDi } }
+            add_character_modifier = { modifier = SanGong_player_taizi_merit_modifier }
+            change_merit = { add = 3000 }
+        }
+        scope:actor = {
+            create_character_memory = { type = mem_add_taizi  participants = { owner = scope:taizi huangdi = scope:actor } }
+        }
+    }
+    after = {
+        TaiZiDongGong_after_effect = yes
+        every_vassal_or_below = {
+            trigger_event = SanGong_DianZhang.017
+        }
+    }
+}
+
+SanGong_DianZhang.017 = {#册立太子(封臣视角)
+    type = character_event
+    window = SanGong_Zhaoshu_event_window
+    title = SanGong_DianZhang.015.t
+    desc = SanGong_DianZhang.015.desc
+    theme = administrative
+    right_portrait = {
+        character = scope:taizi
+        animation = steward
+        camera = camera_body
+    }
+    option = {
+        name = SanGong_DianZhang.015.b
+       # create_character_memory = { type = mem_add_taizi  participants = { owner = scope:taizi huangdi = scope:HuangDi } }
+    }
+}
+
+SanGong_DianZhang.018 = {#废太子
+    type = character_event
+    window = clear_event_window_v2
+    title = SanGong_DianZhang.018.t
+    desc = SanGong_DianZhang.018.desc
+    theme = administrative
+    right_portrait = {
+        character = scope:taizi
+        animation = steward
+        camera = camera_body
+    }
+    option = {
+        name = SanGong_DianZhang.018.a
+        # 东宫清理由统一废储效果执行；此事件只通知本人及封臣。
+    }
+}
+
+SanGong_DianZhang.020 = {#废皇太孙
+    type = character_event
+    window = clear_event_window_v2
+    title = SanGong_DianZhang.020.t
+    desc = SanGong_DianZhang.020.desc
+    theme = administrative
+    right_portrait = {
+        character = scope:taisun
+        animation = stress
+        camera = camera_body
+    }
+    option = {
+        name = SanGong_DianZhang.020.a
+    }
+}
+
+SanGong_DianZhang.019 = {#废皇后
+    type = character_event
+    #window = clear_event_window_v2
+    title = SanGong_DianZhang.019.t
+    desc = SanGong_DianZhang.019.desc
+    theme = coronation
+    override_background = bp1_indian_corridor_night
+    right_portrait = {
+        character = scope:recipient
+        animation = stress
+        camera = camera_body
+    }
+    immediate = {
+        scope:recipient = {
+            if = {
+                limit = {
+                    any_child = {
+                        OR = {
+                            has_trait = wild_oat
+                            has_trait = bastard
+                            has_trait = disputed_heritage
+                        }
+                    }
+                }
+                custom_tooltip = SanGong_divorce_character_interaction_tt2
+                every_child = {
+                    limit = {
+                        OR = {
+                            has_trait = wild_oat
+                            has_trait = bastard
+                            has_trait = disputed_heritage
+                        }
+                    }
+                    death = yes
+                }
+            }
+        }
+    }
+    option = {#废为普通妃子
+        name = SanGong_DianZhang.019.a
+        divorce_effect = {
+            DIVORCER = scope:actor  # 离婚方：发起者
+            DIVORCEE = scope:recipient # 被离婚方：目标
+        }
+        scope:recipient = {
+            remove_character_flag = LiuGong_kunning
+            every_child = {
+               limit = {
+                   OR = {
+                       has_trait = SanGong_Taizi
+                       has_trait = SanGong_TaiSun
+                   }
+               }
+                SanGong_remove_cefeng_merit_modifiers_effect = yes
+               SanGong_ZongShi_remove_crown_line_effect = yes
+            }
+        }
+        make_concubine = scope:recipient
+        trigger_event = SanGong_JiaLi.011
+        ai_chance = { base = 1110 }
+    }
+    option = {#家丑不可外扬，赐死
+        name = SanGong_DianZhang.019.c
+        scope:recipient = {
+            remove_trait = cannibal # 食人者
+            remove_trait = incestuous # 乱伦者
+            remove_trait = adulterer # 通奸者
+            remove_trait = fornicator # 私通者
+            remove_trait = murderer # 杀人犯
+            remove_trait = deviant # 杀人犯
+            death = { death_reason = death_leling_ziJin2 }
+        }
+        ai_chance = { base = 1111110 }
+    }
+    option = {#赐死，夷皇后家族，包括孩子
+        trigger = {
+            scope:recipient = {
+                dynasty ?= {
+                    NOT = {
+                        any_dynasty_member = {
+                            top_liege = scope:actor
+                            highest_held_title_tier > tier_duchy
+                        }
+                    }
+                }
+            }
+        }
+        name = SanGong_DianZhang.019.d
+        divorce_effect = {
+            DIVORCER = scope:actor  # 离婚方：发起者
+            DIVORCEE = scope:recipient # 被离婚方：目标
+        }
+        scope:recipient = {
+            every_child = {
+               limit = {
+                   OR = {
+                       has_trait = SanGong_Taizi
+                       has_trait = SanGong_TaiSun
+                   }
+               }
+                SanGong_remove_cefeng_merit_modifiers_effect = yes
+               SanGong_ZongShi_remove_crown_line_effect = yes
+            }
+            remove_trait = SanGong_GongWei_1
+            house ?= {
+                every_house_member = {
+                    limit = {
+                        top_liege = scope:actor
+                    }
+                    death = { death_reason = death_leling_ziJin2 }
+                }
+            }
+        }
+        ai_chance = { base = 0 }
+    }
+}
+
+
+SanGong_DianZhang.021 = {#尊封太后（封臣视角）
+    type = character_event
+    window = clear_event_window_v2
+    title = SanGong_DianZhang.021.t
+    desc = SanGong_DianZhang.021.desc
+    theme = administrative
+    right_portrait = {
+        character = scope:TaiHou
+        animation = steward
+        camera = camera_body
+    }
+    option = {
+        name = SanGong_DianZhang.021.a
+    }
+}
+
+
+
+SanGong_DianZhang.025 = { # 特进殊号
+    type = character_event
+    title = SanGong_DianZhang.025_title
+    desc = SanGong_DianZhang.025_desc
+    theme = wanderer_journey_focus
+    override_background = bp1_indian_corridor_day
+    override_effect_2d = { reference = legend_glow }
+    right_portrait = {
+        character = scope:QuanChen
+        animation = steward
+        camera = camera_body
+    }
+    immediate = {
+        scope:QuanChen = {
+            remove_character_flag = TianCeShangJiang_flag
+            remove_character_flag = ChongTianDaJiangJun_flag
+            remove_character_flag = YuZhouDaJiangJun_flag
+            remove_character_flag = DaChengXiang_flag
+            remove_character_flag = TianZhuDaJiangJun_flag
+        }
+    }
+    option = {#天策上将
+        name = SanGong_DianZhang.025.a
+        scope:QuanChen = {
+            add_character_flag = TianCeShangJiang_flag
+        }
+    }
+    option = {#冲天大将军
+        name = SanGong_DianZhang.025.b
+        scope:QuanChen = {
+            add_character_flag = ChongTianDaJiangJun_flag
+        }
+    }
+    option = {#宇宙大将军
+        name = SanGong_DianZhang.025.c
+        scope:QuanChen = {
+            add_character_flag = YuZhouDaJiangJun_flag
+        }
+    }
+    option = {#大丞相
+        name = SanGong_DianZhang.025.d
+        scope:QuanChen = {
+            add_character_flag = DaChengXiang_flag
+        }
+    }
+    option = {#天柱大将军
+        name = SanGong_DianZhang.025.e
+        scope:QuanChen = {
+            add_character_flag = TianZhuDaJiangJun_flag
+        }
+    }
+    #大冢宰
+    #相国
+}
+
+
+SanGong_DianZhang.031 = {# 太妃移宫
+    type = character_event
+    title = SanGong_DianZhang.031_t
+    desc = SanGong_DianZhang.031_d
+    window = List_event_window_v1
+    theme = imperial_examination
+    override_background = activity_feast
+    right_portrait = {
+        character = scope:XianDi
+        animation = dead
+        camera = camera_character_view_spouse
+    }
+    lower_left_portrait = {
+        character = scope:TaiHuangTaihou
+        animation = disgust
+    }
+    lower_center_portrait = {
+        character = scope:TaiHou
+        animation = disgust
+    }
+    lower_right_portrait = {
+        character = scope:TaiGuifei
+        animation = disgust
+    }
+    widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "SanGong_character_list_selection"
+		container = "custom_widgets_container"
+	}
+    immediate = {
+        hidden_effect = {
+            every_in_list = {
+                list = TaiFei_list
+                root = {
+                    add_to_variable_list = {
+                        name = SanGong_list_characters
+                        target = prev
+                    }
+                }
+                TaiFeiYiGong_effect = yes
+            }
+        }
+    }
+    option = {
+        name = SanGong_DianZhang.031.a
+        TaiHuangTaihou_effect = yes
+        LiangGongTaiHou_effect = yes
+        if = {
+            limit = {
+                scope:TaiHou = { ZunHaoYiDing_trigger = no }
+            }
+            trigger_event = { id = SanGong_CeFeng.080 days = 15 }
+        }
+    }
+    option = {
+        trigger = {
+            is_ai = no
+            any_in_list = {
+                list = TaiFei_list
+                NOT = {
+                    has_trait = SanGong_Taihou
+                    has_trait = SanGong_TaiHuangTaihou
+                }
+                NOT = { any_child = { is_alive = yes } }
+            }
+        }
+        name = SanGong_DianZhang.031.b
+        add_dread = 50
+        add_prestige = 500
+        add_piety = 500
+        add_influence = 500
+        every_in_list = {
+            list = TaiFei_list
+            limit = {
+                NOT = {
+                    has_trait = SanGong_Taihou
+                    has_trait = SanGong_TaiHuangTaihou
+                }
+                NOT = { any_child = { is_alive = yes } }
+            }
+            custom_tooltip = SanGong_DianZhang.031_tt2
+            death = {
+                death_reason = death_xunzhang
+                killer = root
+            }
+        }
+    }
+    option = {
+        trigger = {
+            is_ai = no
+
+        }
+        name = SanGong_DianZhang.031.c
+        if = {
+			limit = { exists = var:SanGong_selected_character }
+            root.var:SanGong_selected_character = {
+                save_scope_as = pinfei
+            }
+            custom_tooltip = SanGong_DianZhang.031_tt3
+            BaZhanTaifei_effect = yes
+		}
+
+    }
+    after = {
+		clear_variable_list = SanGong_list_characters
+		var:SanGong_selected_character = { remove_variable = SanGong_selected_character }
+		remove_variable = SanGong_selected_character
+	}
+}
+
+
+SanGong_DianZhang.042 = {#选择流官接替
+    type = character_event
+    title = SanGong_DianZhang.042.t
+    desc = SanGong_DianZhang.042.desc
+    theme = administrative
+    right_portrait = {
+        character = root
+        animation = emperor
+        camera = camera_body_left
+    }
+    immediate = {
+    }
+    option = {#公爵以下
+        name = SanGong_DianZhang.042.a
+        LiuGuanFuren_effect = { TIER = tier_duchy MERIT = 2 ORD_BY = martial LIUGUAN = LiuGuan1 }
+        LiuGuanFuren_effect = { TIER = tier_duchy MERIT = 2 ORD_BY = diplomacy LIUGUAN = LiuGuan2 }
+        LiuGuanFuren_effect = { TIER = tier_duchy MERIT = 2 ORD_BY = stewardship LIUGUAN = LiuGuan3 }
+        LiuGuanFuren_effect = { TIER = tier_duchy MERIT = 2 ORD_BY = learning LIUGUAN = LiuGuan4 }
+        LiuGuanFuren_effect = { TIER = tier_duchy MERIT = 2 ORD_BY = Intrigue LIUGUAN = LiuGuan5 }
+        trigger_event = SanGong_DianZhang.043
+    }
+
+    option = {#王国封臣
+        name = SanGong_DianZhang.042.b
+        LiuGuanFuren2_effect = { TIER = tier_kingdom MERIT = 2 ORD_BY = martial LIUGUAN = LiuGuan1 }
+        LiuGuanFuren2_effect = { TIER = tier_kingdom MERIT = 2 ORD_BY = diplomacy LIUGUAN = LiuGuan2 }
+        LiuGuanFuren2_effect = { TIER = tier_kingdom MERIT = 2 ORD_BY = stewardship LIUGUAN = LiuGuan3 }
+        LiuGuanFuren2_effect = { TIER = tier_kingdom MERIT = 2 ORD_BY = learning LIUGUAN = LiuGuan4 }
+        LiuGuanFuren2_effect = { TIER = tier_kingdom MERIT = 2 ORD_BY = Intrigue LIUGUAN = LiuGuan5 }
+        trigger_event = SanGong_DianZhang.043
+    }
+
+    option = {#栋梁老臣
+        name = SanGong_DianZhang.042.d
+        LiuGuanFuren_effect = { TIER = tier_kingdom MERIT = 2 ORD_BY = merit LIUGUAN = LiuGuan1 }
+        LiuGuanFuren_effect = { TIER = tier_kingdom MERIT = 2 ORD_BY = age LIUGUAN = LiuGuan2 }
+        LiuGuanFuren_effect = { TIER = tier_kingdom MERIT = 2 ORD_BY = prestige_level LIUGUAN = LiuGuan3 }
+        LiuGuanFuren_effect = { TIER = tier_kingdom MERIT = 2 ORD_BY = influence_level LIUGUAN = LiuGuan4 }
+        LiuGuanFuren_effect = { TIER = tier_kingdom MERIT = 2 ORD_BY = learning LIUGUAN = LiuGuan5 }
+        trigger_event = SanGong_DianZhang.043
+    }
+}
+
+SanGong_DianZhang.043 = {#流官接替
+    type = character_event
+    title = SanGong_DianZhang.043.t
+    desc = SanGong_DianZhang.043.desc
+    theme = administrative
+    left_portrait = {
+        character = scope:LiuGuan4
+        animation = disgust
+        camera = camera_body
+    }
+    right_portrait = {
+        character = scope:LiuGuan5
+        animation = disgust
+        camera = camera_body
+    }
+    lower_left_portrait = {
+        character = scope:LiuGuan1
+        animation = disgust
+    }
+    lower_center_portrait = {
+        character = scope:LiuGuan2
+        animation = disgust
+    }
+    lower_right_portrait = {
+        character = scope:LiuGuan3
+        animation = disgust
+    }
+
+    immediate = {
+        save_scope_as = HuangDi
+    }
+    option = {#
+        name = SanGong_DianZhang.043.a
+        LiuGuan_TiHuan_effect = { LIEGE = HuangDi HOLDER = FanWang LIUGUAN = LiuGuan1 }
+    }
+
+    option = {#
+        name = SanGong_DianZhang.043.b
+        LiuGuan_TiHuan_effect = { LIEGE = HuangDi HOLDER = FanWang LIUGUAN = LiuGuan2 }
+    }
+
+    option = {#
+        name = SanGong_DianZhang.043.c
+        LiuGuan_TiHuan_effect = { LIEGE = HuangDi HOLDER = FanWang LIUGUAN = LiuGuan3 }
+    }
+
+    option = {#
+        name = SanGong_DianZhang.043.d
+         LiuGuan_TiHuan_effect = { LIEGE = HuangDi HOLDER = FanWang LIUGUAN = LiuGuan4 }
+    }
+        option = {#
+        name = SanGong_DianZhang.043.e
+         LiuGuan_TiHuan_effect = { LIEGE = HuangDi HOLDER = FanWang LIUGUAN = LiuGuan5 }
+    }
+}
+
+SanGong_DianZhang.051 = { # 藩国维持
+    type = character_event
+    title = SanGong_DianZhang.051_title
+    desc = SanGong_DianZhang.051_desc
+    theme = wanderer_journey_focus
+    override_background = bp1_indian_corridor_day
+    override_effect_2d = { reference = legend_glow }
+    right_portrait = {
+        character = root
+        animation = steward
+        camera = camera_body
+    }
+    trigger = {
+        is_independent_ruler = yes
+        has_government = zongfan_government
+    }
+    option = {#天朝制
+        name = SanGong_DianZhang.051.a
+        change_government = celestial_government
+    }
+    option = {#贤能制
+        name = SanGong_DianZhang.051.b
+        change_government = meritocratic_government
+    }
+}
+
+SanGong_DianZhang.060 = {# 获得中华帝国
+    type = character_event
+    window = SanGong_Zhaoshu_event_window
+	title = {
+		first_valid = {
+            triggered_desc = {
+				trigger = {
+                    ZhongXing_Huangdi_trigger = Yes
+                }
+				desc = SanGong_DianZhang.060.t1
+			}
+            triggered_desc = {
+				trigger = {
+                    TIanZiZongMiao_trigger = yes
+				}
+				desc = SanGong_DianZhang.060.t2
+			}
+			desc = SanGong_DianZhang.060.t3
+		}
+	}
+    desc = {
+		first_valid = {
+            triggered_desc = {
+				trigger = {
+                    ZhongXing_Huangdi_trigger = Yes
+                }
+				desc = SanGong_DianZhang.060.desc.d1
+			}
+			triggered_desc = {
+				trigger = {
+                    TIanZiZongMiao_trigger = yes
+				}
+				desc = SanGong_DianZhang.060.desc.d2
+			}
+			desc = SanGong_DianZhang.060.desc.d3
+		}
+	}
+    immediate = {
+        save_scope_as = huangdi
+        ordered_close_family_member = {
+            even_if_dead = yes
+            limit = {
+                OR = {
+                    has_trait = SanGong_KaiGuo
+                    has_trait = SanGong_ZhongXing
+                    has_trait = SanGong_XiongZhu
+                    has_trait = SanGong_ShouCheng
+                    has_trait = SanGong_HunJun
+                }
+            }
+            order_by = age
+            max = 1
+            save_scope_as = xiandi
+        }
+
+    }
+	theme = default
+    override_background = bedchamber
+    right_portrait = {
+        character = root
+        animation = chancellor
+        camera = camera_body_left_slight
+    }
+    lower_center_portrait = {
+        trigger = {
+            exists = scope:xiandi
+        }
+        character = scope:xiandi
+        animation = chancellor
+    }
+    option = {
+        name = SanGong_DianZhang.060.a
+        trigger = {
+            ZhongXing_Huangdi_trigger = No
+            TIanZiZongMiao_trigger = yes
+        }
+		add_trait = SanGong_ZhongXing
+        ai_chance = { base = 2000 }
+    }
+	option = {
+        name = SanGong_DianZhang.060.b
+        trigger = {
+            TIanZiZongMiao_trigger = no
+        }
+        add_trait = SanGong_KaiGuo
+        ai_chance = { base = 2000 }
+    }
+    option = {
+        name = SanGong_DianZhang.060.c
+        trigger = {
+            ZhongXing_Huangdi_trigger = yes
+        }
+		add_trait = SanGong_XiongZhu
+        ai_chance = { base = 2000 }
+    }
+    after = {
+
+        if = {
+            limit = {
+                SanGong_huangdi_trigger = yes
+            }
+            save_scope_as = HuangDi
+            trigger_event = { id = SanGong_DianZhang.010 days = 15 }
+        }
+    }
+}
+
+SanGong_DianZhang.061 = {# 皇子回京
+    type = character_event
+    title = SanGong_DianZhang.061_t
+    desc = SanGong_DianZhang.061_d
+    window = List_event_window_v1
+    theme = legend
+    override_background = bedchamber
+    right_portrait = {
+        character = primary_heir
+        animation = frontend_center_idle
+    }
+    widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "SanGong_character_list_selection"
+		container = "custom_widgets_container"
+	}
+    immediate = {
+        every_child = {
+            limit = {
+                top_liege = root
+                NOT = {
+                    is_courtier_of = root
+                }
+            }
+            root = {
+                add_to_variable_list = {
+                    name = SanGong_list_characters
+                    target = prev
+                }
+            }
+        }
+    }
+    option = {#所有皇子全部回京
+        name = SanGong_DianZhang.061.a
+        trigger = {
+            primary_heir = {
+                is_child_of = root
+                top_liege = root
+                NOT = {
+                    is_courtier_of = root
+                }
+            }
+        }
+        primary_heir = {
+            every_held_title = {
+                limit = {
+                    is_noble_family_title = no
+                    is_landless_type_title = yes
+                }
+                holder = {
+                    destroy_title = prev
+                }
+            }
+            force_step_down_landed_titles = yes
+            root = {
+                add_courtier = primary_heir
+            }
+        }
+        add_character_flag = SanGong_huangzihuijing_flag
+    }
+    option = {#选定皇子回京
+        trigger = {
+            is_ai = no
+        }
+        name = SanGong_DianZhang.061.b
+        if = {
+			limit = { exists = var:SanGong_selected_character }
+            root.var:SanGong_selected_character = {
+                save_scope_as = huangzi
+            }
+            scope:huangzi = {
+                every_held_title = {
+                    limit = {
+                        is_noble_family_title = no
+                        is_landless_type_title = yes
+                    }
+                    holder = {
+                        destroy_title = prev
+                    }
+                }
+                force_step_down_landed_titles = yes
+                root = {
+                    add_courtier = prev
+                }
+            }
+		}
+        add_character_flag = SanGong_huangzihuijing_flag
+    }
+    option = {#所有皇子全部回京
+        name = SanGong_DianZhang.061.c
+        trigger = {
+            is_ai = no
+        }
+        every_child = {
+            limit = {
+                top_liege = root
+                is_ruler = yes
+                NOT = {
+                    is_courtier_of = root
+                }
+            }
+            every_held_title = {
+                limit = {
+                    is_noble_family_title = no
+                    is_landless_type_title = yes
+                }
+                holder = {
+                    destroy_title = prev
+                }
+            }
+            force_step_down_landed_titles = yes
+            root = {
+                add_courtier = prev
+            }
+        }
+        add_character_flag = SanGong_huangzihuijing_flag
+    }
+    option = {#无事发生
+        name = SanGong_DianZhang.061.d
+    }
+    after = {
+		clear_variable_list = SanGong_list_characters
+		var:SanGong_selected_character = { remove_variable = SanGong_selected_character }
+		remove_variable = SanGong_selected_character
+	}
+}
+
+SanGong_DianZhang.062 = {#登基大典(封臣通知)
+    type = character_event
+    window = SanGong_Zhaoshu_event_window
+    title = SanGong_DianZhang.010.t
+    desc = {
+        first_valid = {
+			triggered_desc = {
+				trigger = { scope:HUANGDI = { has_trait = SanGong_KaiGuo } }
+				desc = SanGong_DianZhang.010.desc1
+			}
+            triggered_desc = {
+				trigger = { scope:HUANGDI = { NOT = { has_trait = SanGong_KaiGuo }} }
+				desc = SanGong_DianZhang.010.desc
+			}
+		}
+    }
+    right_portrait = {
+        character = scope:HUANGDI
+        animation = emperor
+        camera = camera_body
+    }
+    artifact = {
+        target = scope:TianZiLiuMian
+        position = lower_left_portrait
+		trigger = { exists = scope:TianZiLiuMian }
+    }
+    artifact = {
+        target = scope:TianZiMianfu
+        position = lower_center_portrait
+		trigger = { exists = scope:TianZiMianfu }
+    }
+    artifact = {
+        target = scope:TianZiJian
+        position = lower_right_portrait
+		trigger = { exists = scope:TianZiJian }
+    }
+    theme = administrative
+    override_background = tgp_fullscreen_dynastic_cycle_stability
+    override_effect_2d = { reference = legend_glow }
+    immediate = {
+
+    }
+
+    option = {
+        name = SanGong_DianZhang.062.a
+    }
+}
+
+
+
+
+
+
+
+
+
+######已注释#######
+    #SanGong_DianZhang.009 = {# 获得中华帝国
+    #    type = character_event
+    #	title = {
+    #		first_valid = {
+    #			triggered_desc = {
+    #				trigger = {
+    #					TIanZiZongMiao_trigger = yes
+    #				}
+    #				desc = SanGong_DianZhang.009.t1
+    #			}
+    #			desc = SanGong_DianZhang.009.t2
+    #		}
+    #	}
+    #    desc = {
+    #		first_valid = {
+    #			triggered_desc = {
+    #				trigger = {
+    #					TIanZiZongMiao_trigger = yes
+    #				}
+    #				desc = SanGong_DianZhang.009.desc.2
+    #			}
+    #			desc = SanGong_DianZhang.009.desc.1
+    #		}
+    #	}
+    #    #trigger = {
+    #    #    NOT = { has_trait = SanGong_KaiGuo }
+    #    #    SanGong_huangdi_trigger = yes
+    #    #    OR = {
+    #    #        NOT = {
+    #    #            exists = primary_title.previous_holder
+    #    #        }
+    #    #        AND = {
+    #    #            exists = primary_title.previous_holder
+    #    #            primary_title.previous_holder.dynasty != root.dynasty
+    #    #        }
+    #    #    }
+    #    #}
+    #    immediate = {
+    #        if = {
+    #            limit = {
+    #                SanGong_huangdi_trigger = yes
+    #                NOT = { exists = story_BenJi }
+    #            }
+    #            save_scope_as = HUANGDI
+    #            create_story = story_BenJi
+    #            random_owned_story = {
+    #                type = story_BenJi
+    #                set_variable = {
+    #                    name = huangdi_character
+    #                    value = scope:HUANGDI
+    #                }
+    #            }
+    #        }
+    #        if = {
+    #			limit = {
+    #                SanGong_huangdi_trigger = yes
+    #			}
+    #            save_scope_as = HuangDi
+    #            trigger_event = { id = SanGong_DianZhang.010 days = 15 }
+    #		}
+    #    }
+    #	theme = default
+    #    override_background = bedchamber
+    #    left_portrait = {
+    #        character = root
+    #        animation = chancellor
+    #        camera = camera_body_left_slight
+    #    }
+    #    option = {
+    #        name = SanGong_DianZhang.009.a
+    #        trigger = {
+    #            TIanZiZongMiao_trigger = yes
+    #        }
+    #        add_trait = SanGong_KaiGuo
+    #		add_trait = SanGong_ZhongXing
+    #        ai_chance = { base = 2000 }
+    #    }
+    #    option = {
+    #        name = SanGong_DianZhang.009.b
+    #        add_trait = SanGong_KaiGuo
+    #        remove_ZongMiao = yes
+    #        ai_chance = { base = 100 }
+    #    }
+    #}

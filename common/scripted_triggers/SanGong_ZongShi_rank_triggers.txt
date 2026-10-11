@@ -1,0 +1,380 @@
+﻿# 宗室八等爵位体系的统一触发器。
+# 亲王、郡王是原 mod 的既有特质；下方触发器把它们与六个衍生爵位统一起来。
+
+SanGong_ZongShi_lower_rank_trigger = {
+    OR = {
+        has_trait = SanGong_ZongShi_ZhenGuoJiangJun
+        has_trait = SanGong_ZongShi_FuGuoJiangJun
+        has_trait = SanGong_ZongShi_FengGuoJiangJun
+        has_trait = SanGong_ZongShi_ZhenGuoZhongWei
+        has_trait = SanGong_ZongShi_FuGuoZhongWei
+        has_trait = SanGong_ZongShi_FengGuoZhongWei
+    }
+}
+
+SanGong_ZongShi_rank_trait_trigger = {
+    OR = {
+        has_trait = SanGong_FanWang
+        has_trait = SanGong_JunWang
+        SanGong_ZongShi_lower_rank_trigger = yes
+    }
+}
+
+SanGong_ZongShi_supplement_rank_candidate_trigger = {
+    dynasty = $EMPEROR$.dynasty
+    is_male = yes
+    is_adult = yes
+    NOT = { has_trait = bastard }
+    NOT = { has_trait = disinherited }
+    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    NOT = { SanGong_ZongShi_rank_suppressed_trigger = yes }
+    NOT = {
+        OR = {
+            has_trait = SanGong_Taizi
+            has_trait = SanGong_TaiSun
+            has_trait = SanGong_FanWang
+            has_trait = SanGong_JunWang
+            SanGong_ZongShi_lower_rank_trigger = yes
+            SanGong_ZongShi_heir_trait_trigger = yes
+            has_character_flag = SanGong_ZongShi_manual_lower_rank_root
+        }
+    }
+}
+
+# 皇太子与皇太孙是受保护的皇位继承支系来源，不等同于王爵等级。
+# 其独立身份之外，来源标记也用于父亲死亡或身份转移后的递归解析。
+SanGong_ZongShi_crown_line_source_trigger = {
+    OR = {
+        has_trait = SanGong_Taizi
+        has_trait = SanGong_TaiSun
+        has_character_flag = SanGong_ZongShi_crown_taizi_source
+        has_character_flag = SanGong_ZongShi_crown_taisun_source
+    }
+}
+
+# 旧死亡皇太子支系退役后的普通亲王级父系来源。
+# 该标记只参与普通爵位衍生，不属于皇位继承支系，不应命中 Crown 专用逻辑。
+SanGong_ZongShi_neutral_royal_rank_source_trigger = {
+    has_character_flag = SanGong_ZongShi_neutral_royal_rank_source
+}
+
+# 原有系统的自动王号只保存角色 Flag，不添加新体系的亲王/郡王特质。
+# 这些 Flag 仍应进入“赐爵（宗室）”的转换流程；它们不能因为显示出
+# “晋王/亲王”等文字就被当成已经拥有新体系王爵。
+SanGong_ZongShi_legacy_wanghao_trigger = {
+    OR = {
+        SanGong_QinWang_trigger = yes
+        SanGong_JunWang_trigger = yes
+    }
+}
+
+# 虚封封王（Cefeng_ZongShi）候选的统一条件。交互入口和后宫“宗亲”页的
+# ZongWang_gui 必须使用同一触发器，避免旧王号 Flag-only 角色在两个入口
+# 得到不一致的可用性。$EMPEROR$ 为发起册封的皇帝 scope。
+SanGong_ZongShi_virtual_wang_candidate_trigger = {
+    # Match V0.76 ZongShi_jinqin without adding scope: to a full scope expression.
+    OR = {
+        house = $EMPEROR$.house
+        AND = {
+            dynasty = $EMPEROR$.dynasty
+            house = { has_house_modifier = SanGong_SeparatedCloseKin_modifier }
+        }
+    }
+    is_male = yes
+    top_liege = $EMPEROR$
+    is_independent_ruler = no
+    NOT = {
+        OR = {
+            has_trait = SanGong_FanWang
+            has_trait = SanGong_JunWang
+            has_trait = SanGong_Taizi
+            has_trait = SanGong_TaiSun
+            has_government = zongfan_government
+        }
+    }
+    # 旧系统王号只有 Flag，没有新体系王爵特质；即使旧标记残留，
+    # 仍允许进入原有转换事件。实际新体系王爵/实封政府已被上面的
+    # 特质和政府条件排除，普通新体系根节点继续受 root 保护。
+    OR = {
+        SanGong_ZongShi_legacy_wanghao_trigger = yes
+        NOT = { has_character_flag = SanGong_ZongShi_feudatory_root }
+    }
+}
+
+SanGong_ZongShi_heir_trait_trigger = {
+    OR = {
+        has_trait = SanGong_ZongShi_FanWangShiZi
+        has_trait = SanGong_ZongShi_JunWangShiZi
+        has_trait = SanGong_ZongShi_ZhenGuoJiangJunZhangZi
+        has_trait = SanGong_ZongShi_FuGuoJiangJunZhangZi
+        has_trait = SanGong_ZongShi_FengGuoJiangJunZhangZi
+        has_trait = SanGong_ZongShi_ZhenGuoZhongWeiZhangZi
+        has_trait = SanGong_ZongShi_FuGuoZhongWeiZhangZi
+        has_trait = SanGong_ZongShi_FengGuoZhongWeiZhangZi
+    }
+}
+
+# 兼容原 Mod 中正确的 ZhiDingXiJue_flag，以及两个历史误拼写。
+SanGong_ZongShi_designated_heir_trigger = {
+    OR = {
+        has_character_flag = ZhiDingXiJue_flag
+        has_character_flag = SanGong_zhidingxijue_flag
+        has_character_flag = sg_zhidingxijue_flag
+    }
+}
+
+SanGong_ZongShi_crown_pending_rank_trigger = {
+    OR = {
+        has_character_flag = SanGong_ZongShi_crown_pending_ZhenGuoJiangJun
+        has_character_flag = SanGong_ZongShi_crown_pending_FuGuoJiangJun
+        has_character_flag = SanGong_ZongShi_crown_pending_FengGuoJiangJun
+        has_character_flag = SanGong_ZongShi_crown_pending_ZhenGuoZhongWei
+        has_character_flag = SanGong_ZongShi_crown_pending_FuGuoZhongWei
+        has_character_flag = SanGong_ZongShi_crown_pending_FengGuoZhongWei
+    }
+}
+
+# 长房优先的一个支系仍有可继承的合法男性。只有死亡的中间节点才继续向下，
+# 因而不会绕过在世长子直接改立其子。rank_source 由调用方保存，
+# 保留旧逻辑的同一最高领主边界，防止出奔、独立或实封支系被纳入虚封承袭。
+SanGong_ZongShi_heir_branch_candidate_trigger = {
+    is_male = yes
+    NOT = { has_trait = bastard }
+    NOT = { has_trait = disinherited }
+    # 皇太子是独立的受保护王储，不应占住下级宗室爵位的候选位。
+    # 亲王/郡王则仍保留“高爵吸收低爵”的阻断语义，由授爵效果处理。
+    NOT = {
+        OR = {
+            has_trait = SanGong_Taizi
+            has_trait = SanGong_TaiSun
+        }
+    }
+    SanGong_ZongShi_heir_branch_scope_compatible_trigger = yes
+    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    # “只夺本人”不应截断其死亡后的子孙支系；世系夺爵才会阻断整条支系。
+    NOT = { has_character_flag = SanGong_ZongShi_lineage_stripped }
+    OR = {
+        AND = {
+            is_alive = yes
+            is_imprisoned = no
+            NOT = { has_character_flag = SanGong_ZongShi_self_stripped }
+        }
+        AND = {
+            is_alive = no
+            any_child = {
+                SanGong_ZongShi_heir_branch_candidate_trigger = yes
+            }
+        }
+    }
+}
+
+SanGong_ZongShi_inheritable_rank_holder_trigger = {
+    is_alive = yes
+    NOT = { has_trait = bastard }
+    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    OR = {
+        has_trait = SanGong_FanWang
+        has_trait = SanGong_JunWang
+        SanGong_ZongShi_lower_rank_trigger = yes
+    }
+}
+
+# 王爵实际承袭的候选条件：先锁定长房，后再决定是否提升。
+# 已具同级或更高爵位的在世长子仍必须占住其支系，不能被弟支越过；
+# 实际授爵效果会保留其高爵而不以低爵覆盖。
+SanGong_ZongShi_fanwang_heir_branch_candidate_trigger = {
+    is_male = yes
+    NOT = { has_trait = bastard }
+    NOT = { has_trait = disinherited }
+    SanGong_ZongShi_heir_branch_scope_compatible_trigger = yes
+    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    NOT = { has_character_flag = SanGong_ZongShi_lineage_stripped }
+    OR = {
+        AND = {
+            is_alive = yes
+            is_imprisoned = no
+            NOT = {
+                OR = {
+                    has_trait = SanGong_Taizi
+                    has_trait = SanGong_TaiSun
+                }
+            }
+            NOT = { has_character_flag = SanGong_ZongShi_self_stripped }
+        }
+        AND = {
+            is_alive = no
+            any_child = { SanGong_ZongShi_fanwang_heir_branch_candidate_trigger = yes }
+        }
+    }
+}
+
+SanGong_ZongShi_junwang_heir_branch_candidate_trigger = {
+    is_male = yes
+    NOT = { has_trait = bastard }
+    NOT = { has_trait = disinherited }
+    SanGong_ZongShi_heir_branch_scope_compatible_trigger = yes
+    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    NOT = { has_character_flag = SanGong_ZongShi_lineage_stripped }
+    OR = {
+        AND = {
+            is_alive = yes
+            is_imprisoned = no
+            NOT = {
+                OR = {
+                    has_trait = SanGong_Taizi
+                    has_trait = SanGong_TaiSun
+                }
+            }
+            NOT = { has_character_flag = SanGong_ZongShi_self_stripped }
+        }
+        AND = {
+            is_alive = no
+            any_child = { SanGong_ZongShi_junwang_heir_branch_candidate_trigger = yes }
+        }
+    }
+}
+
+# 后宫藩王与实封藩王使用旧的头衔、政府和强制下台逻辑，不能被新体系自动接管。
+SanGong_ZongShi_feudatory_path_trigger = {
+    OR = {
+        has_character_flag = SanGong_ZongShi_feudatory_root
+        has_government = zongfan_government
+    }
+}
+
+# 普通宗室父系解析的范围边界。
+# 存活父亲继续要求同一最高领主；父亲死亡后，最高领主 scope 可能失效，
+# 仅在同宗族且双方都不是独立/后宫实封路径时放宽。宗教不参与判断。
+SanGong_ZongShi_parent_scope_compatible_trigger = {
+    NOT = { is_independent_ruler = yes }
+    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    NOT = {
+        scope:SanGong_ZongShi_rank_target = {
+            is_independent_ruler = yes
+        }
+    }
+    NOT = {
+        scope:SanGong_ZongShi_rank_target = {
+            SanGong_ZongShi_feudatory_path_trigger = yes
+        }
+    }
+    OR = {
+        top_liege = scope:SanGong_ZongShi_rank_target.top_liege
+        AND = {
+            is_alive = no
+            dynasty = scope:SanGong_ZongShi_rank_target.dynasty
+        }
+    }
+}
+
+SanGong_ZongShi_heir_branch_scope_compatible_trigger = {
+    NOT = { is_independent_ruler = yes }
+    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    NOT = {
+        scope:SanGong_ZongShi_rank_source = {
+            is_independent_ruler = yes
+        }
+    }
+    NOT = {
+        scope:SanGong_ZongShi_rank_source = {
+            SanGong_ZongShi_feudatory_path_trigger = yes
+        }
+    }
+    OR = {
+        top_liege = scope:SanGong_ZongShi_rank_source.top_liege
+        AND = {
+            scope:SanGong_ZongShi_rank_source = { is_alive = no }
+            dynasty = scope:SanGong_ZongShi_rank_source.dynasty
+        }
+    }
+}
+
+# 手动册封的王爵、皇太子、新体系中的下级爵位，以及世子／长子特质所代表的
+# 有效下一级爵位，均可作为自动授爵的父系来源。继承人特质本身不参与“谁是
+# 该爵位继承人”的选择，只决定其子代的派生等级。
+SanGong_ZongShi_automatic_parent_trigger = {
+    NOT = { has_trait = bastard }
+    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    OR = {
+        SanGong_ZongShi_crown_line_source_trigger = yes
+        SanGong_ZongShi_neutral_royal_rank_source_trigger = yes
+        has_trait = SanGong_Taizi
+        has_trait = SanGong_TaiSun
+        has_trait = SanGong_FanWang
+        has_trait = SanGong_JunWang
+        SanGong_ZongShi_lower_rank_trigger = yes
+        SanGong_ZongShi_heir_trait_trigger = yes
+        SanGong_ZongShi_self_stripped_source_trigger = yes
+    }
+}
+
+# 自动计算时，这些状态不能被子代计算覆盖。
+SanGong_ZongShi_protected_target_trigger = {
+    OR = {
+        has_trait = SanGong_Taizi
+        has_trait = SanGong_TaiSun
+        has_trait = SanGong_FanWang
+        has_trait = SanGong_JunWang
+        has_character_flag = SanGong_ZongShi_manual_lower_rank_root
+        SanGong_ZongShi_feudatory_path_trigger = yes
+    }
+}
+
+SanGong_ZongShi_rank_suppressed_trigger = {
+    OR = {
+        has_character_flag = SanGong_ZongShi_self_stripped
+        has_character_flag = SanGong_ZongShi_lineage_stripped
+    }
+}
+
+# “只夺本人”会移除父亲当前特质，但其子代仍应沿被夺前的爵位等级派生。
+# 这些来源标记只对父系计算有效，不代表本人重新取得爵位。
+SanGong_ZongShi_self_stripped_source_trigger = {
+    AND = {
+        has_character_flag = SanGong_ZongShi_self_stripped
+        OR = {
+            has_character_flag = SanGong_ZongShi_self_stripped_source_FanWang
+            has_character_flag = SanGong_ZongShi_self_stripped_source_JunWang
+            has_character_flag = SanGong_ZongShi_self_stripped_source_ZhenGuoJiangJun
+            has_character_flag = SanGong_ZongShi_self_stripped_source_FuGuoJiangJun
+            has_character_flag = SanGong_ZongShi_self_stripped_source_FengGuoJiangJun
+            has_character_flag = SanGong_ZongShi_self_stripped_source_ZhenGuoZhongWei
+            has_character_flag = SanGong_ZongShi_self_stripped_source_FuGuoZhongWei
+            has_character_flag = SanGong_ZongShi_self_stripped_source_FengGuoZhongWei
+        }
+    }
+}
+
+# 只有进入新体系的角色才显示专用夺爵按钮。历史旧王爵不带这些状态，
+# 继续使用原 Mod 的旧入口，避免两个系统同时操作同一角色。
+SanGong_ZongShi_new_system_state_trigger = {
+    OR = {
+        SanGong_ZongShi_crown_line_source_trigger = yes
+        SanGong_ZongShi_lower_rank_trigger = yes
+        SanGong_ZongShi_heir_trait_trigger = yes
+        has_character_flag = SanGong_ZongShi_lineage_member
+        has_character_flag = SanGong_ZongShi_manual_root
+        has_character_flag = SanGong_ZongShi_manual_lower_rank_root
+        has_character_flag = SanGong_ZongShi_self_stripped
+        has_character_flag = SanGong_ZongShi_lineage_stripped
+    }
+}
+
+# 奉国中尉只在合法男性后代中选择一名在世长子作为袭爵人。
+# legitimized_bastard 不带 bastard 特质，仍按游戏的合法角色处理。
+SanGong_ZongShi_final_heir_candidate_trigger = {
+    is_alive = yes
+    is_male = yes
+    NOT = { has_trait = bastard }
+    NOT = { has_trait = disinherited }
+    NOT = {
+        OR = {
+            has_trait = SanGong_Taizi
+            has_trait = SanGong_TaiSun
+            has_trait = SanGong_FanWang
+            has_trait = SanGong_JunWang
+        }
+    }
+    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    NOT = { SanGong_ZongShi_rank_suppressed_trigger = yes }
+}

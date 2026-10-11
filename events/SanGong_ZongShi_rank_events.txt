@@ -1,0 +1,141 @@
+﻿namespace = SanGong_ZongShi_Rank
+
+# 手动册封后的世系重算。每个事件只处理一个男性节点，再把任务交给下一代，
+# 从而避免全局 on_action 扫描；even_if_dead 让死亡的男性中间节点不会截断世系。
+# 已确认规则（2026-08-05）：子孙中已有亲王/郡王、太子/太孙、实封路径或旧王号
+# Flag 的节点整支保留——既不重算该节点，也不进入其后代分支。
+# 发起册封的根节点不经过本事件，其直接子代仍会被 rebuild_rank_descendants 触发。
+SanGong_ZongShi_Rank.100 = {
+    type = character_event
+    hidden = yes
+
+    immediate = {
+        if = {
+            limit = {
+                is_male = yes
+                NOT = { SanGong_ZongShi_protected_target_trigger = yes }
+                NOT = { SanGong_ZongShi_legacy_wanghao_trigger = yes }
+            }
+            SanGong_ZongShi_rebuild_rank_node_effect = yes
+            SanGong_ZongShi_rebuild_rank_descendants_effect = yes
+        }
+    }
+}
+
+# 手动册封/立太子后的二阶段收尾。只刷新发起操作的这一支。
+SanGong_ZongShi_Rank.101 = {
+    type = character_event
+    hidden = yes
+
+    immediate = {
+        if = {
+            limit = {
+                is_male = yes
+                OR = {
+                    has_trait = SanGong_Taizi
+                    has_trait = SanGong_TaiSun
+                    SanGong_ZongShi_inheritable_rank_holder_trigger = yes
+                }
+                NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+            }
+            SanGong_ZongShi_refresh_heir_branch_effect = yes
+        }
+    }
+}
+
+# 世系夺爵。只清理宗室爵位状态，绝不调用旧的 remove_ZongWang_all_effect，
+# 因此不会销毁头衔、改变封臣关系或强制下台。
+SanGong_ZongShi_Rank.200 = {
+    type = character_event
+    hidden = yes
+
+    immediate = {
+        if = {
+            limit = {
+                is_male = yes
+                NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+            }
+            SanGong_ZongShi_strip_lineage_node_effect = yes
+            every_child = {
+                even_if_dead = yes
+                limit = {
+                    is_male = yes
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                }
+                trigger_event = {
+                    id = SanGong_ZongShi_Rank.200
+                    days = 1
+                }
+            }
+        }
+    }
+}
+
+# 指定袭爵标记到期后的定向父支刷新；不执行全局扫描。
+SanGong_ZongShi_Rank.300 = {
+    type = character_event
+    hidden = yes
+
+    immediate = {
+        if = {
+            limit = {
+                is_male = yes
+                exists = father
+                NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+            }
+            SanGong_ZongShi_refresh_ancestor_heir_branch_effect = yes
+        }
+    }
+}
+
+# 皇帝为未登记的成年宗室男性补授一项非王爵宗室爵位。
+# 选择由事件完成，授予效果只维护宗室特质和男性后代衍生，不改变头衔/政府。
+SanGong_ZongShi_Rank.400 = {
+    type = character_event
+    title = SanGong_ZongShi_Rank.400_title
+    desc = SanGong_ZongShi_Rank.400_desc
+    theme = administrative
+    window = SanGong_Zhaoshu_event_window
+    right_portrait = {
+        character = scope:supplement_rank_target
+        animation = steward
+        camera = camera_body
+    }
+
+    option = {
+        name = SanGong_ZongShi_Rank.400.a
+        scope:supplement_rank_target = {
+            SanGong_ZongShi_set_manual_lower_rank_effect = { RANK = SanGong_ZongShi_ZhenGuoJiangJun }
+        }
+    }
+    option = {
+        name = SanGong_ZongShi_Rank.400.b
+        scope:supplement_rank_target = {
+            SanGong_ZongShi_set_manual_lower_rank_effect = { RANK = SanGong_ZongShi_FuGuoJiangJun }
+        }
+    }
+    option = {
+        name = SanGong_ZongShi_Rank.400.c
+        scope:supplement_rank_target = {
+            SanGong_ZongShi_set_manual_lower_rank_effect = { RANK = SanGong_ZongShi_FengGuoJiangJun }
+        }
+    }
+    option = {
+        name = SanGong_ZongShi_Rank.400.d
+        scope:supplement_rank_target = {
+            SanGong_ZongShi_set_manual_lower_rank_effect = { RANK = SanGong_ZongShi_ZhenGuoZhongWei }
+        }
+    }
+    option = {
+        name = SanGong_ZongShi_Rank.400.e
+        scope:supplement_rank_target = {
+            SanGong_ZongShi_set_manual_lower_rank_effect = { RANK = SanGong_ZongShi_FuGuoZhongWei }
+        }
+    }
+    option = {
+        name = SanGong_ZongShi_Rank.400.f
+        scope:supplement_rank_target = {
+            SanGong_ZongShi_set_manual_lower_rank_effect = { RANK = SanGong_ZongShi_FengGuoZhongWei }
+        }
+    }
+}

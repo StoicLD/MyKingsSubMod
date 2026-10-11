@@ -1,0 +1,386 @@
+﻿SanGong_Jichengren = {
+    default_candidates = { holder_house_member }
+    allow_children = yes
+
+    candidate_score = {
+        value = {
+            # 加分项
+            if = {                                         # 太孙：独立皇太孙身份
+                limit = {
+                    has_trait = SanGong_TaiSun
+                }
+                add = { value = 4000 desc = SanGong_JiCheng_TaiSun }
+            }
+
+            if = {                                         # 太子
+                limit = {
+                    is_child_of = scope:title.holder
+                    has_trait = SanGong_Taizi
+                }
+                add = { value = 5000 desc = SanGong_JiCheng_TaiZi }
+            }
+
+            if = {                                         # 皇长子
+                limit = {
+                    is_child_of = scope:title.holder
+                    any_sibling = { count = 0 age > prev.age }
+                }
+                add = { value = 1000 desc = SanGong_JiCheng_DiZhangZi }
+            }
+
+            if = {#指定继承人
+                limit = {
+                    is_child_of = scope:title.holder
+                    OR = {
+                        has_character_modifier = dm_shuzi_modifier
+                        this = scope:title.holder.designated_heir
+                    }
+                }
+                add = { value = 5000 desc = SanGong_JiCheng_zhiding }
+            }
+
+            if = {                                         # 皇子保底（排除太子）
+                limit = {
+                    is_child_of = scope:title.holder
+                    NOT = { has_trait = SanGong_Taizi }
+                }
+                add = { value = 500 desc = SanGong_JiCheng_HuangZi }
+            }
+
+            if = {                                         # 皇孙
+                limit = {
+                    OR = {
+                        trigger_if = {
+                            limit = { exists = father }
+                            father = { is_child_of = scope:title.holder }
+                        }
+                        trigger_if = {
+                            limit = { exists = mother }
+                            mother = { is_child_of = scope:title.holder }
+                        }
+                    }
+                }
+                add = { value = 100 desc = SanGong_JiCheng_HuangSun }
+            }
+
+            if = {                                         # 兄终弟及（皇帝无子时）
+                limit = {
+                    scope:title.holder = {
+                        any_child = { is_alive = yes is_male = yes count = 0 }
+                    }
+                    is_close_family_of = scope:title.holder
+                }
+                add = { value = 1000 desc = SanGong_JiCheng_XiongZhongDiJi }
+            }
+
+            if = {                                         # 宗室近亲（皇帝无子时）
+                limit = {
+                    scope:title.holder = {
+                        any_child = { is_alive = yes is_male = yes count = 0 }
+                    }
+                    NOT = { is_child_of = scope:title.holder }
+                }
+                add = { value = 500 desc = SanGong_JiCheng_ZongShi_JinQin }
+            }
+
+            if = {                                         # 母位份1级（皇后，在世）
+                limit = {
+                    is_child_of = scope:title.holder
+                    exists = mother
+                    mother = { is_alive = yes has_trait = SanGong_GongWei_1 }
+                }
+                add = { value = 1000 desc = SanGong_JiCheng_mother_WeiFen }
+            }
+
+            if = {                                         # 母位份2级（在世）
+                limit = {
+                    is_child_of = scope:title.holder
+                    exists = mother
+                    mother = { is_alive = yes has_trait = SanGong_GongWei_2 }
+                }
+                add = { value = 800 desc = SanGong_JiCheng_mother_WeiFen }
+            }
+
+            if = {                                         # 母位份3级（在世）
+                limit = {
+                    is_child_of = scope:title.holder
+                    mother = { is_alive = yes has_trait = SanGong_GongWei_3 }
+                }
+                add = { value = 700 desc = SanGong_JiCheng_mother_WeiFen }
+            }
+
+            if = {                                         # 母位份4级（在世）
+                limit = {
+                    is_child_of = scope:title.holder
+                    mother = { is_alive = yes has_trait = SanGong_GongWei_4 }
+                }
+                add = { value = 600 desc = SanGong_JiCheng_mother_WeiFen }
+            }
+
+            if = {                                         # 母位份5级（在世）
+                limit = {
+                    is_child_of = scope:title.holder
+                    mother = { is_alive = yes has_trait = SanGong_GongWei_5 }
+                }
+                add = { value = 300 desc = SanGong_JiCheng_mother_WeiFen }
+            }
+
+            if = {
+                limit = {
+                    is_female = yes
+                    scope:title.holder = {
+                        OR = { has_realm_law = male_only_law has_realm_law = male_preference_law }
+                    }
+                }
+                add = { value = -500 desc = DM_appointment_male_preference_penalty }
+            }
+            if = {
+                limit = {
+                    is_male = yes
+                    scope:title.holder = {
+                        OR = { has_realm_law = female_only_law has_realm_law = female_preference_law }
+                    }
+                }
+                add = { value = -500 desc = DM_appointment_female_preference_penalty }
+            }
+
+            if = {                                         # 绝嗣能力分（皇帝无子且年满16）
+                limit = {
+                    scope:title.holder = {
+                        any_child = { is_alive = yes is_male = yes count = 0 }
+                    }
+                    age >= 16
+                }
+                add = { value = learning multiply = 10 desc = SanGong_JiCheng_JueSi_XueShi }
+                add = { value = diplomacy multiply = 10 desc = SanGong_JiCheng_JueSi_WaiJiao }
+                add = { value = stewardship multiply = 10 desc = SanGong_JiCheng_JueSi_GuanLi }
+                add = { value = intrigue multiply = 10 desc = SanGong_JiCheng_JueSi_MouLve }
+                add = { value = prestige_level multiply = 50 desc = SanGong_JiCheng_Lixian_weiwang }
+            }
+            # 扣分项
+
+            if = {                                         # 嗣子：皇帝有其他儿子时减分
+                limit = {
+                    is_child_of = scope:title.holder
+                    has_trait = SanGong_Sizi
+                    scope:title.holder = {
+                        any_child = { is_alive = yes is_male = yes count > 1 }
+                    }
+                }
+                add = { value = -2500 desc = SanGong_JiCheng_SIZi }
+            }
+
+            if = {                                         # 形貌鄙陋（仅直系）
+                limit = { bad_WaiMao_trigger = yes is_child_of = scope:title.holder }
+                add = { value = -500 desc = SanGong_JiCheng_FuMian_XingMao }
+            }
+
+            if = {                                         # 资质庸懦（仅直系）
+                limit = { bad_ShiShang_trigger = yes is_child_of = scope:title.holder }
+                add = { value = -300 desc = SanGong_JiCheng_FuMian_ZiZhi }
+            }
+
+            if = {                                         # 肢体有缺（仅直系）
+                limit = { bad_ShenTi_trigger = yes is_child_of = scope:title.holder }
+                add = { value = -300 desc = SanGong_JiCheng_FuMian_ShenTi }
+            }
+
+            if = {                                         # 皇帝有子则旁支出局
+                limit = {
+                    scope:title.holder = {
+                        any_child = { is_alive = yes is_male = yes count > 0 }
+                    }
+                    NOT = {
+                        OR = {
+                            is_child_of = scope:title.holder
+                            trigger_if = {
+                                limit = { exists = father }
+                                father = { is_child_of = scope:title.holder }
+                            }
+                            trigger_if = {
+                                limit = { exists = mother }
+                                mother = { is_child_of = scope:title.holder }
+                            }
+                        }
+                    }
+                }
+                add = { value = -9999 desc = SanGong_JiCheng_ZongFa }
+            }
+
+            if = {                                         # 宦官不得继位
+                limit = {
+                    OR = { has_trait = eunuch_1 has_trait = beardless_eunuch }
+                }
+                subtract = { value = 1000 desc = SanGong_JiCheng_PaiChu_HuanGuan }
+            }
+        }
+    }
+}
+
+#if = {#立贤判定——属性
+#limit = {
+#    scope:title.holder = { has_realm_law_flag = SanGong_lichu_law_1 }
+#    is_child_of = scope:title.holder
+#}
+#add = { value = stewardship multiply = 10 desc = SanGong_JiCheng_Lixian_stewardship }#管理加成
+#add = { value = diplomacy multiply = 15 desc = SanGong_JiCheng_Lixian_diplomacy }#外交加成
+#add = { value = intrigue multiply = 15 desc = SanGong_JiCheng_Lixian_intrigue }#谋略加成
+#add = { value = learning multiply = 10 desc = SanGong_JiCheng_Lixian_learning }#学识加成
+#add = { value = prestige_level multiply = 50 desc = SanGong_JiCheng_Lixian_weiwang }#威望等级
+#}
+#if = {#立贤判定——权臣支持
+#limit = {
+#    scope:title.holder = { has_realm_law_flag = SanGong_lichu_law_1 }
+#    has_character_flag = QuanChen_ZhiChi
+#    is_child_of = scope:title.holder
+#}
+#add = { value = 1000 desc = SanGong_JiCheng_Lixian_quanchen }#权臣支持
+#}
+#if = {#立贤判定——外交总管
+#limit = {
+#    scope:title.holder = { has_realm_law_flag = SanGong_lichu_law_1 }
+#    has_character_flag = TuiJian_chancellor
+#    is_child_of = scope:title.holder
+#}
+#add = { value = 1000 desc = SanGong_JiCheng_Lixian_chaochen }
+#}
+#if = {#立贤判定——内政总管
+#limit = {
+#    scope:title.holder = { has_realm_law_flag = SanGong_lichu_law_1 }
+#    has_character_flag = TuiJian_marshal
+#    is_child_of = scope:title.holder
+#}
+#add = { value = 1000 desc = SanGong_JiCheng_Lixian_chaochen }
+#}
+#if = {#立贤判定——间谍总管
+#limit = {
+#    scope:title.holder = { has_realm_law_flag = SanGong_lichu_law_1 }
+#    has_character_flag = TuiJian_steward
+#    is_child_of = scope:title.holder
+#}
+#add = { value = 1000 desc = SanGong_JiCheng_Lixian_chaochen }
+#}
+#if = {#立贤判定——学识总管
+#limit = {
+#    scope:title.holder = { has_realm_law_flag = SanGong_lichu_law_1 }
+#    has_character_flag = TuiJian_spymaster
+#    is_child_of = scope:title.holder
+#}
+#add = { value = 1000 desc = SanGong_JiCheng_Lixian_chaochen }
+#}
+#if = {#立贤判定——军事总管
+#limit = {
+#    scope:title.holder = { has_realm_law_flag = SanGong_lichu_law_1 }
+#    has_character_flag = TuiJian_court_chaplain
+#    is_child_of = scope:title.holder
+#}
+#add = { value = 1000 desc = SanGong_JiCheng_Lixian_chaochen }
+#}
+#
+#
+#
+#if = {#立贤判定——皇帝指认
+#limit = {
+#    scope:title.holder = { has_realm_law_flag = SanGong_lichu_law_1 }
+#    has_character_flag = HuangDi_ZhiChi
+#    is_child_of = scope:title.holder
+#}
+#add = { value = 3000 desc = SanGong_JiCheng_Lixian_HuangDi_ZhiChi }#皇帝支持
+#}
+
+ZongFan_Jichengren = {
+    default_candidates = { holder_close_family }
+    allow_children = yes
+   # allow_same_tier_candidates = no
+    candidate_score = {
+        value = {
+            if = {# 王子加分
+                limit = {
+                    is_child_of = scope:title.holder
+                }
+                add = { value = 500 desc = SanGong_JiCheng_JunGong }
+            }
+            if = {#年龄加分
+                limit = {
+                    is_child_of = scope:title.holder
+                }
+                add = {
+                    value = age
+                    multiply = 5
+                    desc = SanGong_JiCheng_age
+                }
+            }
+            if = {# 世子
+                limit = {
+                    NOT = { scope:title.holder = { has_realm_law_flag = SanGong_lichu_law_1 } }
+                    is_child_of = scope:title.holder
+                    any_sibling = {
+                        count = 0
+                        age > prev.age
+                    }
+                }
+                add = { value = 1000 desc = SanGong_JiCheng_ShiZi }
+            }
+            if = {# 世女
+                limit = {
+                    scope:title.holder = {
+                        OR = {
+                            has_realm_law = female_only_law
+                            has_realm_law = female_preference_law
+                        }
+                    }
+                    is_child_of = scope:title.holder
+                    any_sibling = {
+                        count = 0
+                        age > prev.age
+                    }
+                }
+                add = { value = 1000 desc = SanGong_JiCheng_ShiNv }
+            }
+
+            if = { # 重男轻女加分
+                limit = {
+                    scope:title.holder = {
+                        OR = {
+                            has_realm_law = male_only_law
+                            has_realm_law = male_preference_law
+                        }
+                    }
+                    is_male = yes
+                }
+                add = {
+                    value = 500
+                    desc = SanGong_JiCheng_JueSi_ZhongNan
+                }
+            }
+
+            if = { # 重女轻男加分
+                limit = {
+                    scope:title.holder = {
+                        OR = {
+                            has_realm_law = female_only_law
+                            has_realm_law = female_preference_law
+                        }
+                    }
+                    is_female = yes
+                }
+                add = {
+                    value = 500
+                    desc = SanGong_JiCheng_JueSi_ZhongNV
+                }
+            }
+            if = {
+                limit = {
+                    OR = {
+                        has_trait = SanGong_FanWang
+                        has_trait = SanGong_JunWang
+                    }
+                }
+                add = {
+                    value = -9999
+                    desc = SanGong_Wangjue_sa_desc
+                }
+            }
+        }
+    }
+}

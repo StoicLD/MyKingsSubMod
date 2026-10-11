@@ -1,0 +1,552 @@
+﻿
+GuoJiZiNv_effect = {#过继子女排序
+    if = {
+        limit = {
+            exists = dynasty
+        }
+        dynasty = {
+            ordered_dynasty_member = {
+                order_by = $ORD_BY$
+                limit = {
+                    top_liege = root
+                    is_male = yes
+                    is_ruler = no
+                    age >= 4
+                    age <= 16
+                    is_healthy = yes
+                    NOT = { is_primary_heir_of = liege }
+                }
+                save_scope_as = $JIZI$
+            }
+        }
+    }
+}
+
+GuoJiZiNvGuanXi_effect = {#过继子女关系
+    add_courtier = $JIZI$
+    $JIZI$ = {
+        if = {
+            limit = { exists = father }
+            father = { save_scope_as = SanGong_ZongShi_previous_father }
+        }
+        add_trait = SanGong_Sizi
+        if = {
+            limit = {
+                exists = real_mother
+                NOT = { real_mother = mother }
+            }
+            set_mother = real_mother
+        }
+        if = {
+            limit = {
+                exists = real_father
+                NOT = { real_father = father }
+            }
+            set_father = real_father
+        }
+        set_father = $TARGET$
+        set_mother = $TARGET$.primary_spouse
+        SanGong_ZongShi_reconcile_parent_change_effect = yes
+    }
+}
+
+
+TaiSun_effect = {#太孙
+    if = {
+        limit = {
+            $TAISUN$ = {
+                is_landed = no
+                is_ruler = no
+                NOT = { is_courtier_of = root }
+            }
+        }
+        add_courtier = $TAISUN$
+    }
+    $TAISUN$ = {
+        add_character_flag = taisun_flag
+        SanGong_ZongShi_set_taisun_effect = yes
+        save_scope_as = taisun
+    }
+}
+
+HuangDi_TuiWei_effect = {#皇帝主动退位
+    save_scope_as = XianDi
+    add_trait = SanGong_Taishanghuang
+    every_courtier_or_guest = {
+        limit = {
+            has_trait = SanGong_Taihou
+        }
+        add_to_list = TaiFei_list
+    }
+    primary_spouse = {
+        add_to_list = TaiFei_list
+        add_character_flag = {
+            flag = huanghou_flag
+            days = 60
+        }
+    }
+    primary_heir = {
+        save_scope_as = huangdi
+    }
+    every_consort = { add_to_list = TaiFei_list }
+    SanGong_tgp_renounce_estate_effect = yes
+    every_in_list = {
+        list = TaiFei_list
+        TaiFeiYiGong_effect = yes
+    }
+    TaiHuangTaihou_effect = yes
+    LiangGongTaiHou_effect = yes
+}
+
+SanGong_tgp_renounce_estate_effect = {#放弃领地（原版，去除比丘特质）
+
+	# 随机选取一个自己持有的 贵族家族头衔
+	random_held_title = {
+		limit = { is_noble_family_title = yes } # 限制：必须是家族核心头衔
+
+		# 将当前头衔的继承人 保存为 huangdi（新继承人）
+		current_heir = {
+			save_scope_as = huangdi
+
+			# 如果当前角色是玩家，则将该继承人设为新人类玩家角色
+			if = {
+				limit = {
+					root = { is_ai = no }
+				}
+				save_scope_as = new_human_player_character
+			}
+		}
+	}
+
+	# 给自身添加 “已放弃领地” 修正
+	add_character_modifier = { modifier = ep3_renounced_estate }
+
+	# 自定义提示（游戏内显示提示文本）
+	custom_tooltip = {
+		text = renounce_noble_family_title_decision_tt
+		# 发送界面弹出提示
+		send_interface_toast = {
+			type = event_toast_effect_neutral
+			title = renounce_noble_family_title_decision_toast_title
+			custom_tooltip = renounce_noble_family_title_decision_toast_desc
+			left_icon = scope:huangdi
+			right_icon = root
+		}
+	}
+
+
+	# 如果已确定新继承人
+	if = {
+		limit = { exists = scope:huangdi }
+
+		# 隐藏效果（后台执行，玩家不可见）
+		hidden_effect = {
+
+			# 创建头衔移交事件
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = title_change
+				add_claim_on_loss = no
+			}
+
+			# 如果自身不是总督 → 移交所有伯爵及以上头衔给新继承人
+			if = {
+				limit = { is_governor = no }
+				every_held_title = {
+					limit = { tier > tier_barony } # 只转移伯爵及以上
+					change_title_holder_include_vassals = {
+						holder = scope:huangdi
+						change = scope:title_change
+					}
+				}
+			}
+			# 如果是总督 → 只转移贵族家族头衔
+			else = {
+				every_held_title = {
+					limit = { is_noble_family_title = yes }
+					change_title_holder = {
+						holder = scope:huangdi
+						change = scope:title_change
+					}
+				}
+			}
+
+			# 执行头衔移交
+			resolve_title_and_vassal_change = scope:title_change
+
+			# 如果自身是统治者 → 把剩余头衔转给默认继承人
+			if = {
+				limit = { is_ruler = yes }
+				primary_title.current_heir = { save_scope_as = heir_temp }
+
+				# 再次创建头衔变更
+				create_title_and_vassal_change = {
+					type = appointment
+					save_scope_as = title_change
+					add_claim_on_loss = no
+				}
+				every_held_title = {
+					limit = { tier > tier_barony }
+					change_title_holder_include_vassals = {
+						holder = scope:heir_temp
+						change = scope:title_change
+					}
+				}
+				resolve_title_and_vassal_change = scope:title_change
+			}
+		}
+
+		# 将家族族长转给新继承人
+		house = {
+			if = {
+				limit = { NOT = { house_head = scope:huangdi } }
+				set_house_head = scope:huangdi
+			}
+		}
+
+		# 如果是玩家退位 → 切换操控角色给新继承人
+		if = {
+			limit = { exists = scope:new_human_player_character }
+			set_player_character = scope:new_human_player_character
+		}
+
+		# 与新继承人提升好感
+		progress_towards_friend_effect = {
+			REASON = friend_retired_from_governorship
+			CHARACTER = scope:huangdi
+			OPINION = default_friend_opinion
+		}
+	}
+
+	tgp_step_down_title_recipient_tooltip_effect = yes
+
+	# 设置退位奖励：赋予新继承人 3级学识特质
+	set_variable = {
+		name = appointment_trait_override
+		value = trait:intellect_good_3
+	}
+}
+
+clear_HuangZu_list_effcet = {
+	every_in_list = {
+		variable = QianChaoHuangDi_list
+		save_scope_as = XianDi
+	}
+	scope:XianDi = {
+		dynasty ?= {
+			every_dynasty_member = {
+                remove_gongtingtrait_effect = yes
+                SanGong_ZongShi_reset_rank_state_effect = yes
+				remove_trait = SanGong_FanWang
+				remove_trait = SanGong_JunWang
+				remove_trait = SanGong_HuangSi
+				every_held_title = {
+					limit = {
+						is_landless_type_title = yes
+						is_noble_family_title = no
+					}
+					holder = {
+						destroy_title = prev
+					}
+				}
+			}
+		}
+	}
+	remove_global_variable = SanGong_CuanWei_Gobal
+	remove_global_variable = SanGong_CuanWei_main_2
+	remove_global_variable = SanGong_CuanWei_main_3
+	remove_global_variable = SanGong_CuanWei_main_1
+	clear_variable_list = QianChaoHuangDi_list
+	clear_variable_list = QianChaoPinFei_list
+	clear_variable_list = QianChaoZongShi_list
+}
+
+
+
+
+SanGong_found_cadet_house_decision_effect = { # 建立支系家族的核心效果
+	$CHARACTER$ = { # 将传入的执行角色保存为作用域
+		save_scope_as = new_head # 保存为新家主
+		save_scope_as = new_house_head # 保存为新家族族长（注释写着 "don't ask" 可能是为了兼容其他代码的硬编码读取）
+		hidden_effect = { # 隐藏效果：避免UI提示过于冗长
+			house.house_head = {
+				save_scope_as = former_house_head # 保存旧家族族长作用域，后续通知可能会用到
+			}
+			house = {
+				save_scope_as = former_house # 保存旧家族作用域
+			}
+			add_achievement_flag_effect = { FLAG = achievement_a_house_of_my_own_flag } # 添加成就标志位，用于判定玩家是否达成了“建立自己的家族”成就
+
+			create_cadet_branch = {
+				name = SanGong_cadet_name_style_barony_dynasty # 使用“男爵领+王朝名”作为支系名
+				save_scope_as = new_house
+			}
+		}
+		scope:new_house = {
+			generate_coa = yes
+			add_house_modifier = {
+				modifier = SanGong_SeparatedCloseKin_modifier
+				years = 100
+			}
+		}
+		add_prestige = $PRESTIGE$ # 给予威望（使用外部传入的参数量，通常是 major_prestige_gain）
+
+		hidden_effect_new_object = { # 使用隐藏的新对象来执行通知，防止作用域污染
+			save_scope_as = new_head # 重新保存新家主作用域
+			every_player = { # 遍历所有玩家
+				limit = {
+					exists = house # 玩家必须有家族
+					scope:new_house ?= house # 且玩家的家族就是新创建的这个支系（比如玩家的亲戚创建了支系，把玩家的孩子带过去了）
+					NOT = { this = $CHARACTER$ } # 排除执行决议的玩家自己
+				}
+				send_interface_toast = { # 发送界面弹窗提示
+					type = msg_created_new_house
+					title = created_cadet_branch_toast_new_house_desc
+					left_icon = scope:new_head
+					desc = created_cadet_branch_toast_new_house_other_tt
+				}
+			}
+			send_interface_toast = { # 给执行决议的玩家自己发送提示
+				type = msg_created_new_house
+				title = created_cadet_branch_toast_new_house_desc
+				left_icon = scope:new_head
+				right_icon = scope:former_house_head # 右侧图标显示原家族族长
+				desc = created_cadet_branch_toast_new_house_other_tt
+			}
+		}
+
+		# 处理家族族旗宝物
+		random_artifact = { # 随机找一个符合条件的宝物
+			limit = {
+				var:banner_dynasty ?= $CHARACTER$.dynasty # 宝物属于执行角色的王朝
+				artifact_owner = {
+					NOT = { this = $CHARACTER$ } # 宝物持有者不是执行者自己
+					in_diplomatic_range = $CHARACTER$ # 且在执行者的外交范围内
+				}
+				NOT = {
+					any_artifact_house_claimant = { # 确保该宝物没有新家族的索取权
+						scope:new_house ?= this
+					}
+				}
+			}
+			save_scope_as = new_branch_dynasty_banner # 保存该宝物为新家族族旗
+			scope:new_house ?= {
+				add_house_artifact_claim = scope:new_branch_dynasty_banner # 为新支系添加对该族旗宝物的强宣称
+			}
+		}
+
+		# Struggle Catalysts # 斗争系统：如果分家符合某些斗争的催化剂条件，则激活它
+		if = {
+			limit = {
+				$CHARACTER$ =  {
+					exists = house.house_head
+					any_character_struggle = { # 角色卷入了一场斗争
+						involvement = involved
+						phase_has_catalyst = catalyst_cadet_branch_created # 且当前斗争阶段有“建立支系”的催化剂
+					}
+				}
+			}
+			every_character_struggle = { # 遍历角色卷入的所有斗争
+				involvement = involved
+				activate_struggle_catalyst = { # 激活催化剂
+					catalyst = catalyst_cadet_branch_created
+					character = $CHARACTER$
+				}
+				log_debug_variable_for_persian_struggle_effect = { VAR = unrest_catalyst_cadet_branch_created } # 记录波斯斗争的调试日志
+			}
+		}
+
+		# 处理私生子子女的家族归属
+		every_child = { # 遍历执行者的所有孩子
+			limit = {
+				has_trait = bastard # 是私生子
+				is_lowborn = no # 不是平民（必须是贵族/有王朝的）
+				dynasty = scope:new_head.dynasty # 属于同一个王朝
+				NOT =  { house = scope:new_house } # 且目前不在新的支系中
+			}
+			set_house = scope:new_house # 将其移入新创建的支系
+		}
+
+		# If eligible, create a cadet branch for admin type governments # 如果符合条件，为行政制等政府创建华族/宗族家族头衔
+		if = {
+			limit = {
+				government_allows = noble_families # 政府体制必须支持“华族家族”
+				OR = {
+					highest_held_title_tier >= main_administrative_tier # 角色最高头衔等级达到行政制核心头衔等级（如公爵及以上）
+					AND = { # 或者满足以下条件：
+						government_has_flag = government_has_county_tier_noble_families # 政府体制允许伯爵级拥有华族头衔（如中日韩天朝）
+						highest_held_title_tier >= tier_county # 角色最高头衔至少是伯爵
+					}
+				}
+			}
+			create_noble_family_effect = { GOVERNMENT_GIVER = this } # 调用创建华族头衔的效果（你前一段提供的代码），将当前角色作为政府提供者传入
+			change_influence = major_influence_gain # 给予大量影响力（行政制特有资源）
+		}
+	}
+}
+
+
+SanGong_zongfan_found_cadet_house_effect = { # 宗藩分家
+	save_scope_as = new_head # 保存为新家主
+	save_scope_as = new_house_head # 保存为新家族族长
+	hidden_effect = { # 隐藏效果：避免UI提示过于冗长
+		house.house_head = {
+			save_scope_as = former_house_head # 保存旧家族族长作用域
+		}
+		house = {
+			save_scope_as = former_house # 保存旧家族作用域
+		}
+		if = {
+			limit = {
+				has_trait = SanGong_FanWang
+			}
+			create_cadet_branch = {
+				name = SanGong_cadet_name_wang
+				save_scope_as = new_house
+			}
+		}
+		else_if = {
+			limit = {
+				has_trait = SanGong_JunWang
+			}
+			create_cadet_branch = {
+				name = SanGong_cadet_name_junwang
+				save_scope_as = new_house
+			}
+		}
+		else = {
+			create_cadet_branch = {
+				name = SanGong_cadet_name_style_barony_dynasty
+				save_scope_as = new_house
+			}
+		}
+	}
+	scope:new_house = {
+		generate_coa = yes
+		add_house_modifier = {
+			modifier = SanGong_SeparatedCloseKin_modifier
+			years = 100
+		}
+	}
+	add_prestige = 1000
+	hidden_effect_new_object = {
+		save_scope_as = new_head
+		every_player = {
+			limit = {
+				exists = house
+				scope:new_house ?= house
+				NOT = { this = root } # 排除执行决议的角色自己
+			}
+			send_interface_toast = {
+				type = msg_created_new_house
+				title = created_cadet_branch_toast_new_house_desc
+				left_icon = scope:new_head
+				desc = created_cadet_branch_toast_new_house_other_tt
+			}
+		}
+		send_interface_toast = {
+			type = msg_created_new_house
+			title = created_cadet_branch_toast_new_house_desc
+			left_icon = scope:new_head
+			right_icon = scope:former_house_head
+			desc = created_cadet_branch_toast_new_house_other_tt
+		}
+	}
+	# 处理私生子子女的家族归属
+	every_child = {
+		limit = {
+			has_trait = bastard
+			is_lowborn = no
+			dynasty = root.dynasty
+			NOT = { house = scope:new_house }
+		}
+		set_house = scope:new_house
+	}
+
+	if = {
+		limit = {
+			government_allows = noble_families # 当前政府体制必须支持"华族家族"机制（如天朝/行政制官僚体制），封建制政府没有此机制，直接跳过
+		}
+		SanGong_reate_noble_family_effect = { GOVERNMENT_GIVER = this } # 调用原版效果：为该角色创建华族家族头衔（行政制下的"宗族/华族"机构），传入 this（当前分家角色自己）作为头衔的授予者
+		change_influence = 1500
+	}
+
+}
+
+
+SanGong_reate_noble_family_effect = {#分家世族头衔建立
+	save_scope_as = new_noble_family_holder # 把获得世族头衔的角色保存为作用域
+	$GOVERNMENT_GIVER$ = { save_scope_as = government_giver } # 把传入的"政府授予者"参数保存为作用域（仅用于判断政体）
+
+	hidden_effect = { # 隐藏效果：世族头衔只能由家族族长持有
+		if = { # 检查获得者是否还不是族长
+			limit = {
+				exists = house.house_head # 必须有家族
+				NOT = { house.house_head = scope:new_noble_family_holder } # 且不是族长
+			}
+			if = { # 判断"抢族长位"是否合理
+				limit = {
+					house.house_head ?= { # 现任族长需满足：
+						is_ai = yes # 是 AI——不能从玩家手里抢族长位
+						OR = { # 且满足任意一条：
+							AND = { # 同一国家内但地位较低
+								top_liege = scope:new_noble_family_holder.top_liege # 同一最高领主
+								OR = {
+									is_ruler = no # 无地者，或
+									highest_held_title_tier < scope:new_noble_family_holder.highest_held_title_tier # 头衔等级低于获得者
+								}
+							}
+							NOT = { exists = liege } # 或：流浪者（无领主）
+						}
+					}
+				}
+				house = { set_house_head = scope:new_noble_family_holder } # 合理 → 夺取族长位
+			}
+			else = { # 不合理（族长是玩家/同级以上统治者）
+				create_cadet_branch = {} # 自动分家，自立门户成为族长
+			}
+		}
+	}
+
+	scope:government_giver = { # 切到授予者作用域，用其政体决定分支
+		if = {
+			limit = {
+				scope:new_noble_family_holder = {
+					NOT = {
+						any_held_title = { is_noble_family_title = yes } # 尚未持有世族头衔（防重复授予）
+					}
+				}
+			}
+			scope:new_noble_family_holder = {
+				give_noble_family_title = {
+					name = noble_family_name
+					tier = county
+					article = DEFAULT_TITLE_NAME_ARTICLE
+					government = celestial_government
+					save_scope_as = new_title
+				}
+			}
+		}
+		scope:new_title.holder ?= { # ⚠️ 收尾部分
+			save_scope_as = noble_family_head # 保存世族族长作用域
+			scope:new_title = {
+				set_coa = scope:noble_family_head.house
+				set_title_name_dynamic = SanGong_cadet_name_house
+			} # 头衔纹章 = 该家族纹章
+		}
+		custom_description = { text = create_noble_family_tt } # 显示"已创建世族"提示
+
+		#Notifications # 通知
+		every_player = {
+			limit = {
+				top_liege = scope:new_noble_family_holder.top_liege # 同一国家的玩家
+				this != scope:new_noble_family_holder # 排除获得者本人
+				NOT = { government_allows = merit } # 贤能制玩家不通知（中华世族多，防刷屏）
+			}
+			trigger_event = { # 1 天后触发"某家族创建世族"通知
+				id = ep3_emperor_yearly.2410
+				days = 1
+			}
+		}
+	}
+}

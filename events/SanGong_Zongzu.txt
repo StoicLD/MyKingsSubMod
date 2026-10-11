@@ -1,0 +1,1470 @@
+﻿namespace = SanGong_Zongzu
+
+SanGong_Zongzu.001 = {##收养嗣子
+    type = character_event
+    window = List_event_window_v1
+    title = SanGong_Zongzu.001.t
+    desc = SanGong_Zongzu.001.d
+    theme = bastardy
+    override_background = bedchamber
+    right_portrait = {
+        character = root
+        animation = frontend_left_idle
+    }
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "SanGong_character_list_selection"
+		container = "custom_widgets_container"
+	}
+    immediate = {
+        dynasty ?= {
+            ordered_dynasty_member = {
+                order_by = {
+                    value = age
+                }
+                max = 100
+                limit = {
+                    top_liege = root
+                    is_male = yes
+                    is_ruler = no
+                    is_adult = no
+                    is_healthy = yes
+                }
+                root = {
+                    add_to_variable_list = {
+                        name = SanGong_list_characters
+                        target = prev
+                    }
+                }
+            }
+        }
+    }
+    option = {
+        name = SanGong_Zongzu.001.a
+        if = {
+			limit = { exists = var:SanGong_selected_character }
+		}
+        GuoJiZiNvGuanXi_effect = { JIZI = root.var:SanGong_selected_character TARGET = root }
+    }
+    after = {
+		clear_variable_list = SanGong_list_characters
+		var:SanGong_selected_character = { remove_variable = SanGong_selected_character }
+		remove_variable = SanGong_selected_character
+	}
+}
+
+SanGong_Zongzu.002 = {#册立太孙
+    type = character_event
+    #window = big_event_window
+    title = SanGong_Zongzu.002.t
+    desc = SanGong_Zongzu.002.d
+    theme = bastardy
+    override_background = bedchamber
+    left_portrait = {
+        character = root
+        animation = frontend_left_idle
+    }
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "SanGong_character_selection_options"
+		container = "custom_widgets_container"
+	}
+    immediate = {
+        scope:Taizi = {
+            ordered_child = {
+                order_by = {
+                    value = 0
+                    add = age
+                }
+                max = 100
+                limit = {
+                    top_liege = root
+                    is_male = yes
+                    is_alive = yes
+                    NOT = { has_trait = bastard }
+                    NOT = { has_trait = disinherited }
+                    NOT = {
+                        OR = {
+                            has_trait = SanGong_Taizi
+                            has_trait = SanGong_TaiSun
+                            has_trait = SanGong_FanWang
+                            has_trait = SanGong_JunWang
+                        }
+                    }
+                }
+                root = {
+                    add_to_variable_list = {
+                        name = SanGong_list_characters
+                        target = prev
+                    }
+                }
+            }
+        }
+    }
+    option = {
+        name = SanGong_Zongzu.002.a
+        if = {
+			limit = { exists = var:SanGong_selected_character }
+		}
+        TaiSun_effect = { TAISUN = root.var:SanGong_selected_character }
+        trigger_event = { id = SanGong_DianZhang.014 days = 1 }
+        ai_chance = { base = 0 }
+    }
+    option = {
+        name = SanGong_Zongzu.002.b
+        ai_chance = { base = 1000 }
+    }
+    after = {
+		clear_variable_list = SanGong_list_characters
+		var:SanGong_selected_character = { remove_variable = SanGong_selected_character }
+		remove_variable = SanGong_selected_character
+	}
+}
+
+SanGong_Zongzu.003 = { # 皇帝继承
+    type = character_event
+    title = SanGong_Zongzu.003_title
+    desc = SanGong_Zongzu.003_desc
+    theme = wanderer_journey_focus
+    #window = clear_event_window_v2
+    override_background = bp1_indian_corridor_day
+    override_effect_2d = { reference = legend_glow }
+    left_portrait = {
+        character = scope:fanwang
+        animation = eyeroll
+        camera = camera_combat_window
+    }
+    right_portrait = {
+        character = scope:target
+        animation = emperor
+        camera = camera_event_chariot_right
+    }
+    immediate = {
+        custom_tooltip = SanGong_Zongzu.003_tt1
+        scope:story = {
+			change_variable = {
+				name = loyalty_counter
+				add = -1
+			}
+		}
+    }
+    option = {
+        name = SanGong_Zongzu.003.a
+        custom_tooltip = SanGong_Zongzu.003_tt2
+        scope:story = {
+			change_variable = {
+				name = loyalty_counter
+				add = 1
+			}
+		}
+    }
+    option = {
+        name = SanGong_Zongzu.003.b
+        custom_tooltip = SanGong_Zongzu.003_tt3
+    }
+    option = {
+        name = SanGong_Zongzu.003.c
+        custom_tooltip = SanGong_Zongzu.003_tt4
+        scope:story = {
+			change_variable = {
+				name = loyalty_counter
+				add = -1
+			}
+		}
+    }
+    option = {
+        name = SanGong_Zongzu.003.d
+        custom_tooltip = SanGong_Zongzu.003_tt5
+        scope:story = {
+			change_variable = {
+				name = loyalty_counter
+				add = -2
+			}
+		}
+    }
+    option = {
+        name = SanGong_Zongzu.003.e
+        custom_tooltip = SanGong_Zongzu.003_tt6
+        scope:story = {
+			change_variable = {
+				name = loyalty_counter
+				add = -9
+			}
+		}
+        random_owned_story = {
+			type = story_Fanwang
+			#end_story = yes
+		}
+    }
+}
+
+
+SanGong_Zongzu.004 = {#皇子出继
+    type = character_event
+    window = SanGong_Zhaoshu_event_window
+    title = SanGong_Zongzu.004.t
+    desc = SanGong_Zongzu.004.desc
+    theme = administrative
+    right_portrait = {
+        character = scope:huangzi
+        animation = steward
+        camera = camera_body
+    }
+    lower_center_portrait = {
+        character = scope:fanwang
+        animation = steward
+    }
+    immediate = {
+        custom_tooltip = SanGong_GuoJiFanWang_interaction_tt
+    }
+    option = {
+        name = SanGong_Zongzu.004.a
+
+    }
+}
+
+SanGong_Zongzu.005 = {#开除族谱
+    type = character_event
+    window = List_event_window_v1
+    title = SanGong_Zongzu.005.t
+    desc = SanGong_Zongzu.005.desc
+    theme = administrative
+    override_background = estate
+    right_portrait = {
+        character = scope:recipient
+        animation = steward
+        camera = camera_body
+    }
+    tirgger = {
+        scope:recipient = {
+            dynasty = root.dynasty
+        }
+        SanGong_huangdi_trigger = yes
+    }
+    immediate = {
+        save_scope_as = huangdi
+        create_character = {
+            age = 80
+            name = 某
+            faith = scope:recipient.faith
+            culture = scope:recipient.culture
+            dynasty = none
+            random_traits = yes
+            gender_female_chance = 0
+            location = scope:recipient.capital_province
+            save_scope_as = zuzhang
+        }
+        scope:zuzhang = {
+            create_dynasty = { spread_to_descendants = yes }
+            death = yes
+        }
+    }
+    option = {#准许继续姓国姓
+        name = SanGong_Zongzu.005.a
+        custom_tooltip = SanGong_Zongzu.005.a_tt
+        hidden_effect = {
+            scope:zuzhang.dynasty = { set_dynasty_name = "dynn_chuji" }
+            scope:zuzhang.house = { set_house_name = "dynn_chuji" }
+            scope:recipient = {
+                set_house = scope:zuzhang.house
+                #set_father = scope:zuzhang
+                Dynasty_ChuJi = yes
+                every_child = {
+                    even_if_dead = yes
+                    every_child = {
+                        even_if_dead = yes
+                        every_child = {
+                            even_if_dead = yes
+                            every_child = {
+                                even_if_dead = yes
+                                every_child = {
+                                    even_if_dead = yes
+                                    Dynasty_ChuJi = yes
+                                }
+                                Dynasty_ChuJi = yes
+                            }
+                            Dynasty_ChuJi = yes
+                        }
+                        Dynasty_ChuJi = yes
+                    }
+                    Dynasty_ChuJi = yes
+                }
+            }
+        }
+
+    }
+    option = {#不许姓国姓，随机姓氏
+        name = SanGong_Zongzu.005.b
+        custom_tooltip = SanGong_Zongzu.005.b_tt
+        scope:recipient = {
+            set_house = scope:zuzhang.house
+            if = {
+                limit = { exists = father }
+                father = { save_scope_as = SanGong_ZongShi_previous_father }
+            }
+            set_father = scope:zuzhang
+            SanGong_ZongShi_reconcile_parent_change_effect = yes
+            Dynasty_ChuJi = yes
+            every_child = {
+                even_if_dead = yes
+                every_child = {
+                    even_if_dead = yes
+                    every_child = {
+                        even_if_dead = yes
+                        every_child = {
+                            even_if_dead = yes
+                            every_child = {
+                                even_if_dead = yes
+                                Dynasty_ChuJi = yes
+                            }
+                            Dynasty_ChuJi = yes
+                        }
+                        Dynasty_ChuJi = yes
+                    }
+                    Dynasty_ChuJi = yes
+                }
+                Dynasty_ChuJi = yes
+            }
+        }
+    }
+    option = {#全部贬为庶人
+        name = SanGong_Zongzu.005.c
+        scope:recipient = {
+            Dynasty_lowborn = yes
+            every_child = {
+                even_if_dead = yes
+                every_child = {
+                    even_if_dead = yes
+                    every_child = {
+                        even_if_dead = yes
+                        every_child = {
+                            even_if_dead = yes
+                            every_child = {
+                                even_if_dead = yes
+                                Dynasty_lowborn = yes
+                            }
+                            Dynasty_lowborn = yes
+                        }
+                        Dynasty_lowborn = yes
+                    }
+                    Dynasty_lowborn = yes
+                }
+                Dynasty_lowborn = yes
+            }
+        }
+    }
+    option = {#无事情发生
+        name = SanGong_Zongzu.005.d
+
+    }
+}
+
+SanGong_Zongzu.011 = {#藩国继承
+    type = character_event
+    title = SanGong_Zongzu.011.t
+    desc = SanGong_Zongzu.011.desc
+    theme = administrative
+    lower_center_portrait = {
+        character = scope:Dead_FanWang
+        animation = dead
+    }
+    right_portrait = {
+        character = scope:New_FanWang
+        animation = disgust
+    }
+    immediate = {
+    }
+    option = {#世袭罔替
+        name = SanGong_Zongzu.011.a
+        if = {
+            limit = {
+                scope:Dead_FanWang = {
+                    has_trait = SanGong_FanWang
+                }
+            }
+            scope:New_FanWang = {
+                SanGong_ZongShi_mark_feudatory_wang_effect = { WANG = SanGong_FanWang }
+                add_prestige = 1000
+                change_influence = 1000
+                save_scope_as = secondary_actor
+                trigger_event = SanGong_Cefeng_message.003
+            }
+        }
+        if = {
+            limit = {
+                scope:Dead_FanWang = {
+                    has_trait = SanGong_JunWang
+                }
+            }
+            scope:New_FanWang = {
+                SanGong_ZongShi_mark_feudatory_wang_effect = { WANG = SanGong_JunWang }
+                add_prestige = 500
+                change_influence = 500
+                trigger_event = SanGong_Cefeng_message.003
+            }
+        }
+        scope:New_FanWang = {
+            create_character_memory = { type = mem_zongshijuewei_inherit participants = { dead_char = scope:Dead_FanWang } }
+        }
+    }
+}
+
+SanGong_Zongzu.012 = {#无嗣除国
+    type = character_event
+    title = SanGong_Zongzu.012_t
+    desc = SanGong_Zongzu.012_d
+    theme = administrative
+    lower_center_portrait = {
+        character = scope:Dead_FanWang
+        animation = dead
+    }
+    right_portrait = {
+        character = scope:LiuGuan
+        animation = disgust
+    }
+    immediate = {
+        save_scope_as = HuangDi
+        save_scope_as = actor
+        SG_set_liuguan_effect = yes
+    }
+    option = {
+        name = SanGong_Zongzu.012.a
+       every_in_list = {
+           list = titles_to_landless
+           holder = {
+               destroy_title = prev
+           }
+       }
+        create_title_and_vassal_change = {
+            type = appointment
+            save_scope_as = change
+        }
+        every_in_list = {
+            list = titles_to_claim
+            limit = {
+                is_noble_family_title = no
+                is_landless_type_title = no
+            }
+            reset_title_name = yes
+            change_title_holder_include_vassals = {
+                holder = scope:LiuGuan
+                change = scope:change
+                take_baronies = no
+            }
+        }
+        resolve_title_and_vassal_change = scope:change
+        trigger_event = SanGong_Cefeng_message.006
+    }
+}
+
+SanGong_Zongzu.013 = {#王爵继承
+    type = character_event
+    title = SanGong_Zongzu.013_t
+    desc = SanGong_Zongzu.013_d
+    theme = administrative
+    lower_center_portrait = {
+        character = scope:Dead_FanWang
+        animation = dead
+    }
+    right_portrait = {
+        character = scope:New_FanWang
+        animation = disgust
+    }
+    immediate = {
+        save_scope_as = HuangDi
+    }
+    option = {#降等袭爵
+        trigger = {
+            is_ai = no
+            scope:Dead_FanWang = {
+                NOT = {
+                    has_trait = SanGong_JunWang
+                }
+            }
+        }
+      name = SanGong_Zongzu.013.a
+        if = {
+            limit = {
+                scope:Dead_FanWang = { has_trait = SanGong_FanWang }
+            }
+            scope:New_FanWang = { SanGong_ZongShi_set_manual_wang_effect = { WANG = SanGong_JunWang } }
+        }
+        else_if = {
+            limit = {
+                scope:Dead_FanWang = { has_trait = SanGong_JunWang}
+            }
+            scope:New_FanWang = { add_trait = SanGong_Juewei_GongJue }
+        }
+        scope:New_FanWang = {
+            create_character_memory = { type = mem_zongshijuewei_inherit_reduced  participants = { dead_char = scope:Dead_FanWang } }
+        }
+    }
+    option = {#特恩不降等,世袭罔替
+        custom_tooltip = SanGong_auto_inherit_tooltip
+        name = SanGong_Zongzu.013.b
+        if = {
+            limit = {
+                scope:Dead_FanWang = {
+                    has_trait = SanGong_FanWang
+                }
+            }
+            scope:New_FanWang = {
+                SanGong_ZongShi_set_manual_wang_effect = { WANG = SanGong_FanWang }
+            }
+        }
+        else_if = {
+            limit = {
+                scope:Dead_FanWang = {
+                    has_trait = SanGong_JunWang
+                }
+                # 已经拥有亲王爵位的长房继承人不能因郡王的“特恩世袭”选项被降等覆盖。
+                scope:New_FanWang = {
+                    NOT = { has_trait = SanGong_FanWang }
+                }
+            }
+            scope:New_FanWang = {
+                add_character_flag = shixiwangti_flag
+                SanGong_ZongShi_set_manual_wang_effect = { WANG = SanGong_JunWang }
+            }
+        }
+        scope:New_FanWang = {
+            create_character_memory = { type = mem_zongshijuewei_inherit  participants = { dead_char = scope:Dead_FanWang } }
+        }
+    }
+    option = {#不允继承
+        trigger = { is_ai = no }
+        name = SanGong_Zongzu.013.c
+    }
+}
+
+
+SanGong_Zongzu.014 = { #登基改名
+    type = character_event
+    title = SanGong_Zongzu.014_t
+    desc = SanGong_Zongzu.014_d
+    theme = wanderer_journey_focus
+    window = SanGong_list_event_window
+    override_background = bp1_indian_corridor_day
+    override_effect_2d = { reference = legend_glow }
+    right_portrait = {
+        character = root
+        animation = steward
+        camera = camera_body
+    }
+    immediate = {
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_01 } } }
+        name = SanGong_Zongzu.014.a
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_01 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_01 } } }
+        name = SanGong_Zongzu.014.a
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_01 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_02 } } }
+        name = SanGong_Zongzu.014.b
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_02 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_03 } } }
+        name = SanGong_Zongzu.014.c
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_03 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_04 } } }
+        name = SanGong_Zongzu.014.d
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_04 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_05 } } }
+        name = SanGong_Zongzu.014.e
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_05 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_06 } } }
+        name = SanGong_Zongzu.014.f
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_06 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_07 } } }
+        name = SanGong_Zongzu.014.g
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_07 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_08 } } }
+        name = SanGong_Zongzu.014.h
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_08 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_09 } } }
+        name = SanGong_Zongzu.014.i
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_09 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_10 } } }
+        name = SanGong_Zongzu.014.j
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_10 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_11 } } }
+        name = SanGong_Zongzu.014.k
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_11 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_12 } } }
+        name = SanGong_Zongzu.014.l
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_12 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_13 } } }
+        name = SanGong_Zongzu.014.m
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_13 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_14 } } }
+        name = SanGong_Zongzu.014.n
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_14 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_15 } } }
+        name = SanGong_Zongzu.014.o
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_15 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_16 } } }
+        name = SanGong_Zongzu.014.p
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_16 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_17 } } }
+        name = SanGong_Zongzu.014.q
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_17 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_18 } } }
+        name = SanGong_Zongzu.014.r
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_18 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_19 } } }
+        name = SanGong_Zongzu.014.s
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_19 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_20 } } }
+        name = SanGong_Zongzu.014.t
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_20 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_21 } } }
+        name = SanGong_Zongzu.014.u
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_21 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_22 } } }
+        name = SanGong_Zongzu.014.v
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_22 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_23 } } }
+        name = SanGong_Zongzu.014.w
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_23 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_24 } } }
+        name = SanGong_Zongzu.014.x
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_24 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_25 } } }
+        name = SanGong_Zongzu.014.y
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_25 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_26 } } }
+        name = SanGong_Zongzu.014.z
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_26 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_27 } } }
+        name = SanGong_Zongzu.014.aa
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_27 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_28 } } }
+        name = SanGong_Zongzu.014.ab
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_28 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_29 } } }
+        name = SanGong_Zongzu.014.ac
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_29 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_30 } } }
+        name = SanGong_Zongzu.014.ad
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_30 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_31 } } }
+        name = SanGong_Zongzu.014.ae
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_31 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_32 } } }
+        name = SanGong_Zongzu.014.af
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_32 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_33 } } }
+        name = SanGong_Zongzu.014.ag
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_33 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_34 } } }
+        name = SanGong_Zongzu.014.ah
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_34 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_35 } } }
+        name = SanGong_Zongzu.014.ai
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_35 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_36 } } }
+        name = SanGong_Zongzu.014.aj
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_36 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_37 } } }
+        name = SanGong_Zongzu.014.ak
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_37 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_38 } } }
+        name = SanGong_Zongzu.014.al
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_38 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_39 } } }
+        name = SanGong_Zongzu.014.am
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_39 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_40 } } }
+        name = SanGong_Zongzu.014.an
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_40 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_41 } } }
+        name = SanGong_Zongzu.014.ao
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_41 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_42 } } }
+        name = SanGong_Zongzu.014.ap
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_42 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_43 } } }
+        name = SanGong_Zongzu.014.aq
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_43 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_44 } } }
+        name = SanGong_Zongzu.014.ar
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_44 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_45 } } }
+        name = SanGong_Zongzu.014.as
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_45 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_46 } } }
+        name = SanGong_Zongzu.014.at
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_46 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_47 } } }
+        name = SanGong_Zongzu.014.au
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_47 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_48 } } }
+        name = SanGong_Zongzu.014.av
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_48 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_49 } } }
+        name = SanGong_Zongzu.014.aw
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_49 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_50 } } }
+        name = SanGong_Zongzu.014.ax
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_50 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_51 } } }
+        name = SanGong_Zongzu.014.ay
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_51 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_52 } } }
+        name = SanGong_Zongzu.014.az
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_52 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_53 } } }
+        name = SanGong_Zongzu.014.ba
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_53 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_54 } } }
+        name = SanGong_Zongzu.014.bb
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_54 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_55 } } }
+        name = SanGong_Zongzu.014.bc
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_55 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_56 } } }
+        name = SanGong_Zongzu.014.bd
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_56 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_57 } } }
+        name = SanGong_Zongzu.014.be
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_57 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_58 } } }
+        name = SanGong_Zongzu.014.bf
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_58 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_59 } } }
+        name = SanGong_Zongzu.014.bg
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_59 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_60 } } }
+        name = SanGong_Zongzu.014.bh
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_60 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_61 } } }
+        name = SanGong_Zongzu.014.bi
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_61 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_62 } } }
+        name = SanGong_Zongzu.014.bj
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_62 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_63 } } }
+        name = SanGong_Zongzu.014.bk
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_63 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_64 } } }
+        name = SanGong_Zongzu.014.bl
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_64 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_65 } } }
+        name = SanGong_Zongzu.014.bm
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_65 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_66 } } }
+        name = SanGong_Zongzu.014.bn
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_66 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_67 } } }
+        name = SanGong_Zongzu.014.bo
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_67 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_68 } } }
+        name = SanGong_Zongzu.014.bp
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_68 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_69 } } }
+        name = SanGong_Zongzu.014.bq
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_69 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_70 } } }
+        name = SanGong_Zongzu.014.br
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_70 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_71 } } }
+        name = SanGong_Zongzu.014.bs
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_71 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_72 } } }
+        name = SanGong_Zongzu.014.bt
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_72 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_73 } } }
+        name = SanGong_Zongzu.014.bu
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_73 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_74 } } }
+        name = SanGong_Zongzu.014.bv
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_74 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_75 } } }
+        name = SanGong_Zongzu.014.bw
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_75 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_76 } } }
+        name = SanGong_Zongzu.014.bx
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_76 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_77 } } }
+        name = SanGong_Zongzu.014.by
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_77 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_78 } } }
+        name = SanGong_Zongzu.014.bz
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_78 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_79 } } }
+        name = SanGong_Zongzu.014.ca
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_79 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_80 } } }
+        name = SanGong_Zongzu.014.cb
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_80 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_81 } } }
+        name = SanGong_Zongzu.014.cc
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_81 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_82 } } }
+        name = SanGong_Zongzu.014.cd
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_82 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_83 } } }
+        name = SanGong_Zongzu.014.ce
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_83 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_84 } } }
+        name = SanGong_Zongzu.014.cf
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_84 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_85 } } }
+        name = SanGong_Zongzu.014.cg
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_85 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_86 } } }
+        name = SanGong_Zongzu.014.ch
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_86 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_87 } } }
+        name = SanGong_Zongzu.014.ci
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_87 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_88 } } }
+        name = SanGong_Zongzu.014.cj
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_88 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_89 } } }
+        name = SanGong_Zongzu.014.ck
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_89 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_90 } } }
+        name = SanGong_Zongzu.014.cl
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_90 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_91 } } }
+        name = SanGong_Zongzu.014.cm
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_91 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_92 } } }
+        name = SanGong_Zongzu.014.cn
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_92 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_93 } } }
+        name = SanGong_Zongzu.014.co
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_93 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_94 } } }
+        name = SanGong_Zongzu.014.cp
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_94 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_95 } } }
+        name = SanGong_Zongzu.014.cq
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_95 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_96 } } }
+        name = SanGong_Zongzu.014.cr
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_96 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_97 } } }
+        name = SanGong_Zongzu.014.cs
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_97 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_98 } } }
+        name = SanGong_Zongzu.014.ct
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_98 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_99 } } }
+        name = SanGong_Zongzu.014.cu
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_99 }
+    }
+	option = {
+		trigger = { NOT = { dynasty ?= { exists = var:SG_YuMing_100 } } }
+        name = SanGong_Zongzu.014.cv
+		SanGong_Set_YuMing_effect = { YUMING = SG_YuMing_100 }
+    }
+	#option = {
+	#	trigger = { is_ai = no }
+   #    name = SanGong_Zongzu.014.cy
+   #}
+	option = {
+		trigger = { is_ai = no }
+        name = SanGong_Zongzu.014.cz
+    }
+
+}
+
+SanGong_Zongzu.1000 = {#世系回归
+    type = character_event
+    window = List_event_window_v1
+    title = SanGong_Zongzu.1000.t
+    desc = SanGong_Zongzu.1000.d
+    theme = bastardy
+    override_background = bedchamber
+    right_portrait = {
+        character = root
+        animation = frontend_left_idle
+    }
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "SanGong_character_list_selection"
+		container = "custom_widgets_container"
+	}
+	trigger = {
+		dynasty = {
+            exists = dynasty_founder
+            dynasty_founder = { exists = house }
+            NOT = { dynasty_founder.house = root.house }
+        }
+	}
+
+	immediate = {
+        dynasty = {
+            dynasty_founder = { save_scope_as = founder }
+        }
+
+		if = {		# 父亲
+			limit = {
+                father = { NOT = { house = scope:founder.house } }
+
+			}
+			add_to_variable_list = { name = SanGong_list_characters target = father }
+		}
+	    if = {		# 父亲
+			limit = {
+                father.father = { NOT = { house = scope:founder.house } }
+			}
+			add_to_variable_list = { name = SanGong_list_characters target = father.father }
+		}
+		if = {		# 父亲
+			limit = {
+                father.father.father = { NOT = { house = scope:founder.house } }
+
+			}
+			add_to_variable_list = { name = SanGong_list_characters target = father.father.father }
+		}
+        every_sibling = {
+            even_if_dead = yes
+			limit = {
+				NOT = { house = scope:founder.house }
+			}
+			root = { add_to_variable_list = { name = SanGong_list_characters target = prev } }
+		}
+		every_child = {
+            even_if_dead = yes
+			limit = {
+				NOT = { house = scope:founder.house }
+			}
+			root = { add_to_variable_list = { name = SanGong_list_characters target = prev } }
+		}
+        every_child = {
+            even_if_dead = yes
+			every_child = {
+                even_if_dead = yes
+                limit = {
+                    NOT = { house = scope:founder.house }
+                }
+                root = { add_to_variable_list = { name = SanGong_list_characters target = prev } }
+            }
+		}
+        every_child = {
+            even_if_dead = yes
+			every_child = {
+                even_if_dead = yes
+                every_child = {
+                    even_if_dead = yes
+                    limit = {
+                        NOT = { house = scope:founder.house }
+                    }
+                    root = { add_to_variable_list = { name = SanGong_list_characters target = prev } }
+                }
+            }
+		}
+	}
+
+
+    option = {#父祖昆弟尽归宗
+        name = SanGong_Zongzu.1000.a
+        ai_chance = {
+            base = 10
+            modifier = {		# 与宗家关系恶劣，不愿归宗
+                add = -8
+                scope:founder.house = {
+                    any_house_member = {
+                        opinion = { target = root value <= -20 }
+                    }
+                }
+            }
+            modifier = {		# 贪婪/野心勃勃者想并入主家
+                add = 20
+                OR = {
+                    has_trait = greedy
+                    has_trait = ambitious
+                }
+            }
+            modifier = {		# 重视家族传统者不愿改籍
+                add = -7
+                OR = {
+                    has_trait = traditionalist
+                    has_trait = family_first
+                }
+            }
+        }
+        set_house = scope:founder.house
+        every_in_list = {
+            variable = SanGong_list_characters
+            set_house = scope:founder.house
+        }
+    }
+
+    option = {#仅儿嗣归宗
+        name = SanGong_Zongzu.1000.b
+        ai_chance = {
+            base = 10
+            modifier = {		# 重视家庭者倾向此选
+                add = 10
+                has_trait = family_first
+            }
+            modifier = {		# 年老者重传承
+                add = 5
+                age >= 50
+            }
+        }
+        set_house = scope:founder.house
+        every_in_list = {
+            variable = SanGong_list_characters
+            limit = { year_of_birth > root.year_of_birth }
+            set_house = scope:founder.house
+        }
+    }
+
+    option = {#维持现状
+        name = SanGong_Zongzu.1000.c
+        house = {
+            add_house_modifier = {
+                modifier = SanGong_Shixi_Zhuanyi_modifier
+                years = 100
+            }
+        }
+        ai_chance = {
+            base = 40
+            modifier = {		# 与宗家关系亲近，倾向归宗
+                add = -20
+                scope:founder = { is_close_family_of = root }
+            }
+            modifier = {		# 顽固/怯懦者更不愿改动
+                add = 15
+                OR = {
+                    has_trait = stubborn
+                    has_trait = craven
+                }
+            }
+        }
+    }
+
+    after = {
+		clear_variable_list = SanGong_list_characters
+		var:SanGong_selected_character = { remove_variable = SanGong_selected_character }
+		remove_variable = SanGong_selected_character
+	}
+}
+
+
+SanGong_Zongzu.1100 = {#加入皇室
+    type = character_event
+    window = List_event_window_v1
+    title = SanGong_Zongzu.1100.t
+    desc = SanGong_Zongzu.1100.d
+    theme = bastardy
+    override_background = activity_witch_ritual
+    right_portrait = {
+        character = root
+        animation = frontend_left_idle
+    }
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "SanGong_character_list_selection"
+		container = "custom_widgets_container"
+	}
+	trigger = {
+
+	}
+
+	immediate = {
+        title:h_china ?= {
+            ordered_past_holder_reversed = {
+                limit = {
+                    NOT = { dynasty = root.dynasty }
+                    NOT = { dynasty = title:h_china.holder.dynasty }
+                    year_of_birth < root.year_of_birth
+                    is_adult = yes
+                }
+                order_by = year_of_birth
+                max = 100
+                root = { add_to_variable_list = { name = SanGong_list_characters target = prev } }
+            }
+        }
+
+	}
+
+
+    option = {#我应该是他的后代
+        name = SanGong_Zongzu.1100.a
+        if = {
+			limit = { exists = var:SanGong_selected_character }
+            root.var:SanGong_selected_character = {
+                save_scope_as = zuxian
+            }
+            set_house = scope:zuxian.house
+            if = {
+                limit = {
+                    scope:zuxian = {
+                        is_male = yes
+                    }
+                }
+                if = {
+                    limit = { exists = father }
+                    father = { save_scope_as = SanGong_ZongShi_previous_father }
+                }
+                set_father = scope:zuxian
+                if = {
+                    limit = { is_male = yes }
+                    SanGong_ZongShi_reconcile_parent_change_effect = yes
+                }
+            }
+            else = {
+                set_mother = scope:zuxian
+            }
+            every_child = {
+                even_if_dead = yes
+                set_house = scope:zuxian.house
+                every_child = {
+                    even_if_dead = yes
+                    set_house = scope:zuxian.house
+                }
+            }
+            add_stress = 150
+		}
+    }
+    option = {#我应该是他的宗族里的人，而不是他的后代
+        name = SanGong_Zongzu.1100.b
+        if = {
+			limit = { exists = var:SanGong_selected_character }
+            root.var:SanGong_selected_character = {
+                save_scope_as = zuxian
+            }
+            set_house = scope:zuxian.house
+            every_child = {
+                even_if_dead = yes
+                set_house = scope:zuxian.house
+                every_child = {
+                    even_if_dead = yes
+                    set_house = scope:zuxian.house
+                }
+            }
+            add_stress = 100
+		}
+    }
+    option = {#我应该是他的宗族里的人，而不是他的后代
+        name = SanGong_Zongzu.1100.c
+
+    }
+    after = {
+		clear_variable_list = SanGong_list_characters
+		var:SanGong_selected_character = { remove_variable = SanGong_selected_character }
+		remove_variable = SanGong_selected_character
+	}
+}
+
+
+SanGong_Zongzu.1101 = {#加入伟大家族
+    type = character_event
+    window = List_event_window_v1
+    title = SanGong_Zongzu.1101.t
+    desc = SanGong_Zongzu.1101.d
+    theme = bastardy
+    override_background = activity_witch_ritual
+    right_portrait = {
+        character = root
+        animation = frontend_left_idle
+    }
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "SanGong_character_list_selection"
+		container = "custom_widgets_container"
+	}
+	trigger = {
+
+	}
+
+	immediate = {
+        scope:recipient.primary_title = {
+            ordered_past_holder_reversed = {
+                limit = {
+                    NOT = { dynasty = root.dynasty }
+                    NOT = { dynasty = title:recipient.dynasty }
+                    year_of_birth < root.year_of_birth
+                    is_adult = yes
+                    is_alive = no
+                }
+                order_by = year_of_birth
+                max = 100
+                root = { add_to_variable_list = { name = SanGong_list_characters target = prev } }
+            }
+        }
+
+	}
+
+
+    option = {#我应该是他的后代
+        name = SanGong_Zongzu.1101.a
+        if = {
+			limit = { exists = var:SanGong_selected_character }
+            root.var:SanGong_selected_character = {
+                save_scope_as = zuxian
+            }
+            set_house = scope:zuxian.house
+            if = {
+                limit = {
+                    scope:zuxian = {
+                        is_male = yes
+                    }
+                }
+                if = {
+                    limit = { exists = father }
+                    father = { save_scope_as = SanGong_ZongShi_previous_father }
+                }
+                set_father = scope:zuxian
+                if = {
+                    limit = { is_male = yes }
+                    SanGong_ZongShi_reconcile_parent_change_effect = yes
+                }
+            }
+            else = {
+                set_mother = scope:zuxian
+            }
+            every_child = {
+                even_if_dead = yes
+                set_house = scope:zuxian.house
+                every_child = {
+                    even_if_dead = yes
+                    set_house = scope:zuxian.house
+                }
+            }
+            add_stress = 150
+		}
+    }
+    option = {#我应该是他的宗族里的人，而不是他的后代
+        name = SanGong_Zongzu.1101.b
+        if = {
+			limit = { exists = var:SanGong_selected_character }
+            root.var:SanGong_selected_character = {
+                save_scope_as = zuxian
+            }
+            set_house = scope:zuxian.house
+            every_child = {
+                even_if_dead = yes
+                set_house = scope:zuxian.house
+                every_child = {
+                    even_if_dead = yes
+                    set_house = scope:zuxian.house
+                }
+            }
+            add_stress = 100
+		}
+    }
+    option = {#我应该是他的宗族里的人，而不是他的后代
+        name = SanGong_Zongzu.1101.c
+
+    }
+    after = {
+		clear_variable_list = SanGong_list_characters
+		var:SanGong_selected_character = { remove_variable = SanGong_selected_character }
+		remove_variable = SanGong_selected_character
+	}
+}

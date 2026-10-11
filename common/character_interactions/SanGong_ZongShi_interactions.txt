@@ -1,0 +1,1282 @@
+﻿CeLi_taizi_interaction = {#册封太子（Gui）
+    category = interaction_category_diplomacy
+    common_interaction = yes
+    popup_on_receive = no
+    pause_on_receive = no
+    use_diplomatic_range = yes
+    ignores_pending_interaction_block = yes
+    custom_character_sort = { merit }
+    icon = heir
+    hidden = yes
+    is_shown = {
+        scope:actor = {
+            SanGong_huangdi_trigger = yes
+            NOT = {
+                any_child = {
+                    is_alive = yes
+                    has_trait = SanGong_Taizi
+                }
+            }
+        }
+    }
+    is_valid_showing_failures_only = {
+            custom_tooltip = {
+                text = CeLi_taizi_interaction_tt1
+                scope:actor = {
+                NOT = { has_realm_law_flag = SanGong_lichu_law_1 }
+		    }
+        }
+
+	}
+    populate_recipient_list = {
+        scope:actor = {
+            every_child = {
+                limit = {
+                    is_male = yes
+                    NOT = {
+                        has_trait = SanGong_FanWang
+                        has_trait = SanGong_JunWang
+                    }
+                    is_alive = yes
+                }
+                add_to_list = characters
+            }
+        }
+    }
+    on_accept = {
+        custom_tooltip = CeLi_taizi_interaction_tooltip
+        scope:secondary_recipient = {
+            save_scope_as = taizi
+        }
+        scope:actor = {
+            trigger_event = SanGong_DianZhang.016
+        }
+    }
+    ai_will_do = 0
+}
+
+CeLi_taisun_interaction = {#册封皇太孙（Gui）
+    category = interaction_category_diplomacy
+    common_interaction = yes
+    popup_on_receive = no
+    pause_on_receive = no
+    use_diplomatic_range = yes
+    ignores_pending_interaction_block = yes
+    custom_character_sort = { merit }
+    icon = heir
+    hidden = yes
+    is_shown = {
+        scope:actor = {
+            SanGong_huangdi_trigger = yes
+            NOT = {
+                any_child = {
+                    is_alive = yes
+                    has_trait = SanGong_TaiSun
+                }
+            }
+            OR = {
+                any_child = {
+                    is_alive = yes
+                    has_trait = SanGong_Taizi
+                }
+                exists = var:SanGong_latest_deceased_taizi
+            }
+        }
+    }
+    is_valid_showing_failures_only = {
+        custom_tooltip = {
+            text = CeLi_taisun_interaction_tt1
+            scope:actor = {
+                NOT = { has_realm_law_flag = SanGong_lichu_law_1 }
+            }
+        }
+    }
+    populate_recipient_list = {
+        scope:actor = {
+            if = {
+                limit = {
+                    any_child = {
+                        is_alive = yes
+                        has_trait = SanGong_Taizi
+                    }
+                }
+                # 存活皇太子最多一名；这里必须用 effect 迭代器，any_child 是触发器
+                every_child = {
+                    limit = {
+                        is_alive = yes
+                        has_trait = SanGong_Taizi
+                    }
+                    every_child = {
+                        limit = {
+                            is_male = yes
+                            is_alive = yes
+                            NOT = { has_trait = bastard }
+                            NOT = { has_trait = disinherited }
+                            NOT = {
+                                OR = {
+                                    has_trait = SanGong_Taizi
+                                    has_trait = SanGong_TaiSun
+                                    has_trait = SanGong_FanWang
+                                    has_trait = SanGong_JunWang
+                                }
+                            }
+                            top_liege = scope:actor
+                        }
+                        add_to_list = characters
+                    }
+                }
+            }
+            else_if = {
+                limit = { exists = var:SanGong_latest_deceased_taizi }
+                var:SanGong_latest_deceased_taizi = {
+                    every_child = {
+                        limit = {
+                            is_male = yes
+                            is_alive = yes
+                            NOT = { has_trait = bastard }
+                            NOT = { has_trait = disinherited }
+                            NOT = {
+                                OR = {
+                                    has_trait = SanGong_Taizi
+                                    has_trait = SanGong_TaiSun
+                                    has_trait = SanGong_FanWang
+                                    has_trait = SanGong_JunWang
+                                }
+                            }
+                            top_liege = scope:actor
+                        }
+                        add_to_list = characters
+                    }
+                }
+            }
+        }
+    }
+    on_accept = {
+        custom_tooltip = CeLi_taisun_interaction_tooltip
+        scope:secondary_recipient = {
+            save_scope_as = taisun
+        }
+        scope:actor = {
+            if = {
+                limit = {
+                    any_child = {
+                        is_alive = yes
+                        has_trait = SanGong_Taizi
+                    }
+                }
+                ordered_child = {
+                    limit = {
+                        is_alive = yes
+                        has_trait = SanGong_Taizi
+                    }
+                    max = 1
+                    save_scope_as = Taizi
+                }
+            }
+            else_if = {
+                limit = { exists = var:SanGong_latest_deceased_taizi }
+                var:SanGong_latest_deceased_taizi = {
+                    save_scope_as = Taizi
+                }
+            }
+            trigger_event = SanGong_DianZhang.014
+        }
+    }
+    ai_will_do = 0
+}
+
+FeiChu_taizi_interaction = {#废除太子
+    category = interaction_category_diplomacy
+    common_interaction = yes
+    popup_on_receive = no
+    pause_on_receive = no
+    use_diplomatic_range = yes
+    ignores_pending_interaction_block = yes
+    custom_character_sort = { merit }
+    icon = heir
+    is_shown = {
+        scope:actor = {
+            SanGong_huangdi_trigger = yes
+        }
+        scope:recipient = {
+            top_liege = scope:actor
+            has_trait = SanGong_Taizi
+        }
+    }
+
+    on_accept = {
+        custom_tooltip = FeiChu_taizi_interaction_tooltip
+        scope:actor = {
+            add_stress = 50
+            add_prestige = -300
+            change_influence = -300
+            add_legitimacy = -100
+            add_tyranny = 20
+        }
+        scope:recipient = {
+            save_scope_as = taizi
+            SanGong_remove_cefeng_merit_modifiers_effect = yes
+            SanGong_ZongShi_remove_taizi_effect = yes
+            add_prestige_level = -2
+            add_stress = 150
+            add_prestige = -300
+            change_influence = -300
+            mother = {
+                add_prestige_level = -1
+                add_stress = 100
+            }
+        }
+        scope:actor = {
+            trigger_event = SanGong_DianZhang.018
+            every_vassal_or_below = {
+                trigger_event = SanGong_DianZhang.018
+            }
+        }
+    }
+    ai_will_do = 0
+}
+
+FeiChu_taisun_interaction = {#废黜皇太孙
+    category = interaction_category_diplomacy
+    common_interaction = yes
+    popup_on_receive = no
+    pause_on_receive = no
+    use_diplomatic_range = yes
+    ignores_pending_interaction_block = yes
+    custom_character_sort = { merit }
+    icon = heir
+    is_shown = {
+        scope:actor = {
+            SanGong_huangdi_trigger = yes
+        }
+        scope:recipient = {
+            top_liege = scope:actor
+            has_trait = SanGong_TaiSun
+        }
+    }
+    on_accept = {
+        custom_tooltip = FeiChu_taisun_interaction_tooltip
+        scope:actor = {
+            add_stress = 50
+            add_prestige = -300
+            change_influence = -300
+            add_legitimacy = -100
+            add_tyranny = 20
+        }
+        scope:recipient = {
+            save_scope_as = taisun
+            SanGong_remove_cefeng_merit_modifiers_effect = yes
+            SanGong_ZongShi_remove_taisun_effect = yes
+            add_prestige_level = -2
+            add_stress = 150
+            add_prestige = -300
+            change_influence = -300
+            mother = {
+                add_prestige_level = -1
+                add_stress = 100
+            }
+        }
+        scope:actor = {
+            trigger_event = SanGong_DianZhang.020
+            every_vassal_or_below = {
+                trigger_event = SanGong_DianZhang.020
+            }
+        }
+    }
+    ai_will_do = 0
+}
+
+Cefeng_ZongShi_interaction = { # 册封宗室
+    category = interaction_category_diplomacy
+    common_interaction = yes
+    popup_on_receive = no
+    pause_on_receive = no
+    use_diplomatic_range = yes
+    desc = Cefeng_ZongShi_interaction_desc
+    ignores_pending_interaction_block = yes
+    icon = heir
+    auto_accept = yes
+    is_shown = {
+        scope:actor = {
+            SanGong_huangdi_trigger = yes
+        }
+        scope:recipient = {
+            # 候选条件与后宫“宗亲”页的 ZongWang_gui 共用同一触发器。
+            SanGong_ZongShi_virtual_wang_candidate_trigger = { EMPEROR = scope:actor }
+        }
+    }
+    is_valid = {
+        scope:actor = {
+            influence >= 50
+            prestige >= 50
+            gold >= 50
+        }
+    }
+    on_accept = {
+        scope:recipient = {
+            save_scope_as = HuangZi
+            if = {
+                limit = {
+                    is_landed = no
+                    is_ruler = no
+                    NOT = { is_courtier_of = scope:actor }
+                }
+                scope:actor = { add_courtier = scope:recipient }
+            }
+        }
+        scope:actor = {
+            trigger_event = SanGong_CeFeng.001
+        }
+    }
+    cost = {
+		piety = 50
+		gold = 50
+        influence = 50
+	}
+    ai_will_do = {
+        base = 0
+    }
+}
+
+
+
+SanGong_HuangziJiuFan_interaction = {#册封皇子藩王
+	category = interaction_category_diplomacy
+	#interface_priority = 0
+	icon = vassal_claim_liege_title_interaction
+	#hidden = yes
+    auto_accept = yes
+	is_shown = {
+        scope:actor = {
+            SanGong_huangdi_trigger = yes
+        }
+        scope:recipient = {
+            ZongShi_jinqin = { CHAR = actor }
+            father = scope:actor
+            is_ruler = no
+            is_male = yes
+            age >= 14
+            top_liege = scope:actor.top_liege
+            NOT = {
+                SanGong_QinWang_trigger = yes
+                OR = {
+                    has_trait = SanGong_FanWang
+                    has_trait = SanGong_JunWang
+                    has_trait = SanGong_Taizi
+                    has_trait = SanGong_TaiSun
+                }
+            }
+        }
+    }
+	is_valid = {
+        scope:actor = {
+            is_at_war = no
+            SanGong_huangdi_trigger = yes
+        }
+        scope:recipient = {
+            is_ruler = no
+            NOT = {
+                OR = {
+                    has_trait = SanGong_FanWang
+                    has_trait = SanGong_JunWang
+                    has_trait = SanGong_Taizi
+                    has_trait = SanGong_TaiSun
+                }
+            }
+        }
+    }
+	greeting = positive
+	on_accept = {
+        scope:recipient = {
+            save_scope_as = HuangZi
+            remove_HuangZi_WangHao_effects = yes
+            SanGong_ZongShi_mark_feudatory_wang_effect = { WANG = SanGong_FanWang }
+        }
+		scope:actor = {
+			trigger_event = SanGong_CeFeng.050
+		}
+	}
+	ai_will_do = 0
+}
+
+
+SanGong_ZongFanCeFeng_interaction = {#册封宗室藩王
+	category = interaction_category_diplomacy
+	#interface_priority = 0
+	icon = vassal_claim_liege_title_interaction
+	is_shown = {
+		scope:actor = {
+			SanGong_huangdi_trigger = yes
+		}
+		scope:recipient = { this = scope:actor }
+	}
+    is_valid = {
+		scope:actor = {
+            not_involved_activity_trigger = yes
+		}
+	}
+    send_option = {
+        flag = fanwang_1
+        localization = fanwang_1_localization
+    }
+    send_option = {
+        flag = fanwang_2
+        localization = fanwang_2_localization
+    }
+	populate_recipient_list = {
+        scope:actor = {
+            dynasty ?= {
+                ordered_dynasty_member = {
+                    limit = {
+                        ZongShi_jinqin = { CHAR = actor }
+                        top_liege = scope:actor
+                        this != top_liege
+                        is_male = yes
+                        age >= 16
+                        age < 50
+                        is_healthy = yes
+                        is_imprisoned = no
+                        NOT = {
+                            has_trait = SanGong_Juewei_GongJue
+                            has_trait = SanGong_Juewei_HouJue
+                            has_trait = SanGong_Juewei_BoJue
+                            has_trait = SanGong_Juewei_ZiJue
+                            has_trait = SanGong_FanWang
+                            has_trait = SanGong_JunWang
+                            has_trait = SanGong_Taizi
+                            has_trait = SanGong_TaiSun
+                            is_child_of = scope:actor
+                        }
+                    }
+                    max = 500
+                    add_to_list = characters
+                }
+            }
+        }
+	}
+	greeting = positive
+
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			is_adult = yes
+		}
+	}
+	auto_accept = yes
+    on_accept = {
+        if = {
+            limit = {
+                scope:fanwang_1 = yes
+            }
+            if = {
+                limit = { scope:secondary_recipient = { is_landed = yes } }
+                scope:secondary_recipient = { force_step_down_landed_titles = yes }
+            }
+            scope:secondary_recipient = {
+                remove_HuangZi_WangHao_effects = yes
+                save_scope_as = HuangZi
+                SanGong_ZongShi_mark_feudatory_wang_effect = { WANG = SanGong_FanWang }
+            }
+            scope:actor = {
+                remove_treasury_or_gold = 300
+                change_influence = {
+                    value = 50
+                }
+                pay_short_term_gold = {
+                    gold = 150
+                    target = scope:HuangZi
+                }
+                trigger_event = SanGong_CeFeng.050
+            }
+        }
+        if = {
+            limit = {
+                scope:fanwang_2 = yes
+            }
+            if = {
+                limit = { scope:secondary_recipient = { is_landed = yes } }
+                scope:secondary_recipient = { force_step_down_landed_titles = yes }
+            }
+            scope:secondary_recipient = {
+                remove_HuangZi_WangHao_effects = yes
+                save_scope_as = HuangZi
+                SanGong_ZongShi_mark_feudatory_wang_effect = { WANG = SanGong_JunWang }
+            }
+            scope:actor = {
+                remove_treasury_or_gold = 200
+                pay_short_term_gold = {
+                    gold = 100
+                    target = scope:HuangZi
+                }
+                trigger_event = SanGong_CeFeng.061
+            }
+        }
+    }
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+
+
+
+Chang_ZongFan_FanWang = {#实封宗藩
+    category = interaction_category_diplomacy
+    desc = Chang_ZongFan_desc
+    greeting = positive
+    icon = revoke_governorship
+    auto_accept = yes
+    ai_maybe = no
+    can_send_despite_rejection = yes
+    common_interaction = yes
+    interface_priority = 9
+    popup_on_receive = yes
+    pause_on_receive = yes
+    is_shown = {
+        NOT = { scope:recipient = scope:actor }
+        scope:actor = {
+            SanGong_huangdi_trigger = yes
+        }
+        scope:recipient = {
+            is_vassal_or_below_of = scope:actor
+            has_government = celestial_government
+            highest_held_title_tier = tier_kingdom
+            is_landed = yes
+        }
+    }
+    is_valid_showing_failures_only = {
+        scope:actor = {
+            can_interact_trigger = yes
+        }
+        scope:recipient = {
+            is_at_war = no
+        }
+    }
+    populate_actor_list = {
+        scope:actor = {
+            every_child = {
+                limit = {
+                    is_male = yes
+                    is_alive = yes
+                    age > 15
+                    highest_held_title_tier <= scope:actor.primary_title.tier
+                    NOT = { has_trait = SanGong_Taizi }
+                    NOT = { has_trait = SanGong_TaiSun }
+                    NOT = { is_in_list = characters }
+                }
+                add_to_list = characters
+                every_child = {
+                    even_if_dead = yes
+                    limit = {
+                        is_male = yes
+                        is_alive = yes
+                        age > 15
+                        highest_held_title_tier <= scope:actor.primary_title.tier
+                        NOT = { has_trait = SanGong_Taizi }
+                        NOT = { is_in_list = characters }
+                    }
+                    every_child = {
+                        limit = {
+                            is_male = yes
+                            is_alive = yes
+                            age > 15
+                            highest_held_title_tier <= scope:actor.primary_title.tier
+                            NOT = { has_trait = SanGong_Taizi }
+                            NOT = { has_trait = SanGong_TaiSun }
+                            NOT = { is_in_list = characters }
+                        }
+                        add_to_list = characters
+                    }
+                }
+            }
+            dynasty = {
+                every_dynasty_member = {
+                    limit = {
+                        ZongShi_jinqin = { CHAR = actor }
+                        top_liege = scope:actor
+                        highest_held_title_tier <= scope:actor.primary_title.tier
+                        NOT = {
+                            this = scope:actor
+                            OR = {
+                                has_trait = SanGong_JunWang
+                                has_trait = SanGong_FanWang
+                                has_trait = SanGong_Taizi
+                                has_trait = SanGong_TaiSun
+                            }
+                        }
+                        is_male = yes
+                        age >= 16
+                    }
+                    add_to_list = characters
+                }
+            }
+        }
+    }
+
+    send_option = {
+        flag = Chang_ZongFan_1
+        localization = Chang_ZongFan_1
+    }
+
+    send_option = {
+        flag = Chang_ZongFan_2
+        localization = Chang_ZongFan_2
+    }
+
+    send_option = {
+        flag = Chang_ZongFan_3
+        localization = Chang_ZongFan_3
+    }
+
+    on_accept = {
+        scope:actor = {
+            remove_short_term_gold = 200
+            scope:recipient = { add_gold = 200 }
+            add_prestige =  -300
+            scope:recipient = { add_prestige = 300 }
+            change_influence = -150
+            scope:recipient = { change_influence = 150 }
+        }
+        if = {
+            limit = { scope:Chang_ZongFan_1 = yes }
+            ShiFengFanWang_effect = yes
+            scope:recipient = {
+                add_opinion = {
+                    modifier = bazhiguixiang_opinion
+                    target = scope:actor
+                }
+            }
+            scope:actor = {
+                trigger_event = SanGong_Cefeng_message.001
+            }
+        }
+        if = {
+            limit = { scope:Chang_ZongFan_2 = yes }
+            ShiFengFanWang_effect = yes
+            scope:recipient = {
+                trigger_event = SanGong_CeFeng.002
+            }
+            scope:secondary_actor = {
+                create_title_and_vassal_change = {
+                    type = conquest
+                    save_scope_as = change
+                }
+                scope:recipient = {
+                    change_liege = {
+                        liege = scope:secondary_actor
+                        change = scope:change
+                    }
+                }
+                resolve_title_and_vassal_change = scope:change
+                add_courtier = scope:recipient
+                try_start_diarchy = regency
+                set_diarch = scope:recipient
+            }
+            scope:actor = {
+                trigger_event = SanGong_Cefeng_message.001
+            }
+        }
+        if = {
+            limit = { scope:Chang_ZongFan_3 = yes }
+            ShiFengFanWang_effect = yes
+            scope:actor = {
+                add_courtier = scope:recipient
+                every_vassal_or_below = {
+                    trigger_event = SanGong_Cefeng_message.001
+                }
+                trigger_event = SanGong_Cefeng_message.001
+            }
+
+        }
+    }
+
+    ai_will_do = { base = 0 }
+}
+
+Chang_ZongFan_JunWang = {#实封郡王
+    category = interaction_category_diplomacy
+    desc = Chang_ZongFan_desc
+    greeting = positive
+    icon = revoke_governorship
+    auto_accept = yes
+    ai_maybe = no
+    can_send_despite_rejection = yes
+    common_interaction = yes
+    interface_priority = 9
+    popup_on_receive = yes
+    pause_on_receive = yes
+    is_shown = {
+        NOT = { scope:recipient = scope:actor }
+        scope:actor = {
+            SanGong_huangdi_trigger = yes
+        }
+        scope:recipient = {
+            is_vassal_or_below_of = scope:actor
+            has_government = celestial_government
+            highest_held_title_tier = tier_duchy
+            is_landed = yes
+        }
+    }
+    is_valid_showing_failures_only = {
+        scope:actor = {
+            can_interact_trigger = yes
+        }
+        scope:recipient = {
+            is_at_war = no
+        }
+    }
+    populate_actor_list = {
+        scope:actor = {
+            every_child = {
+                limit = {
+                    is_male = yes
+                    is_alive = yes
+                    age > 15
+                    highest_held_title_tier <= scope:actor.primary_title.tier
+                    NOT = { has_trait = SanGong_Taizi }
+                    NOT = { has_trait = SanGong_TaiSun }
+                    NOT = { is_in_list = characters }
+                }
+                add_to_list = characters
+                every_child = {
+                    even_if_dead = yes
+                    limit = {
+                        is_male = yes
+                        is_alive = yes
+                        age > 15
+                        highest_held_title_tier <= scope:actor.primary_title.tier
+                        NOT = { has_trait = SanGong_Taizi }
+                        NOT = { is_in_list = characters }
+                    }
+                    every_child = {
+                        limit = {
+                            is_male = yes
+                            is_alive = yes
+                            age > 15
+                            highest_held_title_tier <= scope:actor.primary_title.tier
+                            NOT = { has_trait = SanGong_Taizi }
+                            NOT = { has_trait = SanGong_TaiSun }
+                            NOT = { is_in_list = characters }
+                        }
+                        add_to_list = characters
+                    }
+                }
+            }
+            house = {
+                every_house_member = {
+                    limit = {
+                        top_liege = scope:actor
+                        highest_held_title_tier <= scope:actor.primary_title.tier
+                        NOT = {
+                            this = scope:actor
+                            OR = {
+                                has_trait = SanGong_JunWang
+                                has_trait = SanGong_FanWang
+                                has_trait = SanGong_Taizi
+                                has_trait = SanGong_TaiSun
+                            }
+                        }
+                        is_male = yes
+                        age >= 16
+                    }
+                    add_to_list = characters
+                }
+            }
+        }
+    }
+
+    send_option = {
+        flag = Chang_ZongFan_1
+        localization = Chang_ZongFan_1
+    }
+
+    send_option = {
+        flag = Chang_ZongFan_2
+        localization = Chang_ZongFan_2
+    }
+
+    send_option = {
+        flag = Chang_ZongFan_3
+        localization = Chang_ZongFan_3
+    }
+
+    on_accept = {
+        scope:actor = {
+            remove_short_term_gold = 200
+            scope:recipient = { add_gold = 200 }
+            add_prestige =  -300
+            scope:recipient = { add_prestige = 300 }
+            change_influence = -150
+            scope:recipient = { change_influence = 150 }
+        }
+        if = {
+            limit = { scope:Chang_ZongFan_1 = yes }
+            ShiFengJunWang_effect = yes
+            scope:recipient = {
+                add_opinion = {
+                    modifier = bazhiguixiang_opinion
+                    target = scope:actor
+                }
+            }
+            scope:actor = {
+                trigger_event = SanGong_Cefeng_message.001
+            }
+        }
+        if = {
+            limit = { scope:Chang_ZongFan_2 = yes }
+            ShiFengJunWang_effect = yes
+            scope:recipient = {
+                trigger_event = SanGong_CeFeng.002
+            }
+            scope:secondary_actor = {
+                create_title_and_vassal_change = {
+                    type = conquest
+                    save_scope_as = change
+                }
+                scope:recipient = {
+                    change_liege = {
+                        liege = scope:secondary_actor
+                        change = scope:change
+                    }
+                }
+                resolve_title_and_vassal_change = scope:change
+                add_courtier = scope:recipient
+                try_start_diarchy = regency
+                set_diarch = scope:recipient
+            }
+            scope:actor = {
+                trigger_event = SanGong_Cefeng_message.001
+            }
+        }
+        if = {
+            limit = { scope:Chang_ZongFan_3 = yes }
+            ShiFengJunWang_effect = yes
+            scope:actor = {
+                add_courtier = scope:recipient
+                every_vassal_or_below = {
+                    trigger_event = SanGong_Cefeng_message.001
+                }
+                trigger_event = SanGong_Cefeng_message.001
+            }
+
+        }
+    }
+
+    ai_will_do = { base = 0 }
+}
+
+
+SanGong_Xuefan_interaction = { # 削藩
+    category = interaction_category_diplomacy
+    common_interaction = yes
+    popup_on_receive = no
+    pause_on_receive = no
+    use_diplomatic_range = yes
+    ignores_pending_interaction_block = yes
+    icon = vassal_claim_liege_title_interaction
+    desc = SanGong_Xuefan_interaction_desc
+    is_shown = {
+        scope:actor = {
+            SanGong_huangdi_trigger = yes
+        }
+        scope:recipient = {
+            top_liege = scope:actor
+            has_government = zongfan_government
+            OR = {
+                has_trait = SanGong_FanWang
+                has_trait = SanGong_JunWang
+            }
+            NOT = { SanGong_ZongShi_new_system_state_trigger = yes }
+            NOT = { has_trait = SanGong_Taizi }
+        }
+    }
+    is_valid = {
+        scope:actor = {
+            can_interact_trigger = yes
+        }
+        scope:recipient = {
+            is_at_war = no
+        }
+    }
+    prompt = SanGong_Xuefan_interaction_prompt
+    populate_recipient_list = {
+        scope:actor = {
+            every_vassal_or_below = {
+                limit = {
+                    highest_held_title_tier = tier_duchy
+                    age <= 60
+                    has_government = celestial_government
+                    # 新宗室等级角色必须通过专用夺爵交互维护世系状态；
+                    # 旧学藩入口会直接调用 remove_ZongWang_all_effect。
+                    NOT = { SanGong_ZongShi_new_system_state_trigger = yes }
+                    NOT = { has_trait = SanGong_Taizi }
+                }
+                add_to_list = characters
+            }
+        }
+    }
+
+    on_accept = {
+        scope:recipient = { save_scope_as = FanWang }
+        scope:secondary_recipient = { save_scope_as = LiuGuan }
+        scope:actor = { save_scope_as = HuangDi }
+        scope:FanWang = { remove_ZongWang_all_effect = yes }
+        if = {
+            limit = {
+                scope:FanWang = {
+                    is_landed = yes
+                }
+            }
+            custom_tooltip = SanGong_Xuefan_interaction_custom_tooltip
+            scope:actor = { trigger_event = SanGong_Cefeng_message.007 }
+        }
+        else = {
+            scope:FanWang = {
+                every_held_title = {
+                    limit = {
+                        is_landless_type_title = yes
+                        is_noble_family_title = no
+                    }
+                    holder = { destroy_title = prev }
+                }
+            }
+            scope:HuangDi = {
+                add_courtier = scope:FanWang
+            }
+        }
+    }
+}
+
+
+ChiDuo_ZongWang_interaction = { # 夺爵
+    category = interaction_category_diplomacy
+    common_interaction = yes
+    popup_on_receive = no
+    pause_on_receive = no
+    use_diplomatic_range = yes
+    ignores_pending_interaction_block = yes
+    icon = icon_governor_removal
+    auto_accept = yes
+    is_shown = {
+        scope:actor = {
+            SanGong_huangdi_trigger = yes
+        }
+        scope:recipient = {
+            NOT = { has_government = zongfan_government }
+            top_liege = scope:actor
+            # 新宗室等级体系使用独立的“只夺本人/夺取世系”入口。
+            # 旧入口会调用 remove_ZongWang_all_effect，清空世系状态并绕过
+            # 新体系的父支重算；因此只对尚未进入新体系的历史王爵保留。
+            NOT = { SanGong_ZongShi_new_system_state_trigger = yes }
+            NOT = { has_trait = SanGong_Taizi }
+            OR = {
+                has_trait = SanGong_FanWang
+                has_trait = SanGong_JunWang
+                SanGong_JunWang_trigger = yes
+                SanGong_QinWang_trigger = yes
+            }
+        }
+    }
+    is_valid_showing_failures_only = {
+        scope:actor = {
+            can_interact_trigger = yes
+        }
+	}
+    on_accept = {
+        scope:recipient = {
+            save_scope_as = Zongshi
+            custom_tooltip = ChiDuo_ZongWang_interaction_custom_tooltip
+            remove_ZongWang_all_effect = yes
+            if = {
+                limit = {
+                    scope:recipient = {is_landed = no }
+                }
+                scope:actor = {
+                    add_courtier = scope:Zongshi
+                }
+            }
+        }
+    }
+    ai_will_do = { base = 0 }
+}
+
+
+
+SanGong_shixiwangti_interaction = {#世袭罔替
+    category = interaction_category_diplomacy
+    use_diplomatic_range = no
+    icon = grant_governorship
+    ignores_pending_interaction_block = yes
+    common_interaction = yes
+    auto_accept = yes
+    desc = SanGong_shixiwangti_desc
+
+    is_shown = {
+        scope:actor = {
+            SanGong_huangdi_trigger = yes
+        }
+        scope:recipient = {
+            NOT = { has_character_flag = shixiwangti_flag }
+            top_liege = scope:actor
+            NOT = { has_government = zongfan_government }
+            OR = {
+                has_trait = SanGong_FanWang
+                has_trait = SanGong_JunWang
+            }
+        }
+    }
+
+    is_valid_showing_failures_only = {
+        scope:actor = {
+            can_interact_trigger = yes
+        }
+    }
+
+    on_accept = {
+        scope:actor = {
+            custom_tooltip = SanGong_grant_shixiwangti_tooltip
+        }
+        scope:recipient = {
+            add_character_flag = shixiwangti_flag
+        }
+    }
+}
+
+SanGong_revoke_shixiwangti_interaction = {# ── 收回世袭罔替 ──
+    category = interaction_category_diplomacy
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+    common_interaction = yes
+    auto_accept = yes
+    desc = SanGong_shixiwangti_desc
+    icon = revoke_governorship
+    is_shown = {
+        scope:actor = {
+            SanGong_huangdi_trigger = yes
+        }
+        scope:recipient = {
+            has_character_flag = shixiwangti_flag
+            top_liege = scope:actor
+            NOT = { has_government = zongfan_government }
+            OR = {
+                has_trait = SanGong_FanWang
+                has_trait = SanGong_JunWang
+            }
+        }
+    }
+
+    is_valid_showing_failures_only = {
+        scope:actor = {
+            can_interact_trigger = yes
+        }
+    }
+
+    on_accept = {
+        scope:actor = {
+            custom_tooltip = SanGong_revoke_shixiwangti_tooltip
+        }
+        scope:recipient = {
+            remove_character_flag = shixiwangti_flag
+        }
+    }
+}
+
+
+
+SanGong_GuoJiFanWang_interaction = { # 过继藩王
+    desc = SanGong_GuoJiFanWang_interaction_desc
+    category = interaction_category_diplomacy
+    common_interaction = yes
+    popup_on_receive = no
+    pause_on_receive = no
+    use_diplomatic_range = yes
+    ignores_pending_interaction_block = yes
+    custom_character_sort = { age }
+    icon = child
+
+    is_shown = {
+        scope:actor = {
+            SanGong_huangdi_trigger = yes
+
+        }
+        scope:recipient = {
+            has_government = zongfan_government
+            top_liege = scope:actor
+            age >= 50
+            NOT = {
+                any_child = {
+                    is_male = yes
+                }
+            }
+        }
+    }
+
+    is_valid_showing_failures_only = {
+        scope:actor = {
+            custom_tooltip = {
+                text = SanGong_GuoJiFanWang_interaction_vaild
+                any_child = {
+                    is_male = yes
+                    is_ruler = no
+                    age >= 14
+                    NOT = {
+                        SanGong_QinWang_trigger = yes
+                        OR = {
+                            has_trait = SanGong_FanWang
+                            has_trait = SanGong_JunWang
+                            has_trait = SanGong_Taizi
+                        }
+                    }
+                }
+            }
+            #not_involved_activity_trigger = yes
+        }
+    }
+
+    populate_recipient_list = {
+        scope:actor = {
+            every_child = {
+                limit = {
+                    is_male = yes
+                    is_ruler = no
+                    age >= 14
+                    NOT = {
+                        SanGong_QinWang_trigger = yes
+                        OR = {
+                            has_trait = SanGong_FanWang
+                            has_trait = SanGong_JunWang
+                            has_trait = SanGong_Taizi
+                        }
+                    }
+                }
+                add_to_list = characters
+            }
+        }
+    }
+
+    on_accept = {
+        scope:recipient = { save_scope_as = fanwang }
+        scope:secondary_recipient = {
+            save_scope_as = huangzi
+            if = {
+                limit = { exists = father }
+                father = { save_scope_as = SanGong_ZongShi_previous_father }
+            }
+            set_father = scope:recipient
+            set_real_father = scope:actor
+            SanGong_ZongShi_reconcile_parent_change_effect = yes
+        }
+        scope:actor = {
+            save_scope_as = huangdi
+            trigger_event = SanGong_Zongzu.004
+        }
+    }
+	ai_will_do = {
+		base = -1000
+	}
+}
+
+
+SanGong_ChuJi_interaction = {#开除族谱
+    category = interaction_category_diplomacy
+    use_diplomatic_range = yes
+    interface_priority = 100
+    common_interaction = yes
+    icon = waiqi
+    hidden = yes
+    desc = SanGong_ChuJi_interaction
+    is_shown = {
+        scope:actor = {
+            is_dynast = yes
+			dynasty = scope:recipient.dynasty
+        }
+        scope:recipient = {
+            this != scope:actor
+            dynasty = scope:actor.dynasty
+        }
+    }
+    auto_accept = yes
+    ai_will_do = 0
+}
+
+SanGong_jianli_fenjia_interaction = {#建立分家
+	category = interaction_category_friendly
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	common_interaction = no
+	auto_accept = yes
+	icon = palace_examination
+	desc = SanGong_jianli_fenjia_interaction_desc
+	cooldown = { years = 1 }
+	is_shown = {
+		scope:actor = { is_dynast = yes }
+		scope:recipient = {
+			house = scope:actor.house
+		}
+	}
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			top_liege = scope:actor
+			primary_title.tier < scope:actor.primary_title.tier
+			is_male = yes
+			is_adult = yes # 必须是成年人
+			government_allows = create_cadet_branches # 政府体制必须允许创建支系
+			highest_held_title_tier >= tier_duchy
+			# 必须有同家族的活着的子嗣
+			custom_tooltip = {
+				text = SanGong_fenjia_three_children_tooltip
+				any_child = {
+					count >= 3 # 至少有3个孩子
+					is_alive = yes # 孩子必须存活
+					house ?= scope:recipient.house # 孩子必须与玩家属于同一个家族
+				}
+			}
+		}
+	}
+	on_accept = {
+		scope:recipient = {
+			house.house_head ?= { save_scope_as = old_head } # 保存旧族长的作用域，以便后续事件调用
+			if = {
+				limit = {
+					culture = {
+						OR = {
+							has_cultural_pillar = heritage_chinese
+							has_name_list = name_list_han
+							has_name_list = name_list_han_zibei
+						}
+					}
+				}
+				SanGong_found_cadet_house_decision_effect = {
+					CHARACTER = scope:recipient
+					PRESTIGE = major_prestige_gain
+				}
+			}
+			else_if = {
+				limit = { # 如果开启了 TGP（日本相关DLC）且文化属于日本语系/大和名字列表
+					has_tgp_dlc_trigger = yes
+					culture = {
+						OR = {
+							has_cultural_pillar = language_japonic
+							has_name_list = name_list_yamato
+						}
+					}
+				}
+				add_character_flag = found_cadet_branch # 给角色打上"已建立支系"的旗帜
+				trigger_event = tgp_japan_decision.9001 # 触发日本专属的分家事件
+				show_as_tooltip = { # 预览效果展示：创建新家族并建立对应行政体制下的"华族"家族头衔
+					create_cadet_branch = { save_scope_as = new_house }
+					if = {
+						limit = { government_allows = create_cadet_branches }
+						create_noble_family_effect = { GOVERNMENT_GIVER = scope:old_head }
+					}
+				}
+			}
+			else = { # 普通情况下，调用原版分家效果：创建家族并给予威望
+				found_cadet_house_decision_effect = {
+					CHARACTER = scope:recipient
+					PRESTIGE = major_prestige_gain
+				}
+			}
+		}
+	}
+}

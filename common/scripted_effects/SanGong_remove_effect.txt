@@ -1,0 +1,131 @@
+﻿remove_ZongWang_all_effect = { #销毁前朝皇子特质与王号
+    SanGong_remove_cefeng_merit_modifiers_effect = yes
+    SanGong_ZongShi_reset_rank_state_effect = yes
+    if = {
+        limit = { has_trait = SanGong_FanWang }
+        remove_trait = SanGong_FanWang
+    }
+    if = {
+        limit = { has_trait = SanGong_JunWang }
+        remove_trait = SanGong_JunWang
+    }
+    if = {
+        limit = { has_trait = SanGong_HuangSi }
+        remove_trait = SanGong_HuangSi
+    }
+    if = {
+        limit = {
+            OR = {
+                has_trait = SanGong_Taizi
+                has_trait = SanGong_TaiSun
+            }
+        }
+        SanGong_ZongShi_remove_crown_line_effect = yes
+    }
+    every_held_title = {
+        limit = {
+            has_variable = titular_title
+            #tier <= tier_kingdom
+            #is_landless_type_title = yes
+            #is_noble_family_title = no
+        }
+        holder = { destroy_title = prev }
+    }
+    remove_HuangZi_WangHao_effects = yes
+}
+
+remove_juewei_all_effect = {#移除所有爵位
+    if = {
+        limit = { has_trait = SanGong_Juewei_GongJue }
+        remove_trait = SanGong_Juewei_GongJue
+    }
+    if = {
+        limit = { has_trait = SanGong_Juewei_HouJue }
+        remove_trait = SanGong_Juewei_HouJue
+    }
+    if = {
+        limit = { has_trait = SanGong_Juewei_BoJue }
+        remove_trait = SanGong_Juewei_BoJue
+    }
+    if = {
+        limit = { has_trait = SanGong_Juewei_ZiJue }
+        remove_trait = SanGong_Juewei_ZiJue
+    }
+}
+
+remove_SanGong_GongTing_trait_effect = { # 移除宫廷所有特质
+    if = { limit = { has_character_flag = cefeng_huanghou } remove_character_flag = cefeng_huanghou }
+    SanGong_remove_cefeng_merit_modifiers_effect = yes
+    if = { limit = { has_character_flag = cefeng_huangguifei } remove_character_flag = cefeng_huangguifei }
+    if = { limit = { has_character_flag = cefeng_guifei } remove_character_flag = cefeng_guifei }
+    if = { limit = { has_character_flag = cefeng_fei } remove_character_flag = cefeng_fei }
+    if = { limit = { has_character_flag = cefeng_pin } remove_character_flag = cefeng_pin }
+    if = { limit = { has_character_flag = cefeng_guiren } remove_character_flag = cefeng_guiren }
+    if = { limit = { has_character_flag = cefeng_changzai } remove_character_flag = cefeng_changzai }
+    if = { limit = { has_character_flag = cefeng_daying } remove_character_flag = cefeng_daying }
+    if = { limit = { has_character_flag = GongWei_HuangHou } remove_character_flag = GongWei_HuangHou }
+    if = { limit = { has_character_flag = GongWei_HuangGuiFei } remove_character_flag = GongWei_HuangGuiFei }
+    if = { limit = { has_character_flag = GongWei_Guifei } remove_character_flag = GongWei_Guifei }
+    if = { limit = { has_character_flag = GongWei_Fei } remove_character_flag = GongWei_Fei }
+    if = { limit = { has_character_flag = GongWei_Pin } remove_character_flag = GongWei_Pin }
+    if = { limit = { has_character_flag = GongWei_Guiren } remove_character_flag = GongWei_Guiren }
+    if = { limit = { has_character_flag = GongWei_Changzai } remove_character_flag = GongWei_Changzai }
+    if = { limit = { has_character_flag = GongWei_Daying } remove_character_flag = GongWei_Daying }
+    if = { limit = { has_character_flag = GongWei_XiuNv } remove_character_flag = GongWei_XiuNv }
+    if = { limit = { has_trait = SanGong_GongWei_1 } remove_trait = SanGong_GongWei_1 }    # 中宫皇后
+    if = { limit = { has_trait = SanGong_GongWei_2 } remove_trait = SanGong_GongWei_2 }    # 皇贵妃
+    if = { limit = { has_trait = SanGong_GongWei_3 } remove_trait = SanGong_GongWei_3 }    # 贵妃
+    if = { limit = { has_trait = SanGong_GongWei_4 } remove_trait = SanGong_GongWei_4 }    # 妃
+    if = { limit = { has_trait = SanGong_GongWei_5 } remove_trait = SanGong_GongWei_5 }    # 嫔
+    if = { limit = { has_trait = SanGong_GongWei_6 } remove_trait = SanGong_GongWei_6 }    # 昭仪
+    if = { limit = { has_trait = SanGong_GongWei_7 } remove_trait = SanGong_GongWei_7 }    # 美人
+    if = { limit = { has_trait = SanGong_GongWei_8 } remove_trait = SanGong_GongWei_8 }    # 选侍
+    if = { limit = { has_trait = SanGong_GongWei_9 } remove_trait = SanGong_GongWei_9 }    # 淑女
+    if = { limit = { has_trait = SanGong_GongWei_10 } remove_trait = SanGong_GongWei_10 }   # 太妃
+    if = { limit = { has_trait = SanGong_GongWei_11 } remove_trait = SanGong_GongWei_11 }   # 太嫔
+    if = { limit = { has_trait = SanGong_GongWei_12 } remove_trait = SanGong_GongWei_12 }   # 皇考昭仪
+    if = { limit = { has_trait = SanGong_GongWei_13 } remove_trait = SanGong_GongWei_13 }   # 皇考美人
+    if = { limit = { has_trait = SanGong_GongWei_14 } remove_trait = SanGong_GongWei_14 }   # 皇考选侍
+    if = { limit = { has_trait = SanGong_LengGongi_1 } remove_trait = SanGong_LengGongi_1 }
+    if = { limit = { has_trait = SanGong_LengGongi_2 } remove_trait = SanGong_LengGongi_2 }
+    if = { limit = { has_trait = SanGong_LengGongi_3 } remove_trait = SanGong_LengGongi_3 }
+    if = { limit = { has_trait = SanGong_LengGongi_4 } remove_trait = SanGong_LengGongi_4 }
+    if = {
+        limit = {
+            OR = {
+                has_trait = SanGong_Taizi
+                has_trait = SanGong_TaiSun
+            }
+        }
+        SanGong_ZongShi_remove_crown_line_effect = yes
+    }
+    if = { limit = { has_trait = SanGong_Taihou } remove_trait = SanGong_Taihou }
+    if = { limit = { has_trait = SanGong_TaiHuangTaihou } remove_trait = SanGong_TaiHuangTaihou }
+    if = { limit = { has_trait = SanGong_FanWang } remove_trait = SanGong_FanWang }
+    if = { limit = { has_trait = SanGong_JunWang } remove_trait = SanGong_JunWang }
+    if = { limit = { has_trait = SanGong_GongZhu } remove_trait = SanGong_GongZhu }
+    if = { limit = { has_trait = ChuShen_1 } remove_trait = ChuShen_1 }
+    if = { limit = { has_trait = ChuShen_2 } remove_trait = ChuShen_2 }
+    if = { limit = { has_trait = ChuShen_3 } remove_trait = ChuShen_3 }
+    if = { limit = { has_trait = ChuShen_4 } remove_trait = ChuShen_4 }
+    if = { limit = { has_trait = SanGong_HuangSi } remove_trait = SanGong_HuangSi }
+}
+
+
+
+remove_noble_family_title_effect = {
+    every_ruler = {
+        limit = {
+            is_ai = yes
+            is_landed = no
+            has_government = $GOV$
+            primary_title = { is_noble_family_title = yes }
+        }
+        every_held_title = {
+            limit = {
+                is_noble_family_title = yes
+            }
+            PREV = { destroy_title = PREV }
+        }
+    }
+}

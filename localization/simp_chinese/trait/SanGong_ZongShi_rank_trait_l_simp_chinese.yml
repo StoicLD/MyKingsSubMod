@@ -1,0 +1,48 @@
+﻿l_simp_chinese:
+  trait_SanGong_ZongShi_ZhenGuoJiangJun:0 "镇国将军"
+  SanGong_ZongShi_ZhenGuoJiangJun:0 "#color_yellow #bold 镇国将军#!"
+  trait_SanGong_ZongShi_ZhenGuoJiangJun_desc:0 "皇室宗亲，宗室等级第三等，亲王郡王之子"
+
+  trait_SanGong_ZongShi_FuGuoJiangJun:0 "辅国将军"
+  SanGong_ZongShi_FuGuoJiangJun:0 "#color_yellow #bold 辅国将军#!"
+  trait_SanGong_ZongShi_FuGuoJiangJun_desc:0 "皇室宗亲，宗室等级第四等，镇国将军之子"
+
+  trait_SanGong_ZongShi_FengGuoJiangJun:0 "奉国将军"
+  SanGong_ZongShi_FengGuoJiangJun:0 "#color_yellow #bold 奉国将军#!"
+  trait_SanGong_ZongShi_FengGuoJiangJun_desc:0 "皇室宗亲，宗室等级第五等，辅国将军之子"
+
+  trait_SanGong_ZongShi_ZhenGuoZhongWei:0 "镇国中尉"
+  SanGong_ZongShi_ZhenGuoZhongWei:0 "#color_yellow #bold 镇国中尉#!"
+  trait_SanGong_ZongShi_ZhenGuoZhongWei_desc:0 "皇室宗亲，宗室等级第六等，奉国将军之子"
+
+  trait_SanGong_ZongShi_FuGuoZhongWei:0 "辅国中尉"
+  SanGong_ZongShi_FuGuoZhongWei:0 "#color_yellow #bold 辅国中尉#!"
+  trait_SanGong_ZongShi_FuGuoZhongWei_desc:0 "皇室宗亲，宗室等级第七等，镇国中尉之子"
+
+  trait_SanGong_ZongShi_FengGuoZhongWei:0 "奉国中尉"
+  SanGong_ZongShi_FengGuoZhongWei:0 "#color_yellow #bold 奉国中尉#!"
+  trait_SanGong_ZongShi_FengGuoZhongWei_desc:0 "皇室宗亲，宗室等级第八等，辅国中尉之子"
+
+  trait_SanGong_ZongShi_FanWangShiZi:0 "亲王世子"
+  trait_SanGong_ZongShi_FanWangShiZi_desc:0 "皇室宗亲，亲王世子，等同镇国将军"
+
+  trait_SanGong_ZongShi_JunWangShiZi:0 "郡王世子"
+  trait_SanGong_ZongShi_JunWangShiZi_desc:0 "皇室宗亲，郡王世子，等同镇国将军"
+
+  trait_SanGong_ZongShi_ZhenGuoJiangJunZhangZi:0 "镇国将军长子"
+  trait_SanGong_ZongShi_ZhenGuoJiangJunZhangZi_desc:0 "皇室宗亲，镇国将军长子，等同辅国将军"
+
+  trait_SanGong_ZongShi_FuGuoJiangJunZhangZi:0 "辅国将军长子"
+  trait_SanGong_ZongShi_FuGuoJiangJunZhangZi_desc:0 "皇室宗亲，辅国将军长子，等同奉国将军"
+
+  trait_SanGong_ZongShi_FengGuoJiangJunZhangZi:0 "奉国将军长子"
+  trait_SanGong_ZongShi_FengGuoJiangJunZhangZi_desc:0 "皇室宗亲，奉国将军长子，等同镇国中尉"
+
+  trait_SanGong_ZongShi_ZhenGuoZhongWeiZhangZi:0 "镇国中尉长子"
+  trait_SanGong_ZongShi_ZhenGuoZhongWeiZhangZi_desc:0 "皇室宗亲，镇国中尉长子，等同辅国中尉"
+
+  trait_SanGong_ZongShi_FuGuoZhongWeiZhangZi:0 "辅国中尉长子"
+  trait_SanGong_ZongShi_FuGuoZhongWeiZhangZi_desc:0 "皇室宗亲，辅国中尉长子，等同奉国中尉"
+
+  trait_SanGong_ZongShi_FengGuoZhongWeiZhangZi:0 "奉国中尉长子"
+  trait_SanGong_ZongShi_FengGuoZhongWeiZhangZi_desc:0 "皇室宗亲，奉国中尉长子，等同奉国中尉"

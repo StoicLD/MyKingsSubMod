@@ -1,0 +1,122 @@
+﻿remove_gongting_all_effect = { #清除宫廷所有标记
+    remove_sangong_pinfeijiahao_effect = yes
+    remove_gongtingtrait_effect = yes
+}
+
+fuzhiren_effcet = {
+    create_character = {
+        template = cdol_forcefem_template
+        location = root.capital_province
+        save_scope_as = forcefem_result
+    }
+
+    # ==================== 核心：角色转化与数据继承 ====================
+    hidden_effect = {
+        # 保存原目标的父母
+        scope:target.father = { save_scope_as = real_father }
+        scope:target.mother = { save_scope_as = real_mother }
+
+        # 处理原目标的子女、家族、关系
+        scope:target = {
+            # 条件：未婚 / 父系婚姻 → 将子女的母亲设置为转化后的新角色
+            every_child = {
+                even_if_dead = yes
+                if = {
+                    limit = { exists = father }
+                    father = { save_scope_as = SanGong_ZongShi_previous_father }
+                }
+                set_real_father = scope:forcefem_result  # 新角色成为子女母亲
+                set_father = scope:forcefem_result  # 新角色成为子女母亲
+                SanGong_ZongShi_reconcile_parent_change_effect = yes
+            }
+
+            # 保存原角色所有社会关系到临时列表
+            every_relation = { type = soulmate      add_to_temporary_list = former_soulmate }
+            every_relation = { type = lover         add_to_temporary_list = former_lovers }
+            every_relation = { type = friend        add_to_temporary_list = former_friends }
+            every_relation = { type = rival         add_to_temporary_list = former_rivals }
+            every_relation = { type = nemesis       add_to_temporary_list = former_nemeses }
+            every_relation = { type = best_friend   add_to_temporary_list = former_besties }
+            every_relation = { type = blood_brother add_to_temporary_list = former_blood_brother }
+            every_spouse = { add_to_temporary_list = spouses } # 配偶
+        }
+
+        # 新角色（转化后）继承所有关系、父母
+        scope:forcefem_result = {
+            set_mother = scope:real_mother    # 继承生母
+            set_father = scope:real_father    # 继承生父
+            
+            # 继承所有关系
+            every_in_list = { list = former_soulmate    set_relation_soulmate = { target = prev reason = pre_forcefem_soulmate } }
+            every_in_list = { list = former_lovers       set_relation_lover = { target = prev reason = pre_forcefem_lover } }
+            every_in_list = { list = former_friends      set_relation_friend = { target = prev reason = pre_forcefem_friend } }
+            every_in_list = { list = former_rivals       set_relation_rival = { target = prev reason = pre_forcefem_rival } }
+            every_in_list = { list = former_nemeses      set_relation_nemesis = { target = prev reason = pre_forcefem_nemesis } }
+            every_in_list = { list = former_besties      set_relation_best_friend = { target = prev reason = pre_forcefem_best_friend } }
+            every_in_list = { list = former_blood_brother set_relation_blood_brother = { target = prev reason = pre_forcefem_blood_brother } }
+            every_in_list = { list = spouses marry = prev set_relation_lover = { target = prev reason = pre_forcefem_spouse } }
+
+            # ==================== 关键：完整继承所有特质经验 ====================
+            # 原版游戏生活方式、战斗、特质经验 1:1 转移
+            if = { limit = { scope:target = { has_trait = lifestyle_reveler } }        add_trait_xp = { trait = lifestyle_reveler value = "scope:target.has_trait_xp(lifestyle_reveler)" } }
+            if = { limit = { scope:target = { has_trait = lifestyle_blademaster } }    add_trait_xp = { trait = lifestyle_blademaster value = "scope:target.has_trait_xp(lifestyle_blademaster)" } }
+            if = { limit = { scope:target = { has_trait = lifestyle_hunter } }         
+                add_trait_xp = { trait = lifestyle_hunter track = hunter value = "scope:target.has_trait_xp(lifestyle_hunter|hunter)" }
+                add_trait_xp = { trait = lifestyle_hunter track = falconer value = "scope:target.has_trait_xp(lifestyle_hunter|falconer)" } 
+            }
+            if = { limit = { scope:target = { has_trait = lifestyle_mystic } }         add_trait_xp = { trait = lifestyle_mystic value = "scope:target.has_trait_xp(lifestyle_mystic)" } }
+            if = { limit = { scope:target = { has_trait = lifestyle_physician } }      add_trait_xp = { trait = lifestyle_physician value = "scope:target.has_trait_xp(lifestyle_physician)" } }
+            if = { limit = { scope:target = { has_trait = pilgrim } }                 add_trait_xp = { trait = pilgrim value = "scope:target.has_trait_xp(pilgrim)" } }
+            if = { limit = { scope:target = { has_trait = gallowsbait } }             
+                add_trait_xp = { trait = gallowsbait track = bandit value = "scope:target.has_trait_xp(gallowsbait|bandit)" }
+                add_trait_xp = { trait = gallowsbait track = trickster value = "scope:target.has_trait_xp(gallowsbait|trickster)" }
+                add_trait_xp = { trait = gallowsbait track = thief value = "scope:target.has_trait_xp(gallowsbait|thief)" }
+                add_trait_xp = { trait = gallowsbait track = poacher value = "scope:target.has_trait_xp(gallowsbait|poacher)" }
+                add_trait_xp = { trait = gallowsbait track = marauder value = "scope:target.has_trait_xp(gallowsbait|marauder)" } 
+            }
+            
+            # 标记：前世为原目标角色
+            set_variable = {
+                name = previous_life
+                value = scope:target
+            }
+        }
+    }
+
+    hidden_effect = {
+        # 创建头衔/封臣转移记录
+        create_title_and_vassal_change = {
+            type = granted           # 类型：授予
+            save_scope_as = change
+            add_claim_on_loss = no   # 丢失头衔不添加宣称
+        }
+
+        # 原目标的所有头衔 → 转移给新角色
+        scope:target = {
+            every_held_title = {
+                change_title_holder = {
+                    holder = scope:forcefem_result
+                    change = scope:change
+                }
+            }
+            # 原目标的所有封臣 → 效忠新角色
+            every_vassal = {
+                change_liege = {
+                    liege = scope:forcefem_result
+                    change = scope:change
+                }
+            }
+        }
+    }
+
+    resolve_title_and_vassal_change = scope:change
+
+    # 新角色改名
+    scope:forcefem_result = {
+        change_first_name = target_name
+    }
+    scope:target = {
+       # set_house = character:imperial_jin_4.house
+       # set_father = character:imperial_jin_4
+    }
+}

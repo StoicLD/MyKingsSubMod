@@ -1,0 +1,3743 @@
+﻿namespace = SanGong_JueWei_event
+#001-020 占位空闲
+
+SanGong_JueWei_event.021 = {#国公爵位号
+    type = character_event
+    title = SanGong_JueWei_event.021_t
+    desc = SanGong_JueWei_event.021_d
+    theme = dynasty
+    override_background = tgp_relaxing_room_asia
+    window = clear_event_window_v4
+    override_effect_2d = { reference = legend_glow }
+    right_portrait = {
+        character = ROOT
+        animation = chancellor
+        camera = camera_event_far_right_very_right
+    }
+    left_portrait = {
+        character = scope:XunChen
+        animation = gongshou_with_hu
+        camera = camera_event_very_left_activity
+    }
+    immediate = {
+
+    }
+    option = {
+        name = SanGong_JueWei_event.021.a
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_1 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_1 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.b
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_2 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_2 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.c
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_3 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_3 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.d
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_4 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_4 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.e
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_5 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_5 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.f
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_6 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_6 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.g
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_7 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_7 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.h
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_8 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_8 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.i
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_9 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_9 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.j
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_10 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_10 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.k
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_11 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_11 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.l
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_12 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_12 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.m
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_13 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_13 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.n
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_14 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_14 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.o
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_15 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_15 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.p
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_16 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_16 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.q
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_17 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_17 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.r
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_18 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_18 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.s
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_19 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_19 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.t
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_20 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_20 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.u
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_21 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_21 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.v
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_22 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_22 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.w
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_23 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_23 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.x
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_24 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_24 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.y
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_25 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_25 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.z
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_26 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_26 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.aa
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_27 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_27 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.ab
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_28 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_28 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.ac
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_29 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_29 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.ad
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_30 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_30 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.ae
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_31 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_31 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.af
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_32 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_32 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.ag
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_33 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_33 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.ah
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_34 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_34 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.ai
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_35 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_35 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.aj
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_36 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_36 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.ak
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_37 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_37 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.al
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_38 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_38 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.am
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_39 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_39 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.an
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_40 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_40 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.ao
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_41 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_41 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.ap
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_42 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_42 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.aq
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_43 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_43 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.ar
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_44 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_44 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.as
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_45 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_45 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.at
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_46 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_46 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.au
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_47 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_47 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.av
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_48 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_48 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.aw
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_49 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_49 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.ax
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_50 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_50 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.ay
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_51 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_51 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.az
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_52 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_52 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.ba
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_53 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_53 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.bb
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_54 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_54 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.bc
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_55 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_55 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.bd
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_56 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_56 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.be
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_57 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_57 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.bf
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_58 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_58 }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.021.bg
+        trigger = {
+            SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_59 }
+        }
+        scope:XunChen = {
+            SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_GuoHao_59 }
+        }
+    }
+}
+
+SanGong_JueWei_event.022 = {#郡县爵位选择0
+    type = character_event
+    title = SanGong_JueWei_event.022_t
+    desc = SanGong_JueWei_event.022_d
+    theme = dynasty
+    override_background = tgp_relaxing_room_asia
+    override_effect_2d = { reference = legend_glow }
+    right_portrait = {
+        character = ROOT
+        animation = chancellor
+        camera = camera_event_right_away_3_4
+    }
+    left_portrait = {
+        character = scope:XunChen
+        animation = gongshou_with_hu
+        camera = camera_event_very_left_activity
+    }
+    immediate = {
+
+    }
+    option = {
+        name = SanGong_JueWei_event.022.a
+        trigger_event = SanGong_JueWei_event.023
+    }
+    option = {
+        name = SanGong_JueWei_event.022.b
+        trigger_event = SanGong_JueWei_event.024
+    }
+    option = {
+        name = SanGong_JueWei_event.022.c
+        trigger_event = SanGong_JueWei_event.025
+    }
+    #option = {
+    #    name = SanGong_JueWei_event.022.d
+    #}
+}
+
+SanGong_JueWei_event.023 = {#郡县爵位选择1
+    type = character_event
+    title = SanGong_JueWei_event.022_t
+    desc = SanGong_JueWei_event.022_d
+    theme = dynasty
+    window = clear_event_window_v4
+    override_background = tgp_relaxing_room_asia
+    override_effect_2d = { reference = legend_glow }
+    right_portrait = {
+        character = ROOT
+        animation = chancellor
+        camera = camera_event_far_right_very_right
+    }
+    left_portrait = {
+        character = scope:XunChen
+        animation = gongshou_with_hu
+        camera = camera_event_very_left_activity
+    }
+    immediate = {
+
+    }
+    option = {#返回
+        name = SanGong_JueWei_event.023.a0
+        trigger_event = SanGong_JueWei_event.022
+    }
+    option = {
+        name = SanGong_JueWei_event.023.a
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_1 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_1 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.b
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_2 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_2 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.c
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_3 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_3 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.d
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_4 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_4 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.e
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_5 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_5 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.f
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_6 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_6 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.g
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_7 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_7 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.h
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_8 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_8 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.i
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_9 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_9 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.j
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_10 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_10 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.k
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_11 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_11 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.l
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_12 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_12 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.m
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_13 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_13 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.n
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_14 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_14 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.o
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_15 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_15 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.p
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_16 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_16 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.q
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_17 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_17 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.r
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_18 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_18 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.s
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_19 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_19 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.t
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_20 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_20 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.u
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_21 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_21 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.v
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_22 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_22 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.w
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_23 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_23 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.x
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_24 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_24 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.y
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_25 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_25 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.z
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_26 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_26 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.aa
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_27 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_27 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ab
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_28 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_28 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ac
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_29 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_29 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ad
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_30 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_30 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ae
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_31 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_31 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.af
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_32 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_32 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ag
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_33 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_33 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ah
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_34 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_34 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ai
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_35 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_35 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.aj
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_36 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_36 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ak
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_37 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_37 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.al
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_38 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_38 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.am
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_39 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_39 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.an
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_40 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_40 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ao
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_41 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_41 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ap
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_42 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_42 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.aq
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_43 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_43 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ar
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_44 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_44 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.as
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_45 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_45 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.at
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_46 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_46 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.au
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_47 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_47 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.av
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_48 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_48 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.aw
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_49 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_49 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ax
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_50 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_50 } }
+    }
+}
+
+SanGong_JueWei_event.024 = {#郡县爵位选择2
+    type = character_event
+    title = SanGong_JueWei_event.022_t
+    desc = SanGong_JueWei_event.022_d
+    theme = dynasty
+    window = clear_event_window_v4
+    override_background = tgp_relaxing_room_asia
+    override_effect_2d = { reference = legend_glow }
+    right_portrait = {
+        character = ROOT
+        animation = chancellor
+        camera = camera_event_far_right_very_right
+    }
+    left_portrait = {
+        character = scope:XunChen
+        animation = gongshou_with_hu
+        camera = camera_event_very_left_activity
+    }
+    immediate = {
+
+    }
+    option = {#返回
+        name = SanGong_JueWei_event.023.a0
+        trigger_event = SanGong_JueWei_event.022
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ay
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_51 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_51 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.az
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_52 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_52 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ba
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_53 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_53 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bb
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_54 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_54 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bc
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_55 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_55 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bd
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_56 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_56 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.be
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_57 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_57 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bf
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_58 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_58 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bg
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_59 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_59 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bh
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_60 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_60 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bi
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_61 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_61 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bj
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_62 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_62 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bk
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_63 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_63 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bl
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_64 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_64 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bm
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_65 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_65 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bn
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_66 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_66 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bo
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_67 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_67 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bp
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_68 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_68 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bq
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_69 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_69 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.br
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_70 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_70 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bs
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_71 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_71 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bt
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_72 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_72 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bu
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_73 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_73 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bv
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_74 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_74 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bw
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_75 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_75 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bx
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_76 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_76 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.by
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_77 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_77 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.bz
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_78 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_78 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ca
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_79 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_79 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.cb
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_80 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_80 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.cc
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_81 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_81 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.cd
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_82 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_82 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ce
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_83 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_83 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.cf
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_84 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_84 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.cg
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_85 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_85 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ch
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_86 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_86 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ci
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_87 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_87 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.cj
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_88 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_88 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ck
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_89 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_89 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.cl
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_90 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_90 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.cm
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_91 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_91 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.cn
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_92 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_92 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.co
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_93 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_93 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.cp
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_94 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_94 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.cq
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_95 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_95 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.cr
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_96 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_96 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.cs
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_97 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_97 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ct
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_98 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_98 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.cu
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_99 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_99 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.cv
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_100 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_100 } }
+    }
+}
+
+SanGong_JueWei_event.025 = {#郡县爵位选择3
+    type = character_event
+    title = SanGong_JueWei_event.022_t
+    desc = SanGong_JueWei_event.022_d
+    theme = dynasty
+    window = clear_event_window_v4
+    override_background = tgp_relaxing_room_asia
+    override_effect_2d = { reference = legend_glow }
+    right_portrait = {
+        character = ROOT
+        animation = chancellor
+        camera = camera_event_far_right_very_right
+    }
+    left_portrait = {
+        character = scope:XunChen
+        animation = gongshou_with_hu
+        camera = camera_event_very_left_activity
+    }
+    immediate = {
+
+    }
+    option = {#返回
+        name = SanGong_JueWei_event.023.a0
+        trigger_event = SanGong_JueWei_event.022
+    }
+    option = {
+        name = SanGong_JueWei_event.023.cw
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_101 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_101 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.cx
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_102 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_102 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.cy
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_103 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_103 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.cz
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_104 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_104 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.da
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_105 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_105 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.db
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_106 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_106 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.dc
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_107 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_107 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.dd
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_108 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_108 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.de
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_109 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_109 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.df
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_110 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_110 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.dg
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_111 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_111 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.dh
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_112 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_112 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.di
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_113 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_113 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.dj
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_114 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_114 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.dk
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_115 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_115 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.dl
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_116 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_116 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.dm
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_117 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_117 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.dn
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_118 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_118 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.do
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_119 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_119 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.dp
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_120 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_120 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.dq
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_121 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_121 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.dr
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_122 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_122 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ds
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_123 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_123 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.dt
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_124 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_124 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.du
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_125 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_125 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.dv
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_126 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_126 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.dw
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_127 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_127 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.dx
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_128 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_128 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.dy
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_129 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_129 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.dz
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_130 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_130 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ea
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_131 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_131 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.eb
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_132 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_132 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ec
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_133 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_133 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ed
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_134 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_134 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ee
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_135 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_135 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ef
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_136 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_136 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.eg
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_137 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_137 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.eh
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_138 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_138 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ei
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_139 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_139 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ej
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_140 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_140 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ek
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_141 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_141 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.el
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_142 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_142 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.em
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_143 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_143 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.en
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_144 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_144 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.eo
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_145 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_145 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.ep
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_146 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_146 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.eq
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_147 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_147 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.er
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_148 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_148 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.es
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_149 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_149 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.023.et
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_150 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_Junxian_150 } }
+    }
+}
+
+SanGong_JueWei_event.030 = {#县伯爵位选择0
+    type = character_event
+    title = SanGong_JueWei_event.030_t
+    desc = SanGong_JueWei_event.030_d
+    theme = dynasty
+    override_background = tgp_relaxing_room_asia
+    override_effect_2d = { reference = legend_glow }
+    right_portrait = {
+        character = ROOT
+        animation = chancellor
+        camera = camera_event_right_away_3_4
+    }
+    left_portrait = {
+        character = scope:XunChen
+        animation = gongshou_with_hu
+        camera = camera_event_very_left_activity
+    }
+    immediate = {
+
+    }
+    option = {
+        name = SanGong_JueWei_event.030.a
+        trigger_event = SanGong_JueWei_event.031
+    }
+    option = {
+        name = SanGong_JueWei_event.030.b
+        trigger_event = SanGong_JueWei_event.032
+    }
+    option = {
+        name = SanGong_JueWei_event.030.c
+        trigger_event = SanGong_JueWei_event.033
+    }
+    option = {
+        name = SanGong_JueWei_event.030.d
+		trigger = {
+			scope:XunChen = {
+				has_trait_xp = { trait = SanGong_Juewei_BoJue track = Juewei_ChaoDai_name value = 100 }
+			}
+		}
+		trigger_event = SanGong_JueWei_event.034
+    }
+	#option = {
+    #   name = SanGong_JueWei_event.030.e
+    #   scope:XunChen = {
+    #     remove_trait = SanGong_Juewei_BoJue			
+    #  }  
+    #}
+}
+
+SanGong_JueWei_event.031 = {#县伯爵位选择1
+    type = character_event
+    title = SanGong_JueWei_event.022_t
+    desc = SanGong_JueWei_event.022_d
+    theme = dynasty
+    window = clear_event_window_v4
+    override_background = tgp_relaxing_room_asia
+    override_effect_2d = { reference = legend_glow }
+    right_portrait = {
+        character = ROOT
+        animation = chancellor
+        camera = camera_event_far_right_very_right
+    }
+    left_portrait = {
+        character = scope:XunChen
+        animation = gongshou_with_hu
+        camera = camera_event_very_left_activity
+    }
+    immediate = {
+
+    }
+    option = {#返回
+        name = SanGong_JueWei_event.031.a0
+        trigger_event = SanGong_JueWei_event.030
+    }
+    option = {
+        name = SanGong_JueWei_event.031.a
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_1 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_1 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.b
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_2 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_2 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.c
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_3 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_3 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.d
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_4 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_4 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.e
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_5 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_5 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.f
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_6 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_6 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.g
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_7 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_7 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.h
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_8 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_8 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.i
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_9 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_9 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.j
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_10 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_10 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.k
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_11 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_11 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.l
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_12 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_12 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.m
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_13 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_13 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.n
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_14 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_14 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.o
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_15 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_15 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.p
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_16 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_16 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.q
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_17 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_17 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.r
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_18 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_18 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.s
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_19 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_19 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.t
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_20 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_20 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.u
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_21 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_21 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.v
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_22 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_22 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.w
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_23 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_23 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.x
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_24 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_24 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.y
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_25 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_25 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.z
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_26 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_26 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.aa
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_27 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_27 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ab
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_28 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_28 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ac
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_29 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_29 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ad
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_30 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_30 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ae
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_31 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_31 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.af
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_32 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_32 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ag
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_33 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_33 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ah
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_34 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_34 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ai
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_35 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_35 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.aj
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_36 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_36 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ak
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_37 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_37 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.al
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_38 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_38 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.am
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_39 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_39 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.an
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_40 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_40 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ao
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_41 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_41 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ap
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_42 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_42 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.aq
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_43 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_43 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ar
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_44 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_44 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.as
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_45 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_45 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.at
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_46 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_46 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.au
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_47 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_47 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.av
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_48 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_48 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.aw
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_49 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_49 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ax
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_50 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_50 } }
+    }
+}
+
+SanGong_JueWei_event.032 = {#县伯爵位选择2
+    type = character_event
+    title = SanGong_JueWei_event.030_t
+    desc = SanGong_JueWei_event.030_d
+    theme = dynasty
+    window = clear_event_window_v4
+    override_background = tgp_relaxing_room_asia
+    override_effect_2d = { reference = legend_glow }
+    right_portrait = {
+        character = ROOT
+        animation = chancellor
+        camera = camera_event_far_right_very_right
+    }
+    left_portrait = {
+        character = scope:XunChen
+        animation = gongshou_with_hu
+        camera = camera_event_very_left_activity
+    }
+    immediate = {
+
+    }
+    option = {#返回
+        name = SanGong_JueWei_event.031.a0
+        trigger_event = SanGong_JueWei_event.030
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ay
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_51 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_51 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.az
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_52 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_52 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ba
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_53 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_53 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bb
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_54 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_54 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bc
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_55 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_55 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bd
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_56 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_56 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.be
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_57 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_57 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bf
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_58 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_58 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bg
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_59 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_59 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bh
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_60 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_60 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bi
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_61 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_61 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bj
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_62 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_62 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bk
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_63 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_63 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bl
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_64 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_64 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bm
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_65 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_65 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bn
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_66 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_66 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bo
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_67 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_67 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bp
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_68 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_68 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bq
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_69 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_69 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.br
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_70 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_70 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bs
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_71 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_71 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bt
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_72 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_72 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bu
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_73 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_73 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bv
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_74 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_74 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bw
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_75 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_75 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bx
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_76 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_76 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.by
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_77 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_77 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.bz
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_78 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_78 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ca
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_79 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_79 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.cb
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_80 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_80 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.cc
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_81 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_81 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.cd
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_82 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_82 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ce
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_83 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_83 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.cf
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_84 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_84 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.cg
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_85 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_85 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ch
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_86 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_86 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ci
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_87 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_87 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.cj
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_88 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_88 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ck
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_89 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_89 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.cl
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_90 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_90 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.cm
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_91 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_91 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.cn
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_92 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_92 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.co
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_93 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_93 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.cp
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_94 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_94 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.cq
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_95 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_95 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.cr
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_96 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_96 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.cs
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_97 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_97 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ct
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_98 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_98 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.cu
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_99 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_99 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.cv
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_100 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_100 } }
+    }
+}
+
+SanGong_JueWei_event.033 = {#县伯爵位选择3
+    type = character_event
+    title = SanGong_JueWei_event.030_t
+    desc = SanGong_JueWei_event.030_d
+    theme = dynasty
+    window = clear_event_window_v4
+    override_background = tgp_relaxing_room_asia
+    override_effect_2d = { reference = legend_glow }
+    right_portrait = {
+        character = ROOT
+        animation = chancellor
+        camera = camera_event_far_right_very_right
+    }
+    left_portrait = {
+        character = scope:XunChen
+        animation = gongshou_with_hu
+        camera = camera_event_very_left_activity
+    }
+    immediate = {
+
+    }
+    option = {#返回
+        name = SanGong_JueWei_event.031.a0
+        trigger_event = SanGong_JueWei_event.030
+    }
+    option = {
+        name = SanGong_JueWei_event.031.cw
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_101 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_101 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.cx
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_102 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_102 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.cy
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_103 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_103 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.cz
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_104 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_104 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.da
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_105 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_105 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.db
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_106 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_106 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.dc
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_107 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_107 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.dd
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_108 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_108 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.de
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_109 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_109 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.df
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_110 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_110 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.dg
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_111 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_111 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.dh
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_112 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_112 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.di
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_113 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_113 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.dj
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_114 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_114 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.dk
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_115 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_115 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.dl
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_116 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_116 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.dm
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_117 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_117 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.dn
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_118 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_118 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.do
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_119 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_119 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.dp
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_120 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_120 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.dq
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_121 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_121 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.dr
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_122 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_122 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ds
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_123 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_123 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.dt
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_124 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_124 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.du
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_125 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_125 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.dv
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_126 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_126 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.dw
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_127 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_127 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.dx
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_128 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_128 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.dy
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_129 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_129 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.dz
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_130 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_130 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ea
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_131 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_131 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.eb
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_132 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_132 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ec
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_133 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_133 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ed
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_134 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_134 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ee
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_135 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_135 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ef
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_136 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_136 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.eg
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_137 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_137 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.eh
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_138 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_138 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ei
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_139 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_139 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ej
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_140 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_140 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ek
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_141 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_141 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.el
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_142 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_142 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.em
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_143 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_143 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.en
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_144 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_144 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.eo
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_145 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_145 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.ep
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_146 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_146 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.eq
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_147 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_147 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.er
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_148 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_148 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.es
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_149 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_149 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.031.et
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_150 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_150 } }
+    }
+}
+
+SanGong_JueWei_event.034 = {#县伯爵位选择4
+    type = character_event
+    title = SanGong_JueWei_event.030_t
+    desc = SanGong_JueWei_event.030_d
+    theme = dynasty
+    window = clear_event_window_v4
+    override_background = tgp_relaxing_room_asia
+    override_effect_2d = { reference = legend_glow }
+    right_portrait = {
+        character = ROOT
+        animation = chancellor
+        camera = camera_event_far_right_very_right
+    }
+    left_portrait = {
+        character = scope:XunChen
+        animation = gongshou_with_hu
+        camera = camera_event_very_left_activity
+    }
+    immediate = {
+
+    }
+    option = {#返回
+        name = SanGong_JueWei_event.031.a0
+        trigger_event = SanGong_JueWei_event.030
+    }
+    option = {
+        name = SanGong_JueWei_event.034.a
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_1 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_1 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.b
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_2 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_2 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.c
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_3 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_3 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.d
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_4 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_4 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.e
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_5 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_5 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.f
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_6 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_6 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.g
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_7 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_7 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.h
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_8 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_8 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.i
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_9 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_9 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.j
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_10 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_10 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.k
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_11 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_11 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.l
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_12 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_12 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.m
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_13 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_13 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.n
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_14 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_14 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.o
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_15 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_15 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.p
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_16 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_16 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.q
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_17 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_17 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.r
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_18 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_18 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.s
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_19 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_19 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.t
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_20 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_20 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.u
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_21 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_21 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.v
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_22 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_22 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.w
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_23 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_23 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.x
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_24 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_24 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.y
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_25 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_25 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.z
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_26 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_26 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.aa
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_27 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_27 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.ab
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_28 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_28 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.ac
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_29 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_29 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.ad
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_30 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_30 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.ae
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_34 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_34 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.af
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_32 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_32 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.ag
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_33 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_33 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.ah
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_34 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_34 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.ai
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_35 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_35 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.aj
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_36 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_36 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.ak
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_37 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_37 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.al
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_38 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_38 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.am
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_39 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_39 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.an
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_40 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_40 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.ao
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_41 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_41 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.ap
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_42 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_42 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.aq
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_43 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_43 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.ar
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_44 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_44 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.as
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_45 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_45 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.at
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_46 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_46 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.au
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_47 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_47 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.av
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_48 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_48 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.aw
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_49 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_49 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.034.ax
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_50 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_xianbo_ming_50 } }
+    }
+}
+
+SanGong_JueWei_event.040 = {#县侯爵位选择
+    type = character_event
+    title = SanGong_JueWei_event.040_t
+    desc = SanGong_JueWei_event.040_d
+    theme = dynasty
+    override_background = tgp_relaxing_room_asia
+    override_effect_2d = { reference = legend_glow }
+    right_portrait = {
+        character = ROOT
+        animation = chancellor
+        camera = camera_event_right_away_3_4
+    }
+    left_portrait = {
+        character = scope:XunChen
+        animation = gongshou_with_hu
+        camera = camera_event_very_left_activity
+    }
+    immediate = {
+
+    }
+    option = {
+        name = SanGong_JueWei_event.040.a
+		trigger = {
+			scope:XunChen = {
+				has_trait_xp = { trait = SanGong_Juewei_ZiJue track = Juewei_ChaoDai_name value = 0 }
+			}
+		}
+    }
+    option = {
+        name = SanGong_JueWei_event.030.a
+        trigger = {
+			scope:XunChen = {
+				has_trait_xp = { trait = SanGong_Juewei_ZiJue track = Juewei_ChaoDai_name value > 0 }
+			}
+		}
+        trigger_event = SanGong_JueWei_event.031
+    }
+    option = {
+        name = SanGong_JueWei_event.030.b
+        trigger = {
+			scope:XunChen = {
+				has_trait_xp = { trait = SanGong_Juewei_ZiJue track = Juewei_ChaoDai_name value > 0 }
+			}
+		}
+        trigger_event = SanGong_JueWei_event.032
+    }
+    option = {
+        name = SanGong_JueWei_event.030.c
+        trigger = {
+			scope:XunChen = {
+				has_trait_xp = { trait = SanGong_Juewei_ZiJue track = Juewei_ChaoDai_name value > 0 }
+			}
+		}
+        trigger_event = SanGong_JueWei_event.033
+    }
+    option = {
+        name = SanGong_JueWei_event.030.e
+        scope:XunChen = {
+            remove_trait = SanGong_Juewei_ZiJue
+        }
+    }
+}
+
+SanGong_JueWei_event.041 = {#亭侯爵位选择1
+    type = character_event
+    title = SanGong_JueWei_event.022_t
+    desc = SanGong_JueWei_event.022_d
+    theme = dynasty
+    window = clear_event_window_v4
+    override_background = tgp_relaxing_room_asia
+    override_effect_2d = { reference = legend_glow }
+    right_portrait = {
+        character = ROOT
+        animation = chancellor
+        camera = camera_event_far_right_very_right
+    }
+    left_portrait = {
+        character = scope:XunChen
+        animation = gongshou_with_hu
+        camera = camera_event_very_left_activity
+    }
+    immediate = {
+
+    }
+    #option = {#返回
+    #    name = SanGong_JueWei_event.041.a0
+    #    scope:XunChen = {
+    #        remove_trait = SanGong_Juewei_BoJue
+    #    }
+    #}
+    option = {
+        name = SanGong_JueWei_event.041.a
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_1 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_1 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.b
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_2 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_2 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.c
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_3 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_3 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.d
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_4 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_4 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.e
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_5 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_5 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.f
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_6 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_6 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.g
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_7 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_7 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.h
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_8 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_8 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.i
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_9 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_9 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.j
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_10 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_10 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.k
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_11 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_11 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.l
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_12 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_12 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.m
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_13 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_13 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.n
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_14 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_14 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.o
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_15 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_15 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.p
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_16 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_16 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.q
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_17 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_17 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.r
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_18 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_18 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.s
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_19 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_19 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.t
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_20 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_20 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.u
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_21 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_21 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.v
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_22 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_22 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.w
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_23 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_23 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.x
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_24 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_24 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.y
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_25 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_25 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.z
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_26 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_26 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.aa
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_27 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_27 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.ab
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_28 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_28 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.ac
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_29 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_29 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.ad
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_30 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_30 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.ae
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_31 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_31 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.af
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_32 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_32 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.ag
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_33 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_33 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.ah
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_34 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_34 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.ai
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_35 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_35 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.aj
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_36 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_36 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.ak
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_37 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_37 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.al
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_38 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_38 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.am
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_39 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_39 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.an
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_40 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_40 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.ao
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_41 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_41 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.ap
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_42 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_42 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.aq
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_43 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_43 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.ar
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_44 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_44 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.as
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_45 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_45 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.at
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_46 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_46 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.au
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_47 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_47 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.av
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_48 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_48 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.aw
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_49 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_49 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.ax
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_50 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_50 } }
+    }
+       option = {
+        name = SanGong_JueWei_event.041.ay
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_51 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_51 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.az
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_52 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_52 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.ba
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_53 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_53 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bb
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_54 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_54 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bc
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_55 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_55 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bd
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_56 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_56 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.be
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_57 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_57 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bf
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_58 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_58 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bg
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_59 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_59 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bh
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_60 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_60 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bi
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_61 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_61 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bj
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_62 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_62 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bk
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_63 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_63 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bl
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_64 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_64 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bm
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_65 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_65 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bn
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_66 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_66 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bo
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_67 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_67 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bp
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_68 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_68 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bq
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_69 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_69 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.br
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_70 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_70 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bs
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_71 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_71 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bt
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_72 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_72 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bu
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_73 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_73 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bv
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_74 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_74 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bw
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_75 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_75 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bx
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_76 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_76 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.by
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_77 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_77 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.bz
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_78 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_78 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.ca
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_79 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_79 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.cb
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_80 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_80 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.cc
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_81 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_81 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.cd
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_82 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_82 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.ce
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_83 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_83 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.cf
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_84 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_84 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.cg
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_85 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_85 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.ch
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_86 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_86 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.ci
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_87 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_87 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.cj
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_88 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_88 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.ck
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_89 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_89 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.cl
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_90 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_90 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.cm
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_91 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_91 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.cn
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_92 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_92 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.co
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_93 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_93 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.cp
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_94 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_94 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.cq
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_95 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_95 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.cr
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_96 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_96 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.cs
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_97 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_97 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.ct
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_98 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_98 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.cu
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_99 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_99 } }
+    }
+    option = {
+        name = SanGong_JueWei_event.041.cv
+        trigger = { SanGong_JueWei_CeFeng_trigger = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_100 } }
+        scope:XunChen = { SanGong_JueWei_CeFeng_effect = { XUNGUI_JUEWEI = SanGong_Juewei_bo_tinghou_100 } }
+    }
+}
+
+
+
+SanGong_JueWei_event.050 = {#惩戒勋贵
+    type = character_event
+    title = SanGong_JueWei_event.050_t
+    desc = SanGong_JueWei_event.050_d
+    theme = dynasty
+    override_background = tgp_relaxing_room_asia
+    override_effect_2d = { reference = legend_glow }
+    right_portrait = {
+        character = scope:HuangDi
+        animation = chancellor
+        camera = camera_event_right_away_3_4
+    }
+    left_portrait = {
+        character = scope:XunChen
+        animation = gongshou_with_hu
+        camera = camera_event_very_left_activity
+    }
+    immediate = {
+        
+    }
+    option = {#公爵-侯爵
+        trigger = { 
+            scope:XunChen = {
+                has_trait = SanGong_Juewei_GongJue
+            }
+        } 
+        name = SanGong_JueWei_event.050.a
+        custom_tooltip = SanGong_JueWei_event_050_tt
+        scope:XunChen = {
+            SanGong_add_JueWei_effect = { XUNJUE = SanGong_Juewei_HouJue }
+        }
+    }
+    option = {#公爵-伯爵
+        name = SanGong_JueWei_event.050.b
+        trigger = { 
+            scope:XunChen = {
+                OR = {
+                    has_trait = SanGong_Juewei_GongJue
+                    has_trait = SanGong_Juewei_HouJue
+                }
+            }
+        }
+        custom_tooltip = SanGong_JueWei_event_050_tt
+        scope:XunChen = {
+            SanGong_add_JueWei_effect = { XUNJUE = SanGong_Juewei_BoJue }
+        }
+    }
+    option = {#公爵-子爵
+        name = SanGong_JueWei_event.050.c
+        trigger = { 
+            scope:XunChen = {
+                OR = {
+                    has_trait = SanGong_Juewei_GongJue
+                    has_trait = SanGong_Juewei_HouJue
+                    has_trait = SanGong_Juewei_BoJue
+                }
+            }
+        }
+        custom_tooltip = SanGong_JueWei_event_050_tt
+        scope:XunChen = {
+            SanGong_add_JueWei_effect = { XUNJUE = SanGong_Juewei_ZiJue }
+        }
+    }
+    option = {#公爵-庶人
+        name = SanGong_JueWei_event.050.d
+        scope:XunChen = {
+            SanGong_remove_JueWei_effect = yes
+        }
+    }
+    option = {#勒令自杀，其子袭爵
+        name = SanGong_JueWei_event.050.e
+        scope:HuangDi = {
+            trigger_event = SanGong_JueWei_event.051
+        }
+       
+
+    }
+    option = {#除爵
+        name = SanGong_JueWei_event.050.f
+        scope:XunChen = {
+            SanGong_remove_JueWei_effect = yes
+            depose = yes
+            add_character_modifier = lifetime_barred_from_appointment_modifier
+        }
+    }
+}
+
+
+SanGong_JueWei_event.051 = {##勒令自尽
+    type = character_event
+    window = List_event_window_v1
+    title = SanGong_JueWei_event.051_t
+    desc = SanGong_JueWei_event.051_d
+    theme = death
+    override_background = tgp_chinese_corridor_night
+    override_effect_2d = { reference = smoke }
+    right_portrait = {
+        character = scope:XunChen
+        animation = frontend_left_idle
+    }
+	widget = {
+		is_shown = {
+			is_ai = no	
+		}
+		gui = "SanGong_character_list_selection"	
+		container = "custom_widgets_container"
+	}
+    immediate = {
+        if = {
+            limit = {
+                scope:XunChen = { exists = house }
+            }
+            scope:XunChen.house = {
+                ordered_house_member = {
+                    limit = {
+                        top_liege = scope:XunChen.top_liege
+                        is_male = yes
+                        NOT = {
+                            OR = {
+                                has_trait = SanGong_Juewei_GongJue
+                                has_trait = SanGong_Juewei_HouJue
+                                has_trait = SanGong_Juewei_BoJue
+                                has_trait = SanGong_Juewei_ZiJue
+                            }
+                        }
+                    }
+                    order_by = age
+                    max = 50
+                    root = {
+                        add_to_variable_list = {	
+                            name = SanGong_list_characters
+                            target = prev
+                        }
+                    }
+                }   
+            }
+
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.051.a
+        if = {
+			limit = { exists = var:SanGong_selected_character }
+		}
+        root.var:SanGong_selected_character = {
+            save_scope_as = Xungui_sizi
+            add_character_flag = {
+                flag = ZhiDingXiJue_flag
+                day = 15
+            }
+            SanGong_ZongShi_schedule_designation_refresh_effect = yes
+        }
+        if = {
+            limit = {
+                scope:Xungui_sizi = {
+                    is_ruler = no
+                }
+            }
+            add_courtier = scope:Xungui_sizi
+        }
+        custom_tooltip = SanGong_JueWei_event.051_tt
+
+    }
+    after = {
+		clear_variable_list = SanGong_list_characters	
+		var:SanGong_selected_character = { remove_variable = SanGong_selected_character }	
+		remove_variable = SanGong_selected_character	
+        scope:XunChen = {
+            death = { death_reason = death_leling_ziJin killer = scope:HuangDi }      
+        }
+	}
+}
+
+
+
+
+
+SanGong_JueWei_event.060 = {
+    type = letter_event
+    title = SanGong_JueWei_event.060.title
+    desc = SanGong_JueWei_event.060.desc
+    sender = scope:Xungui_death
+
+    option = {
+        name = SanGong_JueWei_event.060.option.a
+        trigger = {
+            exists = scope:Xungui
+            scope:Xungui = { is_alive = yes }
+        }
+        scope:Xungui = {
+            add_character_flag = {
+                flag = ZhiDingXiJue_flag
+                day = 15
+            }
+            SanGong_ZongShi_schedule_designation_refresh_effect = yes
+        }
+        scope:Xungui_death = {
+            add_prestige = 100
+            trigger_event = { id = SanGong_JueWei_event.061 days = 3 }
+        }
+        ai_chance = {
+            base = 50
+            modifier = {
+                factor = 1.5
+                scope:Xungui = {
+                    OR = {
+                        has_relation = { who = scope:Xungui_death type = friend }
+                    }
+                }
+            }
+            modifier = {
+                factor = 0.5
+                scope:Xungui = {
+                    has_trait = incapable
+                }
+            }
+        }
+    }
+    option = {
+        name = SanGong_JueWei_event.060.option.b
+        scope:Xungui_death = {
+            add_stress = 20
+            trigger_event = { id = SanGong_JueWei_event.062 days = 3 }
+        }
+        ai_chance = {
+            base = 25
+            modifier = {
+                factor = 2.0
+                scope:Xungui_death = {
+                    stress >= 150
+                }
+            }
+            modifier = {
+                factor = 1.5
+                scope:Xungui_death = {
+                    OR = {
+                        has_trait = paranoid
+                        has_trait = shy
+                    }
+                }
+            }
+            modifier = {
+                factor = 0.5
+                scope:Xungui_death = {
+                    has_trait = ambitious
+                }
+            }
+        }
+    }
+}
+
+
+SanGong_JueWei_event.061 = {
+    type = letter_event
+    title = SanGong_JueWei_event.061.title
+    desc = SanGong_JueWei_event.061.desc
+    sender = scope:Xungui_death.top_liege
+
+    option = {
+        name = SanGong_JueWei_event.061.option.a
+        add_prestige = 50
+        set_designated_heir = scope:Xungui
+    }
+}
+
+
+SanGong_JueWei_event.062 = {
+    type = letter_event
+    title = SanGong_JueWei_event.062.title
+    desc = SanGong_JueWei_event.062.desc
+    sender = scope:Xungui_death.top_liege
+
+    option = {
+        name = SanGong_JueWei_event.062.option.a
+        add_stress = 30
+    }
+}
+
+
+
+SanGong_JueWei_event.080 = { # 寻找衍圣公
+    type = character_event
+    title = SanGong_JueWei_event.080_t
+    desc = SanGong_JueWei_event.080_d
+    theme = dynasty
+    override_background = tgp_relaxing_room_asia
+    override_effect_2d = { reference = legend_glow }
+    right_portrait = {
+        character = ROOT
+        animation = chancellor
+        camera = camera_event_far_right_very_right
+    }
+    left_portrait = {
+        character = scope:yanshenggong
+        animation = gongshou_with_hu
+        camera = camera_event_very_left_activity
+    }
+    immediate = {
+        # 寻找孔氏宗族族长
+        if = {
+			limit = {
+				exists = global_var:orient_empires_loaded
+			}
+            dynasty:qufu_kong_dyn = {
+                random_dynasty_member = {
+                    limit = {
+                        is_dynast = yes
+                        is_male = yes
+                    }
+                    save_scope_as = yanshenggong
+                }
+            }
+		}
+        else = {
+            dynasty:kong_5B54_7 = {
+                random_dynasty_member = {
+                    limit = {
+                        is_dynast = yes
+                        is_male = yes
+                    }
+                    save_scope_as = yanshenggong
+                }
+            }
+        }
+
+
+        # 若不在朝廷治下，执行封臣转移
+        if = {
+            limit = {
+                scope:yanshenggong = {
+                    top_liege = { NOT = { is_same_value = root } }
+                }
+            }
+            create_title_and_vassal_change = {
+                type = conquest
+                save_scope_as = change
+                add_claim_on_loss = no
+            }
+            scope:yanshenggong = {
+                change_liege = {
+                    liege = root
+                    change = scope:change
+                }
+            }
+            resolve_title_and_vassal_change = scope:change
+        }
+
+        # 任命为衍圣公宫廷职位
+        appoint_court_position = {
+            recipient = scope:yanshenggong
+            court_position = YanShengGong_court_position
+        }
+        
+    }
+    option = {
+        name = SanGong_JueWei_event.080.a
+        scope:yanshenggong = {
+            add_trait = SanGong_YanShengGong
+            trigger_event = SanGong_JueWei_event.081
+        }
+    }
+}
+
+SanGong_JueWei_event.081 = { # 衍圣公谢恩信件
+    type = letter_event
+    desc = SanGong_JueWei_event.081_d
+    sender = root
+    immediate = {
+        save_scope_as = yanshenggong
+
+    }
+    option = {
+        name = SanGong_JueWei_event.081.a
+        every_vassal_or_below = {
+            send_interface_message = {
+                type = event_religious_good_with_text
+                title = SanGong_JueWei_event.081_message_title
+                desc = SanGong_JueWei_event.081_message_desc
+                left_icon = scope:yanshenggong
+                right_icon = root
+            }
+        }
+    }
+}
+
+SanGong_JueWei_event.082 = { # 衍圣公薨逝·新家主上报
+    type = character_event
+    title = SanGong_JueWei_event.082_t
+    desc = SanGong_JueWei_event.082_d
+    theme = dynasty
+    override_background = tgp_relaxing_room_asia
+    override_effect_2d = { reference = legend_glow }
+    
+    lower_left_portrait = {
+        character = scope:old_yanshenggong
+        animation = death
+    }
+    right_portrait = {
+        character = scope:new_yanshenggong
+        animation = chancellor
+    }
+
+    immediate = {
+        if = {
+			limit = {
+				exists = global_var:orient_empires_loaded
+			}
+            dynasty:qufu_kong_dyn = {
+                random_dynasty_member = {
+                    limit = {
+                        is_dynast = yes
+                        is_male = yes
+                    }
+                    save_scope_as = new_yanshenggong
+                }
+            }
+		}
+        else = {
+            dynasty:kong_5B54_7 = {
+                random_dynasty_member = {
+                    limit = {
+                        is_dynast = yes
+                        is_male = yes
+                    }
+                    save_scope_as = new_yanshenggong
+                }
+            }
+        }
+    }
+
+    # 选项A：新家主已成年 → 正式册封
+    option = {
+        name = SanGong_JueWei_event.082.a
+        trigger = {
+            scope:new_yanshenggong = {
+                is_adult = yes
+                top_liege = root
+            }
+        }
+
+        create_title_and_vassal_change = {
+            type = conquest
+            save_scope_as = change
+            add_claim_on_loss = no
+        }
+        scope:yanshenggong = {
+            change_liege = {
+                liege = root
+                change = scope:change
+            }
+        }
+        resolve_title_and_vassal_change = scope:change
+
+        scope:new_yanshenggong = {
+            add_trait = SanGong_YanShengGong
+            appoint_court_position = {
+                recipient = this
+                court_position = YanShengGong_court_position
+            }
+        }
+
+        every_vassal_or_below = {
+            limit = { is_player = yes }
+            send_interface_message = {
+                type = event_religious_good_with_text
+                title = SanGong_JueWei_event.082_message_title
+                desc = SanGong_JueWei_event.082_message_desc
+                left_icon = scope:new_yanshenggong
+                right_icon = root
+            }
+        }
+    }
+
+    # 选项B：未成年暂缓/代理（当前触发器仍为成年，后续可改年龄判定）
+    option = {
+        name = SanGong_JueWei_event.082.b
+        trigger = {
+            scope:new_yanshenggong = {
+                is_adult = no
+                top_liege = root
+            }
+        }
+
+        scope:new_yanshenggong = {
+            add_trait = SanGong_YanShengGong
+            custom_tooltip = SanGong_JueWei_event.082_wait_tt
+        }
+    }
+
+    # 选项C：新家主不在本君主统治范围内
+    option = {
+        name = SanGong_JueWei_event.082.c
+        trigger = {
+            scope:new_yanshenggong = {
+                top_liege != root
+            }
+        }
+        scope:new_yanshenggong = {
+            custom_tooltip = SanGong_JueWei_event.082_outside_tt
+        }
+    }
+}
+
+SanGong_JueWei_event.083 = { #衍圣公绝嗣过继
+    type = character_event
+    title = SanGong_JueWei_event.083_t
+    desc = SanGong_JueWei_event.083_d
+    theme = dynasty
+    override_background = tgp_relaxing_room_asia
+    override_effect_2d = { reference = legend_glow }
+    right_portrait = {
+        character = ROOT
+        animation = chancellor
+        camera = camera_event_far_right_very_right
+    }
+    left_portrait = {
+        character = scope:yanshenggong
+        animation = gongshou_with_hu
+        camera = camera_event_very_left_activity
+    }
+
+    immediate = {
+        hidden_effect = {          # 生成旁支角色，过继入孔氏
+            if = {
+                limit = { exists = global_var:orient_empires_loaded }
+                create_character = {
+                    age = 30
+                    culture = root.culture
+                    faith = root.faith
+                    random_traits = yes
+                    save_scope_as = yanshenggong
+                }
+                scope:yanshenggong = {
+                    set_house = character:qufu_kong_001.house
+                }
+                
+            }
+            else = {
+                create_character = {
+                    age = 30
+                    culture = root.culture
+                    faith = root.faith
+                    random_traits = yes
+                    save_scope_as = yanshenggong
+                }
+                scope:yanshenggong = {
+                    set_house = character:han_80000.house
+                }
+            }
+            add_courtier = scope:yanshenggong
+            # 任命为衍圣公宫廷职位
+            appoint_court_position = {
+                recipient = scope:yanshenggong
+                court_position = YanShengGong_court_position
+            }
+        }
+
+    }
+
+    option = {
+        name = SanGong_JueWei_event.083.a
+        scope:yanshenggong = {
+            add_trait = SanGong_YanShengGong
+            trigger_event = SanGong_JueWei_event.081
+        }
+    }
+}

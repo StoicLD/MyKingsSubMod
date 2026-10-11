@@ -1,0 +1,930 @@
+﻿SanGong_view_name_ZongShi = {#角色名称显示规则
+    type = character  # 类型：作用于角色  
+    text = { #太上皇
+        trigger = { 
+            is_alive = yes 
+            has_trait = SanGong_Taishanghuang
+            this != top_liege
+            top_liege.dynasty = this.dynasty
+        } 
+        localization_key = SanGong_view_name_Taishanghuang
+    }
+    text = { #太子
+            trigger = { 
+                has_trait = SanGong_Taizi
+                is_alive = yes
+                father = top_liege
+            } 
+        localization_key = SanGong_view_name_Taizi 
+    }
+    text = { #太孙
+            trigger = { 
+                has_trait = SanGong_TaiSun
+                is_alive = yes
+            } 
+        localization_key = SanGong_view_name_Taisun 
+    }
+    text = {#自定义(有地)
+		trigger = {
+            is_alive = yes
+            is_ruler = yes
+            has_character_flag = SanGong_ZongShi_JueWei_ZDY
+        }
+		localization_key = SanGong_view_name_ZongShi_zdy_ruler
+	}
+    text = {#自定义(无地)
+		trigger = {
+            is_alive = yes
+            is_ruler = no
+            has_character_flag = SanGong_ZongShi_JueWei_ZDY
+        }
+		localization_key = SanGong_view_name_ZongShi_zdy_ruler_no
+	}
+    
+    text = {#太子妃
+		trigger = { 
+            exists = primary_spouse
+            primary_spouse = {
+                    is_alive = yes
+                    this != top_liege
+                    father = top_liege
+                    has_trait = SanGong_Taizi
+            }
+        }
+		localization_key = SanGong_view_name_TaiziFei
+	}
+    text = { #太子谥号
+            trigger = { 
+                has_trait = SanGong_Taizi
+                is_alive = no
+            } 
+        localization_key = SanGong_view_name_Taizi_shihao 
+    }
+    text = {#亲王世子（死亡中间节点）
+        trigger = {
+            is_alive = yes
+            has_trait = SanGong_ZongShi_FanWangShiZi
+            father = {
+                is_alive = no
+                NOT = { has_trait = SanGong_FanWang }
+                father = { has_trait = SanGong_FanWang }
+            }
+        }
+        localization_key = SanGong_view_name_ZongShi_FanWangShiZi_dead_branch
+    }
+    text = {#郡王世子（死亡中间节点）
+        trigger = {
+            is_alive = yes
+            has_trait = SanGong_ZongShi_JunWangShiZi
+            father = {
+                is_alive = no
+                NOT = { has_trait = SanGong_JunWang }
+                father = { has_trait = SanGong_JunWang }
+            }
+        }
+        localization_key = SanGong_view_name_ZongShi_JunWangShiZi_dead_branch
+    }
+    text = {#亲王世子（两代死亡中间节点）
+        trigger = {
+            is_alive = yes
+            has_trait = SanGong_ZongShi_FanWangShiZi
+            father = {
+                is_alive = no
+                NOT = { has_trait = SanGong_FanWang }
+                father = {
+                    is_alive = no
+                    NOT = { has_trait = SanGong_FanWang }
+                    father = { has_trait = SanGong_FanWang }
+                }
+            }
+        }
+        localization_key = SanGong_view_name_ZongShi_FanWangShiZi_dead_branch_2
+    }
+    text = {#郡王世子（两代死亡中间节点）
+        trigger = {
+            is_alive = yes
+            has_trait = SanGong_ZongShi_JunWangShiZi
+            father = {
+                is_alive = no
+                NOT = { has_trait = SanGong_JunWang }
+                father = {
+                    is_alive = no
+                    NOT = { has_trait = SanGong_JunWang }
+                    father = { has_trait = SanGong_JunWang }
+                }
+            }
+        }
+        localization_key = SanGong_view_name_ZongShi_JunWangShiZi_dead_branch_2
+    }
+    text = {#亲王世子（三代死亡中间节点）
+        trigger = {
+            is_alive = yes
+            has_trait = SanGong_ZongShi_FanWangShiZi
+            father = {
+                is_alive = no
+                NOT = { has_trait = SanGong_FanWang }
+                father = {
+                    is_alive = no
+                    NOT = { has_trait = SanGong_FanWang }
+                    father = {
+                        is_alive = no
+                        NOT = { has_trait = SanGong_FanWang }
+                        father = { has_trait = SanGong_FanWang }
+                    }
+                }
+            }
+        }
+        localization_key = SanGong_view_name_ZongShi_FanWangShiZi_dead_branch_3
+    }
+    text = {#郡王世子（三代死亡中间节点）
+        trigger = {
+            is_alive = yes
+            has_trait = SanGong_ZongShi_JunWangShiZi
+            father = {
+                is_alive = no
+                NOT = { has_trait = SanGong_JunWang }
+                father = {
+                    is_alive = no
+                    NOT = { has_trait = SanGong_JunWang }
+                    father = {
+                        is_alive = no
+                        NOT = { has_trait = SanGong_JunWang }
+                        father = { has_trait = SanGong_JunWang }
+                    }
+                }
+            }
+        }
+        localization_key = SanGong_view_name_ZongShi_JunWangShiZi_dead_branch_3
+    }
+    text = {#亲王世子
+		trigger = {
+            is_alive = yes
+            has_trait = SanGong_ZongShi_FanWangShiZi
+        }
+		localization_key = SanGong_view_name_ZongShi_FanWangShiZi
+	}
+    text = {#郡王世子
+		trigger = {
+            is_alive = yes
+            has_trait = SanGong_ZongShi_JunWangShiZi
+        }
+		localization_key = SanGong_view_name_ZongShi_JunWangShiZi
+	}
+    text = {#镇国将军长子
+		trigger = { is_alive = yes has_trait = SanGong_ZongShi_ZhenGuoJiangJunZhangZi }
+		localization_key = SanGong_view_name_ZongShi_ZhenGuoJiangJunZhangZi
+	}
+    text = {#辅国将军长子
+		trigger = { is_alive = yes has_trait = SanGong_ZongShi_FuGuoJiangJunZhangZi }
+		localization_key = SanGong_view_name_ZongShi_FuGuoJiangJunZhangZi
+	}
+    text = {#奉国将军长子
+		trigger = { is_alive = yes has_trait = SanGong_ZongShi_FengGuoJiangJunZhangZi }
+		localization_key = SanGong_view_name_ZongShi_FengGuoJiangJunZhangZi
+	}
+    text = {#镇国中尉长子
+		trigger = { is_alive = yes has_trait = SanGong_ZongShi_ZhenGuoZhongWeiZhangZi }
+		localization_key = SanGong_view_name_ZongShi_ZhenGuoZhongWeiZhangZi
+	}
+    text = {#辅国中尉长子
+		trigger = { is_alive = yes has_trait = SanGong_ZongShi_FuGuoZhongWeiZhangZi }
+		localization_key = SanGong_view_name_ZongShi_FuGuoZhongWeiZhangZi
+	}
+    text = {#奉国中尉长子
+		trigger = { is_alive = yes has_trait = SanGong_ZongShi_FengGuoZhongWeiZhangZi }
+		localization_key = SanGong_view_name_ZongShi_FengGuoZhongWeiZhangZi
+	}
+    text = {#亲王
+		trigger = {
+            is_ruler = yes
+            is_alive = yes
+            SanGong_QinWang_trigger = no
+            SanGong_JunWang_trigger = no
+            has_trait = SanGong_FanWang
+        }
+		localization_key = SanGong_view_name_qinwang_ZongShi
+	}
+    text = {#郡王
+		trigger = {
+            is_ruler = yes
+            is_alive = yes
+            has_trait = SanGong_JunWang
+            SanGong_QinWang_trigger = no
+            SanGong_JunWang_trigger = no
+        }
+		localization_key = SanGong_view_name_junwang_ZongShi
+	}
+    text = {#藩王母
+		trigger = { 
+            is_ruler = no
+            is_female = yes
+            NOT = { exists = primary_spouse  }
+            any_child = {
+                is_independent_ruler = no
+                OR = {
+                    has_trait = SanGong_JunWang
+                    has_trait = SanGong_FanWang
+                }
+            }
+        }
+		localization_key = SanGong_view_name_FanwangFei_1
+	}
+    text = {#藩王妃
+		trigger = { 
+            exists = primary_spouse
+            is_female = yes
+            primary_spouse = {
+                is_alive = yes
+                has_government = zongfan_government
+                is_ruler = yes
+                OR = {
+                    has_trait = SanGong_JunWang
+                    has_trait = SanGong_FanWang
+                }
+                
+            }
+        }
+		localization_key = SanGong_view_name_FanwangFei
+	}
+    text = {#亲王(虚封)_领主
+		trigger = {
+            is_ruler = yes
+            is_alive = yes
+            SanGong_QinWang_trigger = yes
+            OR = {
+                has_trait = SanGong_FanWang
+                has_trait = SanGong_HuangSi
+            }
+        }
+		localization_key = SanGong_view_name_qinwang_ZongShi_1
+	}
+    text = {#郡王(虚封)_领主
+		trigger = {
+            is_ruler = yes
+            is_alive = yes
+            SanGong_JunWang_trigger = yes
+            
+        }
+		localization_key = SanGong_view_name_junwang_ZongShi_1
+	} 
+    text = {#亲王(虚封)_无地
+		trigger = {
+            is_ruler = no
+            is_alive = yes
+            OR = {
+                SanGong_QinWang_trigger = yes
+                SanGong_JunWang_trigger = yes
+            }
+            OR = {
+                has_trait = SanGong_FanWang
+                has_trait = SanGong_HuangSi
+            }
+        }
+		localization_key = SanGong_view_name_qinwang_ZongShi_2
+	}
+    text = {#郡王(虚封)_无地
+		trigger = {
+            is_ruler = no
+            is_alive = yes
+            OR = {
+                SanGong_QinWang_trigger = yes
+                SanGong_JunWang_trigger = yes
+            }
+            OR = {
+                has_trait = SanGong_JunWang
+                has_trait = SanGong_HuangSi
+            }
+        }
+		localization_key = SanGong_view_name_junwang_ZongShi_2
+	} 
+
+    text = {#镇国将军
+		trigger = {
+            is_alive = yes
+            is_ruler = yes
+            has_trait = SanGong_ZongShi_ZhenGuoJiangJun
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+		localization_key = SanGong_view_name_ZongShi_ZhenGuoJiangJun_ruler
+	}
+    text = {#辅国将军
+		trigger = {
+            is_alive = yes
+            is_ruler = yes
+            has_trait = SanGong_ZongShi_FuGuoJiangJun
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+		localization_key = SanGong_view_name_ZongShi_FuGuoJiangJun_ruler
+	}
+    text = {#奉国将军
+		trigger = {
+            is_alive = yes
+            is_ruler = yes
+            has_trait = SanGong_ZongShi_FengGuoJiangJun
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+		localization_key = SanGong_view_name_ZongShi_FengGuoJiangJun_ruler
+	}
+    text = {#镇国中尉
+		trigger = {
+            is_alive = yes
+            is_ruler = yes
+            has_trait = SanGong_ZongShi_ZhenGuoZhongWei
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+		localization_key = SanGong_view_name_ZongShi_ZhenGuoZhongWei_ruler
+	}
+    text = {#辅国中尉
+		trigger = {
+            is_alive = yes
+            is_ruler = yes
+            has_trait = SanGong_ZongShi_FuGuoZhongWei
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+		localization_key = SanGong_view_name_ZongShi_FuGuoZhongWei_ruler
+	}
+    text = {#奉国中尉
+		trigger = {
+            is_alive = yes
+            is_ruler = yes
+            has_trait = SanGong_ZongShi_FengGuoZhongWei
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+		localization_key = SanGong_view_name_ZongShi_FengGuoZhongWei_ruler
+	}
+    text = {#镇国将军（无地）
+		trigger = {
+            is_alive = yes
+            is_ruler = no
+            has_trait = SanGong_ZongShi_ZhenGuoJiangJun
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+		localization_key = SanGong_view_name_ZongShi_ZhenGuoJiangJun_no
+	}
+    text = {#辅国将军（无地）
+		trigger = {
+            is_alive = yes
+            is_ruler = no
+            has_trait = SanGong_ZongShi_FuGuoJiangJun
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+		localization_key = SanGong_view_name_ZongShi_FuGuoJiangJun_no
+	}
+    text = {#奉国将军（无地）
+		trigger = {
+            is_alive = yes
+            is_ruler = no
+            has_trait = SanGong_ZongShi_FengGuoJiangJun
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+		localization_key = SanGong_view_name_ZongShi_FengGuoJiangJun_no
+	}
+    text = {#镇国中尉（无地）
+		trigger = {
+            is_alive = yes
+            is_ruler = no
+            has_trait = SanGong_ZongShi_ZhenGuoZhongWei
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+		localization_key = SanGong_view_name_ZongShi_ZhenGuoZhongWei_no
+	}
+    text = {#辅国中尉（无地）
+		trigger = {
+            is_alive = yes
+            is_ruler = no
+            has_trait = SanGong_ZongShi_FuGuoZhongWei
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+		localization_key = SanGong_view_name_ZongShi_FuGuoZhongWei_no
+	}
+    text = {#奉国中尉（无地）
+		trigger = {
+            is_alive = yes
+            is_ruler = no
+            has_trait = SanGong_ZongShi_FengGuoZhongWei
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+		localization_key = SanGong_view_name_ZongShi_FengGuoZhongWei_no
+	}
+    text = {#普通宗室男性
+		trigger = {
+            is_alive = yes
+            is_male = yes
+            has_character_flag = SanGong_ZongShi_lineage_member
+            SanGong_ZongShi_rank_trait_trigger = no
+            NOT = { has_trait = SanGong_Taizi }
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+		localization_key = SanGong_view_name_ZongShi_ordinary
+	}
+
+    text = {#王妃
+		trigger = { 
+            exists = primary_spouse
+            primary_spouse = {
+                is_alive = yes
+                SanGong_QinWang_trigger = yes
+            }
+        }
+		localization_key = SanGong_view_name_wangFei
+	}
+
+    text = {#王谥
+        trigger = {
+            is_alive = no
+            ZongFanShiHao_trigger = yes
+        }
+        localization_key = SanGong_view_name_FanWang_death
+    }
+
+
+    text = {#自定义谥
+		trigger = {
+            is_ruler = yes
+            is_alive = no
+            has_character_flag = SanGong_ZongShi_JueWei_ZDY
+        }
+		localization_key = SanGong_view_name_ZongShi_zdy
+	}
+
+    text = {#自定义谥(无地)
+		trigger = {
+            is_ruler = no
+            is_alive = no
+            has_character_flag = SanGong_ZongShi_JueWei_ZDY
+        }
+		localization_key = SanGong_view_name_ZongShi_zdy_1
+	}
+    text = {
+        trigger = {
+            is_alive = no
+        }
+        localization_key = SanGong_view_name_ZongShi_fallback_1
+    } 
+    text = {
+        fallback = yes
+        localization_key = SanGong_view_name_ZongShi_fallback
+    } 
+}
+SanGong_view_name_HuangziGui = {#角色名称显示规则
+type = character  # 类型：作用于角色  
+text = { #太上皇
+    trigger = { 
+        is_alive = yes 
+        has_trait = SanGong_Taishanghuang
+        this != top_liege
+        top_liege.dynasty = this.dynasty
+    } 
+    localization_key = SanGong_view_name_Taishanghuang
+}
+text = { #太子
+        trigger = { 
+            has_trait = SanGong_Taizi
+            is_alive = yes
+            father = top_liege
+        } 
+    localization_key = SanGong_view_name_Taizi 
+}
+text = { #太孙
+        trigger = { 
+            has_trait = SanGong_TaiSun
+            is_alive = yes
+        } 
+    localization_key = SanGong_view_name_Taisun 
+}
+text = {#自定义(有地)
+    trigger = {
+        is_alive = yes
+        is_ruler = yes
+        has_character_flag = SanGong_ZongShi_JueWei_ZDY
+    }
+    localization_key = SanGong_view_name_ZongShi_zdy_ruler
+}
+text = {#自定义(无地)
+    trigger = {
+        is_alive = yes
+        is_ruler = no
+        has_character_flag = SanGong_ZongShi_JueWei_ZDY
+    }
+    localization_key = SanGong_view_name_ZongShi_zdy_ruler_no
+}
+
+text = {#太子妃
+    trigger = { 
+        exists = primary_spouse
+        primary_spouse = {
+                is_alive = yes
+                this != top_liege
+                father = top_liege
+                has_trait = SanGong_Taizi
+        }
+    }
+    localization_key = SanGong_view_name_TaiziFei
+}
+text = { #太子谥号
+        trigger = { 
+            has_trait = SanGong_Taizi
+            is_alive = no
+        } 
+    localization_key = SanGong_view_name_Taizi_shihao 
+}
+text = {#亲王世子（死亡中间节点）
+    trigger = {
+        is_alive = yes
+        has_trait = SanGong_ZongShi_FanWangShiZi
+        father = {
+            is_alive = no
+            NOT = { has_trait = SanGong_FanWang }
+            father = { has_trait = SanGong_FanWang }
+        }
+    }
+    localization_key = SanGong_view_name_ZongShi_FanWangShiZi_dead_branch
+}
+text = {#郡王世子（死亡中间节点）
+    trigger = {
+        is_alive = yes
+        has_trait = SanGong_ZongShi_JunWangShiZi
+        father = {
+            is_alive = no
+            NOT = { has_trait = SanGong_JunWang }
+            father = { has_trait = SanGong_JunWang }
+        }
+    }
+    localization_key = SanGong_view_name_ZongShi_JunWangShiZi_dead_branch
+}
+text = {#亲王世子（两代死亡中间节点）
+    trigger = {
+        is_alive = yes
+        has_trait = SanGong_ZongShi_FanWangShiZi
+        father = {
+            is_alive = no
+            NOT = { has_trait = SanGong_FanWang }
+            father = {
+                is_alive = no
+                NOT = { has_trait = SanGong_FanWang }
+                father = { has_trait = SanGong_FanWang }
+            }
+        }
+    }
+    localization_key = SanGong_view_name_ZongShi_FanWangShiZi_dead_branch_2
+}
+text = {#郡王世子（两代死亡中间节点）
+    trigger = {
+        is_alive = yes
+        has_trait = SanGong_ZongShi_JunWangShiZi
+        father = {
+            is_alive = no
+            NOT = { has_trait = SanGong_JunWang }
+            father = {
+                is_alive = no
+                NOT = { has_trait = SanGong_JunWang }
+                father = { has_trait = SanGong_JunWang }
+            }
+        }
+    }
+    localization_key = SanGong_view_name_ZongShi_JunWangShiZi_dead_branch_2
+}
+text = {#亲王世子（三代死亡中间节点）
+    trigger = {
+        is_alive = yes
+        has_trait = SanGong_ZongShi_FanWangShiZi
+        father = {
+            is_alive = no
+            NOT = { has_trait = SanGong_FanWang }
+            father = {
+                is_alive = no
+                NOT = { has_trait = SanGong_FanWang }
+                father = {
+                    is_alive = no
+                    NOT = { has_trait = SanGong_FanWang }
+                    father = { has_trait = SanGong_FanWang }
+                }
+            }
+        }
+    }
+    localization_key = SanGong_view_name_ZongShi_FanWangShiZi_dead_branch_3
+}
+text = {#郡王世子（三代死亡中间节点）
+    trigger = {
+        is_alive = yes
+        has_trait = SanGong_ZongShi_JunWangShiZi
+        father = {
+            is_alive = no
+            NOT = { has_trait = SanGong_JunWang }
+            father = {
+                is_alive = no
+                NOT = { has_trait = SanGong_JunWang }
+                father = {
+                    is_alive = no
+                    NOT = { has_trait = SanGong_JunWang }
+                    father = { has_trait = SanGong_JunWang }
+                }
+            }
+        }
+    }
+    localization_key = SanGong_view_name_ZongShi_JunWangShiZi_dead_branch_3
+}
+text = {#亲王世子
+    trigger = { is_alive = yes has_trait = SanGong_ZongShi_FanWangShiZi }
+    localization_key = SanGong_view_name_ZongShi_FanWangShiZi
+}
+text = {#郡王世子
+    trigger = { is_alive = yes has_trait = SanGong_ZongShi_JunWangShiZi }
+    localization_key = SanGong_view_name_ZongShi_JunWangShiZi
+}
+text = {#镇国将军长子
+    trigger = { is_alive = yes has_trait = SanGong_ZongShi_ZhenGuoJiangJunZhangZi }
+    localization_key = SanGong_view_name_ZongShi_ZhenGuoJiangJunZhangZi
+}
+text = {#辅国将军长子
+    trigger = { is_alive = yes has_trait = SanGong_ZongShi_FuGuoJiangJunZhangZi }
+    localization_key = SanGong_view_name_ZongShi_FuGuoJiangJunZhangZi
+}
+text = {#奉国将军长子
+    trigger = { is_alive = yes has_trait = SanGong_ZongShi_FengGuoJiangJunZhangZi }
+    localization_key = SanGong_view_name_ZongShi_FengGuoJiangJunZhangZi
+}
+text = {#镇国中尉长子
+    trigger = { is_alive = yes has_trait = SanGong_ZongShi_ZhenGuoZhongWeiZhangZi }
+    localization_key = SanGong_view_name_ZongShi_ZhenGuoZhongWeiZhangZi
+}
+text = {#辅国中尉长子
+    trigger = { is_alive = yes has_trait = SanGong_ZongShi_FuGuoZhongWeiZhangZi }
+    localization_key = SanGong_view_name_ZongShi_FuGuoZhongWeiZhangZi
+}
+text = {#奉国中尉长子
+    trigger = { is_alive = yes has_trait = SanGong_ZongShi_FengGuoZhongWeiZhangZi }
+    localization_key = SanGong_view_name_ZongShi_FengGuoZhongWeiZhangZi
+}
+text = {#亲王
+    trigger = {
+        is_ruler = yes
+        is_alive = yes
+        SanGong_QinWang_trigger = no
+        SanGong_JunWang_trigger = no
+        has_trait = SanGong_FanWang
+    }
+    localization_key = SanGong_view_name_qinwang_ZongShi
+}
+text = {#郡王
+    trigger = {
+        is_ruler = yes
+        is_alive = yes
+        has_trait = SanGong_JunWang
+        SanGong_QinWang_trigger = no
+        SanGong_JunWang_trigger = no
+    }
+    localization_key = SanGong_view_name_junwang_ZongShi
+}
+text = {#藩王母
+    trigger = { 
+        is_ruler = no
+        is_female = yes
+        NOT = { exists = primary_spouse  }
+        any_child = {
+            is_independent_ruler = no
+            OR = {
+                has_trait = SanGong_JunWang
+                has_trait = SanGong_FanWang
+            }
+        }
+    }
+    localization_key = SanGong_view_name_FanwangFei_1
+}
+text = {#藩王妃
+    trigger = { 
+        exists = primary_spouse
+        is_female = yes
+        primary_spouse = {
+            is_alive = yes
+            has_government = zongfan_government
+            is_ruler = yes
+            OR = {
+                has_trait = SanGong_JunWang
+                has_trait = SanGong_FanWang
+            }
+            
+        }
+    }
+    localization_key = SanGong_view_name_FanwangFei
+}
+text = {#亲王(虚封)_领主
+    trigger = {
+        is_ruler = yes
+        is_alive = yes
+        SanGong_QinWang_trigger = yes
+        OR = {
+            has_trait = SanGong_FanWang
+            has_trait = SanGong_HuangSi
+        }
+    }
+    localization_key = SanGong_view_name_qinwang_ZongShi_1
+}
+text = {#郡王(虚封)_领主
+    trigger = {
+        is_ruler = yes
+        is_alive = yes
+        SanGong_JunWang_trigger = yes
+        
+    }
+    localization_key = SanGong_view_name_junwang_ZongShi_1
+} 
+text = {#亲王(虚封)_无地
+    trigger = {
+        is_ruler = no
+        is_alive = yes
+        OR = {
+            SanGong_QinWang_trigger = yes
+            SanGong_JunWang_trigger = yes
+        }
+        OR = {
+            has_trait = SanGong_FanWang
+            has_trait = SanGong_HuangSi
+        }
+    }
+    localization_key = SanGong_view_name_qinwang_ZongShi_2
+}
+text = {#郡王(虚封)_无地
+    trigger = {
+        is_ruler = no
+        is_alive = yes
+        OR = {
+            SanGong_QinWang_trigger = yes
+            SanGong_JunWang_trigger = yes
+        }
+        OR = {
+            has_trait = SanGong_JunWang
+            has_trait = SanGong_HuangSi
+        }
+    }
+    localization_key = SanGong_view_name_junwang_ZongShi_2
+} 
+
+text = {#镇国将军
+    trigger = {
+        is_alive = yes
+        is_ruler = yes
+        has_trait = SanGong_ZongShi_ZhenGuoJiangJun
+        NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    }
+    localization_key = SanGong_view_name_ZongShi_ZhenGuoJiangJun_ruler
+}
+text = {#辅国将军
+    trigger = {
+        is_alive = yes
+        is_ruler = yes
+        has_trait = SanGong_ZongShi_FuGuoJiangJun
+        NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    }
+    localization_key = SanGong_view_name_ZongShi_FuGuoJiangJun_ruler
+}
+text = {#奉国将军
+    trigger = {
+        is_alive = yes
+        is_ruler = yes
+        has_trait = SanGong_ZongShi_FengGuoJiangJun
+        NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    }
+    localization_key = SanGong_view_name_ZongShi_FengGuoJiangJun_ruler
+}
+text = {#镇国中尉
+    trigger = {
+        is_alive = yes
+        is_ruler = yes
+        has_trait = SanGong_ZongShi_ZhenGuoZhongWei
+        NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    }
+    localization_key = SanGong_view_name_ZongShi_ZhenGuoZhongWei_ruler
+}
+text = {#辅国中尉
+    trigger = {
+        is_alive = yes
+        is_ruler = yes
+        has_trait = SanGong_ZongShi_FuGuoZhongWei
+        NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    }
+    localization_key = SanGong_view_name_ZongShi_FuGuoZhongWei_ruler
+}
+text = {#奉国中尉
+    trigger = {
+        is_alive = yes
+        is_ruler = yes
+        has_trait = SanGong_ZongShi_FengGuoZhongWei
+        NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    }
+    localization_key = SanGong_view_name_ZongShi_FengGuoZhongWei_ruler
+}
+text = {#镇国将军（无地）
+    trigger = {
+        is_alive = yes
+        is_ruler = no
+        has_trait = SanGong_ZongShi_ZhenGuoJiangJun
+        NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    }
+    localization_key = SanGong_view_name_ZongShi_ZhenGuoJiangJun_no
+}
+text = {#辅国将军（无地）
+    trigger = {
+        is_alive = yes
+        is_ruler = no
+        has_trait = SanGong_ZongShi_FuGuoJiangJun
+        NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    }
+    localization_key = SanGong_view_name_ZongShi_FuGuoJiangJun_no
+}
+text = {#奉国将军（无地）
+    trigger = {
+        is_alive = yes
+        is_ruler = no
+        has_trait = SanGong_ZongShi_FengGuoJiangJun
+        NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    }
+    localization_key = SanGong_view_name_ZongShi_FengGuoJiangJun_no
+}
+text = {#镇国中尉（无地）
+    trigger = {
+        is_alive = yes
+        is_ruler = no
+        has_trait = SanGong_ZongShi_ZhenGuoZhongWei
+        NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    }
+    localization_key = SanGong_view_name_ZongShi_ZhenGuoZhongWei_no
+}
+text = {#辅国中尉（无地）
+    trigger = {
+        is_alive = yes
+        is_ruler = no
+        has_trait = SanGong_ZongShi_FuGuoZhongWei
+        NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    }
+    localization_key = SanGong_view_name_ZongShi_FuGuoZhongWei_no
+}
+text = {#奉国中尉（无地）
+    trigger = {
+        is_alive = yes
+        is_ruler = no
+        has_trait = SanGong_ZongShi_FengGuoZhongWei
+        NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    }
+    localization_key = SanGong_view_name_ZongShi_FengGuoZhongWei_no
+}
+text = {#普通宗室男性
+    trigger = {
+        is_alive = yes
+        is_male = yes
+        has_character_flag = SanGong_ZongShi_lineage_member
+        SanGong_ZongShi_rank_trait_trigger = no
+        NOT = { has_trait = SanGong_Taizi }
+        NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+    }
+    localization_key = SanGong_view_name_ZongShi_ordinary
+}
+
+text = {#王妃
+    trigger = { 
+        exists = primary_spouse
+        primary_spouse = {
+            is_alive = yes
+            SanGong_QinWang_trigger = yes
+        }
+    }
+    localization_key = SanGong_view_name_wangFei
+}
+
+text = {#王谥
+    trigger = {
+        is_alive = no
+        ZongFanShiHao_trigger = yes
+    }
+    localization_key = SanGong_view_name_FanWang_death
+}
+
+
+text = {#自定义谥
+    trigger = {
+        is_ruler = yes
+        is_alive = no
+        has_character_flag = SanGong_ZongShi_JueWei_ZDY
+    }
+    localization_key = SanGong_view_name_ZongShi_zdy
+}
+
+text = {#自定义谥(无地)
+    trigger = {
+        is_ruler = no
+        is_alive = no
+        has_character_flag = SanGong_ZongShi_JueWei_ZDY
+    }
+    localization_key = SanGong_view_name_ZongShi_zdy_1
+}
+text = {
+    trigger = {
+        is_alive = no
+    }
+    localization_key = SanGong_view_name_ZongShi_fallback_1
+} 
+text = {
+    fallback = yes
+    localization_key = SanGong_view_name_ZongShi_fallback
+} 
+}

@@ -1,0 +1,108 @@
+﻿
+hg_hx_modifier = {# 后位虚悬
+	icon = cat_negative
+	legitimacy_loss_mult = 0.05
+}
+hg_jl_modifier = {# 久不立后
+	icon = drink_negative
+	legitimacy_loss_mult = 0.05
+}
+hg_gx_modifier = {# 宫闱失序
+	icon = stewardship_negative
+	legitimacy_loss_mult = 0.05
+}
+hg_nt_modifier = {# 内廷无统
+	icon = stewardship_negative
+	legitimacy_loss_mult = 0.05
+}
+hg_zj_modifier = {# 中宫久旷
+	icon = county_modifier_control_negative
+	legitimacy_loss_mult = 0.05
+}
+hg_bl_modifier = {# 决意不立后
+	icon = piety_positive
+}
+hg_sl_modifier = {# 摄理六宫
+	icon = dog_positive
+}
+SanGong_ZhongGongYIDing_modifier = {# 中宫已定
+	icon = cat_positive
+	legitimacy_gain_mult = 0.15
+	monthly_influence = 0.15
+}
+hg_my_modifier = {# 母仪天下
+	icon = love_positive
+	legitimacy_gain_mult = 0.15
+}
+hg_pc_modifier = {# 嫔御充侍
+	icon = stewardship_positive
+}
+hg_la_modifier = {# 六宫安和
+	icon = rock_positive
+}
+hg_by_modifier = {
+    icon = fertility_positive
+    fertility = -100
+}
+
+lifetime_barred_from_appointment_modifier = {
+	icon = merit_positive
+	character_max_merit_level_add = -99
+}
+
+SanGong_manual_wangjue_merit_modifier = {
+	icon = merit_positive
+	character_max_merit_level_add = 0
+}
+
+SanGong_player_taizi_merit_modifier = {
+	icon = merit_positive
+	character_max_merit_level_add = 0
+}
+
+SanGong_scheme_slandered_modifier = {
+	icon = influence_negative
+	monthly_merit_mult = -10
+
+}
+
+SanGong_loyal_to_zaifu_or_huangdi_modifier = {
+	icon = influence_negative
+}
+
+SanGong_enshi_loyal_to_zaifu_modifier = {
+	icon = influence_negative
+}
+
+SanGong_tianjialianyin_modifier = {
+	zealot_opinion = 5
+	same_faith_opinion = 5
+	monthly_piety = 0.5
+}
+
+SanGong_XunZang_modifier = {
+	zealot_opinion = 5
+	same_faith_opinion = 5
+	monthly_piety = 0.5
+}
+
+
+SanGong_Waiqihouse_modifier = {
+	icon = learning_Positive
+	opinion_of_same_culture = 20
+	fertility = 0.2
+	monthly_influence = 10
+	monthly_influence_mult = 0.2
+	monthly_piety = 0.5
+}
+
+SanGong_Waiqihouse_death_modifier = {
+	icon = learning_negative
+	monthly_influence = -10
+	monthly_piety = -0.5
+}
+
+SanGong_Shixi_Zhuanyi_modifier = {
+	icon = learning_Positive
+}
+

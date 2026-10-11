@@ -1,0 +1,131 @@
+﻿l_simp_chinese:
+
+
+
+    SanGong_Char_TITLE: "[Character.GetPrimaryTitle.GetBaseNameNoTierNoTooltip][Character.GetTitleTierName]"
+    SanGong_Char_Name: "[Character.GetFirstNameNoTooltip]"
+    SanGong_view_name_fallback: "#V [Character.GetUINameNotMeNoTooltip]#!"
+
+
+#头衔历史窗口
+    SanGong_title_history_TianZi_ShiHao_history: "#z [Character.GetNicknameNoTooltip]#!"
+    SanGong_title_history_TianZi_ShiHao: "#z [Character.GetNicknameNoTooltip]#! #v [Character.GetDynasty.GetBaseNameNoTooltip][Character.GetOriginalFirstName]"
+    SanGong_title_history_TianZi_hanfan: "#V #bold [Character.GetPrimaryTitle.GetBaseNameNoTierNoTooltip][Character.GetTitleTierName]#! #v $SanGong_Char_Name$#!"
+    SanGong_title_history_WangGuoZhiJun_ShiHao: "#z #bold [Character.GetNicknameNoTooltip]#! #v $SanGong_Char_Name$#!"
+    SanGong_title_history_WangGuoZhiJun: "#z #bold [Character.GetNicknameNoTooltip]#! #p [Character.Custom('FeiDi_FengHao')]#! #v $SanGong_Char_Name$#!"
+    SanGong_title_history_ZongShi_death: "#bold [Character.GetNicknameNoTooltip]#! #v $SanGong_Char_Name$1"
+    SanGong_title_history_fallback_nickname: "#V [Character.Custom('SanGong_view_name')]"[Character.GetNicknameNoTooltip]""
+    SanGong_title_history_fallback: "#V [Character.Custom('SanGong_view_name')]"
+    #汉番兼容
+        SanGong_to_hanfan_history_jiexian: "#V [Character.Custom('hanfan_jiexian_gongchen')][Character.Custom('hanfan_jiexian_shizhi')][Character.Custom('hanfan_jiexian_guanjie')][Character.Custom('hanfan_jiexian_sangongsanshi')][Character.Custom('hanfan_jiexian_shixiang')][Character.Custom('hanfan_jiexian_jiaxian')][Character.Custom('hanfan_jiexian_jianjiao')][Character.Custom('hanfan_jiexian_jianxian')][Character.Custom('hanfan_jiexian_benguanjie')][Character.Custom('hanfan_jiexian_zhiguanchaiqian')][Character.Custom('hanfan_jiexian_xunguan')][Character.Custom('hanfan_jiexian_juewei')][Character.Custom('hanfan_jiexian_zengshi')]"
+        SanGong_title_history_hanfan: "$SanGong_to_hanfan_history_jiexian$ [Character.GetFirstNameNoTooltip]#!"
+    SanGong_title_history_ChaoGuan: "#V [Character.Custom('SanGong_view_name')]"
+
+
+
+#其他显示方式
+    GongWei_view1: "#V #bold [Character.Custom('GongWei_name')] $SanGong_Char_Name$"
+    GongWei_view1_var: "#V [GetPlayer.MakeScope.ScriptValue('PINfei_LIST_var')]"
+   # GongWei_view2: "#V [Character.Custom('GongWei_name')]·[Character.GetDynasty.GetBaseNameNoTooltip]氏"
+    GongWei_view2_var: "#V [GetPlayer.MakeScope.ScriptValue('ZongShi_LIST_var')]"
+    GongWei_view2: "#v #bold $SanGong_Char_Name$#!"
+
+
+
+#男性霸权、帝国
+    SanGong_flavor_hegemon_male: "[Character.Custom('SanGong_hegemony_male')]"
+    hegemony_tianzi_hanfan: "[Character.Custom('hanfan_nianhao')]皇帝"
+    hegemony_tianzi_OE: "[Character.Custom('china_FlavourizationTitleName')]"
+    hegemony_tianzi_fallback: "皇帝"
+#女性霸权、帝国
+    SanGong_flavor_hegemon_female: "[Character.Custom('SanGong_hegemony_female')]"
+    hegemony_female_1: "女帝"
+    hegemony_female_2: "[Character.Custom('GongWei_FengHao')][Character.Custom('GongWei_name')]"
+    hegemony_female_3: "皇妃"
+    hegemony_female_4: "宫婢"
+    hegemony_female_5: "废妃"
+    hegemony_female_6: "宫尼"
+    hegemony_female_7: "$Color_HuangFeng$[Character.Custom('SanGong_ShiHao_HuangHou_name')][Character.Custom('HuangDi_miaohao')]#! "
+    hegemony_female_8: "#R [Character.Custom('SanGong_shihao1_name')]皇贵妃#! "
+    hegemony_female_9: "[Character.Custom('GongWei_FengHao')][Character.Custom('GongWei_name')] 临朝称制"
+    hegemony_female_10: "太上皇后"
+    SanGong_flavor_empire_male: "[Character.Custom('SanGong_empire_male')]"
+    SanGong_flavor_empire_female: "[Character.Custom('SanGong_hegemony_female')]"
+ #霸权儿女风味化
+    SanGong_falvor_hegemon_male_prince: "[Character.Custom('SanGong_hegemony_prince_male_name')]"
+    SanGong_hegemony_prince_male_1: "太子"
+    SanGong_hegemony_prince_male_2: "皇子"
+    SanGong_hegemony_prince_male_3: "亲王"
+    SanGong_hegemony_prince_male_4: "宗室"
+    SanGong_hegemony_prince_male_5: "宗室"
+    SanGong_hegemony_prince_male_6: "[Character.Custom('SanGong_ZongShiWangHao')]王"
+    SanGong_hegemony_prince_male_7: "[Character.Custom('SanGong_ZongShiWangHao')]郡王"
+    SanGong_hegemony_prince_male_8: "[Character.Custom('SanGong_ZongShi_JueWei_ZDY')]"
+    SanGong_hegemony_prince_male_9: "皇太孙"
+    SanGong_falvor_hegemon_female_prince: "[Character.Custom('SanGong_hegemony_prince_female_name')]"
+    SanGong_hegemony_prince_female_1: "#color:{0.90,0.75,0.25};bold 皇太女#!"
+    SanGong_hegemony_prince_female_2: " #color:{0.80,0.50,0.55};bold [Character.Custom('SanGong_Gongzhu_FengHao')]公主#!"
+    SanGong_hegemony_prince_female_3: "#color:{0.80,0.50,0.55};bold [Character.Custom('SanGong_Gongzhu_FengHao')]公主#!"
+    SanGong_hegemony_prince_female_4: "宗女"
+    SanGong_hegemony_prince_female_5: "宗女"
+    SanGong_hegemony_prince_female_6: " #difficulty_easy [Character.Custom('SanGong_Gongzhu_FengHao')]公主#!"
+ #宗藩王国儿女风味化
+    SanGong_falvor_kingdom_male_prince: "[Character.Custom('SanGong_kingdom_prince_male_name')]"
+    SanGong_kingdom_prince_male_1: "国世子"
+    SanGong_kingdom_prince_male_2: "国郡公"
+    SanGong_kingdom_prince_male_3: "国太子"
+    SanGong_kingdom_prince_male_4: "国皇子"
+    SanGong_kingdom_prince_male_5: "国宗室"
+    SanGong_falvor_kingdom_female_prince: "[Character.Custom('SanGong_kingdom_prince_female_name')]"
+    SanGong_kingdom_prince_female_1: "国世女"
+    SanGong_kingdom_prince_female_2: "国郡主"
+    SanGong_kingdom_prince_female_3: "国太子"
+    SanGong_kingdom_prince_female_4: "国公主"
+    SanGong_kingdom_prince_female_5: "国宗室"
+ #宗藩公国儿女风味化
+    SanGong_falvor_duchy_male_prince: "[Character.Custom('SanGong_duchy_prince_male_name')]"
+    SanGong_duchy_prince_male_1: "国世子"
+    SanGong_duchy_prince_male_2: "国县公"
+    SanGong_duchy_prince_male_3: "国王子"
+    SanGong_duchy_prince_male_4: "国王子"
+    SanGong_duchy_prince_male_5: "国宗室"
+    SanGong_falvor_duchy_female_prince: "[Character.Custom('SanGong_duchy_prince_female_name')]"
+    SanGong_duchy_prince_female_1: "国世女"
+    SanGong_duchy_prince_female_2: "国县主"
+    SanGong_duchy_prince_female_3: "国公主"
+    SanGong_duchy_prince_female_4: "国公主"
+    SanGong_duchy_prince_female_5: "国宗室"
+#宗藩
+    SanGong_flavor_zongfan_kingdom_male: "王"
+    SanGong_flavor_zongfan_duchy_male: "郡王"
+    SanGong_flavor_zongfan_kingdom: "国"
+    SanGong_flavor_zongfan_duchy: "国"
+#特殊封号
+    TianCeShangJiang_custom: "#color:{0.90,0.75,0.25};bold 天策上将#! #v $SanGong_Char_Name$#!"
+    ChongTianDaJiangJun_custom: "#color:{0.90,0.75,0.25};bold 冲天太保均平大将军#! #v $SanGong_Char_Name$#!"
+    YuZhouDaJiangJun_custom: "#color:{0.90,0.75,0.25};bold 宇宙大将军#! #v $SanGong_Char_Name$#! #color:{0.90,0.75,0.25};bold 都督六合诸军事#!"
+    DaChengXiang_custom: "#color:{0.90,0.75,0.25};bold 大丞相#! #v $SanGong_Char_Name$#! #color:{0.90,0.75,0.25};bold 总领朝政#!"
+    TianZhuDaJiangJun_custom: "#color:{0.90,0.75,0.25};bold 天柱大将军#! #v $SanGong_Char_Name$#!"
+
+#大冢宰
+#相国
+
+
+
+
+
+
+
+#-------------------------停用-----------------------------------##-------------------------停用-----------------------------------##-------------------------停用-----------------------------------#
+#-------------------------停用-----------------------------------##-------------------------停用-----------------------------------##-------------------------停用-----------------------------------#
+#-------------------------停用-----------------------------------# #-------------------------停用-----------------------------------##-------------------------停用-----------------------------------#
+#-------------------------停用-----------------------------------#
+    #SanGong_view_name_fallback: "#V [Character.GetFullNameNoTooltip]#!"
+    SanGong_GongWei_name_fallback: ""
+    SanGong_view_name_HuangHou_tt: "#v #bold 尊号：[Character.Custom('SanGong_ZunHao1')]\n宫位：[Character.Custom('GongWei_name')] \n居所：[Character.Custom('GongDian_name')]\n姓：[Character.GetDynasty.GetBaseNameNoTooltip]\n名：[Character.GetUIFirstNameOnlyNotMeNoTooltip]#!"
+    SanGong_view_name_FeiPin_tt: "#v #bold 嘉号：[Character.Custom('GongWei_FengHao')]\n宫位：[Character.Custom('GongWei_name')] \n居所：[Character.Custom('GongDian_name')]\n姓：[Character.GetDynasty.GetBaseNameNoTooltip]\n名：[Character.GetUIFirstNameOnlyNotMeNoTooltip]#!"
+    GongWei_view_name_LengGong1_tt: "#v #bold [Character.Custom('GongWei_FengHao')][Character.Custom('GongWei_name')] [Character.GetDynasty.GetBaseNameNoTooltip]氏 获罪圈禁于[Character.Custom('GongDian_name')]宫内，无圣谕不得擅出半步#!"
+    GongWei_view_name_LengGong2_tt: "#v #bold 原[Character.Custom('GongWei_FengHao')][Character.Custom('Chang_Gongwei')]·[Character.GetDynasty.GetBaseNameNoTooltip]氏 今于[Character.Custom('LengGongi_2_name')]带发修行｜俗名：[Character.GetUIFirstNameOnlyNotMeNoTooltip] #!"
+    GongWei_view_name_LengGong3_tt: "#v #bold 原[Character.Custom('GongWei_FengHao')][Character.Custom('Chang_Gongwei')]·[Character.GetDynasty.GetBaseNameNoTooltip]氏 获罪失德，贬为宫婢，发往[Character.Custom('LengGongi_3_name')]劳作#!"
+    GongWei_view_name_LengGong4_tt: "#v #bold 原  [Character.Custom('GongWei_FengHao')][Character.Custom('Chang_Gongwei')] [Character.GetDynasty.GetBaseNameNoTooltip]氏   获罪被废  #G 幽居[Character.Custom('LengGongi_4_name')]#!#!"
+

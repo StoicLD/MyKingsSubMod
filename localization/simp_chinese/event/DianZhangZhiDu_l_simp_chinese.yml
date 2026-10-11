@@ -1,0 +1,236 @@
+﻿l_simp_chinese:
+#MOD杂项
+
+
+
+  SanGong_DianZhang.002_t: "MOD说明"
+  SanGong_DianZhang.002.desc: "六宫尊卑有序、名分有别，方能纲纪不紊、各安其位。\n本MOD内宫位份采用明清内宫制度，废四夫人制\n已完成内容：\n位份制度、位份升降、嘉号册封、褫夺、东西六宫、迁居腾宫、冷宫、选秀、与封臣联姻、册立王妃、选择驸马\n立皇后、太子、公主、宗室女封号\n实或虚封宗室、皇子藩王、藩王就藩、削藩，褫夺王号\n后宫开启条件：中华、大辽皇帝或中华局势处于乱世中，局势参与者头衔大于等于皇帝，朝臣头衔除外\n重做中华王朝继承制度，采用分数制度，根据皇子和其母亲在后宫的位份决定分数，太子拥有绝对领先地位\n实装部分后宫事件\n选秀 宫女爬床 大臣献女 后妃侍寝等\n实装王朝覆灭事件，中华头衔被摧毁时皇帝宗族触发王朝覆灭事件，会被强制无能➕废黜\n实装改朝换代事件，中华头衔被转移到非原宗族人物时触发改朝换代，可以选择夷灭前朝皇族或者二王三恪封爵\n已填充中华、高丽、大理、辽、天皇、日本历史庙谥号\n实装皇帝、太后、皇后、皇子、藩王、皇贵妃谥号系统（皇帝谥号已对东王庙谥系统做兼容，可以选择开启或者关闭哪一种）\n开国皇帝或旁支入继，可追封先父庙谥\n可追封生母为太后，死后追封谥号\n中华皇帝新朝建立可追封前朝亡国之君谥号（恶谥）\n制作2套谥号系统，可以选择使用汉时短谥号，也可使用唐宋长谥号\n兼容方面：已兼容汉番、东王（不影响东王正常游玩）\n谥号：\n皇帝谥号采用特质解锁，采用生前功绩制度，根据生前功绩解锁庙谥大类，除亡国之君外无恶谥\n开国皇帝\n条件：\n拥有开国皇帝特质\n解锁太、高庙号\n中兴之主\n条件：\n1、威望等级>=4\n2、登基时局势不处于政通人和或开疆拓土，去世时处于政通人和或开疆拓土\n或\n家族存在皇帝庙号变量时开国会同时获得开国和中兴特质，可以选择继承宗庙选择世祖、中祖、成组，也可重立宗庙当太祖\n雄君明主\n条件：\n1、威望等级>=4\n2、去世时领土规模是登基时的1.4倍,AI是1.2倍\n昏君庸主\n条件：\n去世时领土规模是登基的70%\n或\n登基时局势处于政通人和或开疆拓土，去世时局势不处于政通人和或开疆拓土\n幼主：\n条件：皇帝去世时不满16岁，无庙号\n亡国之君：\n条件：失去或者销毁中华帝国头衔且继承人不属于本宗族"
+  SanGong_DianZhang.002.d9: ""
+  SanGong_DianZhang.002.d10: ""
+  SanGong_DianZhang.002.a: "我知道了"
+  hanfan_global_variable_tt: "检测到汉番礼制启动，自动开启最大兼容，可在祖训里关闭汉番最大兼容"
+  oe_global_variable_tt: "检测到东方王朝启动，自动覆盖预设中华霸权头衔历史"
+  SanGong_DianZhang.003.event_title: "更定谥法"
+  SanGong_DianZhang.003.desc: "今世谥法繁冗失度，不合时宜。决意更定谥典，或取汉家简约旧制，或循唐宋详备之规，亦参辽金故典，斟酌损益，以定褒贬、垂典范。"
+  SanGong_DianZhang.003.a: "采用汉代谥法 #weak 例(汉世祖 光武皇帝)"
+  SanGong_DianZhang.003.b: "采用唐代谥法 #weak 例(唐太宗 文武大圣大广孝皇帝)"
+  SanGong_DianZhang.003.c: "采用宋代谥法 #weak 例(宋太祖 启运立极英武睿文神德圣功至明大孝皇帝)"
+  SanGong_DianZhang.003.d: "采用辽金谥法 #weak 例(辽圣宗 文武大孝宣皇帝)"
+  SanGong_DianZhang.003.e: "采用高丽谥法 #weak 例(高丽文宗 睿明圣德大王)"
+  SanGong_DianZhang.003.f: "暂不更定，维持旧制"
+  SanGong_DianZhang.004.event_title: "改定爵秩仪制"
+  SanGong_DianZhang.004.desc: "今欲重整勋臣爵级，数种方案呈上御前，静待圣裁。\n#weak 采用简化过的四等爵位制度，没使用原版九等爵\n #bold 默认唐宋爵制，中途修改可能会出现部分封地对不上爵级问题"
+  SanGong_DianZhang.004.a: "承袭汉代爵制#weak （县侯、乡侯、亭侯、关内侯）"
+  SanGong_DianZhang.004.b: "取用唐宋爵制#weak （国公、开国郡公、开国县公、开国县侯）"
+  SanGong_DianZhang.004.c: "遵行明代爵制#weak （国公、侯、伯）"
+
+#获得宗庙
+  SanGong_DianZhang.060.t2: "重光皇祚"
+  SanGong_DianZhang.060.t3: "龙兴定鼎"
+  SanGong_DianZhang.060.t1: "混元一同"
+  SanGong_DianZhang.060.desc.d1: "#bold 先帝\n【[xiandi.GetNickname]】\n乃朕[huangdi.Custom2('RelationToMe', xiandi)]，朕仰承宗庙德泽，承袭先皇基业。\n\n今日扫尽四方割据，混一九州，遂于南郊告天即位，君临天下。上敬奉列祖英灵，续皇家正统；下安抚四海黎庶，安定八方生民。\n\n祖宗庇佑，人心归附，寰宇归一，万国来朝。此番底定山河，既是先祖余庆，亦是天下苍生之福。"
+  SanGong_DianZhang.060.desc.d2: "昔先祖临御寰宇，恩覃四海，德被生民。历岁绵远，国运渐微，陵夷至于今日。\n\n当此四海鼎沸、群雄并起之时，朕奋然举事，纠合忠良，诛剪群凶，廓清宇内。今九州一统，重践宸极，肇修宗庙，复振宗风。\n\n朕当仰承先德，厘正纲纪，绥抚黎元，务使寰宇清宁，再现累朝升平之治。"
+  SanGong_DianZhang.060.desc.d3: "#bold 朕生逢乱世，见黎民流离，社稷倾颓，遂提三尺霜锋，聚四方义士，以一介孤愤，扫平六合烽烟，翦灭群雄，定鼎中原！\n\n自起兵以来，历大小数十战，九死南荒吾不恨，兹登大宝，告祭天地，肇立皇朝，易服色，改正朔，定官制，安黎元。\n\n白手开国之勋，非因天授，实赖民心！足称创业之君，万民拥戴，山河归心，青史之上，当与汤武比肩，史册永书，传之万世！"
+  SanGong_DianZhang.060.a: "「绍正朔，谨守宗祧」 #weak 不可使用先朝庙谥#!"
+  SanGong_DianZhang.060.c: "「绍正朔，谨守宗祧」"
+  SanGong_DianZhang.060.b: "「创新制，肇启盛世」 #weak 立宗庙#!"
+
+#登基
+
+SanGong_DianZhang.010.t: "登极敕"
+
+SanGong_DianZhang.010.desc: "#v #bold 门下：\n王者继统承祧，所以嗣神器；节哀顺变，所以宁万邦。顾历代之通规，谅旧章而可法。\n\n恭惟先皇临御天下，勤政爱民，夙夜匪懈。德被四海，泽润八荒，致治垂统，功迈前古。方期永绥福祚，共享隆平，岂意昊天不吊，龙驭上宾。率土臣民，同深哀慕。\n\n上尊号曰：【[xiandi.GetNicknameNoTooltip]】\n\n予小子缵绍丕基，恭禀遗训，仰承法度，岂敢越违！\n\n更赖中外百执，左右荩臣，各罄乃诚，辅兹不逮。布告遐迩，咸使闻知。"
+
+  SanGong_DianZhang.010.desc1: "#v #bold 门下：\n天命无常，惟德是辅。前朝失德，政刑繁苛。信任奸邪，疏远忠良。赋敛无度，徭役不休。致使海内骚然，生民涂炭，社稷倾危，宗庙几绝。\n\n朕以凉德，讬于兆庶之上。上膺天命，俯顺人心。虽逊避再三，至于四五，终不获已。\n乃命太史卜日，太常具仪。备礼昭告昊天上帝，享献宗庙，祭于社稷。以今月吉日，登皇帝位，肇启新邦。改元肆赦，与民更始。\n\n自今以始，布德施仁，轻徭薄赋。凡前朝弊政，一切蠲除。忠良之士，量才录用。鳏寡孤独，皆加赈恤。庶几上答天心，下慰民望。\n\n咨尔文武官僚、四方百姓，各安其业，共乐升平。"
+
+
+  SanGong_DianZhang.010.a: "#v #bold 布告遐迩，咸使闻知"
+  SanGong_DianZhang.010_tt: "新制平天冠、十二章纹玄衣纁裳、鹿卢玉具剑"
+#册立皇后
+  SanGong_DianZhang.011.title: "中宫虚位"
+  SanGong_DianZhang.011.desc: "#v #bold [target.GetName]拜表上言:\n古之帝王，必先正宫闱、定国母，而后阴阳有序、家国安宁。\n今陛下中宫久虚，朝野流言渐起。臣等恳请陛下俯察舆情，早择贤淑册立皇后，以安六宫、稳固国本。"
+  SanGong_DianZhang.011.a: "册元配[YuanPei.GetFirstName]为皇后，入主坤宁宫"
+  SanGong_DianZhang.011.b: "改立爱妃为皇后，入主坤宁宫"
+  SanGong_DianZhang.011.b_tt: "#v 册 [huanghou.Custom('GongWei_FengHao')][huanghou.Custom('GongWei_name')],[huanghou.GetFirstName]为皇后"
+  SanGong_DianZhang.011.c: "此事暂缓，不必再提"
+  SanGong_DianZhang.011.c_tt: "#v #bold 3年内不会再出现立后事件"
+
+  SanGong_DianZhang.012.t: "册封皇后诏"
+  SanGong_DianZhang.012.desc: "#v #bold 门下：\n\n朕惟天眷邦家，必资内辅；国崇坤极，以相皇纲。历考前代彝章，中宫正位，乃王化之先，人伦之本。朕祗荷鸿基，君临四海，夙夜祗惧，思弘至治。必得贤配，以肃六宫，以承宗庙，以厚人伦。\n\n咨尔[huanghou.GetDynastyHouseNameNoTooltip]氏，世族流芳，名媛挺秀。禀柔明之质，娴礼度之仪。克娴于姆训，聿昭淑慎之姿；静守于闺仪，久著温恭之范。言容有度，四德兼修；进退合仪，六行具备。居椒闱而恪谨，侍宫闱以虔恭。朝野佥言，群心允协，谓宜登尊位，表率后宫。\n\n今遣使持节、奉金册金宝，册[huanghou.GetFirstNameNoTooltip]为皇后。正位长秋，仪刑九御；辅佐朕躬，敦宣孝理。尔其益修妇道，懋扬徽音。端范掖庭，率嫔御以崇俭；敬奉宗祧，绵本支于百世。推仁惠于宫壸，布德化于寰中。永承天休，光辅皇家。\n\n播告遐迩，咸使知悉。\n\n"
+  SanGong_DianZhang.012.a: "主者施行"
+  SanGong_DianZhang.012.b: "臣等顿首奉诏"
+  yiju_kunninggong_tooltip: "#V 皇后[huanghou.GetDynastyHouseNameNoTooltip]氏，懿德昭彰，母仪天下，赞襄内政，统摄六宫。兹昭告天地、宗庙、社稷，以今月吉日，册立为皇后，移居#Y 坤宁宫#!，正位中宫，以崇体统，以肃宫闱，以共承宗祀，奉养慈闱。#!"
+  huanghouqizu_tooltip: "皇后家族全体男性：\n威望等级 +1\n影响力等级 +1"
+#废后
+  SanGong_DianZhang.019.t: "废黜皇后"
+  SanGong_DianZhang.019.desc: "#v 皇后[recipient.GetDynasty.GetBaseNameNoTooltip][recipient.GetUIFirstNameOnlyNotMeNoTooltip]#!德行有亏，夙行多违宫规，全无母仪天下之仪范，难担六宫之主的重任。\n 此番失德之行尚且隐秘未泄，未扰朝野清议，未惊宗室宗亲，\N 然倘若隐忍不发、任其迁延，日久必损皇家颜面，乱后宫纲常，折损皇室天威。"
+  SanGong_DianZhang.019.a: "废黜后位，降为庶妃"
+  SanGong_DianZhang.019.c: "秘赐自绝，不外张扬"
+  SanGong_DianZhang.019.d: "赐死正身，株连亲族，以绝后患"
+
+#册立太孙
+  SanGong_DianZhang.014.t: "册立太孙诏"
+  SanGong_DianZhang.014.desc: "#bold 门下：\n\n朕祗绍祖宗鸿基，君临寰宇，以定国本为先。自古帝王建储立贰，以固宗社、系民心，彝章具在。\n\n曩者皇太子[Taizi.GetName]薨逝，储位久虚。朕嫡孙[taisun.GetName]，天资端敏，仁孝夙成，温恭有度，德业日新。询之廷臣，众议佥同，合于立嫡旧制。\n\n今循祖宗成宪，册[taisun.GetName]为皇太孙，正位东宫。俾朝夕讲习经史，历练庶务，永固邦本。\n\n遣使持节，奉册宝，告于天地、宗庙、社稷。中外臣庶，同心翊赞元良。敢妄议国本、离间宗亲者，国有常宪，必惩无赦。\n\n播告遐迩，咸使知悉。"
+  SanGong_DianZhang.014.a: "主者施行"
+  SanGong_DianZhang.014.b: "臣等顿首奉诏"
+#册立太子
+  SanGong_DianZhang.015.t: "册立太子诏"
+  SanGong_DianZhang.015.desc: "#v #bold 门下：\n自古帝王建储贰、重东宫，所以系四海之心，绵万世之统。稽之彝章，典故昭然。\n\n朕嫡子[taizi.GetName]，资禀岐嶷，性履温恭。仁孝发于自然，器度凝于夙成。亲侍帷幄，恪谨无违；诵习经训，德业日新。询于廷臣，众论佥同，堪膺储副之寄。\n\n今循祖宗成宪，册[taizi.GetName]为皇太子，正位东宫。俾朝夕讲学，历练庶务，敬承宗庙，永固邦基。\n\n遣使持节，奉册宝，告于天地、宗庙、社稷。中外臣庶，当协心翊赞，共扶元良。\n播告遐迩，咸使知悉。"
+  SanGong_DianZhang.015.a: "主者施行"
+  SanGong_DianZhang.015.b: "臣等顿首奉诏"
+  SanGong_DianZhang.016_taizidonggong: "太子东宫头衔不会被继承，登基或者人物死亡后销毁"
+  TaiZiDG: "太子东宫"
+
+#废太子
+  SanGong_DianZhang.018.t: "废太子诏"
+  SanGong_DianZhang.018.desc: "#v 诏曰：\n\n朕承天受命，临御万方，夙兴夜寐，惟念宗社之安，黎元之福。国本之重，系于东宫；储君之贤，关乎万世。昔者册立[taizi.GetName]为皇太子，冀其承宗庙之统，抚四海之民，勤修德业，历练政事。朕倾心力教诲，赐良师辅弼，期其成栋梁之器，固国本之基。\n\n奈何[taizi.GetName]自居储位以来，日渐骄纵，不修德操；亲奸佞，远贤臣，沉迷逸乐，荒废学业。行事乖张，罔顾礼法；仁孝尽失，骨肉疏离。既无经邦济世之才，亦无监国抚军之能，反怀私念，结党营私，紊乱朝纲，动摇国本。朕屡加训诫，冀其悔悟，然其执迷不悟，怙恶不悛，若仍居东宫之位，必贻祸宗社，殃及兆民，负天地之托，违臣民之望。\n\n朕痛心疾首，反复权衡，为宗庙计，为万民计，不得不废其储位，以正纲纪。今诏告天下，废[taizi.GetName]皇太子之位，贬为庶人，闭门思过。\n\n布告天下，咸使闻知。钦此。#!"
+  SanGong_DianZhang.018.a: "钦此！"
+  SanGong_DianZhang.020.t: "废皇太孙诏"
+  SanGong_DianZhang.020.desc: "#v 诏曰：\n\n皇太孙[taisun.GetName]虽承东宫之统，今国本已有变更，储位名分不宜并立。朕为宗庙社稷计，收回其皇太孙之位，仍保宗室身份，以正名分。\n\n布告天下，咸使闻知。钦此。#!"
+  SanGong_DianZhang.020.a: "钦此！"
+#尊封皇太后
+  SanGong_DianZhang.021.t: "尊封皇太后诏"
+  SanGong_DianZhang.021.desc: "奉天承运皇帝诏曰：\n\n朕惟帝王之孝，莫大于尊亲；邦国之礼，莫重于正位。夫太后者，母仪天下，光启后昆，承宗庙之灵，抚四海之民，乃皇家之懿范，社稷之休光也。朕膺昊天之景命，缵列圣之鸿绪，君临万方，抚御寰宇，念及劬劳之恩，追崇圣母之德，敢不恪遵礼制，正名定分，以慰祖宗、以安臣民。\n朕生母[TaiHou.GetName]，淑慎有仪，温恭成性，柔嘉端懿，克娴于礼。昔事先帝，夙夜匪懈，敬事宗庙，勤恤内闱，克尽妇道，辅佐先朝，聿成雍熙之治；朕在襁褓，躬亲抚育，恩勤备至，教诲谆谆，使朕得有今日，以承大宝。今朕缵承帝位，四海归心，而圣母未受尊荣，朕心有愧，谨稽诸古制，询谋卿士，三公九卿、文武百官连章奏请，佥请尊封圣母，上徽号以彰德范。\n是用遣官备礼，昭告天地、宗庙、社稷，尊封[TaiHou.GetName]为皇太后，上徽号曰#Y “[TaiHou.Custom('ZunHao_TaiHou')]皇太后”#!，正位中宫之侧，母仪天下，尊享万国之朝。其受尊之后，冕服仪制，一如旧典；宫闱官属，悉按成规，择贤而任，以辅圣母。\n皇太后当敬天法祖，懋修令德，抚绥宫闱，启迪朕躬，以副天下臣民之望。朕亦当恪尽孝道，朝夕问安，遵奉教诲，励精图治，以报圣母劬劳之恩，以固宗社万年之基。\n布告天下，咸使闻知。所有恩赦事宜，着礼部会同吏部，速议具奏，颁行中外，以昭盛典。"
+  SanGong_DianZhang.021.a: "臣领旨！"
+
+#新皇即位
+  SanGong_DianZhang.031_t: "先妃迁居"
+  SanGong_DianZhang.031_d: "#v #bold 门下：\n先帝晏驾，新君践祚。循祖宗典制，先朝嫔御迁出旧殿，择别宫奉养。依品秩尊封太妃、太嫔，停其原有职衔。今内侍省奏请依规安置，仪制廪禄悉循旧章。所奏允准，内外遵行。主者施行。"
+  SanGong_DianZhang.031.a: "准奏，依礼迁居加封"
+  SanGong_DianZhang.031.b: "太后留居，余者殉葬"
+  SanGong_DianZhang.031.c: "强占先帝妃嫔"
+  SanGong_DianZhang.031_tt2: "下令为先帝殉葬"
+  SanGong_DianZhang.031_tt3: "#v 强纳[pinfei.Custom('GongWei_FengHao')][pinfei.Custom('GongWei_name')][pinfei.GetName]"
+  SanGong_DianZhang.031_tt4: "#R !!!!!!朝局将会极其不利于皇帝"
+  SanGong_DianZhang.031_tt5: "#R !!!!!!朝局将会不利于皇帝"
+  LiangGongtaiHou_tt: "朕承大统，生母非先帝中宫。今颁谕：尊朕生母[shengmutaihou.GetName]为圣母皇太后，尊先帝元后[TaiHou.GetName]为皇太后，两宫并立。"
+#派遣流官
+
+  SanGong_DianZhang.042.t: "遣派流官"
+  SanGong_DianZhang.042.desc: "地方亟需流官赴任，当遣何人前往？"
+  SanGong_DianZhang.042.a: "拔擢后进 #weak (按属性排序)#!"
+  SanGong_DianZhang.042.b: "调平同阶 #weak （按属性排序）#!"
+  SanGong_DianZhang.042.d: "起用耆老 #weak （按年龄贤能排序）#!"
+
+  SanGong_DianZhang.043.t: "遣派流官"
+  SanGong_DianZhang.043.desc: "地方亟需流官赴任，当遣何人前往？"
+  SanGong_DianZhang.043.a: "#V  [LiuGuan1.GetPrimaryTitle.GetBaseNameNoTierNoTooltip][LiuGuan1.GetTitleTierName] [LiuGuan1.GetDynasty.GetBaseNameNoTooltip][LiuGuan1.GetUIFirstNameOnlyNotMeNoTooltip]#!"
+  SanGong_DianZhang.043.b: "#V  [LiuGuan2.GetPrimaryTitle.GetBaseNameNoTierNoTooltip][LiuGuan2.GetTitleTierName] [LiuGuan2.GetDynasty.GetBaseNameNoTooltip][LiuGuan2.GetUIFirstNameOnlyNotMeNoTooltip]#!"
+  SanGong_DianZhang.043.c: "#V  [LiuGuan3.GetPrimaryTitle.GetBaseNameNoTierNoTooltip][LiuGuan3.GetTitleTierName] [LiuGuan3.GetDynasty.GetBaseNameNoTooltip][LiuGuan3.GetUIFirstNameOnlyNotMeNoTooltip]#!"
+  SanGong_DianZhang.043.d: "#V  [LiuGuan4.GetPrimaryTitle.GetBaseNameNoTierNoTooltip][LiuGuan4.GetTitleTierName] [LiuGuan4.GetDynasty.GetBaseNameNoTooltip][LiuGuan4.GetUIFirstNameOnlyNotMeNoTooltip]#!"
+  SanGong_DianZhang.043.e: "#V  [LiuGuan5.GetPrimaryTitle.GetBaseNameNoTierNoTooltip][LiuGuan5.GetTitleTierName] [LiuGuan5.GetDynasty.GetBaseNameNoTooltip][LiuGuan5.GetUIFirstNameOnlyNotMeNoTooltip]#!"
+
+  SanGong_DianZhang.061_t:0 "皇子回京"
+  SanGong_DianZhang.061_d:0 "朕承继大统，登临九五，诸皇子或分封在外，或羁縻他方，散落四方久矣。今四海初定，宗庙为重，宜召诸子还京，以固国本、安人心。"
+  SanGong_DianZhang.061.a:0 "召所有皇子即刻回京"
+  SanGong_DianZhang.061.b:0 "指定皇子回京"
+  SanGong_DianZhang.061.c:0 "尽召诸皇子回京"
+  SanGong_DianZhang.061.d:0 "暂缓其事"
+
+SanGong_DianZhang.062.a: "臣诚惶诚恐，顿首奉诏"
+
+
+#特进殊号
+  SanGong_DianZhang.025_title: "特进殊号"
+  SanGong_DianZhang.025_desc: "今有肱骨之臣[QuanChen.GetName]，功高盖世，威震四方。当择殊号以封之，彰其功勋。"
+  SanGong_DianZhang.025.a: "古官号不足以称，乃加号天策上将#Y 【天策上将】#!"
+  SanGong_DianZhang.025.b: "冲天香阵透长安，满城尽带黄金甲#Y 【冲天太保均平大将军】#!"
+  SanGong_DianZhang.025.c: "将军岂有号宇宙者乎？#Y 【宇宙大将军】#!"
+  SanGong_DianZhang.025.d: "挟天子以令诸侯，总百官以定朝纲#Y 【大丞相】#!"
+  SanGong_DianZhang.025.e: "功高孟德，势倾朝野，加号天柱大将军#Y 【天柱大将军】#!"
+
+  SanGong_ZhongJie.001.t:0 "社稷倾覆"
+  SanGong_ZhongJie.001.desc:0 "是日，贼师入关，禁城不守。朕御丹凤门楼，临轩四望，但见烟焰张天，戈鋋蔽野。\n\n禁军或溃或没，竟无一人至御前。宫人星散，内侍委符而去者十八九。朕解佩剑，置诸案上，徐步出殿。\n\n回望宫阙巍然如故，而山河不复为吾有矣。忽忆先帝不豫之日，执朕手而嘱曰：「社稷付汝，善守之。」言犹在耳，而社稷亡矣。\n\n自笺曰：兴亡有数，非一人可回。"
+  SanGong_ZhongJie.001.a:0 "天命已讫，非战之罪"
+
+  SanGong_ZhongJie.001_tt: "#R 京城大乱，宗室、后宫诸人，或死于乱军，或远走他乡#! #weak 所有在京宗室、后宫嫔妃概率触发王朝覆灭死亡事件#!"
+  SanGong_ZhongJie.002.t: "鼎革易代"
+  SanGong_ZhongJie.002.desc: "天命更迭，国祚移转，神器易主，新朝已立。\n[NewHuangDi.GetName]顺应时势，取而代之，登临大位，执掌天下。\n新朝既立，大局初定，经过连日搜捕与清剿，朝廷已擒获大批潜藏的前朝宗族亲党。\n前朝末帝[MoDaiHuangDi.GetDynasty.GetBaseNameNoTooltip][MoDaiHuangDi.GetUIFirstNameOnlyNotMeNoTooltip]已然失国，却仍是旧族之心所向。\n旧君犹在，宗族就擒，人心未定，此乃新朝立国之初最大隐患。"
+  #SanGong_ZhongJie.002.a: "遵二王三恪，奉其宗庙"
+  SanGong_ZhongJie.002.a: "今天，最高兴了！！！！！！"
+  SanGong_ZhongJie.002.b: "夷其三族！！！！！！"
+  SanGong_ZhongJie.002.c: "夷灭宗族，斩草除根"
+  SanGong_ZhongJie.002.b_t1: "擒获部分前朝宗室"
+  SanGong_ZhongJie.002.b_t2: "前去处理前朝余孽"
+  #SanGong_ZhongJie.002.b_t2: "释放全部前朝宗室"
+  SanGong_ZhongJie.002.b_t3: "旧帝及近亲被处决"
+  SanGong_ZhongJie.002.b_t4: "旧帝及全族宗室被处决"
+  SanGong_ZhongJie.003.t: "神器更易"
+  SanGong_ZhongJie.003.desc: "天命更迭，国祚移转，神器易主，新朝已立。\n[MoDaiHuangDi.GetDynasty.GetBaseNameNoTooltip]氏德衰，天命已去；[NewHuangDi.GetDynasty.GetBaseNameNoTooltip]氏[NewHuangDi.GetLiege.GetPrimaryTitle.GetBaseNameNoTierNoTooltip]朝应运而兴，当承天命、临御天下。"
+  SanGong_ZhongJie.003.a: "怎么皇家的事情总是这么糟糕？"
+  SanGong_ZhongJie.005.t: "擒首定乱"
+  SanGong_ZhongJie.005.desc: "#v #BOLD 朕整肃六军，兴师出征，讨伐伪主[MoDaiHuangDi.GetFirstName]。\n大军所至势如破竹，一举覆其国。\n[MoDaiHuangDi.GetFirstName]连战皆败，穷途末路之下束手被擒。自此连年兵戈、两国对峙的纷乱局面，终告平息。"
+  SanGong_ZhongJie.005.a: "前去处理"
+  SanGong_ZhongJie.005.b: "夷其三族"
+
+#推举
+  SanGong_ZongFaJiCheng.001.t: "朝臣推戴！"
+  SanGong_ZongFaJiCheng.001.d1: "朝会之上\n[target1.GetName]躬身出班，朗声奏道：\n陛下，国本不可不定，储君不可不立。\n臣观皇子[target2.GetName]仁厚端方，德行昭著，待人谦和而有威仪，处事公允而得人心，上可承宗庙之重，下可抚朝野之望，外交于内而安定四方。\n实在是东宫太子的上上之选，臣冒死恳请陛下早定大计，立为储君！"
+  SanGong_ZongFaJiCheng.001.d2: "朝会之上\n[target1.GetName]躬身出班，朗声奏道：\n陛下，江山社稷，系于兵戎，储君之才，必在武略。\n臣观皇子[target2.GetName]勇武刚毅，熟知军旅，练兵有法，治军严明，临事果决而不慌乱，临危镇定而有胆魄，可安边疆、御外侮、镇内乱，延续国祚。\n此等雄才，正合储君之位，臣恳请陛下立为太子！"
+  SanGong_ZongFaJiCheng.001.d3: "朝会之上\n[target1.GetName]躬身出班，朗声奏道：\n陛下，民生为天，财赋为国之根基。\n臣观皇子[target2.GetName]心性务实，体恤百姓，重农桑、劝耕织、理财有道，能使国库充盈，万民安乐，不尚虚华而重实效，心怀天下而体民情。\n将来继位必能养民富国，实为储君之良选，臣恳请陛下立为太子！"
+  SanGong_ZongFaJiCheng.001.d4: "朝会之上\n[target1.GetName]躬身出班，朗声奏道：\n陛下，朝堂之内，暗流隐忧，不可不察。\n臣观皇子[target2.GetName]心思缜密，智虑深远，明是非、辨忠奸、知进退，能察未萌之患，能断隐秘之事，肃清朝纲而安定内外。\n有稳局之才，有护主之能，堪当东宫之位，臣恳请陛下立为太子！"
+  SanGong_ZongFaJiCheng.001.d5: "朝会之上\n[target1.GetName]躬身出班，朗声奏道：\n陛下，教化兴则国运昌，礼义定则天下安。\n臣观皇子[target2.GetName]崇儒重道，好学不倦，通古今之变，明圣贤之义，文足以服士子，德足以化万民，承宗庙而兴文治，秉礼义而治天下。\n德行才学皆合储君之尊，臣恳请陛下立为太子！"
+  SanGong_ZongFaJiCheng.001.a: "知道了"
+  SanGong_ZongFaJiCheng.001.b: "知道了"
+  SanGong_ZongFaJiCheng.001.c: "知道了"
+  SanGong_ZongFaJiCheng.001.d: "知道了"
+  SanGong_ZongFaJiCheng.001.e: "知道了"
+
+  SanGong_ZongFaJiCheng.001_tt1: "[target2.GetName]获得了[target1.GetName]的支持，候选分数上升"
+  SanGong_ZongFaJiCheng.001_tt2: "[target2.GetName]获得了[target1.GetName]的支持，候选分数上升"
+  SanGong_ZongFaJiCheng.001_tt3: "[target2.GetName]获得了[target1.GetName]的支持，候选分数上升"
+  SanGong_ZongFaJiCheng.001_tt4: "[target2.GetName]获得了[target1.GetName]的支持，候选分数上升"
+  SanGong_ZongFaJiCheng.001_tt5: "[target2.GetName]获得了[target1.GetName]的支持，候选分数上升"
+
+
+
+#过继
+  SanGong_Zongzu.001.t: "大宗绝嗣"
+  SanGong_Zongzu.001.d: "#v #BOLD 朕临御寰宇，底定邦家，膝下乏嗣，宗庙无承。国本悬空，宗祧难继，事关社稷兴衰。\N兹择宗室宗枝之中品行端良、才德兼备者入继大宗，立为皇嗣，续祖宗血食，安朝野人心，永固国祚根基。"
+  SanGong_Zongzu.001.a: "择宗入继，立为嗣子"
+  SanGong_Zongzu.002.t: "册立太孙"
+  SanGong_Zongzu.002.d: "#v [Taizi.GetNicknameNoTooltip][Taizi.GetName]#!#V 薨逝，储位虚悬。然太子素有仁德，深孚众望，其嫡嗣亦天资聪颖，颇有乃父之风。"
+  SanGong_Zongzu.002.a: "立为太孙"
+  SanGong_Zongzu.002.b: "不立太孙，另择储君"
+
+
+
+SanGong_Zongzu.004.t: "皇子出继敕"
+SanGong_Zongzu.004.desc: "门下：\n\n宗藩建屏，以固邦基，宗室承祧，以续世祚。\n\n[fanwang.GetName]受封藩维，镇抚一方，恪恭职守，历有年所。\n今年岁既暮，宗祧不继，藩绪将绝。\n若不立嗣接续，恐一脉湮没、封祚无传，愧对祖宗。\n\n朕君临四海，敦睦宗亲，不忍宗支绝祀。\n特命皇子[huangzi.GetName]出继[fanwang.GetName]为嗣，归入藩宗谱系，承其爵祀、继其世业。\n\n庶使藩绪永续、宗祀不绝，以昭朕亲亲笃厚之意。"
+SanGong_Zongzu.004.a: "主者施行"
+
+
+
+
+
+#宗藩继承
+  SanGong_DianZhang.041.t: "袭爵"
+  SanGong_DianZhang.041.desc: "[Dead_FanWang.GetName]薨于封国，讣闻上达，朝野致哀。其爵位承袭之事，宜速定夺。"
+  SanGong_DianZhang.041.a: "准予：世袭罔替"
+  SanGong_DianZhang.041.b: "准予：降等承袭"
+  SanGong_DianZhang.041.c: "不准承爵，撤除藩国，收回爵禄封地，点检交割"
+  SanGong_DianZhang.041.d: "无嗣除国，收回爵禄封地，点检交割"
+
+
+
+
+
+  SanGong_DianZhang.046.t: "遵旨袭爵"
+  SanGong_DianZhang.046.desc: "先王薨逝，天恩垂怜，陛下特下圣旨，命臣承袭王位，以镇藩地、安民心。"
+  SanGong_DianZhang.046.a: "遵旨奏报，静候陛下安谕"
+
+
+
+  SanGong_DianZhang.051_title: "藩国之变"
+  SanGong_DianZhang.051_desc: "如今藩国大权尽在我手，昔日的宗藩体制早已名存实亡，难以维系国本、安抚民心。与其固守旧制，不如顺势而为"
+  SanGong_DianZhang.051.a: "推行天朝制"
+  SanGong_DianZhang.051.b: "推行贤能制"
+
+  SanGong_ZongShi_Rank.400_title: "增补宗室爵位"
+  SanGong_ZongShi_Rank.400_desc: "宗室成员[supplement_rank_target.GetName]尚无爵位，今择一等下级宗室爵位予以增补。"
+  SanGong_ZongShi_Rank.400.a: "授镇国将军"
+  SanGong_ZongShi_Rank.400.b: "授辅国将军"
+  SanGong_ZongShi_Rank.400.c: "授奉国将军"
+  SanGong_ZongShi_Rank.400.d: "授镇国中尉"
+  SanGong_ZongShi_Rank.400.e: "授辅国中尉"
+  SanGong_ZongShi_Rank.400.f: "授奉国中尉"

@@ -1,0 +1,140 @@
+﻿# 新宗室等级体系专用的夺爵按钮。
+# 旧 ChiDuo_ZongWang_interaction 继续负责旧王号、藩国和政府路径，本文件不调用它。
+
+SanGong_ZongShi_strip_self_interaction = {
+    category = interaction_category_diplomacy
+    common_interaction = yes
+    popup_on_receive = no
+    pause_on_receive = no
+    use_diplomatic_range = yes
+    ignores_pending_interaction_block = yes
+    icon = revoke_governorship
+    auto_accept = yes
+    desc = SanGong_ZongShi_strip_self_interaction_desc
+
+    is_shown = {
+        scope:actor = {
+            SanGong_huangdi_trigger = yes
+        }
+        scope:recipient = {
+            is_male = yes
+            top_liege = scope:actor
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+            NOT = {
+                OR = {
+                    has_trait = SanGong_Taizi
+                    has_trait = SanGong_TaiSun
+                }
+            }
+            SanGong_ZongShi_new_system_state_trigger = yes
+            OR = {
+                SanGong_ZongShi_rank_trait_trigger = yes
+                SanGong_ZongShi_heir_trait_trigger = yes
+            }
+        }
+    }
+
+    is_valid_showing_failures_only = {
+        scope:actor = {
+            can_interact_trigger = yes
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            custom_tooltip = SanGong_ZongShi_strip_self_interaction_tt
+            SanGong_ZongShi_strip_self_effect = yes
+        }
+    }
+
+    ai_will_do = { base = 0 }
+}
+
+SanGong_ZongShi_strip_lineage_interaction = {
+    category = interaction_category_diplomacy
+    common_interaction = yes
+    popup_on_receive = no
+    pause_on_receive = no
+    use_diplomatic_range = yes
+    ignores_pending_interaction_block = yes
+    icon = revoke_governorship
+    auto_accept = yes
+    desc = SanGong_ZongShi_strip_lineage_interaction_desc
+
+    is_shown = {
+        scope:actor = {
+            SanGong_huangdi_trigger = yes
+        }
+        scope:recipient = {
+            is_male = yes
+            top_liege = scope:actor
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+            NOT = {
+                OR = {
+                    has_trait = SanGong_Taizi
+                    has_trait = SanGong_TaiSun
+                }
+            }
+            SanGong_ZongShi_new_system_state_trigger = yes
+            OR = {
+                SanGong_ZongShi_rank_trait_trigger = yes
+                SanGong_ZongShi_heir_trait_trigger = yes
+                has_character_flag = SanGong_ZongShi_lineage_member
+                has_character_flag = SanGong_ZongShi_manual_root
+            }
+        }
+    }
+
+    is_valid_showing_failures_only = {
+        scope:actor = {
+            can_interact_trigger = yes
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            custom_tooltip = SanGong_ZongShi_strip_lineage_interaction_tt
+            SanGong_ZongShi_strip_lineage_effect = yes
+        }
+    }
+
+    ai_will_do = { base = 0 }
+}
+
+SanGong_ZongShi_supplement_rank_interaction = {
+    category = interaction_category_diplomacy
+    common_interaction = yes
+    popup_on_receive = no
+    pause_on_receive = no
+    use_diplomatic_range = yes
+    ignores_pending_interaction_block = yes
+    icon = heir
+    auto_accept = yes
+    desc = SanGong_ZongShi_supplement_rank_interaction_desc
+
+    is_shown = {
+        scope:actor = {
+            SanGong_huangdi_trigger = yes
+        }
+        scope:recipient = {
+            SanGong_ZongShi_supplement_rank_candidate_trigger = { EMPEROR = scope:actor }
+        }
+    }
+
+    is_valid_showing_failures_only = {
+        scope:actor = {
+            can_interact_trigger = yes
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            save_scope_as = supplement_rank_target
+        }
+        scope:actor = {
+            trigger_event = SanGong_ZongShi_Rank.400
+        }
+    }
+
+    ai_will_do = { base = 0 }
+}

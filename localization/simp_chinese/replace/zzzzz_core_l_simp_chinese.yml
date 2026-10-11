@@ -1,0 +1,40 @@
+﻿l_simp_chinese:
+    CHARACTER_VIEW_NAME: "[Character.Custom('SanGong_view_name')]"
+    CHARACTER_VIEW_NAME_SHORT: "[Character.Custom('SanGong_view_name')] "
+    CHARACTER_VIEW_NAME_TT: "[Character.Custom('SanGong_view_name_tt')]"
+    CHARACTER_VIEW_NAME_HISTORY: "[Character.Custom('SanGong_title_history')]"
+    CHARACTER_TT_NAME_AGE: "[Character.Custom('SanGong_view_name')]，#V  [Character.GetAge]岁#!"
+     CHARACTER_VIEW_AGE: " [Character.Custom('SanGong_spchar_age')]"
+    CHARACTER_VIEW_AGE_FALLBACK: " [Character.GetAge]"
+    CHARACTER_TT_NAME: "[Character.Custom('SanGong_view_name')]，"
+    # CHARACTER_TT_AGE: "[Character.GetAge]岁"
+    #OUTLINER_PINNED_CHARACTER: "#v [Character.Custom('SanGong_view_name')] |#![Character.GetAge]岁"
+    OUTLINER_PINNED_CHARACTER: "[Character.GetPrimaryTitle.GetBaseNameNoTierNoTooltip][Character.GetShortUINameNotMeNoTooltip]#medium ，[Character.GetAge]岁#!"
+    #text = "[Character.GetUINameNoTooltip|U]"
+    SHOW_JIANGUOTAIZI_TOOLTIP: "#T 太子负责帮你举办会试和乡试\n\n#I 点击选择#!"
+
+
+
+
+
+
+    JUEWEI_SG: " [Character.Custom('SanGong_Juewei_FengHao_death')][Character.Custom('SanGong_Juewei_GuoHao')][Character.Custom('SanGong_Juewei_Junxian')][Character.Custom('SanGong_Juewei_xianbo')][Character.Custom('SanGong_Juewei_bo_tinghou')][Character.Custom('SanGong_Juewei_Gongjue_loc')][Character.Custom('SanGong_Juewei_Houjue_loc')][Character.Custom('SanGong_Juewei_Bojue_loc')][Character.Custom('SanGong_Juewei_ZiJue_loc')]"
+    #人物名
+
+    CHARACTER_FIRST_NAME_DYNASTY_ALWAYS_FIRST: "$DYNASTY$$NAME$"
+    CHARACTER_FULL_NAME_DYNASTY_ALWAYS_FIRST: "$TITLE$$TIER$，$DYNASTY$$NAME$"
+    CHARACTER_TITLED_FIRST_NAME_DYNASTY_ALWAYS_FIRST: "$TIER$，$DYNASTY$$NAME$"
+    CHARACTER_FULL_NAME_UNLANDED_DYNASTY_ALWAYS_FIRST: "$DYNASTY$$NAME$"
+
+
+    CHARACTER_TITLED_FIRST_NAME_NICKNAMED_DYNASTY_ALWAYS_FIRST: "$TITLE$$TIER$，$DYNASTY$$NAME$"
+    CHARACTER_FULL_NAME_NICKNAMED_DYNASTY_ALWAYS_FIRST: "$TITLE$$TIER$，$DYNASTY$$NAME$"
+    #CHARACTER_TITLED_FIRST_NAME_NICKNAMED_DYNASTY_ALWAYS_FIRST: "#V $TITLE$$TIER$，$DYNASTY$$NAME$『$NICK$』 #!"
+    #CHARACTER_FULL_NAME_NICKNAMED_DYNASTY_ALWAYS_FIRST: "$TITLE$$TIER$，$DYNASTY$$NAME$ 『$NICK$』 "
+
+   #CHARACTER_FULL_NAME_DYNASTY_ALWAYS_FIRST: "$TITLE$$TIER$[Character.Custom('SanGong_Juewei_FengHao_death')][Character.Custom('SanGong_Juewei_GuoHao')][Character.Custom#('SanGong_Juewei_Junxian')][Character.Custom('SanGong_Juewei_xianbo')][Character.Custom('SanGong_Juewei_bo_tinghou')][Character.Custom('SanGong_Juewei_Gongjue_loc')]#[Character.Custom('SanGong_Juewei_Houjue_loc')][Character.Custom('SanGong_Juewei_Bojue_loc')][Character.Custom('SanGong_Juewei_ZiJue_loc')]，$DYNASTY$$NAME$"
+
+   #CHARACTER_TITLED_FIRST_NAME_NICKNAMED_DYNASTY_ALWAYS_FIRST: "#V $TITLE$$TIER$[Character.Custom('SanGong_Juewei_FengHao_death')][Character.Custom('SanGong_Juewei_GuoHao')]#[Character.Custom('SanGong_Juewei_Junxian')][Character.Custom('SanGong_Juewei_xianbo')][Character.Custom('SanGong_Juewei_bo_tinghou')][Character.Custom#('SanGong_Juewei_Gongjue_loc')][Character.Custom('SanGong_Juewei_Houjue_loc')][Character.Custom('SanGong_Juewei_Bojue_loc')][Character.Custom#('SanGong_Juewei_ZiJue_loc')]，$DYNASTY$$NAME$『$NICK$』 #!"
+
+
+SG_right_portrait_event: "[Character.Custom('SanGong_view_name')]\n[Character.GetRelationToString( GetPlayer )]"

@@ -1,0 +1,366 @@
+﻿ShiFengFanWang_effect = {
+        scope:secondary_actor = {
+            remove_HuangZi_WangHao_effects = yes
+            force_step_down_landed_titles = yes
+        }
+        scope:recipient = {
+            # 创建头衔/封臣变更记录（类型：任命）
+            create_title_and_vassal_change = {
+                type = appointment
+                save_scope_as = change
+                add_claim_on_loss = yes # 失去头衔时添加宣称
+            }
+            # 3.1 非主头衔相关的头衔：转给宗主
+            every_held_title = {
+                limit = {
+                    is_noble_family_title = no # 非贵族家族头衔
+                    tier >= tier_county        # ≥伯爵级
+                    # 不属于主头衔及其法理上级
+                    NOT = { any_this_title_or_de_jure_above = { this = scope:recipient.primary_title } }
+                }
+                change_title_holder = {
+                    holder = scope:actor    # 新持有者：宗主
+                    change = scope:change   # 关联变更记录
+                    take_baronies = no      # 不夺取男爵领
+                }
+            }
+
+            # 3.2 非主头衔相关的封臣：改宗宗主
+            every_vassal_or_below = {
+                limit = {
+                    highest_held_title_tier >= tier_county
+                    primary_title = {
+                        NOT = { any_this_title_or_de_jure_above = { this = scope:recipient.primary_title } }
+                    }
+                }
+                change_liege = {
+                    liege = scope:actor
+                    change = scope:change
+                }
+            }
+            # 3.3 主头衔相关的头衔：转给新封臣（secondary_actor）
+            every_held_title = {
+                limit = {
+                    is_noble_family_title = no
+                    tier >= tier_county
+                    any_this_title_or_de_jure_above = { this = scope:recipient.primary_title }
+                }
+                change_title_holder = {
+                    holder = scope:secondary_actor
+                    change = scope:change
+                    take_baronies = no
+                }
+            }
+            # 3.4 主头衔相关的封臣：改宗新封臣
+            every_vassal_or_below = {
+                limit = {
+                    highest_held_title_tier >= tier_county
+                    primary_title = { any_this_title_or_de_jure_above = { this = scope:recipient.primary_title } }
+                }
+                change_liege = {
+                    liege = scope:secondary_actor
+                    change = scope:change
+                }
+            }
+        }
+        resolve_title_and_vassal_change = scope:change
+        scope:secondary_actor = {
+            save_scope_as = HuangZi
+            SanGong_ZongShi_mark_feudatory_wang_effect = { WANG = SanGong_FanWang }
+            change_government = zongfan_government
+            add_opinion = {
+                modifier = ShiFengFanWang_opinion
+                target = scope:actor
+            }
+        }
+		create_title_and_vassal_change = {
+			type = conquest
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		scope:secondary_actor = {
+            save_scope_as = FanWang
+			change_liege = {
+				liege = scope:actor
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+        scope:secondary_actor = {
+            add_realm_law_skip_effects = SanGong_zongfan_succession_law
+            #primary_title = { clear_title_laws = yes add_title_law = SanGong_zongfan_succession_law }
+        }
+        scope:actor = {
+            trigger_event = {
+                id = SanGong_CeFeng.100
+                days = 3
+            }
+        }
+}
+
+ShiFengJunWang_effect = {
+        scope:secondary_actor = {
+            remove_HuangZi_WangHao_effects = yes
+            force_step_down_landed_titles = yes
+        }
+        scope:recipient = {
+            # 创建头衔/封臣变更记录（类型：任命）
+            create_title_and_vassal_change = {
+                type = appointment
+                save_scope_as = change
+                add_claim_on_loss = yes # 失去头衔时添加宣称
+            }
+            # 3.1 非主头衔相关的头衔：转给宗主
+            every_held_title = {
+                limit = {
+                    is_noble_family_title = no # 非贵族家族头衔
+                    tier >= tier_county        # ≥伯爵级
+                    # 不属于主头衔及其法理上级
+                    NOT = { any_this_title_or_de_jure_above = { this = scope:recipient.primary_title } }
+                }
+                change_title_holder = {
+                    holder = scope:actor    # 新持有者：宗主
+                    change = scope:change   # 关联变更记录
+                    take_baronies = no      # 不夺取男爵领
+                }
+            }
+
+            # 3.2 非主头衔相关的封臣：改宗宗主
+            every_vassal_or_below = {
+                limit = {
+                    highest_held_title_tier >= tier_county
+                    primary_title = {
+                        NOT = { any_this_title_or_de_jure_above = { this = scope:recipient.primary_title } }
+                    }
+                }
+                change_liege = {
+                    liege = scope:actor
+                    change = scope:change
+                }
+            }
+            # 3.3 主头衔相关的头衔：转给新封臣（secondary_actor）
+            every_held_title = {
+                limit = {
+                    is_noble_family_title = no
+                    tier >= tier_county
+                    any_this_title_or_de_jure_above = { this = scope:recipient.primary_title }
+                }
+                change_title_holder = {
+                    holder = scope:secondary_actor
+                    change = scope:change
+                    take_baronies = no
+                }
+            }
+            # 3.4 主头衔相关的封臣：改宗新封臣
+            every_vassal_or_below = {
+                limit = {
+                    highest_held_title_tier >= tier_county
+                    primary_title = { any_this_title_or_de_jure_above = { this = scope:recipient.primary_title } }
+                }
+                change_liege = {
+                    liege = scope:secondary_actor
+                    change = scope:change
+                }
+            }
+        }
+        resolve_title_and_vassal_change = scope:change
+        scope:secondary_actor = {
+            save_scope_as = HuangZi
+            SanGong_ZongShi_mark_feudatory_wang_effect = { WANG = SanGong_JunWang }
+            change_government = zongfan_government
+            add_opinion = {
+                modifier = ShiFengFanWang_opinion
+                target = scope:actor
+            }
+        }
+		create_title_and_vassal_change = {
+			type = conquest
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		scope:secondary_actor = {
+            save_scope_as = FanWang
+			change_liege = {
+				liege = scope:actor
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+        scope:secondary_actor = {
+            add_realm_law_skip_effects = SanGong_zongfan_succession_law
+            #primary_title = { clear_title_laws = yes add_title_law = SanGong_zongfan_succession_law }
+        }
+        scope:actor = {
+            trigger_event = {
+                id = SanGong_CeFeng.100
+                days = 3
+            }
+        }
+}
+
+
+Cefeng_fanwang_effect = {#创建王国头衔并完成附庸关系配置
+	scope:actor = {
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		$KINGTITLE$ = {
+			change_title_holder = {
+				holder = scope:HuangZi
+				change = scope:change
+			}
+		}
+		scope:HuangZi = {
+			change_liege = {
+				liege = scope:actor
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+	}
+	$KINGTITLE$ = {
+		set_variable = { name = titular_title value = yes }
+        set_variable = { name = SanGong_fanwang_title value = yes }
+
+	}
+	$KINGTITLE$.holder = {
+		change_government = zongfan_government
+        add_realm_law_skip_effects = SanGong_zongfan_succession_law
+       #hidden_effect = {
+       #    primary_title = { clear_title_laws = yes add_title_law = SanGong_zongfan_succession_law }
+       #}
+	}
+}
+
+Cefeng_junwang_effect = {
+	scope:actor = {
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		$DUKETITLE$ = {
+			change_title_holder = {
+				holder = scope:HuangZi
+				change = scope:change
+			}
+		}
+		scope:HuangZi = {
+			change_liege = {
+				liege = scope:actor
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+	}
+	$DUKETITLE$ = {
+		set_variable = { name = titular_title value = yes }
+        set_variable = { name = SanGong_junwang_title value = yes }
+	}
+	$DUKETITLE$.holder = {
+		change_government = zongfan_government
+        add_realm_law_skip_effects = SanGong_zongfan_succession_law
+        #hidden_effect = {
+        #    primary_title = { clear_title_laws = yes add_title_law = SanGong_zongfan_succession_law }
+        #}
+	}
+}
+
+remove_fanwang_effect = { #销毁藩王所有相关
+    remove_character_flag = ShiXiWT_flag
+    remove_character_flag = JiangDengXJ_flag
+    remove_character_flag = ShenSiCG_flag
+    SanGong_remove_cefeng_merit_modifiers_effect = yes
+    remove_trait = SanGong_FanWang
+    remove_trait = SanGong_JunWang
+    create_title_and_vassal_change = {
+        type = lease_revoked
+        save_scope_as = change
+    }
+    every_held_title = {
+        limit = {
+            has_variable = titular_title
+            is_landless_type_title = yes
+        }
+        change_title_holder = {
+            holder = scope:actor
+            change = scope:change
+        }
+    }
+    resolve_title_and_vassal_change = scope:change
+    change_government = celestial_government
+}
+
+
+remove_all_title_effect = {
+    create_title_and_vassal_change = {
+        type = conquest
+        save_scope_as = change
+    }
+    scope:secondary_recipient = {
+        every_held_title = {
+			limit  = {
+				is_noble_family_title = no
+			}
+            change_title_holder_include_vassals = {
+                holder = scope:actor  # 新持有者为“执行者”（actor，通常是发起决议/事件的角色）
+                change = scope:change # 关联之前创建的变更上下文
+            }
+        }
+        every_vassal_or_below = {
+            # 遍历该封臣直接持有的所有头衔
+            every_held_title = {
+				limit  = {
+					is_noble_family_title = no
+				}
+                change_title_holder_include_vassals = {
+                    holder = scope:actor
+                    change = scope:change
+                }
+            }
+            # 遍历该封臣的封臣（第二层封臣）
+            every_vassal_or_below = {
+                every_held_title = {
+					limit  = {
+						is_noble_family_title = no
+					}
+                    change_title_holder_include_vassals = {
+                        holder = scope:actor
+                        change = scope:change
+                    }
+                }
+                # 遍历第二层封臣的封臣（第三层封臣）
+                every_vassal_or_below = {
+                    every_held_title = {
+						limit  = {
+							is_noble_family_title = no
+						}
+                        change_title_holder_include_vassals = {
+                            holder = scope:actor
+                            change = scope:change
+                        }
+                    }
+                    # 遍历第三层封臣的封臣（第四层封臣）
+                    every_vassal_or_below = {
+                        every_held_title = {
+							limit  = {
+							is_noble_family_title = no
+						}
+                            change_title_holder_include_vassals = {
+                                holder = scope:actor
+                                change = scope:change
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    resolve_title_and_vassal_change = scope:change
+}
+
+
+
+

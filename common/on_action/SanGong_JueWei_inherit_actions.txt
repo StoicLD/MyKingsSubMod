@@ -1,0 +1,387 @@
+﻿on_death = {#死亡时触发
+    on_actions = { 
+		SanGong_DaChen_JueWei_inherit_action
+        SanGong_QianChaoHuangShi_JueWei_inherit_action
+        SanGong_WangGuoZhiJun_death_action
+        SanGong_FanGuo_inherit_action
+        SanGong_WangJue_inherit_action
+        SanGong_WangJue_shixi_action
+        SanGong_ZongShi_rank_death_action
+        SanGong_YanShengGong_death_action
+        
+	}
+}
+SanGong_WangGuoZhiJun_death_action = {#亡国之君储存
+    trigger = {
+        has_trait = SanGong_WangGuoJunZhu
+        is_independent_ruler = no
+    }
+    effect = {
+        set_global_variable = {
+            name = MoDaiHuangDi
+            value = root
+        }
+    }
+}
+
+SanGong_DaChen_JueWei_inherit_action = {#大臣爵位继承
+    trigger = { 
+		is_independent_ruler = no
+		top_liege = { SanGong_huangdi_trigger = yes }
+		has_JueWei_trigger = yes
+	}
+    effect = {
+        save_scope_as = Xungui_death
+        top_liege = { save_scope_as = xungui_liege }
+        if = {
+            limit = {
+                has_character_flag = BuYunShiXi_flag
+            }
+            Xungui_death_not_inherit_effect = yes
+        }
+        else_if = {
+            limit = {
+                any_close_family_member = {
+                    dynasty = scope:Xungui_death.dynasty
+                    top_liege = scope:xungui_liege
+                    is_male = yes
+                    is_alive = yes
+                    NOT = { 
+                        has_trait = incapable 
+                        has_trait = SanGong_Juewei_GongJue
+                        has_trait = SanGong_Juewei_HouJue
+                        has_trait = SanGong_Juewei_BoJue
+                        has_trait = SanGong_Juewei_ZiJue
+                    }
+                }
+            }
+            Xungui_death_inherit_effect = yes
+        }
+        else = {
+            Xungui_death_not_inherit_effect = yes
+        }
+    }
+}
+
+SanGong_QianChaoHuangShi_JueWei_inherit_action = {#前朝皇室爵位继承
+	trigger = { 
+		has_trait = SanGong_ErWangSanKe
+        is_independent_ruler = no
+        top_liege = {
+            SanGong_huangdi_trigger = yes
+        }
+	}
+	effect = {
+        top_liege = { save_scope_as = liege }
+        save_scope_as = old_holder
+        if = {
+            limit = {
+                any_close_family_member = {
+                    dynasty = scope:old_holder.dynasty
+                    top_liege = scope:liege
+                    is_male = yes
+                    not_has_JueWei_trigger = yes
+                }
+            }
+            old_holder_inherit_effect = yes
+            top_liege = {
+                trigger_event = { id = SanGong_hidden.011 days = 1 }
+            }
+        }
+        else = {
+            QianChaOHuangShi_JueWei_not_inherit_effect = yes
+        }
+        
+    }
+}
+
+
+SanGong_FanGuo_inherit_action = {#藩国继承
+    trigger = {
+        is_independent_ruler = no
+        has_government = zongfan_government   
+        top_liege = { SanGong_huangdi_trigger = yes } 
+        OR = {
+            has_trait = SanGong_FanWang
+            has_trait = SanGong_JunWang
+        } 
+    }
+    effect = {
+        save_scope_as = Dead_FanWang
+        if = {#正常继承
+            limit = {
+                any_child = {
+                    is_male = yes
+                    top_liege = scope:Dead_FanWang.top_liege
+                    is_imprisoned = no
+                    NOT = {
+                        has_trait = SanGong_FanWang
+                        has_trait = SanGong_JunWang
+                    }
+                }
+            }
+            if = {
+                limit = { is_landed = yes } 
+                every_held_title = {
+                    limit = { is_landless_type_title = no }
+                    add_to_list = titles_to_claim 
+                }
+            }
+            primary_heir = {
+                save_scope_as = New_FanWang
+            }
+            top_liege = {
+                save_scope_as = HuangDi
+                trigger_event = { id = SanGong_Zongzu.011 days = 1 }
+            }
+        }
+        else = {#绝嗣
+            every_held_title = {
+                limit = { 
+                    is_landless_type_title = yes 
+                }
+                add_to_list = titles_to_landless
+            }
+            every_held_title = {
+                limit = { is_landless_type_title = no }
+                add_to_list = titles_to_claim
+            }
+            top_liege = {
+                save_scope_as = HuangDi
+                trigger_event = { id = SanGong_Zongzu.012 days = 1 }
+            }
+        }
+    }
+}
+
+SanGong_WangJue_shixi_action = {#王爵世袭
+    trigger = {
+        is_independent_ruler = no
+        dynasty = top_liege.dynasty
+        OR = {
+            SanGong_QinWang_trigger = yes
+            SanGong_JunWang_trigger = yes
+            has_trait = SanGong_FanWang
+            has_trait = SanGong_JunWang
+        } 
+        has_character_flag = shixiwangti_flag
+        NOT = { has_government = zongfan_government }
+    }
+    effect = {
+        save_scope_as = Dead_FanWang
+        save_scope_as = SanGong_ZongShi_rank_source
+        # 王爵实际承袭也先清理亡者支系中可能已经失效的世子特质；
+        # 不改动原有王号、头衔转移或世袭罔替选择。
+        SanGong_ZongShi_clear_heir_subtree_effect = yes
+        if = {
+            limit = {
+                OR = {
+                    AND = {
+                        has_trait = SanGong_FanWang
+                        any_child = { SanGong_ZongShi_fanwang_heir_branch_candidate_trigger = yes }
+                    }
+                    AND = {
+                        has_trait = SanGong_JunWang
+                        any_child = { SanGong_ZongShi_junwang_heir_branch_candidate_trigger = yes }
+                    }
+                }
+            }
+            if = {
+                limit = { has_trait = SanGong_FanWang }
+                ordered_child = {
+                    limit = { SanGong_ZongShi_fanwang_heir_branch_candidate_trigger = yes }
+                    order_by = {
+                        value = age
+                        if = {
+                            limit = { SanGong_ZongShi_designated_heir_trigger = yes }
+                            add = 1000
+                        }
+                    }
+                    max = 1
+                    SanGong_ZongShi_find_fanwang_long_house_heir_effect = yes
+                }
+            }
+            else = {
+                ordered_child = {
+                    limit = { SanGong_ZongShi_junwang_heir_branch_candidate_trigger = yes }
+                    order_by = {
+                        value = age
+                        if = {
+                            limit = { SanGong_ZongShi_designated_heir_trigger = yes }
+                            add = 1000
+                        }
+                    }
+                    max = 1
+                    SanGong_ZongShi_find_junwang_long_house_heir_effect = yes
+                }
+            }
+            scope:New_FanWang = {
+                create_character_memory = { 
+                    type = mem_zongshijuewei_inherit 
+                    participants = {
+                        dead_char = scope:Dead_FanWang
+                    }
+                }
+                SanGong_WangJue_juehao_inherit_effect = yes
+            }
+            if = {
+                limit = {
+                    scope:Dead_FanWang = {
+                        has_trait = SanGong_FanWang
+                    }
+                    scope:New_FanWang = {
+                        # 世袭罔替没有后续降等选项；亲王应覆盖继承人原有的郡王爵位。
+                        NOT = { has_trait = SanGong_FanWang }
+                    }
+                }
+                scope:New_FanWang = {
+                    SanGong_ZongShi_set_manual_wang_effect = { WANG = SanGong_FanWang }
+                }
+            }
+            if = {
+                limit = {
+                    scope:Dead_FanWang = {
+                        has_trait = SanGong_JunWang
+                    }
+                    scope:New_FanWang = {
+                        NOT = { has_trait = SanGong_FanWang }
+                    }
+                }
+                scope:New_FanWang = {
+                    add_character_flag = shixiwangti_flag
+                    SanGong_ZongShi_set_manual_wang_effect = { WANG = SanGong_JunWang }
+                }
+            }
+            top_liege = {#继承爵位通知
+                trigger_event = { id = SanGong_hidden.014 days = 3 }
+            }
+        }
+        else = {
+            top_liege = {#除爵通知
+                trigger_event = { id = SanGong_hidden.013 days = 3 }
+            }
+        }
+    }
+}
+
+SanGong_WangJue_inherit_action = {#王爵继承(非宗藩藩王)
+    trigger = {
+        is_independent_ruler = no
+        dynasty = top_liege.dynasty
+        OR = {
+            SanGong_QinWang_trigger = yes
+            SanGong_JunWang_trigger = yes
+            has_trait = SanGong_FanWang
+            has_trait = SanGong_JunWang
+        } 
+        NOT = { 
+            has_government = zongfan_government 
+            has_character_flag = shixiwangti_flag
+        }
+    }
+    effect = {
+        save_scope_as = Dead_FanWang
+        save_scope_as = SanGong_ZongShi_rank_source
+        # 普通王爵继承也必须先清理亡者支系中已经失效的世子/长子特质。
+        # 原有的降等、特恩和不允继承选项仍由后续事件决定；这里只维护
+        # 新宗室体系的继承人状态，避免选项结束后留下错误的继承人称谓。
+        SanGong_ZongShi_clear_heir_subtree_effect = yes
+        if = {
+            limit = {
+                OR = {
+                    AND = {
+                        has_trait = SanGong_FanWang
+                        any_child = { SanGong_ZongShi_fanwang_heir_branch_candidate_trigger = yes }
+                    }
+                    AND = {
+                        has_trait = SanGong_JunWang
+                        any_child = { SanGong_ZongShi_junwang_heir_branch_candidate_trigger = yes }
+                    }
+                }
+            }
+            if = {
+                limit = { has_trait = SanGong_FanWang }
+                ordered_child = {
+                    limit = { SanGong_ZongShi_fanwang_heir_branch_candidate_trigger = yes }
+                    order_by = {
+                        value = age
+                        if = {
+                            limit = { SanGong_ZongShi_designated_heir_trigger = yes }
+                            add = 1000
+                        }
+                    }
+                    max = 1
+                    SanGong_ZongShi_find_fanwang_long_house_heir_effect = yes
+                }
+            }
+            else = {
+                ordered_child = {
+                    limit = { SanGong_ZongShi_junwang_heir_branch_candidate_trigger = yes }
+                    order_by = {
+                        value = age
+                        if = {
+                            limit = { SanGong_ZongShi_designated_heir_trigger = yes }
+                            add = 1000
+                        }
+                    }
+                    max = 1
+                    SanGong_ZongShi_find_junwang_long_house_heir_effect = yes
+                }
+            }
+            scope:New_FanWang = {
+                SanGong_WangJue_juehao_inherit_effect = yes
+            }
+            top_liege = {
+                save_scope_as = HuangDi
+                trigger_event = { id = SanGong_Zongzu.013 days = 3 }
+            }
+        }
+        else = {
+            top_liege = {#除爵通知
+                trigger_event = { id = SanGong_hidden.013 days = 3 }
+            }            
+        }
+    }
+}
+
+SanGong_YanShengGong_death_action = {#衍圣公继承
+    trigger = {
+        has_trait = SanGong_YanShengGong
+        has_court_position = YanShengGong_court_position
+    }
+    effect = {
+        save_scope_as = old_yanshenggong
+        # 上报皇帝
+        title:h_china.holder ?= {
+            trigger_event = { id = SanGong_JueWei_event.082 days = 1 }
+        }
+    }
+}
+
+
+
+#SanGong_FanGuo_inherit_action = {#藩国继承
+#    trigger = {
+#        ZongFan_trigger = yes
+#    }
+#    effect = {
+#        save_scope_as = Dead_FanWang
+#        if = {
+#            limit = { is_landed = yes } 
+#            every_held_title = {
+#                limit = { is_landless_type_title = no }
+#                add_to_list = titles_to_claim 
+#            }
+#        }
+#        primary_heir = {
+#            save_scope_as = New_FanWang
+#        }
+#        top_liege = {
+#           save_scope_as = HuangDi
+#            trigger_event = {
+#                id = SanGong_DianZhang.041
+#                days = 3
+#            }
+#        }
+#    }
+#}

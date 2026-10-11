@@ -1,0 +1,1590 @@
+﻿
+
+window = {#后宫
+    name = "SanGong_HouGong_Main"
+    datacontext = "[GetPlayer.GetPrimaryTitle]"
+    datacontext = "[GetVariableSystem]"
+	datacontext = "[GetPlayer]"
+    #visible = "[GetVariableSystem.HasValue( 'SanGong_HouGong_open', 'true' )]"
+    visible = "[GetVariableSystem.Exists( 'SanGong_HouGong_open' )]"
+    parentanchor = top|center
+    position = { 0 5% } 
+    size = { 1500 1100 }
+    minimumsize = { 600 100 }
+    layer = windows_layer 
+    movable = yes
+    using = Window_Background
+    using = Window_Decoration
+    state = {
+        name = _show
+        using = Animation_FadeIn_Standard
+        on_start = "[GetVariableSystem.Set( 'SanGong_HouGong_Main', 'Page_1' )]"
+    }
+    state = {
+        name = _hide
+        using = Animation_FadeOut_Standard
+    }
+
+    vbox = {
+        using = Window_Margins
+        header_pattern = {
+            layoutpolicy_horizontal = expanding
+
+            blockoverride "header_text"
+            {
+                text = "SanGong_HouGong_Main_name" 
+            }
+            blockoverride "button_me" {
+                tooltip = "ShuaXin_list" 
+                onclick = "[GetScriptedGui('SanGong_HouGong_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"	
+            }
+            blockoverride "button_close"
+            {
+                onclick = "[GetVariableSystem.Toggle( 'SanGong_HouGong_open' )]"
+                onclick = "[GetScriptedGui('HouGong_close_guis').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+                
+            }
+        }
+        SanGong_view = {}
+
+        scrollarea = {
+            layoutpolicy_horizontal = expanding
+            size = { 0 60 } 
+            scrollbarpolicy_horizontal = always_off 
+            scrollbarpolicy_vertical = always_off
+            scrollbar_horizontal = { using = Scrollbar_Horizontal }
+            scrollwidget = {
+                flowcontainer = {
+                    direction = horizontal
+                    spacing = 2
+                    margin = { 40 0 }
+                    button_tab = {
+                        size = { 180 55 } 
+                        down = "[GetVariableSystem.HasValue( 'SanGong_HouGong_Main', 'Page_1' )]"
+                        onclick = "[GetVariableSystem.Set( 'SanGong_HouGong_Main', 'Page_1' )]"                                              
+                        text_single = { 
+                            parentanchor = center 
+                            text = "SanGong_page_1"	        				
+                            fontsize = 18
+                        }
+                    }
+                    button_tab = {# 内功百官
+                        size = { 180 55 }
+                        down = "[GetVariableSystem.HasValue( 'SanGong_HouGong_Main', 'Page_2' )]"
+                        onclick = "[GetVariableSystem.Set( 'SanGong_HouGong_Main', 'Page_2' )]"
+                        background = {
+                            name = "ministry_top_header"
+                            texture = "gfx/interface/icons/banners/banner_red_background_tgp.dds"
+                            alpha = 1.8
+							color = { 1.0 0.85 0.1 0.6 }    
+
+                        }                                                
+                        text_single = { 
+                            parentanchor = center 
+                            text = "SanGong_page_2"			
+                            fontsize = 18
+                        }
+                    }
+                    button_tab = {# 皇子
+                        size = { 180 55 }
+                        down = "[GetVariableSystem.HasValue( 'SanGong_HouGong_Main', 'Page_5' )]"
+                        onclick = "[GetVariableSystem.Set( 'SanGong_HouGong_Main', 'Page_5' )]"
+                        background = {
+                            name = "ministry_top_header"
+                            texture = "gfx/interface/icons/banners/banner_red_background_tgp.dds"
+                            alpha = 1.8
+							color = { 1.0 0.85 0.1 0.6 }    
+
+                        }                                                
+                        text_single = { 
+                            parentanchor = center 
+                            text = "SanGong_page_5"			
+                            fontsize = 18
+                        }
+                    }
+                    button_tab = {# 宗室
+                        size = { 180 55 }
+                        down = "[GetVariableSystem.HasValue( 'SanGong_HouGong_Main', 'Page_7' )]"
+                        onclick = "[GetVariableSystem.Set( 'SanGong_HouGong_Main', 'Page_7' )]"
+                        background = {
+                            name = "ministry_top_header"
+                            texture = "gfx/interface/icons/banners/banner_red_background_tgp.dds"
+                            alpha = 1.8
+							color = { 1.0 0.85 0.1 0.6 }    
+                        }                                                
+                        text_single = { 
+                            parentanchor = center 
+                            text = "SanGong_page_6"		
+                            fontsize = 18
+                        }
+                    }
+                    button_tab = {
+                        size = { 180 55 } 
+                        down = "[GetVariableSystem.HasValue( 'SanGong_HouGong_Main', 'Page_9' )]"
+                        onclick = "[GetVariableSystem.Set( 'SanGong_HouGong_Main', 'Page_9' )]"                                         
+                        text_single = { 
+                            parentanchor = center 
+                            text = "Chaotang_page_3"					
+                            fontsize = 18
+                        }
+                    }
+                    button_tab = {
+                        size = { 180 55 } 
+                        visible = "[Not(GetGlobalVariable( 'hanfan_global_variable' ).IsSet)]"
+                        down = "[GetVariableSystem.HasValue( 'SanGong_HouGong_Main', 'Page_8' )]"
+                        onclick = "[GetVariableSystem.Set( 'SanGong_HouGong_Main', 'Page_8' )]"                                          
+                        text_single = { 
+                            parentanchor = center 
+                            text = "Chaotang_page_4"					
+                            fontsize = 18
+                        }
+                    }
+                    
+                }
+            }
+        }
+
+        vbox = {
+            layoutpolicy_horizontal = expanding
+            layoutpolicy_vertical = expanding  
+            widget = {  #位份
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                visible = "[GetVariableSystem.HasValue( 'SanGong_HouGong_Main', 'Page_1' )]"
+                scrollbox = {
+                    size = { 100% 100% }
+                    blockoverride "scrollbox_content"
+                    {
+                    flowcontainer = {
+                        spacing = 100
+                        button = {
+                            size = { 300 55 }
+                            texture = "gfx/interface/window_domiciles/domicile_window_control_background.dds"
+                            visible = "[Character.IsPlayerInteractionShown('CeLi_taizi_interaction')]"
+                            enabled = "[Character.IsPlayerInteractionValid('CeLi_taizi_interaction')]"
+                            tooltip = "[Character.GetPlayerInteractionTooltip('CeLi_taizi_interaction')]"
+                            onclick = "[Character.OpenPlayerInteraction('CeLi_taizi_interaction')]"
+                            vbox = {
+                                text_single = {
+                                    text = "CeLi_ChuJun_gui"
+                                    margin_top = 0
+                                    margin_left = 0
+                                    fontsize_min = 12
+                                    fontsize = 25
+                                    default_format = "#light_background"
+                                    align = center|nobaseline
+                                }
+                            }
+                        }
+                        button = {
+                            size = { 300 55 }
+                            texture = "gfx/interface/window_domiciles/domicile_window_control_background.dds"
+                            visible = "[Character.IsPlayerInteractionShown('CeLi_taisun_interaction')]"
+                            enabled = "[Character.IsPlayerInteractionValid('CeLi_taisun_interaction')]"
+                            tooltip = "[Character.GetPlayerInteractionTooltip('CeLi_taisun_interaction')]"
+                            onclick = "[Character.OpenPlayerInteraction('CeLi_taisun_interaction')]"
+                            vbox = {
+                                text_single = {
+                                    text = "CeLi_TaiSun_gui"
+                                    margin_top = 0
+                                    margin_left = 0
+                                    fontsize_min = 12
+                                    fontsize = 25
+                                    default_format = "#light_background"
+                                    align = center|nobaseline
+                                }
+                            }
+                        }
+                        button = {
+                            size = { 300 55 }
+                            texture = "gfx/interface/window_domiciles/domicile_window_control_background.dds"
+                            visible = "[Character.IsPlayerInteractionShown('ZunFeng_taihou')]"
+                            enabled = "[Character.IsPlayerInteractionValid('ZunFeng_taihou')]"
+                            tooltip = "[Character.GetPlayerInteractionTooltip('ZunFeng_taihou')]"
+                            onclick = "[Character.OpenPlayerInteraction('ZunFeng_taihou')]"
+                            vbox = {
+                                text_single = {
+                                    text = "ZunFeng_taihou_gui"
+                                    margin_top = 0
+                                    margin_left = 0
+                                    fontsize_min = 12
+                                    fontsize = 25
+                                    default_format = "#light_background"
+                                    align = center|nobaseline
+                                }
+                            }
+                        }
+                        
+                    }
+                    hbox = {
+                        #layoutpolicy_horizontal = expanding
+                        spacing = 150
+                        margin = { 2 5 }
+                    
+                        hbox = {
+                            button = {
+                                name = "QianSan_chuGong_interaction"
+                                size = { 55 55 }
+                                parentanchor = bottom|right
+                                datacontext = "[GetPlayer]"
+                                texture = "gfx/interface/icons/court_position_types/court_gardener_court_position.dds"
+                                using = Mask_Rough_Edges 
+                                visible = "[Character.IsPlayerInteractionShown('QianSan_chuGong_interaction')]"
+                                enabled = "[Character.IsPlayerInteractionValid('QianSan_chuGong_interaction')]"
+                                tooltip = "[Character.GetPlayerInteractionTooltip('QianSan_chuGong_interaction')]"
+                                onclick = "[Character.OpenPlayerInteraction('QianSan_chuGong_interaction')]"
+                                text_single = {
+                                    text = "QianSan_chuGong_interaction"
+                                    margin_top = 20
+                                    margin_left = 60
+                                    using = Font_Size_Medium
+                                    default_format = "#difficulty_medium"
+                                    align = nobaseline
+                                }
+                            } 
+                        }
+                                                                             
+                    }
+                    hbox = {
+                        layoutpolicy_horizontal = expanding
+                        margin = { 20 5 }
+                        spacing = 10
+                        
+                        divider_light = {
+                        size = { 0 5 }     
+                            layoutpolicy_horizontal = expanding
+                            color = { 1.0 0.0 0.0 0.6 }
+                        }
+                        text_single = {
+                            text = "HouGong_PInfEI_text"
+                            using = Font_Size_Medium
+                            default_format = "#high"
+                            align = nobaseline
+                        }
+                        divider_light = {
+                            layoutpolicy_horizontal = expanding  
+                            color = { 1.0 0.0 0.0 0.6 }
+                        }
+                    }
+                    hbox = {
+                        layoutpolicy_vertical = expanding
+                        dynamicgridbox = {
+                            datamodel = "[GetPlayer.MakeScope.GetList('SanGong_PinFei_list')]"
+                            layoutpolicy_horizontal = expanding
+                            layoutpolicy_vertical = expanding
+                            datamodel_wrap = 5
+                            flipdirection = yes
+                            item = {
+                                portrait_shoulders = {
+                                    datacontext = "[Scope.GetCharacter]"
+                                    size = { 220 180 }
+                                    blockoverride "highlight_icon" {}
+                                    blockoverride "opinion_box" {}
+                                    blockoverride "status_icons" {}
+                                    button = {
+                                        name = "SanGong_divorce_character_interaction"
+                                        parentanchor = top|left
+                                        size = { 35 35 }
+                                        position = { 0 20 }
+                                        texture = "gfx/interface/icons/traits/adulterer.dds"
+                                        visible = "[Character.IsPlayerInteractionValid('SanGong_divorce_character_interaction')]"
+                                        tooltip = "[Character.GetPlayerInteractionTooltip('SanGong_divorce_character_interaction')]"
+                                        onclick = "[Character.OpenPlayerInteraction('SanGong_divorce_character_interaction')]"
+                                        enabled = "[Character.OpenPlayerInteraction('SanGong_divorce_character_interaction')]"
+                                        using = tooltip_se
+                                    }
+                                    button = {
+                                        name = "SanGong_CeliHuanghou_interaction"
+                                        parentanchor = top|left
+                                        size = { 35 35 }
+                                        position = { 0 20 }
+                                        texture = "gfx/interface/icons/scheme_types/mentor.dds"
+                                        #visible = "[Character.IsPlayerInteractionShown('SanGong_CeliHuanghou_interaction')]"
+                                        visible = "[Character.IsPlayerInteractionValid('SanGong_CeliHuanghou_interaction')]"
+                                        tooltip = "[Character.GetPlayerInteractionTooltip('SanGong_CeliHuanghou_interaction')]"
+                                        onclick = "[Character.OpenPlayerInteraction('SanGong_CeliHuanghou_interaction')]"
+                                        enabled = "[Character.OpenPlayerInteraction('SanGong_CeliHuanghou_interaction')]"
+                                        using = tooltip_se
+                                    }    
+                                    flowcontainer = {
+                                        parentanchor = bottom|left
+                                        direction = vertical #  horizontal 
+                                        spacing = -2
+                                        flowcontainer = {
+                                            button = {
+                                                name = "SanGong_ShiQin"
+                                                size = { 35 35 }
+                                                texture = "gfx/interface/icons/scheme_types/icon_scheme_seduce.dds"
+                                                visible = "[Character.IsPlayerInteractionValid('SanGong_ShiQin')]"
+                                                visible = "[Not(GetVariableSystem.Exists( 'HouGong_interaction_down'))]"
+                                                datacontext = "[GetScriptedGui( 'character_Shiqin' )]"
+                                                onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'recipient', Character.MakeScope ).End  )]"
+                                                tooltip = "HuangDideShen_var"
+                                                using = tooltip_se
+                                            }
+                                        }
+                                        flowcontainer = {
+                                            button = {
+                                                name = "SanGongLiuYuan"
+                                                parentanchor = bottom|left
+                                                size = { 35 35 }
+                                                texture = "gfx/interface/icons/scheme_types/icon_scheme_romance.dds"
+                                                visible = "[Character.IsPlayerInteractionShown('SanGongLiuYuan')]"
+                                                tooltip = "[Character.GetPlayerInteractionTooltip('SanGongLiuYuan')]"
+                                                onclick = "[Character.OpenPlayerInteraction('SanGongLiuYuan')]"
+                                                enabled = "[Character.OpenPlayerInteraction('SanGongLiuYuan')]"
+                                                using = tooltip_se
+                                            }
+                                        }
+                                    }
+                                    
+                                    
+                                    
+                                    flowcontainer = {#信息概览
+                                        parentanchor = top|right
+                                        position = { -30 30 }
+                                        direction = vertical
+                                        spacing = -2
+                                        flowcontainer = {
+                                            text_single = {
+                                                text = "SanGong_view_age"
+                                                fontsize = 14
+                                                alpha = 0.5
+                                                align = nobaseline
+                                            }
+                                            tooltip = "SanGong_CHARACTER_VIEW_AGE_TT"
+                                        }
+                                        flowcontainer = {
+                                            text_single = {
+                                                visible = "[And( Not( Character.IsPlayer ), Character.HasTrait( GetTrait( 'pregnant' ) ) )]"
+                                                text = "Huaiyun_text"
+                                                align = nobaseline
+                                                tooltip = "Huaiyun_text_tt"
+                                            }                                         
+                                        }
+                                    } 
+                                    flowcontainer = {
+                                        parentanchor = bottom|hcenter
+                                        position = { 10 20 }
+                                        spacing = 2
+                                            flowcontainer = {
+                                                text_single = {
+                                                text = "#BOLD [Character.Custom('SanGong_view_name_GongTing')]"
+                                                fontsize = 20
+                                                max_width = 200
+                                                align = nobaseline
+                                               tooltip = "SanGong_view_name_GongTing_TT"
+
+                                            }
+                                        }
+                                        flowcontainer = {
+                                            icon = {
+                                                size = { 33 33 }
+                                                framesize = { 60 60 }
+                                                frame = "[Character.GetHealthIconFrame]"
+                                                texture = "gfx/interface/icons/character_status/icon_health.dds"
+                                                tooltip = "SanGong_CHARACTER_VIEW_AGE_TT"
+                                            }                                            
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                    
+                    }
+                }
+            }
+            widget = {#内廷
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                visible = "[GetVariableSystem.HasValue( 'SanGong_HouGong_Main', 'Page_2' )]"
+                scrollbox = {   
+                    size = { 100% 100% }
+                    blockoverride "scrollbox_content" {
+                        hbox = {
+                            visible = "[GetScriptedGui('EXTIS_liangGongTaiHou_GUIS').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                            layoutpolicy_horizontal = expanding
+                            margin = { 20 5 }
+                            spacing = 10
+                            divider_light = {
+                                    size = { 0 5 }     
+                                layoutpolicy_horizontal = expanding
+                                color = { 1.0 0.0 0.0 0.6 }
+                            }
+                            text_single = {
+                                text = "LiangGongTaiHou_text"
+                                using = Font_Size_Medium
+                                default_format = "#high"
+                                align = nobaseline
+                            }
+                            divider_light = {
+                                layoutpolicy_horizontal = expanding  
+                                color = { 1.0 0.0 0.0 0.6 }
+                            }
+                        }
+                        hbox = {
+                            visible = "[GetScriptedGui('EXTIS_liangGongTaiHou_GUIS').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                            parentanchor = top|left
+			                spacing = 200
+                            widget_SanGong_court_position_item = {
+                                visible = "[Character.IsValid]"
+                                layoutpolicy_horizontal = expanding
+                                layoutpolicy_vertical = expanding
+                                datacontext = "[GetCourtPositionType('DongGongTaiHou_court_position')]"
+                                datacontext = "[GetPlayer.GetTopLiege.GetFirstEmployedOfType( GetCourtPositionType('DongGongTaiHou_court_position') )]"
+                            }
+                            widget_SanGong_court_position_item = {
+                                visible = "[Character.IsValid]"
+                                layoutpolicy_horizontal = expanding
+                                layoutpolicy_vertical = expanding
+                                datacontext = "[GetCourtPositionType('TaiHuangTaiHou_court_position')]"
+                                datacontext = "[GetPlayer.GetTopLiege.GetFirstEmployedOfType( GetCourtPositionType('TaiHuangTaiHou_court_position') )]"
+                            }
+                            widget_SanGong_court_position_item = {
+                                layoutpolicy_horizontal = expanding
+                                layoutpolicy_vertical = expanding
+                                datacontext = "[GetCourtPositionType('XiGongTaiHou_court_position')]"
+                                datacontext = "[GetPlayer.GetTopLiege.GetFirstEmployedOfType( GetCourtPositionType('XiGongTaiHou_court_position') )]"
+                            }
+                        }
+                        hbox = {
+                            layoutpolicy_horizontal = expanding
+                            margin = { 20 5 }
+                            spacing = 10
+                            divider_light = {
+                                    size = { 0 5 }     
+                                layoutpolicy_horizontal = expanding
+                                color = { 1.0 0.0 0.0 0.6 }
+                            }
+                            text_single = {
+                                text = "TaiFei_text"
+                                using = Font_Size_Medium
+                                default_format = "#high"
+                                align = nobaseline
+                            }
+                            divider_light = {
+                                layoutpolicy_horizontal = expanding  
+                                color = { 1.0 0.0 0.0 0.6 }
+                            }
+                        }
+                        hbox = {
+                            layoutpolicy_vertical = expanding
+                            dynamicgridbox = {
+                                datamodel = "[GetPlayer.MakeScope.GetList('SanGong_TaiFei_list')]"
+                                layoutpolicy_horizontal = expanding
+                                layoutpolicy_vertical = expanding
+                                datamodel_wrap = 5
+                                flipdirection = yes
+                                item = {
+                                    portrait_shoulders = {
+                                        datacontext = "[Scope.GetCharacter]"
+                                        size = { 200 180 }
+                                        blockoverride "highlight_icon" {}
+                                        blockoverride "opinion_box" {}
+                                        blockoverride "status_icons" {}
+                                        flowcontainer = {
+                                            parentanchor = bottom|left
+                                            direction = vertical #  horizontal 
+                                            spacing = -2
+                                        
+                                        }
+                                        flowcontainer = {#信息概览
+                                            parentanchor = top|right
+                                            position = { -30 30 }
+                                            direction = vertical
+                                            spacing = -2
+                                            flowcontainer = {
+                                                text_single = {
+                                                    text = "SanGong_view_age"
+                                                    fontsize = 14
+                                                    alpha = 0.5
+                                                    align = nobaseline
+                                                }
+                                                tooltip = "SanGong_CHARACTER_VIEW_AGE_TT"
+                                            }
+                                            flowcontainer = {
+                                                text_single = {
+                                                    visible = "[And( Not( Character.IsPlayer ), Character.HasTrait( GetTrait( 'pregnant' ) ) )]"
+                                                    text = "Huaiyun_text"
+                                                    align = nobaseline
+                                                    tooltip = "Huaiyun_text_tt"
+                                                }                                         
+                                            }
+                                        } 
+                                        flowcontainer = {
+                                            parentanchor = bottom|hcenter
+                                            position = { 10 0 }
+                                            spacing = 2
+                                                flowcontainer = {
+                                                    text_single = {#text_multi #maximumsize = { 200 45 }
+                                                    text = "#BOLD [Character.Custom('SanGong_view_name_GongTing')]"
+                                                    fontsize = 20
+                                                    max_width = 200
+                                                    align = nobaseline
+                                                tooltip = "SanGong_view_name_GongTing_TT"
+
+                                                }
+                                            }
+                                            flowcontainer = {
+                                                icon = {
+                                                    size = { 33 33 }
+                                                    framesize = { 60 60 }
+                                                    frame = "[Character.GetHealthIconFrame]"
+                                                    texture = "gfx/interface/icons/character_status/icon_health.dds"
+                                                    tooltip = "SanGong_CHARACTER_VIEW_AGE_TT"
+                                                }                                            
+                                            }
+                                        }
+                                        
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            widget = {# 皇子公主
+                background = {
+                    # texture = "gfx/interface/illustrations/event_scenes/tgp_courtyard_asia.dds"
+                    alpha = 1
+                    fittype = centercrop
+                }
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                visible = "[GetVariableSystem.HasValue( 'SanGong_HouGong_Main', 'Page_5' )]"
+
+                scrollbox = {
+                    size = { 100% 100% }
+                    blockoverride "scrollbox_content" {
+                        hbox = {
+                            margin = { 0 10 }
+                            ignoreinvisible = no
+                            spacing = 45
+                            vbox = {
+                                ignoreinvisible = no
+                                layoutpolicy_vertical = expanding
+
+                                text_label_center = {
+                                    text = "SanGong_Prince"
+                                    using = Font_Size_Medium
+                                    default_format = "#high"
+                                    align = nobaseline
+                                }
+                                dynamicgridbox = {
+                                    datamodel = "[GetPlayer.MakeScope.GetList('SanGong_HuangZi_list')]"
+                                    layoutpolicy_horizontal = expanding
+                                    layoutpolicy_vertical = expanding
+                                    datamodel_wrap = 4
+                                    flipdirection = yes
+                                    item = {
+                                        portrait_shoulders = {
+                                            datacontext = "[Scope.GetCharacter]"
+                                            size = { 130 150 }
+                                            blockoverride "portrait_size" {
+                                                size = { 105 135 } 
+                                            }
+                                            flowcontainer = {
+                                                parentanchor = top|right
+                                                position = { 0 30 }
+                                                direction = vertical
+                                                spacing = -2
+                                                flowcontainer = {
+                                                    text_single = {
+                                                        text = "SanGong_view_age"
+                                                        fontsize = 14
+                                                        alpha = 0.5
+                                                        align = nobaseline
+                                                    }
+                                                    tooltip = "SanGong_CHARACTER_VIEW_AGE_TT"
+                                                }
+                                            }
+                                            text_single = {
+                                                text = "#v #bold [Character.Custom('SanGong_view_name_HuangziGui')]"
+                                                margin_top = 150
+                                                margin_left = 10
+                                                fontsize_min = 14
+                                                fontsize = 18
+                                                max_width = 120
+                                                align = nobaseline
+                                            }
+
+                                            button = {
+                                                name = "Cefeng_ZongShi_interaction"
+                                                parentanchor = bottom|left
+                                                size = { 30 30 }
+                                                texture = "gfx/interface/icons/traits/loyal.dds"
+                                                datacontext = "[GetScriptedGui( 'ZongWang_gui' )]"
+                                                visible = "[Character.IsPlayerInteractionValid('Cefeng_ZongShi_interaction')]"
+                                                onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'recipient', Character.MakeScope ).End  )]"
+                                                tooltip = "[Character.GetPlayerInteractionTooltip('Cefeng_ZongShi_interaction')]"
+                                            }
+                                            button = {
+                                                name = "ChiDuo_ZongWang_interaction"
+                                                parentanchor = bottom|left
+                                                size = { 30 30 }
+                                                position = { 0 0 }
+                                                texture = "gfx/interface/icons/character_interactions/icon_governor_removal.dds"
+                                                datacontext = "[GetScriptedGui( 'ChiDuo_ZongWang_interaction' )]"
+                                                visible = "[Character.IsPlayerInteractionValid('ChiDuo_ZongWang_interaction')]"
+                                                onclick = "[Character.OpenPlayerInteraction('ChiDuo_ZongWang_interaction')]"
+                                                tooltip = "[Character.GetPlayerInteractionTooltip('ChiDuo_ZongWang_interaction')]"
+                                            }
+                                            button = {
+                                                name = "SanGong_HuangziJiuFan_interaction"
+                                                parentanchor = bottom|left
+                                                size = { 30 30 }
+                                                position = { 0 -60 }
+                                                texture = "gfx/interface/icons/scheme_types/mentor.dds"
+                                                datacontext = "[GetScriptedGui( 'SanGong_HuangziJiuFan_interaction' )]"
+                                                visible = "[Character.IsPlayerInteractionShown('SanGong_HuangziJiuFan_interaction')]"
+                                                onclick = "[Character.OpenPlayerInteraction('SanGong_HuangziJiuFan_interaction')]"
+                                                tooltip = "[Character.GetPlayerInteractionTooltip('SanGong_HuangziJiuFan_interaction')]"
+                                            }
+                                            
+                                            blockoverride "coa" {}
+                                            blockoverride "highlight_icon" {}
+                                            blockoverride "opinion_box" {}
+                                            blockoverride "status_icons" {}
+                                        }
+                                    }
+                                }
+                            }
+
+                            divider = {
+                                layoutpolicy_vertical = expanding
+                                color = { 1.0 0.0 0.0 0.6 }
+                            }
+
+                            vbox = {
+                                ignoreinvisible = no
+                                layoutpolicy_vertical = expanding
+
+                                text_label_center = {
+                                    text = "SanGong_Princess"
+                                    using = Font_Size_Medium
+                                    default_format = "#high"
+                                    align = nobaseline
+                                }
+
+                                dynamicgridbox = {
+                                    datamodel = "[GetPlayer.MakeScope.GetList('SanGong_GongZhu_list')]"
+                                    layoutpolicy_horizontal = expanding
+                                    layoutpolicy_vertical = expanding
+                                    datamodel_wrap = 4
+                                    flipdirection = yes
+                                    item = {
+                                        portrait_shoulders = {
+                                            datacontext = "[Scope.GetCharacter]"
+                                            size = { 130 150 }
+                                            blockoverride "portrait_size" {
+                                                size = { 105 135 } 
+                                            }
+                                            flowcontainer = {#信息概览
+                                                parentanchor = top|right
+                                                position = { 0 30 }
+                                                direction = vertical
+                                                spacing = -2
+                                                flowcontainer = {
+                                                    text_single = {
+                                                        text = "SanGong_view_age"
+                                                        fontsize = 14
+                                                        alpha = 0.5
+                                                        align = nobaseline
+                                                    }
+                                                    tooltip = "SanGong_CHARACTER_VIEW_AGE_TT"
+                                                }
+                                                flowcontainer = {
+                                                    text_single = {
+                                                        visible = "[GetScriptedGui('ChuGe_GuiS').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+                                                        text = "ChuGe_TEXT"
+                                                        fontsize = 14
+                                                        align = nobaseline
+                                                        tooltip = "ChuGe_TEXT_TT"
+                                                    }
+                                                }
+                                                flowcontainer = {
+                                                    text_single = {
+                                                        visible = "[And( Not( Character.IsPlayer ), Character.HasTrait( GetTrait( 'pregnant' ) ) )]"
+                                                        text = "Huaiyun_text"
+                                                        align = nobaseline
+                                                        tooltip = "Huaiyun_text_tt"
+                                                    }                                         
+                                                }
+                                            } 
+                                            flowcontainer = {#信息概览
+                                                parentanchor = top|left
+                                                position = { 0 30 }
+                                                direction = horizontal
+                                                spacing = -2
+                                                flowcontainer = {
+                                                    icon = {
+                                                        visible = "[And( Not( Character.IsPlayer ), Character.HasTrait( GetTrait( 'incestuous' ) ) )]"
+                                                        size = { 33 33 }
+                                                        texture = "gfx/interface/icons/traits/incestuous.dds"
+                                                        align = nobaseline
+                                                        tooltip = "trait_incestuous_desc"
+                                                    }                                         
+                                                }
+                                                flowcontainer = {
+                                                    icon = {
+                                                        visible = "[And( Not( Character.IsPlayer ), Character.HasTrait( GetTrait( 'fornicator' ) ) )]"
+                                                        size = { 33 33 }
+                                                        texture = "gfx/interface/icons/traits/fornicator.dds"
+                                                        align = nobaseline
+                                                        tooltip = "trait_fornicator_desc"
+                                                    }                                         
+                                                }
+                                                flowcontainer = {
+                                                    icon = {
+                                                        visible = "[And( Not( Character.IsPlayer ), Character.HasTrait( GetTrait( 'adulterer' ) ) )]"
+                                                        size = { 33 33 }
+                                                        texture = "gfx/interface/icons/traits/adulterer.dds"
+                                                        align = nobaseline
+                                                        tooltip = "trait_adulterer_desc"
+                                                    }                                         
+                                                }
+                                            } 
+                                            text_single = {
+                                                text = "[Character.Custom('SanGong_view_name_GongTing')]"
+                                                margin_top = 150
+                                                margin_left = 0
+                                                fontsize_min = 12
+                                                fontsize = 16
+                                                max_width = 120
+                                                default_format = "#difficulty_medium"
+                                                align = nobaseline
+                                            }
+                                            flowcontainer = {#信息概览
+                                                parentanchor = bottom|left
+                                                position = { 0 0 }
+                                                direction = vertical
+                                                spacing = -2
+                                                flowcontainer = {
+                                                    button = {
+                                                        name = "XunGuiLianYin_interaction"
+                                                        #parentanchor = bottom|left
+                                                        size = { 30 30 }
+                                                        #position = { 0 0 }
+                                                        texture = "gfx/interface/icons/scheme_types/icon_scheme_seduce.dds"
+                                                        datacontext = "[GetScriptedGui( 'XunGuiLianYin_interaction' )]"
+                                                        visible = "[Character.IsPlayerInteractionShown('XunGuiLianYin_interaction')]"
+                                                        #visible = "[Character.IsPlayerInteractionValid('XunGuiLianYin_interaction')]"
+                                                        onclick = "[Character.OpenPlayerInteraction('XunGuiLianYin_interaction')]"
+                                                        tooltip = "[Character.GetPlayerInteractionTooltip('XunGuiLianYin_interaction')]"
+                                                    }
+
+                                                }
+                                            } 
+
+                                            blockoverride "coa" {}
+                                            blockoverride "highlight_icon" {}
+                                            blockoverride "opinion_box" {}
+                                            blockoverride "status_icons" {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            widget = {# 宗室
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                visible = "[GetVariableSystem.HasValue( 'SanGong_HouGong_Main', 'Page_7' )]"
+                scrollbox = {   
+                    size = { 100% 100% }
+                    blockoverride "scrollbox_content" {
+                        hbox = {
+                            hbox = {
+                                margin = { 0 0 }
+                                button = {
+                                    size = { 400 55 }
+                                    parentanchor = bottom|center
+                                    datacontext = "[GetPlayer]"
+                                    texture = "gfx/interface/window_domiciles/domicile_window_control_background.dds"
+                                    visible = "[Character.IsPlayerInteractionShown('SanGong_ZongFanCeFeng_interaction')]"
+                                    enabled = "[Character.IsPlayerInteractionValid('SanGong_ZongFanCeFeng_interaction')]"
+                                    tooltip = "[Character.GetPlayerInteractionTooltip('SanGong_ZongFanCeFeng_interaction')]"
+                                    onclick = "[Character.OpenPlayerInteraction('SanGong_ZongFanCeFeng_interaction')]"
+                                    vbox = {
+                                        visible = "[Character.IsPlayerInteractionShown('SanGong_ZongFanCeFeng_interaction')]"
+                                        text_single = {
+                                            text = "SanGong_ZongFanCeFeng_interaction_gui"
+                                            margin_top = 0
+                                            margin_left = 0
+                                            fontsize_min = 12
+                                            fontsize = 20
+                                            default_format = "#light_background"
+                                            align = center|nobaseline
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        hbox = {
+                        layoutpolicy_horizontal = expanding
+                        margin = { 20 5 }
+                        spacing = 10
+                        
+                        divider_light = {
+                        size = { 0 5 }     
+                            layoutpolicy_horizontal = expanding
+                            color = { 1.0 0.0 0.0 0.6 }
+                        }
+                        text_label_center = {
+                            text = "SanGong_ClanPillar"
+                            using = Font_Size_Medium
+                            default_format = "#high"
+                            align = nobaseline
+                        }
+                        divider_light = {
+                            layoutpolicy_horizontal = expanding  
+                            color = { 1.0 0.0 0.0 0.6 }
+                        }
+                    }
+                        hbox = {
+                        spacing = 10
+                            vbox = {
+                                layoutpolicy_vertical = expanding
+                                
+                                dynamicgridbox = {
+                                    datamodel = "[GetPlayer.MakeScope.GetList('SanGong_ZongWang_list')]"
+                                    layoutpolicy_horizontal = expanding
+                                    layoutpolicy_vertical = expanding
+                                    datamodel_wrap = 6
+                                    flipdirection = yes
+                                    item = {
+                                        portrait_torso = {
+                                            datacontext = "[Scope.GetCharacter]"
+                                            size = { 220 220 }
+                                            flowcontainer = {
+                                                parentanchor = bottom|hcenter
+                                                position = { 0 10 }
+                                                spacing = 2
+                                                flowcontainer = {
+                                                    spacing = 0
+                                                    direction = vertical
+                                                    text_single = {
+                                                        name = "character_Relation"		# 文本控件名称
+                                                        text = "[Character.GetRelationToString( GetPlayer )]"
+                                                        fontsize = 12  	# 使用中等字体
+                                                        max_width = 320				# 最大宽度：320像素
+                                                        margin_left = 10
+                                                    }
+                                                    text_single = {
+                                                        text = "[Character.Custom('SanGong_view_name_HuangziGui')]"
+                                                        fontsize = 20
+                                                        max_width = 200
+                                                        margin_top = 5
+                                                        tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+                                                    }        
+                                                }
+                                                
+                                                flowcontainer = {
+                                                    spacing = 0
+                                                    direction = vertical
+                                                    margin_top = 10
+                                                    text_single = {
+                                                        text = "SanGong_view_age"
+                                                        fontsize = 14
+                                                        alpha = 0.5
+                                                        tooltip = "SanGong_CHARACTER_VIEW_AGE_TT"
+                                                    }
+                                                    text_single = {
+                                                        text = "SanGong_JUESI"
+                                                        visible = "[Not( GetScriptedGui('SanGong_Shixi_tri_gui').IsShown(GuiScope.SetRoot(Character.MakeScope).End) )]"
+                                                        background = { using = Background_Area_Dark alpha = 0.7 }
+                                                        tooltip = "SanGong_JUESI_TT"
+                                                        fontsize = 14
+                                                        max_width = 200
+                                                    }   
+                                                    text_single = {
+                                                        text = "SanGong_SHIXI"
+                                                        visible = "[GetScriptedGui('SanGong_Shixi_tri_gui').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+                                                        background = { using = Background_Area_Dark alpha = 0.7 }
+                                                        tooltip = "SanGong_SHIXI_TT"
+                                                        fontsize = 14
+                                                        max_width = 200
+                                                    }         
+                                                }
+                                            }
+                                            flowcontainer = {#藩王相关显示
+                                                tooltip = "FanWang_GUI_TT"
+                                                visible = "[GetScriptedGui('ZongFan_GuiS').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+                                                parentanchor = top|right
+                                                direction = vertical
+                                                position = { 40 0 }
+                                                spacing = -2
+                                                background = {
+                                                    using = Background_Area_Dark
+                                                    alpha = 0.7
+                                                }
+                                                
+                                                flowcontainer = {
+                                                    widget = {
+                                                        name = "title_coa"
+                                                        size = { 40 40 }
+                                                        coa_realm_tiny_crown = {
+                                                            parentanchor = center
+                                                            position = { 0 -3 }
+                                                        }
+                                                        text_single = {
+                                                            margin_top = 15
+                                                            margin_left = 40
+                                                            text = "#v [Character.GetPrimaryTitle.GetBaseNameNoTierNoTooltip]藩"
+                                                            max_width = 100
+                                                        }  
+                                                    }
+                                                }
+                                                flowcontainer = {
+                                                    icon = {
+                                                        margin_top = 3
+                                                        name = "icon_gold"
+                                                        size = { 30 30 }
+                                                        texture = "gfx/interface/icons/icon_gold.dds"
+                                                    }
+                                                    text_single = {
+                                                        margin_top = 3
+                                                        name = "total_gold"
+                                                        text = "[Character.GetGold|0]"
+                                                        default_format = "#high"
+                                                        fontsize_min = 12
+                                                        max_width = 50
+                                                    }
+                                                }
+                                                flowcontainer = {
+                                                    icon = {
+                                                        size = { 30 30 }
+                                                        texture = "gfx/interface/icons/icon_soldier.dds"
+                                                    }
+                                                    text_single = {
+                                                        margin_top = 3
+                                                        text = "#v [Character.GetMilitaryStrengthText]"
+                                                    }      
+                                                    army_quality_icon = {
+                                                        size = { 30 30 }
+                                                    }
+                                                }
+                                            }  
+                                                                                   
+                                            flowcontainer = {#信息概览
+                                                parentanchor = top|left
+                                                position = { 10 10 }
+                                                direction = vertical
+                                                spacing = -2
+                                                icon = {
+                                                    visible = "[GetScriptedGui('ZongFan_War_GuiS').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+                                                    texture = "gfx/interface/icons/icon_skills.dds"
+                                                    size = { 55 55 }
+                                                    frame = 2
+                                                    framesize = { 60 60 }
+                                                    tooltip = "FanWang_War_GUI_TT"
+                                                }  
+                                            }     
+                                            flowcontainer = {#互动
+                                                parentanchor = bottom|left
+                                                position = { 0 0 }
+                                                direction = vertical
+                                                spacing = -2
+                                                flowcontainer = {
+                                                    button = {
+                                                        name = "SanGong_GuoJiFanWang_interaction"
+                                                        size = { 30 30 }
+                                                        texture = "gfx/interface/icons/character_interactions/child.dds"
+                                                        datacontext = "[GetScriptedGui( 'SanGong_GuoJiFanWang_interaction' )]"
+                                                        visible = "[Character.IsPlayerInteractionShown('SanGong_GuoJiFanWang_interaction')]"
+                                                        enabled = "[Character.IsPlayerInteractionValid('SanGong_GuoJiFanWang_interaction')]"
+                                                        onclick = "[Character.OpenPlayerInteraction('SanGong_GuoJiFanWang_interaction')]"
+                                                        tooltip = "[Character.GetPlayerInteractionTooltip('SanGong_GuoJiFanWang_interaction')]"
+                                                    }
+                                                }
+                                            } 
+                                            flowcontainer = {#负面互动
+                                                parentanchor = bottom|left
+                                                position = { 0 -20 }
+                                                direction = vertical
+                                                spacing = -50
+                                                #flowcontainer = {
+                                                #    button = {
+                                                #        name = "ChiDuo_ZongWang_interaction"
+                                                #        size = { 30 30 }
+                                                #        texture = "gfx/interface/icons/character_interactions/icon_governor_removal.dds"
+                                                #        datacontext = "[GetScriptedGui( 'ChiDuo_ZongWang_interaction' )]"
+                                                #        #visible = "[Character.IsPlayerInteractionShown('ChiDuo_ZongWang_interaction')]"
+                                                #        visible = "[Character.IsPlayerInteractionValid('ChiDuo_ZongWang_interaction')]"
+                                                #        onclick = "[Character.OpenPlayerInteraction('ChiDuo_ZongWang_interaction')]"
+                                                #        tooltip = "[Character.GetPlayerInteractionTooltip('ChiDuo_ZongWang_interaction')]"
+                                                #    }
+                                                #}
+                                                #flowcontainer = {
+                                                #    button = {
+                                                #        name = "SanGong_Xuefan_interaction"
+                                                #        size = { 30 30 }
+                                                #        texture = "gfx/interface/icons/character_interactions/icon_governor_removal.dds"
+                                                #        datacontext = "[GetScriptedGui( 'SanGong_Xuefan_interaction' )]"
+                                                #        visible = "[Character.IsPlayerInteractionShown('SanGong_Xuefan_interaction')]"
+                                                #        #visible = "[Character.IsPlayerInteractionValid('SanGong_Xuefan_interaction')]"
+                                                #        onclick = "[Character.OpenPlayerInteraction('SanGong_Xuefan_interaction')]"
+                                                #        tooltip = "[Character.GetPlayerInteractionTooltip('SanGong_Xuefan_interaction')]"
+                                                #    }
+                                                #}
+                                            } 
+
+
+                                            
+                                            blockoverride "coa" {}
+                                            blockoverride "highlight_icon" {}
+                                            blockoverride "opinion_box" {}
+                                            blockoverride "status_icons" {}
+                                        }
+                                        
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+            }
+            widget = {##勋贵
+                background = {
+                    # texture = "gfx/interface/illustrations/event_scenes/tgp_courtyard_asia.dds"
+                    alpha = 1
+                    fittype = centercrop
+                }
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                visible = "[GetVariableSystem.HasValue( 'SanGong_HouGong_Main', 'Page_8' )]"
+                
+                scrollbox = {
+                    size = { 100% 100% }
+                    blockoverride "scrollbox_content" {
+                        hbox = {
+                            margin = { 0 10 }
+                            ignoreinvisible = no
+                            spacing = 100
+                            vbox = {
+                                ignoreinvisible = no
+                                layoutpolicy_vertical = expanding
+                                dynamicgridbox = {
+                                        datamodel = "[GetPlayer.MakeScope.GetList('XunGui_GongJue_List')]"
+                                        layoutpolicy_horizontal = expanding
+                                        layoutpolicy_vertical = expanding
+                                        datamodel_wrap = 6
+                                        flipdirection = yes
+                                        item = {
+                                            portrait_shoulders = {
+                                                datacontext = "[Scope.GetCharacter]"
+                                                text_single = {
+                                                    margin_top = 240
+                                                    text = "Xungui_GongJue_Name"
+                                                    max_width = 180
+                                                    fontsize_min = 12
+                                                    fontsize = 20
+                                                    align = center|nobaseline
+                                                }
+                                                size = { 220 240 }
+                                                flowcontainer = {
+                                                    parentanchor = bottom|left
+                                                    spacing = 20
+                                                    direction = vertical #  horizontal 
+                                                    button = {
+                                                        name = "replace3"
+                                                        size = { 33 33 }
+                                                        texture = "gfx/interface/icons/court_position_types/keeper_of_the_harem_court_position.dds"
+                                                        visible = "[Character.IsPlayerInteractionShown('SanGong_royal_espousal_interaction')]"
+                                                        tooltip = "[Character.GetPlayerInteractionTooltip('SanGong_royal_espousal_interaction')]"
+                                                        onclick = "[Character.OpenPlayerInteraction('SanGong_royal_espousal_interaction')]"
+                                                        enabled = "[Character.OpenPlayerInteraction('SanGong_royal_espousal_interaction')]"
+                                                        using = tooltip_se
+                                                    }
+                                                    button = {
+                                                        name = "replace1"
+                                                        size = { 33 33 }
+                                                        texture = "gfx/interface/icons/traits/loyal.dds"
+                                                        visible = "[Character.IsPlayerInteractionShown('reward_xungui_interaction')]"
+                                                        tooltip = "[Character.GetPlayerInteractionTooltip('reward_xungui_interaction')]"
+                                                        onclick = "[Character.OpenPlayerInteraction('reward_xungui_interaction')]"
+                                                        enabled = "[Character.OpenPlayerInteraction('demoted_xungui_interaction')]"
+                                                        using = tooltip_se
+                                                    }
+                                                    button = {
+                                                        name = "replace2"
+                                                        size = { 33 33 }
+                                                        texture = "gfx/interface/icons/court_position_types/fire_dragon_engineer_court_position.dds"
+                                                        visible = "[Character.IsPlayerInteractionShown('demoted_xungui_interaction')]"
+                                                        tooltip = "[Character.GetPlayerInteractionTooltip('demoted_xungui_interaction')]"
+                                                        onclick = "[Character.OpenPlayerInteraction('demoted_xungui_interaction')]"
+                                                        enabled = "[Character.OpenPlayerInteraction('demoted_xungui_interaction')]"
+                                                        using = tooltip_se
+                                                    }
+                                                }
+                                                blockoverride "coa" {}
+                                                blockoverride "highlight_icon" {}
+                                                
+                                            }
+                                        }
+                                            
+                                    }	
+                            }
+                        }
+                        hbox = {
+                            margin = { 0 10 }
+                            ignoreinvisible = no
+                            spacing = 100
+                            vbox = {
+                                ignoreinvisible = no
+                                layoutpolicy_vertical = expanding
+                                dynamicgridbox = {
+                                        datamodel = "[GetPlayer.MakeScope.GetList('XunGui_HouJue_List')]"
+                                        layoutpolicy_horizontal = expanding
+                                        layoutpolicy_vertical = expanding
+                                        datamodel_wrap = 3
+                                        flipdirection = yes
+
+                                        item = {
+                                            portrait_shoulders = {
+                                                datacontext = "[Scope.GetCharacter]"
+                                                text_single = {
+                                                    margin_top = 240
+                                                    text = "Xungui_GongJue_Name"
+                                                    max_width = 180
+                                                    fontsize_min = 12
+                                                    fontsize = 20
+                                                    align = center|nobaseline
+                                                }
+                                                size = { 220 240 }
+                                                flowcontainer = {
+                                                    parentanchor = bottom|left
+                                                    spacing = 20
+                                                    direction = vertical #  horizontal 
+                                                    button = {
+                                                        name = "replace3"
+                                                        size = { 33 33 }
+                                                        texture = "gfx/interface/icons/court_position_types/keeper_of_the_harem_court_position.dds"
+                                                        visible = "[Character.IsPlayerInteractionShown('SanGong_royal_espousal_interaction')]"
+                                                        tooltip = "[Character.GetPlayerInteractionTooltip('SanGong_royal_espousal_interaction')]"
+                                                        onclick = "[Character.OpenPlayerInteraction('SanGong_royal_espousal_interaction')]"
+                                                        enabled = "[Character.OpenPlayerInteraction('SanGong_royal_espousal_interaction')]"
+                                                        using = tooltip_se
+                                                    }
+                                                    button = {
+                                                        name = "replace1"
+                                                        size = { 33 33 }
+                                                        texture = "gfx/interface/icons/traits/loyal.dds"
+                                                        visible = "[Character.IsPlayerInteractionShown('reward_xungui_interaction')]"
+                                                        tooltip = "[Character.GetPlayerInteractionTooltip('reward_xungui_interaction')]"
+                                                        onclick = "[Character.OpenPlayerInteraction('reward_xungui_interaction')]"
+                                                        enabled = "[Character.OpenPlayerInteraction('demoted_xungui_interaction')]"
+                                                        using = tooltip_se
+                                                    }
+                                                    button = {
+                                                        name = "replace2"
+                                                        size = { 33 33 }
+                                                        texture = "gfx/interface/icons/court_position_types/fire_dragon_engineer_court_position.dds"
+                                                        visible = "[Character.IsPlayerInteractionShown('demoted_xungui_interaction')]"
+                                                        tooltip = "[Character.GetPlayerInteractionTooltip('demoted_xungui_interaction')]"
+                                                        onclick = "[Character.OpenPlayerInteraction('demoted_xungui_interaction')]"
+                                                        enabled = "[Character.OpenPlayerInteraction('demoted_xungui_interaction')]"
+                                                        using = tooltip_se
+                                                    }
+                                                }
+                                                blockoverride "coa" {}
+                                                blockoverride "highlight_icon" {}
+                                                
+                                            }
+                                        }
+                                            
+                                    }	
+                            }
+                        }
+                        hbox = {
+                            margin = { 0 10 }
+                            ignoreinvisible = no
+                            spacing = 45
+                            vbox = {
+                                ignoreinvisible = no
+                                layoutpolicy_vertical = expanding
+                                dynamicgridbox = {
+                                        datamodel = "[GetPlayer.MakeScope.GetList('XunGui_BoJue_List')]"
+                                        layoutpolicy_horizontal = expanding
+                                        layoutpolicy_vertical = expanding
+                                        datamodel_wrap = 6
+                                        flipdirection = yes
+                                        item = {
+                                            portrait_shoulders = {
+                                                datacontext = "[Scope.GetCharacter]"
+                                                text_single = {
+                                                    margin_top = 240
+                                                    text = "Xungui_GongJue_Name"
+                                                    max_width = 180
+                                                    fontsize_min = 12
+                                                    fontsize = 20
+                                                    align = center|nobaseline
+                                                }
+                                                size = { 220 240 }
+                                                flowcontainer = {
+                                                    parentanchor = bottom|left
+                                                    spacing = 20
+                                                    direction = vertical #  horizontal 
+                                                    button = {
+                                                        name = "replace3"
+                                                        size = { 33 33 }
+                                                        texture = "gfx/interface/icons/court_position_types/keeper_of_the_harem_court_position.dds"
+                                                        visible = "[Character.IsPlayerInteractionShown('SanGong_royal_espousal_interaction')]"
+                                                        tooltip = "[Character.GetPlayerInteractionTooltip('SanGong_royal_espousal_interaction')]"
+                                                        onclick = "[Character.OpenPlayerInteraction('SanGong_royal_espousal_interaction')]"
+                                                        enabled = "[Character.OpenPlayerInteraction('SanGong_royal_espousal_interaction')]"
+                                                        using = tooltip_se
+                                                    }
+                                                    button = {
+                                                        name = "replace1"
+                                                        size = { 33 33 }
+                                                        texture = "gfx/interface/icons/traits/loyal.dds"
+                                                        visible = "[Character.IsPlayerInteractionShown('reward_xungui_interaction')]"
+                                                        tooltip = "[Character.GetPlayerInteractionTooltip('reward_xungui_interaction')]"
+                                                        onclick = "[Character.OpenPlayerInteraction('reward_xungui_interaction')]"
+                                                        enabled = "[Character.OpenPlayerInteraction('demoted_xungui_interaction')]"
+                                                        using = tooltip_se
+                                                    }
+                                                    button = {
+                                                        name = "replace2"
+                                                        size = { 33 33 }
+                                                        texture = "gfx/interface/icons/court_position_types/fire_dragon_engineer_court_position.dds"
+                                                        visible = "[Character.IsPlayerInteractionShown('demoted_xungui_interaction')]"
+                                                        tooltip = "[Character.GetPlayerInteractionTooltip('demoted_xungui_interaction')]"
+                                                        onclick = "[Character.OpenPlayerInteraction('demoted_xungui_interaction')]"
+                                                        enabled = "[Character.OpenPlayerInteraction('demoted_xungui_interaction')]"
+                                                        using = tooltip_se
+                                                    }
+                                                }
+                                                blockoverride "coa" {}
+                                                blockoverride "highlight_icon" {}
+                                                
+                                            }
+                                        }
+                                            
+                                    }	
+                            }
+                        }
+
+                        hbox = {
+                            margin = { 0 10 }
+                            ignoreinvisible = no
+                            spacing = 100
+                            vbox = {
+                                ignoreinvisible = no
+                                layoutpolicy_vertical = expanding
+                                dynamicgridbox = {
+                                        datamodel = "[GetPlayer.MakeScope.GetList('XunGui_ZiJue_List')]"
+                                        layoutpolicy_horizontal = expanding
+                                        layoutpolicy_vertical = expanding
+                                        datamodel_wrap = 6
+                                        flipdirection = yes
+                                        item = {
+                                            portrait_shoulders = {
+                                                datacontext = "[Scope.GetCharacter]"
+                                                text_single = {
+                                                    margin_top = 240
+                                                    text = "Xungui_GongJue_Name"
+                                                    max_width = 180
+                                                    fontsize_min = 12
+                                                    fontsize = 20
+                                                    align = center|nobaseline
+                                                }
+                                                size = { 220 240 }
+                                                flowcontainer = {
+                                                    parentanchor = bottom|left
+                                                    spacing = 20
+                                                    direction = vertical #  horizontal 
+                                                    button = {
+                                                        name = "replace3"
+                                                        size = { 33 33 }
+                                                        texture = "gfx/interface/icons/court_position_types/keeper_of_the_harem_court_position.dds"
+                                                        visible = "[Character.IsPlayerInteractionShown('SanGong_royal_espousal_interaction')]"
+                                                        tooltip = "[Character.GetPlayerInteractionTooltip('SanGong_royal_espousal_interaction')]"
+                                                        onclick = "[Character.OpenPlayerInteraction('SanGong_royal_espousal_interaction')]"
+                                                        enabled = "[Character.OpenPlayerInteraction('SanGong_royal_espousal_interaction')]"
+                                                        using = tooltip_se
+                                                    }
+                                                    button = {
+                                                        name = "replace1"
+                                                        size = { 33 33 }
+                                                        texture = "gfx/interface/icons/traits/loyal.dds"
+                                                        visible = "[Character.IsPlayerInteractionShown('reward_xungui_interaction')]"
+                                                        tooltip = "[Character.GetPlayerInteractionTooltip('reward_xungui_interaction')]"
+                                                        onclick = "[Character.OpenPlayerInteraction('reward_xungui_interaction')]"
+                                                        enabled = "[Character.OpenPlayerInteraction('demoted_xungui_interaction')]"
+                                                        using = tooltip_se
+                                                    }
+                                                    button = {
+                                                        name = "replace2"
+                                                        size = { 33 33 }
+                                                        texture = "gfx/interface/icons/court_position_types/fire_dragon_engineer_court_position.dds"
+                                                        visible = "[Character.IsPlayerInteractionShown('demoted_xungui_interaction')]"
+                                                        tooltip = "[Character.GetPlayerInteractionTooltip('demoted_xungui_interaction')]"
+                                                        onclick = "[Character.OpenPlayerInteraction('demoted_xungui_interaction')]"
+                                                        enabled = "[Character.OpenPlayerInteraction('demoted_xungui_interaction')]"
+                                                        using = tooltip_se
+                                                    }
+                                                }
+                                                blockoverride "coa" {}
+                                                blockoverride "highlight_icon" {}
+                                                
+                                            }
+                                        }
+                                            
+                                    }	
+                            }
+                        }
+                    }
+                }
+            }
+            widget = {##外戚
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                visible = "[GetVariableSystem.HasValue( 'SanGong_HouGong_Main', 'Page_9' )]"
+
+                scrollbox = {
+                    size = { 100% 100% }
+                    blockoverride "scrollbox_content" {
+                        hbox = {
+                            hbox = {
+                                margin = { 0 0 }
+                                button = {
+                                    size = { 400 55 }
+                                    parentanchor = bottom|center
+                                    datacontext = "[GetPlayer]"
+                                    texture = "gfx/interface/window_domiciles/domicile_window_control_background.dds"
+                                    visible = "[Character.IsPlayerInteractionShown('SanGong_Tiba_Waiqi_1_interaction')]"
+                                    enabled = "[Character.IsPlayerInteractionValid('SanGong_Tiba_Waiqi_1_interaction')]"
+                                    tooltip = "[Character.GetPlayerInteractionTooltip('SanGong_Tiba_Waiqi_1_interaction')]"
+                                    onclick = "[Character.OpenPlayerInteraction('SanGong_Tiba_Waiqi_1_interaction')]"
+                                    vbox = {
+                                        visible = "[Character.IsPlayerInteractionShown('SanGong_Tiba_Waiqi_1_interaction')]"
+                                        text_single = {
+                                            text = "TiBaWaiQi_TEXT"
+                                            fontsize_min = 12
+                                            fontsize = 22
+                                            align = center|nobaseline
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        hbox = {
+                            layoutpolicy_horizontal = expanding
+                            margin = { 20 5 }
+                            spacing = 10
+                            divider_light = {
+                                layoutpolicy_horizontal = expanding
+                                color = { 1.0 0.85 0.1 0.6 }  
+                            }
+                            text_single = {
+                                text = "TaiHou_qizu"
+                                using = Font_Size_Medium
+                                default_format = "#high"
+                                align = nobaseline
+                            }                                
+                            divider_light = {
+                                layoutpolicy_horizontal = expanding
+                                color = { 1.0 0.85 0.1 0.6 }  
+                            }
+                        }
+                        hbox = {
+                            margin = { 0 10 }
+                            ignoreinvisible = no
+                            spacing = 45
+                            vbox = {
+                                ignoreinvisible = no
+                                layoutpolicy_vertical = expanding
+                                dynamicgridbox = {
+                                        datamodel = "[GetPlayer.MakeScope.GetList('WaiQi_TaiHou_list')]"
+                                        layoutpolicy_horizontal = expanding
+                                        layoutpolicy_vertical = expanding
+                                        datamodel_wrap = 6
+                                        flipdirection = yes
+                                        item = {
+                                            portrait_shoulders = {
+                                                datacontext = "[Scope.GetCharacter]"
+                                                size = { 180 170 }
+                                                spacing = 45
+                                                text_single = {
+                                                    text = "[Character.Custom('SanGong_view_name')]"
+                                                    margin_top = 160
+                                                    margin_left = 25
+                                                    max_width = 180
+                                                    using = Font_Size_Medium
+                                                    align = nobaseline
+                                                }
+                                            }
+                                        }
+                                            
+                                    }	
+                            }
+                        }
+                        hbox = {
+                            layoutpolicy_horizontal = expanding
+                            margin = { 20 5 }
+                            spacing = 10
+                            divider_light = {
+                                layoutpolicy_horizontal = expanding
+                                color = { 1.0 0.85 0.1 0.6 }  
+                            }
+                            
+                            text_single = {
+                                text = "HuangHou_qizu"
+                                using = Font_Size_Medium
+                                default_format = "#high"
+                                align = nobaseline
+                            }                                
+                            divider_light = {
+                                layoutpolicy_horizontal = expanding
+                                color = { 1.0 0.85 0.1 0.6 }  
+                            }
+                        }
+                        hbox = {
+                            margin = { 0 10 }
+                            ignoreinvisible = no
+                            spacing = 45
+                            vbox = {
+                                ignoreinvisible = no
+                                layoutpolicy_vertical = expanding
+                                dynamicgridbox = {
+                                    datamodel = "[GetPlayer.MakeScope.GetList('WaiQi_HuangHou_list')]"
+                                    layoutpolicy_horizontal = expanding
+                                    layoutpolicy_vertical = expanding
+                                    datamodel_wrap = 6
+                                    flipdirection = yes
+                                    item = {
+                                        portrait_shoulders = {
+                                            datacontext = "[Scope.GetCharacter]"
+                                            size = { 180 170 }
+                                            spacing = 45
+                                            button = {
+                                                name = "replace"
+                                                parentanchor = bottom|right
+                                                size = { 30 30 }
+                                                position = { 0 -75 }
+                                                texture = "gfx/interface/icons/traits/extolled.dds"
+                                                visible = "[Character.IsPlayerInteractionShown('SanGong_Tiba_Waiqi_interaction')]"
+                                                tooltip = "[Character.GetPlayerInteractionTooltip('SanGong_Tiba_Waiqi_interaction')]"
+                                                onclick = "[Character.OpenPlayerInteraction('SanGong_Tiba_Waiqi_interaction')]"
+                                                enabled = "[Character.OpenPlayerInteraction('SanGong_Tiba_Waiqi_interaction')]"
+                                                using = tooltip_se
+                                            }
+                                            text_single = {
+                                                text = "[Character.Custom('SanGong_view_name')]"
+                                                margin_top = 160
+                                                margin_left = 25
+                                                max_width = 180
+                                                using = Font_Size_Medium
+                                                align = nobaseline
+                                            }
+                                        }
+                                    }
+                                }	
+                            }
+                        }
+                        hbox = {
+                            layoutpolicy_horizontal = expanding
+                            margin = { 20 5 }
+                            spacing = 10
+                            divider_light = {
+                                layoutpolicy_horizontal = expanding
+                                color = { 1.0 0.85 0.1 0.6 }  
+                            }
+                            
+                            text_single = {
+                                text = "PinFei_qizu"
+                                using = Font_Size_Medium
+                                default_format = "#high"
+                                align = nobaseline
+                            }                                
+                            divider_light = {
+                                layoutpolicy_horizontal = expanding
+                                color = { 1.0 0.85 0.1 0.6 }  
+                            }
+                        }
+                        hbox = {
+                            margin = { 0 10 }
+                            ignoreinvisible = no
+                            spacing = 45
+                            vbox = {
+                                ignoreinvisible = no
+                                layoutpolicy_vertical = expanding
+                                dynamicgridbox = {
+                                        datamodel = "[GetPlayer.MakeScope.GetList('WaiQi_PinFei_list')]"
+                                        layoutpolicy_horizontal = expanding
+                                        layoutpolicy_vertical = expanding
+                                        datamodel_wrap = 6
+                                        flipdirection = yes
+                                        item = {
+                                            portrait_shoulders = {
+                                                datacontext = "[Scope.GetCharacter]"
+                                                size = { 180 170 }
+                                                spacing = 45
+                                                button = {
+                                                    name = "replace"
+                                                    parentanchor = bottom|right
+                                                    size = { 30 30 }
+                                                    position = { 0 -75 }
+                                                    texture = "gfx/interface/icons/traits/extolled.dds"
+                                                    visible = "[Character.IsPlayerInteractionShown('SanGong_Tiba_Waiqi_interaction')]"
+                                                    tooltip = "[Character.GetPlayerInteractionTooltip('SanGong_Tiba_Waiqi_interaction')]"
+                                                    onclick = "[Character.OpenPlayerInteraction('SanGong_Tiba_Waiqi_interaction')]"
+                                                    enabled = "[Character.OpenPlayerInteraction('SanGong_Tiba_Waiqi_interaction')]"
+                                                    using = tooltip_se
+                                                }
+                                                text_single = {
+                                                    text = "[Character.Custom('SanGong_view_name')]"
+                                                    margin_top = 160
+                                                    margin_left = 25
+                                                    max_width = 180
+                                                    using = Font_Size_Medium
+                                                    default_format = "#difficulty_medium"
+                                                    align = nobaseline
+                                                }
+                                            }
+                                        }
+                                            
+                                    }	
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+    #texture = "gfx/interface/icons/traits/loyal.dds"
+    #onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'recipient', Character.MakeScope ).End  )]"
+    #[Character.HasTrait( GetTrait( 'fp3_struggle_supporter' ) )]
+    #visible = "[And( Not( Character.IsPlayer ), Character.HasTrait( GetTrait( 'pregnant' ) ) )]"
+    #visible = "[GetScriptedGui('ChuXiuGong_ui_down_1').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"Character
+    #button = {
+    #    name = "replace2"
+    #    parentanchor = bottom|left
+    #    size = { 30 30 }
+    #    texture = "gfx/interface/icons/character_interactions/icon_scheme_claim_throne.dds"
+    #    datacontext = "[GetScriptedGui( 'QinDing_Weifen_gui' )]"
+    #    visible = "[GetScriptedGui('QinDing_Weifen_gui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+    #    onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'recipient', Character.MakeScope ).End  )]"
+    #    tooltip = "[Character.GetPlayerInteractionTooltip('SanGong_Weifen_interaction')]"
+    #}
+    #"GetScriptedGui( 'coronation_trigger_gui' ).IsValid( GuiScope.SetRoot( ScopeCharacter.MakeScope ).End )"
+   # visible = "[GetScriptedGui('ChuGe_gui').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+   # "gfx/interface/icons/character_interactions/icon_scheme_claim_throne.dds"
+
+                #coa_realm_small_crown = {
+				#	visible = "[Character.HasLandedTitles]"
+				#	name = "councillor_realm"
+				#}
+				## 玩家非最高领主时：空白占位组件
+				#widget = {
+				#	#visible = "[Not(ObjectsEqual(GetPlayer, GetPlayer.GetTopLiege))]"
+				#	size = { 44 52 }
+				#}

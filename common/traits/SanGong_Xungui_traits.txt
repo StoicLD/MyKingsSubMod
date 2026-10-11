@@ -1,0 +1,281 @@
+﻿SanGong_Juewei_GongJue = {#公爵
+	category = lifestyle
+	monthly_prestige = 8.0
+	monthly_influence = 4.0
+	monthly_income = 8.0
+	stress_loss_mult = 0.05
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_SanGong_Juewei_GongJue
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = { trait = SanGong_Juewei_GongJue track = Juewei_ChaoDai_name value = 0 }
+				}
+				desc = trait_SanGong_Juewei_GongJue_1
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = { trait = SanGong_Juewei_GongJue track = Juewei_ChaoDai_name value > 0 }
+				}
+				desc = trait_SanGong_Juewei_GongJue_2
+			}
+			desc = trait_SanGong_Juewei_GongJue
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_SanGong_Juewei_GongJue_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = { trait = SanGong_Juewei_GongJue track = Juewei_ChaoDai_name value = 0 }
+				}
+				desc = trait_SanGong_Juewei_GongJue_1_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = { trait = SanGong_Juewei_GongJue track = Juewei_ChaoDai_name value > 0 }
+				}
+				desc = trait_SanGong_Juewei_GongJue_2_desc
+			}
+			desc = trait_SanGong_Juewei_GongJue_desc
+		}
+	}
+
+	icon = SanGong_Juewei.dds
+	tracks = {
+		Juewei_ChaoDai_name = {
+			0 = {
+			}
+			50 = {
+			}
+			100 = {
+			}	
+		}
+	}
+}
+
+SanGong_Juewei_HouJue = {#侯爵
+	category = lifestyle
+	monthly_prestige = 6.0
+	monthly_influence = 3.0
+	monthly_income = 6.0
+	stress_loss_mult = 0.05
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_SanGong_Juewei_HouJue
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = { trait = SanGong_Juewei_HouJue track = Juewei_ChaoDai_name value = 0 }
+				}
+				desc = trait_SanGong_Juewei_HouJue_1
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = { trait = SanGong_Juewei_HouJue track = Juewei_ChaoDai_name value = 50 }
+				}
+				desc = trait_SanGong_Juewei_HouJue_2
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = { trait = SanGong_Juewei_HouJue track = Juewei_ChaoDai_name value = 100 }
+				}
+				desc = trait_SanGong_Juewei_HouJue_3
+			}
+			desc = trait_SanGong_Juewei_HouJue
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = { trait = SanGong_Juewei_HouJue track = Juewei_ChaoDai_name value = 0 }
+				}
+				desc = trait_SanGong_Juewei_HouJue_1_desc
+			}
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = { trait = SanGong_Juewei_HouJue track = Juewei_ChaoDai_name value = 50 }
+				}
+				desc = trait_SanGong_Juewei_HouJue_2_desc
+			}
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = { trait = SanGong_Juewei_HouJue track = Juewei_ChaoDai_name value = 100 }
+				}
+				desc = trait_SanGong_Juewei_HouJue_3_desc
+			}
+			desc = trait_SanGong_Juewei_HouJue_desc
+		}
+	}
+	icon = SanGong_Juewei.dds
+	tracks = {
+		Juewei_ChaoDai_name = {
+			0 = {
+			}
+			50 = {
+			}
+			100 = {
+			}	
+		}
+	}
+}
+
+SanGong_Juewei_BoJue = {#伯爵
+	category = lifestyle
+	monthly_prestige = 4.0
+	monthly_influence = 2.0
+	monthly_income = 4.0
+	stress_loss_mult = 0.05
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_SanGong_Juewei_BoJue
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = { trait = SanGong_Juewei_BoJue track = Juewei_ChaoDai_name value = 0 }
+				}
+				desc = trait_SanGong_Juewei_BoJue_1
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = { trait = SanGong_Juewei_BoJue track = Juewei_ChaoDai_name value = 50 }
+				}
+				desc = trait_SanGong_Juewei_BoJue_2
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = { trait = SanGong_Juewei_BoJue track = Juewei_ChaoDai_name value = 100 }
+				}
+				desc = trait_SanGong_Juewei_BoJue_3
+			}
+			desc = trait_SanGong_Juewei_BoJue
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_SanGong_Juewei_BoJue_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = { trait = SanGong_Juewei_BoJue track = Juewei_ChaoDai_name value = 0 }
+				}
+				desc = trait_SanGong_Juewei_BoJue_1_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = { trait = SanGong_Juewei_BoJue track = Juewei_ChaoDai_name value = 50 }
+				}
+				desc = trait_SanGong_Juewei_BoJue_2_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = { trait = SanGong_Juewei_BoJue track = Juewei_ChaoDai_name value = 100 }
+				}
+				desc = trait_SanGong_Juewei_BoJue_3_desc
+			}
+			desc = trait_SanGong_Juewei_BoJue_desc
+		}
+	}
+	icon = SanGong_Juewei.dds
+	tracks = {
+		Juewei_ChaoDai_name = {
+			0 = {
+			}
+			50 = {
+			}
+			100 = {
+			}	
+		}
+	}
+}
+
+SanGong_Juewei_ZiJue = {#子爵
+	category = lifestyle
+	monthly_prestige = 3.0
+	monthly_influence = 1.0
+	monthly_income = 2.0
+	stress_loss_mult = 0.05
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_SanGong_Juewei_ZiJue
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = { trait = SanGong_Juewei_ZiJue track = Juewei_ChaoDai_name value = 0 }
+				}
+				desc = trait_SanGong_Juewei_ZiJue_1
+			}
+			triggered_desc = {
+				trigger = {
+                    has_trait_xp = { trait = SanGong_Juewei_ZiJue track = Juewei_ChaoDai_name value > 0 }
+				}
+				desc = trait_SanGong_Juewei_ZiJue_2
+			}
+			desc = trait_SanGong_Juewei_ZiJue
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_SanGong_Juewei_ZiJue_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = { trait = SanGong_Juewei_ZiJue track = Juewei_ChaoDai_name value = 0 }
+				}
+				desc = trait_SanGong_Juewei_ZiJue_1_desc
+			}
+			triggered_desc = {
+				trigger = {
+                    has_trait_xp = { trait = SanGong_Juewei_ZiJue track = Juewei_ChaoDai_name value > 0 }
+				}
+				desc = trait_SanGong_Juewei_ZiJue_2_desc
+			}
+			desc = trait_SanGong_Juewei_ZiJue
+		}
+	}
+	icon = SanGong_Juewei.dds
+	tracks = {
+		Juewei_ChaoDai_name = {
+			0 = {
+			}
+			50 = {
+			}
+			100 = {
+			}	
+		}
+	}
+}

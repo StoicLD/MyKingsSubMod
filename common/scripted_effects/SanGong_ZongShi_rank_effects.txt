@@ -1,0 +1,1865 @@
+﻿# 宗室八等爵位体系的核心状态和计算效果。
+#
+# 设计约束：
+# 1. 所有八等爵位的增删都经过本文件，保持特质互斥。
+# 2. 自动爵位只依据合法父亲的当前特质，不扫描全局，也不改动头衔、封臣或政府。
+# 3. 手动册封和世系夺爵通过隐藏事件沿男性子系逐代处理。
+
+SanGong_ZongShi_remove_lower_rank_traits_effect = {
+    remove_trait = SanGong_ZongShi_ZhenGuoJiangJun
+    remove_trait = SanGong_ZongShi_FuGuoJiangJun
+    remove_trait = SanGong_ZongShi_FengGuoJiangJun
+    remove_trait = SanGong_ZongShi_ZhenGuoZhongWei
+    remove_trait = SanGong_ZongShi_FuGuoZhongWei
+    remove_trait = SanGong_ZongShi_FengGuoZhongWei
+    remove_character_flag = SanGong_ZongShi_derived_rank
+}
+
+SanGong_ZongShi_remove_heir_traits_effect = {
+    remove_trait = SanGong_ZongShi_FanWangShiZi
+    remove_trait = SanGong_ZongShi_JunWangShiZi
+    remove_trait = SanGong_ZongShi_ZhenGuoJiangJunZhangZi
+    remove_trait = SanGong_ZongShi_FuGuoJiangJunZhangZi
+    remove_trait = SanGong_ZongShi_FengGuoJiangJunZhangZi
+    remove_trait = SanGong_ZongShi_ZhenGuoZhongWeiZhangZi
+    remove_trait = SanGong_ZongShi_FuGuoZhongWeiZhangZi
+    remove_trait = SanGong_ZongShi_FengGuoZhongWeiZhangZi
+}
+
+SanGong_ZongShi_remove_rank_traits_effect = {
+    remove_trait = SanGong_FanWang
+    remove_trait = SanGong_JunWang
+    SanGong_ZongShi_remove_lower_rank_traits_effect = yes
+    SanGong_ZongShi_remove_heir_traits_effect = yes
+    remove_character_flag = SanGong_ZongShi_FengGuo_heir
+    SanGong_ZongShi_clear_pending_rank_flags_effect = yes
+    SanGong_ZongShi_clear_crown_pending_rank_flags_effect = yes
+}
+
+SanGong_ZongShi_clear_pending_rank_flags_effect = {
+    remove_character_flag = SanGong_ZongShi_pending_ZhenGuoJiangJun
+    remove_character_flag = SanGong_ZongShi_pending_FuGuoJiangJun
+    remove_character_flag = SanGong_ZongShi_pending_FengGuoJiangJun
+    remove_character_flag = SanGong_ZongShi_pending_ZhenGuoZhongWei
+    remove_character_flag = SanGong_ZongShi_pending_FuGuoZhongWei
+    remove_character_flag = SanGong_ZongShi_pending_FengGuoZhongWei
+}
+
+SanGong_ZongShi_clear_crown_pending_rank_flags_effect = {
+    remove_character_flag = SanGong_ZongShi_crown_pending_ZhenGuoJiangJun
+    remove_character_flag = SanGong_ZongShi_crown_pending_FuGuoJiangJun
+    remove_character_flag = SanGong_ZongShi_crown_pending_FengGuoJiangJun
+    remove_character_flag = SanGong_ZongShi_crown_pending_ZhenGuoZhongWei
+    remove_character_flag = SanGong_ZongShi_crown_pending_FuGuoZhongWei
+    remove_character_flag = SanGong_ZongShi_crown_pending_FengGuoZhongWei
+}
+
+# “只夺本人”需要保留原父爵等级，供之后出生的儿子继续派生；
+# 这些是内部状态，不是 UI 爵位，也不会改变特质互斥规则。
+SanGong_ZongShi_clear_self_stripped_source_flags_effect = {
+    remove_character_flag = SanGong_ZongShi_self_stripped_source_FanWang
+    remove_character_flag = SanGong_ZongShi_self_stripped_source_JunWang
+    remove_character_flag = SanGong_ZongShi_self_stripped_source_ZhenGuoJiangJun
+    remove_character_flag = SanGong_ZongShi_self_stripped_source_FuGuoJiangJun
+    remove_character_flag = SanGong_ZongShi_self_stripped_source_FengGuoJiangJun
+    remove_character_flag = SanGong_ZongShi_self_stripped_source_ZhenGuoZhongWei
+    remove_character_flag = SanGong_ZongShi_self_stripped_source_FuGuoZhongWei
+    remove_character_flag = SanGong_ZongShi_self_stripped_source_FengGuoZhongWei
+}
+
+# 原版没有 disinherited 特质变更 on-action；生日收敛点会暂存一次待刷新状态，
+# 但角色被手动改成新宗室/实封路径后，这个暂存必须失效，避免之后恢复继承权时
+# 再次刷新一条已经被明确覆盖或压制的父支。
+SanGong_ZongShi_clear_disinherit_refresh_flag_effect = {
+    remove_character_flag = SanGong_ZongShi_disinherit_refresh_pending
+}
+
+SanGong_ZongShi_remember_self_stripped_source_effect = {
+    SanGong_ZongShi_clear_self_stripped_source_flags_effect = yes
+    if = {
+        limit = { has_trait = SanGong_FanWang }
+        add_character_flag = SanGong_ZongShi_self_stripped_source_FanWang
+    }
+    else_if = {
+        limit = { has_trait = SanGong_JunWang }
+        add_character_flag = SanGong_ZongShi_self_stripped_source_JunWang
+    }
+    else_if = {
+        limit = { has_trait = SanGong_ZongShi_ZhenGuoJiangJun }
+        add_character_flag = SanGong_ZongShi_self_stripped_source_ZhenGuoJiangJun
+    }
+    else_if = {
+        limit = { has_trait = SanGong_ZongShi_FuGuoJiangJun }
+        add_character_flag = SanGong_ZongShi_self_stripped_source_FuGuoJiangJun
+    }
+    else_if = {
+        limit = { has_trait = SanGong_ZongShi_FengGuoJiangJun }
+        add_character_flag = SanGong_ZongShi_self_stripped_source_FengGuoJiangJun
+    }
+    else_if = {
+        limit = { has_trait = SanGong_ZongShi_ZhenGuoZhongWei }
+        add_character_flag = SanGong_ZongShi_self_stripped_source_ZhenGuoZhongWei
+    }
+    else_if = {
+        limit = { has_trait = SanGong_ZongShi_FuGuoZhongWei }
+        add_character_flag = SanGong_ZongShi_self_stripped_source_FuGuoZhongWei
+    }
+    else_if = {
+        limit = { has_trait = SanGong_ZongShi_FengGuoZhongWei }
+        add_character_flag = SanGong_ZongShi_self_stripped_source_FengGuoZhongWei
+    }
+    else_if = {
+        limit = {
+            OR = {
+                has_trait = SanGong_ZongShi_FanWangShiZi
+                has_trait = SanGong_ZongShi_JunWangShiZi
+            }
+        }
+        add_character_flag = SanGong_ZongShi_self_stripped_source_ZhenGuoJiangJun
+    }
+    else_if = {
+        limit = { has_trait = SanGong_ZongShi_ZhenGuoJiangJunZhangZi }
+        add_character_flag = SanGong_ZongShi_self_stripped_source_FuGuoJiangJun
+    }
+    else_if = {
+        limit = { has_trait = SanGong_ZongShi_FuGuoJiangJunZhangZi }
+        add_character_flag = SanGong_ZongShi_self_stripped_source_FengGuoJiangJun
+    }
+    else_if = {
+        limit = { has_trait = SanGong_ZongShi_FengGuoJiangJunZhangZi }
+        add_character_flag = SanGong_ZongShi_self_stripped_source_ZhenGuoZhongWei
+    }
+    else_if = {
+        limit = { has_trait = SanGong_ZongShi_ZhenGuoZhongWeiZhangZi }
+        add_character_flag = SanGong_ZongShi_self_stripped_source_FuGuoZhongWei
+    }
+    else_if = {
+        limit = {
+            OR = {
+                has_trait = SanGong_ZongShi_FuGuoZhongWeiZhangZi
+                has_trait = SanGong_ZongShi_FengGuoZhongWeiZhangZi
+            }
+        }
+        # 终级有效爵位的子代没有下一等特质；这里只保留 self_stripped 状态。
+    }
+}
+
+# 在当前候选人已没有较高宗室爵位时，以继承人特质替换其同级或较低的衍生爵位。
+SanGong_ZongShi_set_heir_trait_effect = {
+    # 继承人身份优先于此前记录的未成年待承袭状态；否则成年入口
+    # 可能重新兑现旧爵位，造成继承人特质与正式爵位并存。
+    SanGong_ZongShi_clear_pending_rank_flags_effect = yes
+    SanGong_ZongShi_remove_lower_rank_traits_effect = yes
+    SanGong_ZongShi_remove_heir_traits_effect = yes
+    add_trait = $HEIR_TRAIT$
+    add_character_flag = SanGong_ZongShi_lineage_member
+}
+
+# 选中一支最早的长房后，沿死亡中间节点继续向下，直到取得首位在世合法男性。
+SanGong_ZongShi_find_long_house_heir_effect = {
+    if = {
+        limit = { is_alive = yes }
+        save_scope_as = New_FanWang
+        save_scope_as = SanGong_ZongShi_long_house_heir
+    }
+    else = {
+        ordered_child = {
+            limit = { SanGong_ZongShi_heir_branch_candidate_trigger = yes }
+            order_by = {
+                value = age
+                if = {
+                    limit = { SanGong_ZongShi_designated_heir_trigger = yes }
+                    add = 1000
+                }
+            }
+            max = 1
+            SanGong_ZongShi_find_long_house_heir_effect = yes
+        }
+    }
+}
+
+SanGong_ZongShi_find_fanwang_long_house_heir_effect = {
+    if = {
+        limit = {
+            is_alive = yes
+            is_imprisoned = no
+            NOT = {
+                OR = {
+                    has_trait = SanGong_Taizi
+                    has_trait = SanGong_TaiSun
+                }
+            }
+        }
+        save_scope_as = New_FanWang
+        save_scope_as = SanGong_ZongShi_long_house_heir
+    }
+    else = {
+        ordered_child = {
+            limit = { SanGong_ZongShi_fanwang_heir_branch_candidate_trigger = yes }
+            order_by = {
+                value = age
+                if = {
+                    limit = { SanGong_ZongShi_designated_heir_trigger = yes }
+                    add = 1000
+                }
+            }
+            max = 1
+            SanGong_ZongShi_find_fanwang_long_house_heir_effect = yes
+        }
+    }
+}
+
+SanGong_ZongShi_find_junwang_long_house_heir_effect = {
+    if = {
+        limit = {
+            is_alive = yes
+            is_imprisoned = no
+            NOT = {
+                OR = {
+                    has_trait = SanGong_Taizi
+                    has_trait = SanGong_TaiSun
+                }
+            }
+        }
+        save_scope_as = New_FanWang
+        save_scope_as = SanGong_ZongShi_long_house_heir
+    }
+    else = {
+        ordered_child = {
+            limit = { SanGong_ZongShi_junwang_heir_branch_candidate_trigger = yes }
+            order_by = {
+                value = age
+                if = {
+                    limit = { SanGong_ZongShi_designated_heir_trigger = yes }
+                    add = 1000
+                }
+            }
+            max = 1
+            SanGong_ZongShi_find_junwang_long_house_heir_effect = yes
+        }
+    }
+}
+
+# “查看爵位继承人”只读取同一套长房选择器，不改变任何角色状态。
+SanGong_ZongShi_find_heir_for_view_effect = {
+    save_scope_as = SanGong_ZongShi_rank_source
+    if = {
+        limit = {
+            has_trait = SanGong_FanWang
+            any_child = { SanGong_ZongShi_fanwang_heir_branch_candidate_trigger = yes }
+        }
+        ordered_child = {
+            limit = { SanGong_ZongShi_fanwang_heir_branch_candidate_trigger = yes }
+            order_by = {
+                value = age
+                if = {
+                    limit = { SanGong_ZongShi_designated_heir_trigger = yes }
+                    add = 1000
+                }
+            }
+            max = 1
+            SanGong_ZongShi_find_fanwang_long_house_heir_effect = yes
+        }
+    }
+    else_if = {
+        limit = {
+            has_trait = SanGong_JunWang
+            any_child = { SanGong_ZongShi_junwang_heir_branch_candidate_trigger = yes }
+        }
+        ordered_child = {
+            limit = { SanGong_ZongShi_junwang_heir_branch_candidate_trigger = yes }
+            order_by = {
+                value = age
+                if = {
+                    limit = { SanGong_ZongShi_designated_heir_trigger = yes }
+                    add = 1000
+                }
+            }
+            max = 1
+            SanGong_ZongShi_find_junwang_long_house_heir_effect = yes
+        }
+    }
+    else_if = {
+        limit = {
+            any_child = { SanGong_ZongShi_heir_branch_candidate_trigger = yes }
+        }
+        ordered_child = {
+            limit = { SanGong_ZongShi_heir_branch_candidate_trigger = yes }
+            order_by = {
+                value = age
+                if = {
+                    limit = { SanGong_ZongShi_designated_heir_trigger = yes }
+                    add = 1000
+                }
+            }
+            max = 1
+            SanGong_ZongShi_find_long_house_heir_effect = yes
+        }
+    }
+}
+
+# 按家支清空并重建继承人特质。先清理后按“子支先、父支后”的顺序回填，
+# 令上级父爵的世子身份在最终写入时优先于死亡中间节点留下的旧状态。
+SanGong_ZongShi_clear_heir_subtree_effect = {
+    if = {
+        limit = {
+            NOT = {
+                OR = {
+                    has_character_flag = SanGong_ZongShi_self_stripped
+                    has_character_flag = SanGong_ZongShi_lineage_stripped
+                    SanGong_ZongShi_feudatory_path_trigger = yes
+                }
+            }
+            SanGong_ZongShi_heir_trait_trigger = yes
+        }
+        SanGong_ZongShi_remove_heir_traits_effect = yes
+        if = {
+            limit = {
+                # 死亡的成年世子/长子仍需回填为其等价的正式下级爵位，
+                # 否则其存活孙辈无法沿父系取得下一等爵位。
+                is_adult = yes
+                NOT = { SanGong_ZongShi_protected_target_trigger = yes }
+                NOT = { SanGong_ZongShi_rank_suppressed_trigger = yes }
+            }
+            SanGong_ZongShi_resolve_from_father_effect = yes
+        }
+    }
+    if = {
+        limit = {
+            NOT = {
+                OR = {
+                    has_character_flag = SanGong_ZongShi_self_stripped
+                    has_character_flag = SanGong_ZongShi_lineage_stripped
+                    SanGong_ZongShi_feudatory_path_trigger = yes
+                }
+            }
+        }
+        every_child = {
+            even_if_dead = yes
+            limit = { is_male = yes }
+            SanGong_ZongShi_clear_heir_subtree_effect = yes
+        }
+    }
+}
+
+SanGong_ZongShi_rebuild_heir_subtree_effect = {
+    if = {
+        limit = {
+            NOT = {
+                OR = {
+                    has_character_flag = SanGong_ZongShi_self_stripped
+                    has_character_flag = SanGong_ZongShi_lineage_stripped
+                    SanGong_ZongShi_feudatory_path_trigger = yes
+                }
+            }
+        }
+        every_child = {
+            even_if_dead = yes
+            limit = { is_male = yes }
+            SanGong_ZongShi_rebuild_heir_subtree_effect = yes
+        }
+        SanGong_ZongShi_assign_heir_identity_effect = yes
+    }
+}
+
+SanGong_ZongShi_refresh_heir_branch_effect = {
+    # 所有调用方都可能直接刷新父支；在统一入口保存当前持爵人，
+    # 让长房候选触发器始终能读取同一最高领主边界。
+    save_scope_as = SanGong_ZongShi_rank_source
+    every_child = {
+        even_if_dead = yes
+        limit = { is_male = yes }
+        SanGong_ZongShi_clear_heir_subtree_effect = yes
+    }
+    every_child = {
+        even_if_dead = yes
+        limit = { is_male = yes }
+        SanGong_ZongShi_rebuild_heir_subtree_effect = yes
+    }
+    SanGong_ZongShi_assign_heir_identity_effect = yes
+}
+
+# 当前角色的直接父亲可能只是世子／长子，而不是实际持爵人；沿男性父系
+# 向上找到最近的可继承爵位持有人，确保孙辈死亡、囚禁或改换领主时也能
+# 重算真正受影响的继承支系。太子和后宫实封路径在这里保持隔离。
+SanGong_ZongShi_refresh_ancestor_heir_branch_effect = {
+    if = {
+        limit = { exists = father }
+        father = {
+            if = {
+                limit = { SanGong_ZongShi_inheritable_rank_holder_trigger = yes }
+                SanGong_ZongShi_refresh_heir_branch_effect = yes
+            }
+            else_if = {
+                limit = {
+                    NOT = { has_trait = SanGong_Taizi }
+                    NOT = { has_trait = SanGong_TaiSun }
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                    OR = {
+                        has_character_flag = SanGong_ZongShi_lineage_member
+                        has_character_flag = SanGong_ZongShi_manual_root
+                        has_character_flag = SanGong_ZongShi_self_stripped
+                        has_character_flag = SanGong_ZongShi_lineage_stripped
+                        SanGong_ZongShi_rank_trait_trigger = yes
+                        SanGong_ZongShi_heir_trait_trigger = yes
+                    }
+                }
+                SanGong_ZongShi_refresh_ancestor_heir_branch_effect = yes
+            }
+            else_if = {
+                limit = {
+                    SanGong_ZongShi_crown_line_source_trigger = yes
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                }
+                # 王储本人的状态受保护，但他的男性子代仍必须继续进入递归。
+                SanGong_ZongShi_rebuild_rank_descendants_effect = yes
+            }
+        }
+    }
+}
+
+SanGong_ZongShi_assign_heir_identity_effect = {
+    if = {
+        limit = {
+            SanGong_ZongShi_inheritable_rank_holder_trigger = yes
+            OR = {
+                AND = { has_trait = SanGong_FanWang any_child = { SanGong_ZongShi_fanwang_heir_branch_candidate_trigger = yes } }
+                AND = { has_trait = SanGong_JunWang any_child = { SanGong_ZongShi_junwang_heir_branch_candidate_trigger = yes } }
+                AND = {
+                    NOT = { OR = { has_trait = SanGong_FanWang has_trait = SanGong_JunWang } }
+                    any_child = { SanGong_ZongShi_heir_branch_candidate_trigger = yes }
+                }
+            }
+        }
+        save_scope_as = SanGong_ZongShi_rank_source
+        if = {
+            limit = { has_trait = SanGong_FanWang }
+            ordered_child = {
+                limit = { SanGong_ZongShi_fanwang_heir_branch_candidate_trigger = yes }
+                order_by = {
+                    value = age
+                    if = {
+                        limit = { SanGong_ZongShi_designated_heir_trigger = yes }
+                        add = 1000
+                    }
+                }
+                max = 1
+                SanGong_ZongShi_find_fanwang_long_house_heir_effect = yes
+            }
+        }
+        else_if = {
+            limit = { has_trait = SanGong_JunWang }
+            ordered_child = {
+                limit = { SanGong_ZongShi_junwang_heir_branch_candidate_trigger = yes }
+                order_by = {
+                    value = age
+                    if = {
+                        limit = { SanGong_ZongShi_designated_heir_trigger = yes }
+                        add = 1000
+                    }
+                }
+                max = 1
+                SanGong_ZongShi_find_junwang_long_house_heir_effect = yes
+            }
+        }
+        else = {
+            ordered_child = {
+                limit = { SanGong_ZongShi_heir_branch_candidate_trigger = yes }
+                order_by = {
+                    value = age
+                    if = {
+                        limit = { SanGong_ZongShi_designated_heir_trigger = yes }
+                        add = 1000
+                    }
+                }
+                max = 1
+                SanGong_ZongShi_find_long_house_heir_effect = yes
+            }
+        }
+        if = {
+            limit = { has_trait = SanGong_FanWang }
+            scope:SanGong_ZongShi_long_house_heir = {
+                SanGong_ZongShi_try_set_FanWangShiZi_effect = yes
+            }
+        }
+        else_if = {
+            limit = { has_trait = SanGong_JunWang }
+            scope:SanGong_ZongShi_long_house_heir = {
+                SanGong_ZongShi_try_set_JunWangShiZi_effect = yes
+            }
+        }
+        else_if = {
+            limit = { has_trait = SanGong_ZongShi_ZhenGuoJiangJun }
+            scope:SanGong_ZongShi_long_house_heir = {
+                SanGong_ZongShi_try_set_ZhenGuoJiangJunZhangZi_effect = yes
+            }
+        }
+        else_if = {
+            limit = { has_trait = SanGong_ZongShi_FuGuoJiangJun }
+            scope:SanGong_ZongShi_long_house_heir = {
+                SanGong_ZongShi_try_set_FuGuoJiangJunZhangZi_effect = yes
+            }
+        }
+        else_if = {
+            limit = { has_trait = SanGong_ZongShi_FengGuoJiangJun }
+            scope:SanGong_ZongShi_long_house_heir = {
+                SanGong_ZongShi_try_set_FengGuoJiangJunZhangZi_effect = yes
+            }
+        }
+        else_if = {
+            limit = { has_trait = SanGong_ZongShi_ZhenGuoZhongWei }
+            scope:SanGong_ZongShi_long_house_heir = {
+                SanGong_ZongShi_try_set_ZhenGuoZhongWeiZhangZi_effect = yes
+            }
+        }
+        else_if = {
+            limit = { has_trait = SanGong_ZongShi_FuGuoZhongWei }
+            scope:SanGong_ZongShi_long_house_heir = {
+                SanGong_ZongShi_try_set_FuGuoZhongWeiZhangZi_effect = yes
+            }
+        }
+        else_if = {
+            limit = { has_trait = SanGong_ZongShi_FengGuoZhongWei }
+            scope:SanGong_ZongShi_long_house_heir = {
+                SanGong_ZongShi_try_set_FengGuoZhongWeiZhangZi_effect = yes
+            }
+        }
+    }
+}
+
+SanGong_ZongShi_try_set_FanWangShiZi_effect = {
+    if = {
+        limit = {
+            is_adult = yes
+            NOT = { SanGong_ZongShi_rank_suppressed_trigger = yes }
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+            NOT = { OR = { has_trait = SanGong_Taizi has_trait = SanGong_TaiSun has_trait = SanGong_FanWang has_trait = SanGong_JunWang } }
+        }
+        SanGong_ZongShi_set_heir_trait_effect = { HEIR_TRAIT = SanGong_ZongShi_FanWangShiZi }
+    }
+}
+
+SanGong_ZongShi_try_set_JunWangShiZi_effect = {
+    if = {
+        limit = {
+            is_adult = yes
+            NOT = { SanGong_ZongShi_rank_suppressed_trigger = yes }
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+            NOT = { OR = { has_trait = SanGong_Taizi has_trait = SanGong_TaiSun has_trait = SanGong_FanWang has_trait = SanGong_JunWang } }
+        }
+        SanGong_ZongShi_set_heir_trait_effect = { HEIR_TRAIT = SanGong_ZongShi_JunWangShiZi }
+    }
+}
+
+SanGong_ZongShi_try_set_ZhenGuoJiangJunZhangZi_effect = {
+    if = {
+        limit = {
+            is_adult = yes
+            NOT = { SanGong_ZongShi_rank_suppressed_trigger = yes }
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+            NOT = { OR = { has_trait = SanGong_Taizi has_trait = SanGong_TaiSun has_trait = SanGong_FanWang has_trait = SanGong_JunWang has_trait = SanGong_ZongShi_ZhenGuoJiangJun } }
+        }
+        SanGong_ZongShi_set_heir_trait_effect = { HEIR_TRAIT = SanGong_ZongShi_ZhenGuoJiangJunZhangZi }
+    }
+}
+
+SanGong_ZongShi_try_set_FuGuoJiangJunZhangZi_effect = {
+    if = {
+        limit = {
+            is_adult = yes
+            NOT = { SanGong_ZongShi_rank_suppressed_trigger = yes }
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+            NOT = { OR = { has_trait = SanGong_Taizi has_trait = SanGong_TaiSun has_trait = SanGong_FanWang has_trait = SanGong_JunWang has_trait = SanGong_ZongShi_ZhenGuoJiangJun has_trait = SanGong_ZongShi_FuGuoJiangJun } }
+        }
+        SanGong_ZongShi_set_heir_trait_effect = { HEIR_TRAIT = SanGong_ZongShi_FuGuoJiangJunZhangZi }
+    }
+}
+
+SanGong_ZongShi_try_set_FengGuoJiangJunZhangZi_effect = {
+    if = {
+        limit = {
+            is_adult = yes
+            NOT = { SanGong_ZongShi_rank_suppressed_trigger = yes }
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+            NOT = { OR = { has_trait = SanGong_Taizi has_trait = SanGong_TaiSun has_trait = SanGong_FanWang has_trait = SanGong_JunWang has_trait = SanGong_ZongShi_ZhenGuoJiangJun has_trait = SanGong_ZongShi_FuGuoJiangJun has_trait = SanGong_ZongShi_FengGuoJiangJun } }
+        }
+        SanGong_ZongShi_set_heir_trait_effect = { HEIR_TRAIT = SanGong_ZongShi_FengGuoJiangJunZhangZi }
+    }
+}
+
+SanGong_ZongShi_try_set_ZhenGuoZhongWeiZhangZi_effect = {
+    if = {
+        limit = {
+            is_adult = yes
+            NOT = { SanGong_ZongShi_rank_suppressed_trigger = yes }
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+            NOT = { OR = { has_trait = SanGong_Taizi has_trait = SanGong_TaiSun has_trait = SanGong_FanWang has_trait = SanGong_JunWang has_trait = SanGong_ZongShi_ZhenGuoJiangJun has_trait = SanGong_ZongShi_FuGuoJiangJun has_trait = SanGong_ZongShi_FengGuoJiangJun has_trait = SanGong_ZongShi_ZhenGuoZhongWei } }
+        }
+        SanGong_ZongShi_set_heir_trait_effect = { HEIR_TRAIT = SanGong_ZongShi_ZhenGuoZhongWeiZhangZi }
+    }
+}
+
+SanGong_ZongShi_try_set_FuGuoZhongWeiZhangZi_effect = {
+    if = {
+        limit = {
+            is_adult = yes
+            NOT = { SanGong_ZongShi_rank_suppressed_trigger = yes }
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+            NOT = { OR = { has_trait = SanGong_Taizi has_trait = SanGong_TaiSun has_trait = SanGong_FanWang has_trait = SanGong_JunWang has_trait = SanGong_ZongShi_ZhenGuoJiangJun has_trait = SanGong_ZongShi_FuGuoJiangJun has_trait = SanGong_ZongShi_FengGuoJiangJun has_trait = SanGong_ZongShi_ZhenGuoZhongWei has_trait = SanGong_ZongShi_FuGuoZhongWei } }
+        }
+        SanGong_ZongShi_set_heir_trait_effect = { HEIR_TRAIT = SanGong_ZongShi_FuGuoZhongWeiZhangZi }
+    }
+}
+
+SanGong_ZongShi_try_set_FengGuoZhongWeiZhangZi_effect = {
+    if = {
+        limit = {
+            is_adult = yes
+            NOT = { SanGong_ZongShi_rank_suppressed_trigger = yes }
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+            NOT = { OR = { has_trait = SanGong_Taizi has_trait = SanGong_TaiSun has_trait = SanGong_FanWang has_trait = SanGong_JunWang has_trait = SanGong_ZongShi_ZhenGuoJiangJun has_trait = SanGong_ZongShi_FuGuoJiangJun has_trait = SanGong_ZongShi_FengGuoJiangJun has_trait = SanGong_ZongShi_ZhenGuoZhongWei has_trait = SanGong_ZongShi_FuGuoZhongWei } }
+        }
+        SanGong_ZongShi_set_heir_trait_effect = { HEIR_TRAIT = SanGong_ZongShi_FengGuoZhongWeiZhangZi }
+    }
+}
+
+SanGong_ZongShi_reset_rank_state_effect = {
+    SanGong_ZongShi_remove_rank_traits_effect = yes
+    SanGong_ZongShi_clear_self_stripped_source_flags_effect = yes
+    SanGong_ZongShi_clear_disinherit_refresh_flag_effect = yes
+    remove_character_flag = SanGong_ZongShi_lineage_member
+    remove_character_flag = SanGong_ZongShi_manual_root
+    remove_character_flag = SanGong_ZongShi_manual_lower_rank_root
+    remove_character_flag = SanGong_ZongShi_feudatory_root
+    remove_character_flag = SanGong_ZongShi_neutral_royal_rank_source
+    remove_character_flag = SanGong_ZongShi_self_stripped
+    remove_character_flag = SanGong_ZongShi_lineage_stripped
+}
+
+SanGong_ZongShi_set_derived_rank_effect = {
+    SanGong_ZongShi_remove_rank_traits_effect = yes
+    SanGong_ZongShi_clear_self_stripped_source_flags_effect = yes
+    SanGong_ZongShi_clear_crown_pending_rank_flags_effect = yes
+    add_trait = $RANK$
+    add_character_flag = SanGong_ZongShi_derived_rank
+    add_character_flag = SanGong_ZongShi_lineage_member
+}
+
+SanGong_ZongShi_set_manual_lower_rank_effect = {
+    SanGong_ZongShi_set_derived_rank_effect = { RANK = $RANK$ }
+    remove_character_flag = SanGong_ZongShi_self_stripped
+    remove_character_flag = SanGong_ZongShi_lineage_stripped
+    add_character_flag = SanGong_ZongShi_manual_lower_rank_root
+    SanGong_ZongShi_rebuild_rank_descendants_effect = yes
+    SanGong_ZongShi_refresh_heir_branch_effect = yes
+    trigger_event = { id = SanGong_ZongShi_Rank.101 days = 2 }
+    if = {
+        limit = { exists = father }
+        SanGong_ZongShi_refresh_ancestor_heir_branch_effect = yes
+    }
+}
+
+SanGong_ZongShi_apply_crown_pending_rank_effect = {
+    if = {
+        limit = { has_character_flag = SanGong_ZongShi_crown_pending_ZhenGuoJiangJun }
+        SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_ZhenGuoJiangJun }
+    }
+    else_if = {
+        limit = { has_character_flag = SanGong_ZongShi_crown_pending_FuGuoJiangJun }
+        SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FuGuoJiangJun }
+    }
+    else_if = {
+        limit = { has_character_flag = SanGong_ZongShi_crown_pending_FengGuoJiangJun }
+        SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FengGuoJiangJun }
+    }
+    else_if = {
+        limit = { has_character_flag = SanGong_ZongShi_crown_pending_ZhenGuoZhongWei }
+        SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_ZhenGuoZhongWei }
+    }
+    else_if = {
+        limit = { has_character_flag = SanGong_ZongShi_crown_pending_FuGuoZhongWei }
+        SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FuGuoZhongWei }
+    }
+    else_if = {
+        limit = { has_character_flag = SanGong_ZongShi_crown_pending_FengGuoZhongWei }
+        SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FengGuoZhongWei }
+    }
+}
+
+# 正式袭爵发生在未成年角色身上时，只记录待成年授予的同级爵位；
+# 这样不会让未成年角色提前获得特质，但不会丢失父爵死亡这一继承事实。
+SanGong_ZongShi_apply_pending_rank_effect = {
+    if = {
+        limit = { has_character_flag = SanGong_ZongShi_pending_ZhenGuoJiangJun }
+        SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_ZhenGuoJiangJun }
+    }
+    else_if = {
+        limit = { has_character_flag = SanGong_ZongShi_pending_FuGuoJiangJun }
+        SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FuGuoJiangJun }
+    }
+    else_if = {
+        limit = { has_character_flag = SanGong_ZongShi_pending_FengGuoJiangJun }
+        SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FengGuoJiangJun }
+    }
+    else_if = {
+        limit = { has_character_flag = SanGong_ZongShi_pending_ZhenGuoZhongWei }
+        SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_ZhenGuoZhongWei }
+    }
+    else_if = {
+        limit = { has_character_flag = SanGong_ZongShi_pending_FuGuoZhongWei }
+        SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FuGuoZhongWei }
+    }
+    else_if = {
+        limit = { has_character_flag = SanGong_ZongShi_pending_FengGuoZhongWei }
+        SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FengGuoZhongWei }
+    }
+}
+
+# 下级正式袭爵：先以长房规则锁定唯一候选人；若其已有更高爵位，
+# 该高爵吸收父爵而不改立弟支。普通候选人则提升为亡父同级爵位。
+SanGong_ZongShi_promote_to_dead_rank_effect = {
+    # 同一未成年角色可能在成年以前经历多次父支重算；只保留本次
+    # 当前父爵死亡事件写入的 pending 爵位，避免旧标记按分支顺序误兑现。
+    SanGong_ZongShi_clear_pending_rank_flags_effect = yes
+    if = {
+        limit = {
+            scope:SanGong_ZongShi_dead_rank_holder = { has_trait = SanGong_ZongShi_ZhenGuoJiangJun }
+            NOT = { OR = { has_trait = SanGong_Taizi has_trait = SanGong_TaiSun has_trait = SanGong_FanWang has_trait = SanGong_JunWang } }
+        }
+        if = {
+            limit = { is_adult = yes }
+            remove_character_flag = SanGong_ZongShi_manual_root
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_ZhenGuoJiangJun }
+            SanGong_ZongShi_refresh_heir_branch_effect = yes
+        }
+        else = {
+            SanGong_ZongShi_remove_lower_rank_traits_effect = yes
+            SanGong_ZongShi_remove_heir_traits_effect = yes
+            add_character_flag = SanGong_ZongShi_pending_ZhenGuoJiangJun
+            add_character_flag = SanGong_ZongShi_lineage_member
+        }
+    }
+    else_if = {
+        limit = {
+            scope:SanGong_ZongShi_dead_rank_holder = { has_trait = SanGong_ZongShi_FuGuoJiangJun }
+            NOT = { OR = { has_trait = SanGong_Taizi has_trait = SanGong_TaiSun has_trait = SanGong_FanWang has_trait = SanGong_JunWang has_trait = SanGong_ZongShi_ZhenGuoJiangJun } }
+        }
+        if = {
+            limit = { is_adult = yes }
+            remove_character_flag = SanGong_ZongShi_manual_root
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FuGuoJiangJun }
+            SanGong_ZongShi_refresh_heir_branch_effect = yes
+        }
+        else = {
+            SanGong_ZongShi_remove_lower_rank_traits_effect = yes
+            SanGong_ZongShi_remove_heir_traits_effect = yes
+            add_character_flag = SanGong_ZongShi_pending_FuGuoJiangJun
+            add_character_flag = SanGong_ZongShi_lineage_member
+        }
+    }
+    else_if = {
+        limit = {
+            scope:SanGong_ZongShi_dead_rank_holder = { has_trait = SanGong_ZongShi_FengGuoJiangJun }
+            NOT = { OR = { has_trait = SanGong_Taizi has_trait = SanGong_TaiSun has_trait = SanGong_FanWang has_trait = SanGong_JunWang has_trait = SanGong_ZongShi_ZhenGuoJiangJun has_trait = SanGong_ZongShi_FuGuoJiangJun } }
+        }
+        if = {
+            limit = { is_adult = yes }
+            remove_character_flag = SanGong_ZongShi_manual_root
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FengGuoJiangJun }
+            SanGong_ZongShi_refresh_heir_branch_effect = yes
+        }
+        else = {
+            SanGong_ZongShi_remove_lower_rank_traits_effect = yes
+            SanGong_ZongShi_remove_heir_traits_effect = yes
+            add_character_flag = SanGong_ZongShi_pending_FengGuoJiangJun
+            add_character_flag = SanGong_ZongShi_lineage_member
+        }
+    }
+    else_if = {
+        limit = {
+            scope:SanGong_ZongShi_dead_rank_holder = { has_trait = SanGong_ZongShi_ZhenGuoZhongWei }
+            NOT = { OR = { has_trait = SanGong_Taizi has_trait = SanGong_TaiSun has_trait = SanGong_FanWang has_trait = SanGong_JunWang has_trait = SanGong_ZongShi_ZhenGuoJiangJun has_trait = SanGong_ZongShi_FuGuoJiangJun has_trait = SanGong_ZongShi_FengGuoJiangJun } }
+        }
+        if = {
+            limit = { is_adult = yes }
+            remove_character_flag = SanGong_ZongShi_manual_root
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_ZhenGuoZhongWei }
+            SanGong_ZongShi_refresh_heir_branch_effect = yes
+        }
+        else = {
+            SanGong_ZongShi_remove_lower_rank_traits_effect = yes
+            SanGong_ZongShi_remove_heir_traits_effect = yes
+            add_character_flag = SanGong_ZongShi_pending_ZhenGuoZhongWei
+            add_character_flag = SanGong_ZongShi_lineage_member
+        }
+    }
+    else_if = {
+        limit = {
+            scope:SanGong_ZongShi_dead_rank_holder = { has_trait = SanGong_ZongShi_FuGuoZhongWei }
+            NOT = { OR = { has_trait = SanGong_Taizi has_trait = SanGong_TaiSun has_trait = SanGong_FanWang has_trait = SanGong_JunWang has_trait = SanGong_ZongShi_ZhenGuoJiangJun has_trait = SanGong_ZongShi_FuGuoJiangJun has_trait = SanGong_ZongShi_FengGuoJiangJun has_trait = SanGong_ZongShi_ZhenGuoZhongWei } }
+        }
+        if = {
+            limit = { is_adult = yes }
+            remove_character_flag = SanGong_ZongShi_manual_root
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FuGuoZhongWei }
+            SanGong_ZongShi_refresh_heir_branch_effect = yes
+        }
+        else = {
+            SanGong_ZongShi_remove_lower_rank_traits_effect = yes
+            SanGong_ZongShi_remove_heir_traits_effect = yes
+            add_character_flag = SanGong_ZongShi_pending_FuGuoZhongWei
+            add_character_flag = SanGong_ZongShi_lineage_member
+        }
+    }
+    else_if = {
+        limit = {
+            scope:SanGong_ZongShi_dead_rank_holder = { has_trait = SanGong_ZongShi_FengGuoZhongWei }
+            NOT = { OR = { has_trait = SanGong_Taizi has_trait = SanGong_TaiSun has_trait = SanGong_FanWang has_trait = SanGong_JunWang has_trait = SanGong_ZongShi_ZhenGuoJiangJun has_trait = SanGong_ZongShi_FuGuoJiangJun has_trait = SanGong_ZongShi_FengGuoJiangJun has_trait = SanGong_ZongShi_ZhenGuoZhongWei has_trait = SanGong_ZongShi_FuGuoZhongWei } }
+        }
+        if = {
+            limit = { is_adult = yes }
+            remove_character_flag = SanGong_ZongShi_manual_root
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FengGuoZhongWei }
+            SanGong_ZongShi_refresh_heir_branch_effect = yes
+        }
+        else = {
+            SanGong_ZongShi_remove_lower_rank_traits_effect = yes
+            SanGong_ZongShi_remove_heir_traits_effect = yes
+            add_character_flag = SanGong_ZongShi_pending_FengGuoZhongWei
+            add_character_flag = SanGong_ZongShi_lineage_member
+        }
+    }
+}
+
+SanGong_ZongShi_promote_rank_heir_effect = {
+    # 候选触发器需要读取同一最高领主边界，必须先保存来源角色。
+    save_scope_as = SanGong_ZongShi_rank_source
+    if = {
+        limit = {
+            SanGong_ZongShi_lower_rank_trigger = yes
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+            any_child = { SanGong_ZongShi_heir_branch_candidate_trigger = yes }
+        }
+        save_scope_as = SanGong_ZongShi_dead_rank_holder
+        ordered_child = {
+            limit = { SanGong_ZongShi_heir_branch_candidate_trigger = yes }
+            order_by = {
+                value = age
+                if = {
+                    limit = { SanGong_ZongShi_designated_heir_trigger = yes }
+                    add = 1000
+                }
+            }
+            max = 1
+            SanGong_ZongShi_find_long_house_heir_effect = yes
+        }
+        scope:SanGong_ZongShi_long_house_heir = {
+            SanGong_ZongShi_promote_to_dead_rank_effect = yes
+        }
+    }
+}
+
+# 手动册封亲王/郡王：覆盖本人当前衍生爵位，但不触碰任何土地、封臣或政府。
+SanGong_ZongShi_set_manual_wang_effect = {
+    SanGong_ZongShi_remove_rank_traits_effect = yes
+    SanGong_ZongShi_clear_self_stripped_source_flags_effect = yes
+    SanGong_ZongShi_clear_disinherit_refresh_flag_effect = yes
+    add_trait = $WANG$
+    add_character_flag = SanGong_ZongShi_lineage_member
+    add_character_flag = SanGong_ZongShi_manual_root
+    remove_character_flag = SanGong_ZongShi_feudatory_root
+    remove_character_flag = SanGong_ZongShi_manual_lower_rank_root
+    remove_character_flag = SanGong_ZongShi_neutral_royal_rank_source
+    remove_character_flag = SanGong_ZongShi_self_stripped
+    remove_character_flag = SanGong_ZongShi_lineage_stripped
+    # 不能只刷新在世节点：父王册封发生在长子死亡之后时，孙辈需要先让死亡中间节点
+    # 重新成为可追溯的世系节点，成年时才能按“镇国将军之子”继续获得辅国将军。
+    SanGong_ZongShi_rebuild_rank_descendants_effect = yes
+    SanGong_ZongShi_refresh_heir_branch_effect = yes
+    # 子孙重建事件延迟一天；再延迟一天收尾，确保恢复爵位后继承人特质也同步。
+    trigger_event = { id = SanGong_ZongShi_Rank.101 days = 2 }
+    if = {
+        limit = { exists = father }
+        SanGong_ZongShi_refresh_ancestor_heir_branch_effect = yes
+    }
+}
+
+# 宗室谥号 on_action 在旧王爵路径中会根据头衔直接补写亲王/郡王特质。
+# 已进入新体系的角色必须复用统一入口，避免绕过互斥、世系重建和父支刷新；
+# 历史旧王爵与后宫实封仍保留原来的直接写入行为。
+SanGong_ZongShi_sync_title_wang_effect = {
+    if = {
+        limit = {
+            SanGong_ZongShi_new_system_state_trigger = yes
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+        SanGong_ZongShi_set_manual_wang_effect = { WANG = $WANG$ }
+    }
+    else = {
+        add_trait = $WANG$
+    }
+}
+
+# 皇太子/皇太孙是独立的受保护王储状态。统一入口清理旧宗室爵位，
+# 保留土地和政府，并为已经存在的死亡中间节点重新建立可追溯世系。
+SanGong_ZongShi_set_taizi_effect = {
+    # 所有立太子入口都经过这里；先在当前皇帝支系中清理旧皇太孙，
+    # 避免旧太孙与新皇太子并存。目标若原本就是皇太孙，也由该入口统一收敛。
+    if = {
+        limit = { exists = top_liege }
+        top_liege = {
+            SanGong_ZongShi_clear_existing_taisun_effect = yes
+        }
+    }
+    SanGong_ZongShi_remove_rank_traits_effect = yes
+    remove_trait = SanGong_TaiSun
+    SanGong_ZongShi_clear_self_stripped_source_flags_effect = yes
+    SanGong_ZongShi_clear_disinherit_refresh_flag_effect = yes
+    remove_character_flag = SanGong_ZongShi_manual_root
+    remove_character_flag = SanGong_ZongShi_feudatory_root
+    remove_character_flag = SanGong_ZongShi_manual_lower_rank_root
+    remove_character_flag = SanGong_ZongShi_neutral_royal_rank_source
+    remove_character_flag = SanGong_ZongShi_self_stripped
+    remove_character_flag = SanGong_ZongShi_lineage_stripped
+    remove_character_flag = SanGong_ZongShi_crown_taisun_source
+    remove_character_flag = taisun_flag
+    add_character_flag = SanGong_ZongShi_lineage_member
+    add_character_flag = SanGong_ZongShi_former_taizi
+    add_character_flag = SanGong_ZongShi_crown_taizi_source
+    add_trait = SanGong_Taizi
+    SanGong_ZongShi_rebuild_rank_descendants_effect = yes
+    trigger_event = { id = SanGong_ZongShi_Rank.101 days = 2 }
+    # 如果目标原本是下级宗室父爵的继承人，立为太子后必须让父支
+    # 重新计算，否则旧的世子/长子特质会与太子身份并存。
+    if = {
+        limit = { exists = father }
+        SanGong_ZongShi_refresh_ancestor_heir_branch_effect = yes
+    }
+}
+
+SanGong_ZongShi_set_taisun_effect = {
+    SanGong_ZongShi_remove_donggong_title_effect = yes
+    SanGong_ZongShi_remove_rank_traits_effect = yes
+    SanGong_ZongShi_clear_self_stripped_source_flags_effect = yes
+    SanGong_ZongShi_clear_disinherit_refresh_flag_effect = yes
+    remove_character_flag = SanGong_ZongShi_manual_root
+    remove_character_flag = SanGong_ZongShi_feudatory_root
+    remove_character_flag = SanGong_ZongShi_manual_lower_rank_root
+    remove_character_flag = SanGong_ZongShi_neutral_royal_rank_source
+    remove_character_flag = SanGong_ZongShi_self_stripped
+    remove_character_flag = SanGong_ZongShi_lineage_stripped
+    remove_character_flag = SanGong_ZongShi_crown_taizi_source
+    if = {
+        limit = { has_trait = SanGong_Taizi }
+        add_character_flag = SanGong_ZongShi_former_taizi
+    }
+    remove_trait = SanGong_Taizi
+    add_character_flag = SanGong_ZongShi_lineage_member
+    add_character_flag = SanGong_ZongShi_crown_taisun_source
+    add_trait = SanGong_TaiSun
+    SanGong_ZongShi_rebuild_rank_descendants_effect = yes
+    trigger_event = { id = SanGong_ZongShi_Rank.101 days = 2 }
+    if = {
+        limit = { exists = father }
+        SanGong_ZongShi_refresh_ancestor_heir_branch_effect = yes
+    }
+}
+
+# V0.76 东宫退出：只清本 Mod 标记的无地东宫头衔，保留实地和世族头衔。
+# 在角色身份退出时执行，不能放在会向所有封臣重复发送的通知事件里。
+SanGong_ZongShi_remove_donggong_title_effect = {
+    every_held_title = {
+        limit = {
+            has_variable = SanGong_DongGong_title
+            has_variable = titular_title
+            is_landless_type_title = yes
+            is_noble_family_title = no
+        }
+        holder = { destroy_title = prev }
+    }
+}
+
+# 旧废太子入口的适配：移除太子后，原先按太子父爵获得的后代爵位
+# 必须重新计算；不改动领地、封臣、政府或廷臣状态。
+SanGong_ZongShi_remove_taizi_effect = {
+    SanGong_ZongShi_remove_donggong_title_effect = yes
+    remove_trait = SanGong_Taizi
+    SanGong_ZongShi_remove_rank_traits_effect = yes
+    SanGong_ZongShi_clear_self_stripped_source_flags_effect = yes
+    SanGong_ZongShi_clear_disinherit_refresh_flag_effect = yes
+    remove_character_flag = SanGong_ZongShi_self_stripped
+    remove_character_flag = SanGong_ZongShi_lineage_stripped
+    remove_character_flag = SanGong_ZongShi_crown_taizi_source
+    remove_character_flag = SanGong_ZongShi_manual_lower_rank_root
+    remove_character_flag = SanGong_ZongShi_neutral_royal_rank_source
+    add_character_flag = SanGong_ZongShi_lineage_member
+    # 撤销太子后，已经成年的子代不会再次经过成年入口；必须主动重建
+    # 男性后代的正式爵位，否则原先按太子父爵获得的下级爵位会残留。
+    SanGong_ZongShi_rebuild_rank_descendants_effect = yes
+    SanGong_ZongShi_refresh_heir_branch_effect = yes
+    if = {
+        limit = { exists = father }
+        SanGong_ZongShi_refresh_ancestor_heir_branch_effect = yes
+    }
+}
+
+# 皇太孙的独立撤销入口。它不能复用废太子效果，否则会把两个不同的
+# 王储身份、来源标记和后代刷新语义混在一起。
+SanGong_ZongShi_remove_taisun_effect = {
+    remove_trait = SanGong_TaiSun
+    remove_character_flag = taisun_flag
+    remove_character_flag = SanGong_ZongShi_crown_taisun_source
+    SanGong_ZongShi_remove_rank_traits_effect = yes
+    SanGong_ZongShi_clear_self_stripped_source_flags_effect = yes
+    SanGong_ZongShi_clear_disinherit_refresh_flag_effect = yes
+    remove_character_flag = SanGong_ZongShi_self_stripped
+    remove_character_flag = SanGong_ZongShi_lineage_stripped
+    remove_character_flag = SanGong_ZongShi_manual_lower_rank_root
+    remove_character_flag = SanGong_ZongShi_neutral_royal_rank_source
+    add_character_flag = SanGong_ZongShi_lineage_member
+    # 皇太孙可能已经有成年子代；撤销身份后主动重建其子代和父支，
+    # 不依赖下一次生日或死亡事件才能收敛。
+    SanGong_ZongShi_rebuild_rank_descendants_effect = yes
+    SanGong_ZongShi_refresh_heir_branch_effect = yes
+    if = {
+        limit = { exists = father }
+        SanGong_ZongShi_refresh_ancestor_heir_branch_effect = yes
+    }
+}
+
+# Crown 支系退役时，未成年待授爵位继续存在，但改用普通宗室 pending。
+# 这样不会因身份转换丢失待成年授爵事实，也不会继续命中 Crown 专用成人入口。
+SanGong_ZongShi_convert_crown_pending_to_regular_effect = {
+    if = {
+        limit = { has_character_flag = SanGong_ZongShi_crown_pending_ZhenGuoJiangJun }
+        remove_character_flag = SanGong_ZongShi_crown_pending_ZhenGuoJiangJun
+        add_character_flag = SanGong_ZongShi_pending_ZhenGuoJiangJun
+    }
+    if = {
+        limit = { has_character_flag = SanGong_ZongShi_crown_pending_FuGuoJiangJun }
+        remove_character_flag = SanGong_ZongShi_crown_pending_FuGuoJiangJun
+        add_character_flag = SanGong_ZongShi_pending_FuGuoJiangJun
+    }
+    if = {
+        limit = { has_character_flag = SanGong_ZongShi_crown_pending_FengGuoJiangJun }
+        remove_character_flag = SanGong_ZongShi_crown_pending_FengGuoJiangJun
+        add_character_flag = SanGong_ZongShi_pending_FengGuoJiangJun
+    }
+    if = {
+        limit = { has_character_flag = SanGong_ZongShi_crown_pending_ZhenGuoZhongWei }
+        remove_character_flag = SanGong_ZongShi_crown_pending_ZhenGuoZhongWei
+        add_character_flag = SanGong_ZongShi_pending_ZhenGuoZhongWei
+    }
+    if = {
+        limit = { has_character_flag = SanGong_ZongShi_crown_pending_FuGuoZhongWei }
+        remove_character_flag = SanGong_ZongShi_crown_pending_FuGuoZhongWei
+        add_character_flag = SanGong_ZongShi_pending_FuGuoZhongWei
+    }
+    if = {
+        limit = { has_character_flag = SanGong_ZongShi_crown_pending_FengGuoZhongWei }
+        remove_character_flag = SanGong_ZongShi_crown_pending_FengGuoZhongWei
+        add_character_flag = SanGong_ZongShi_pending_FengGuoZhongWei
+    }
+}
+
+# 只退出 Crown 身份，不清除当前普通爵位或世子／长子特质。
+SanGong_ZongShi_retire_crown_node_effect = {
+    SanGong_ZongShi_remove_donggong_title_effect = yes
+    remove_trait = SanGong_Taizi
+    remove_trait = SanGong_TaiSun
+    remove_character_flag = taisun_flag
+    remove_character_flag = SanGong_ZongShi_crown_taizi_source
+    remove_character_flag = SanGong_ZongShi_crown_taisun_source
+    remove_character_flag = SanGong_ZongShi_former_taizi
+    remove_character_flag = SanGong_ZongShi_neutral_royal_rank_source
+    SanGong_ZongShi_convert_crown_pending_to_regular_effect = yes
+    add_character_flag = SanGong_ZongShi_lineage_member
+}
+
+SanGong_ZongShi_retire_crown_subtree_effect = {
+    SanGong_ZongShi_retire_crown_node_effect = yes
+    every_child = {
+        even_if_dead = yes
+        limit = { is_male = yes }
+        SanGong_ZongShi_retire_crown_subtree_effect = yes
+    }
+}
+
+SanGong_ZongShi_retire_deceased_crown_branch_effect = {
+    SanGong_ZongShi_retire_crown_subtree_effect = yes
+    add_character_flag = SanGong_ZongShi_neutral_royal_rank_source
+}
+
+# 在当前皇帝 scope 下清理现存皇太孙。遍历当前宫廷、封臣树、皇帝子女，
+# 并额外检查最近亡太子指针的子代，覆盖皇太子死亡后仍留在旧支系中的角色。
+# 不做全局宗族扫描，避免误伤其他皇帝或历史支系。
+SanGong_ZongShi_clear_existing_taisun_effect = {
+    if = {
+        limit = { has_trait = SanGong_TaiSun }
+        SanGong_ZongShi_remove_taisun_effect = yes
+    }
+    every_courtier_or_guest = {
+        limit = { has_trait = SanGong_TaiSun }
+        SanGong_ZongShi_remove_taisun_effect = yes
+    }
+    every_vassal_or_below = {
+        limit = { has_trait = SanGong_TaiSun }
+        SanGong_ZongShi_remove_taisun_effect = yes
+    }
+    every_child = {
+        limit = { has_trait = SanGong_TaiSun }
+        SanGong_ZongShi_remove_taisun_effect = yes
+    }
+    every_child = {
+        limit = { has_trait = SanGong_Taizi }
+        every_child = {
+            limit = { has_trait = SanGong_TaiSun }
+            SanGong_ZongShi_remove_taisun_effect = yes
+        }
+    }
+    if = {
+        limit = { exists = var:SanGong_latest_deceased_taizi }
+        var:SanGong_latest_deceased_taizi = {
+            every_child = {
+                limit = { has_trait = SanGong_TaiSun }
+                SanGong_ZongShi_remove_taisun_effect = yes
+            }
+        }
+    }
+}
+
+# 兼容旧的“移除所有宗室身份”调用：两个王储身份都清理，但各自使用
+# 独立效果，保证皇太孙不会误走皇太子专用的后代处理路径。
+SanGong_ZongShi_remove_crown_line_effect = {
+    if = {
+        limit = { has_trait = SanGong_Taizi }
+        SanGong_ZongShi_remove_taizi_effect = yes
+    }
+    if = {
+        limit = { has_trait = SanGong_TaiSun }
+        SanGong_ZongShi_remove_taisun_effect = yes
+    }
+}
+
+# 原 Mod 的“指定袭爵”标记有 15 天期限。它会改变长房排序，
+# 因此添加时立即刷新父支，并在期限结束后再刷新一次，避免短期标记过期后
+# 继承人特质仍停留在被指定人物身上。非宗室目标会自然跳过父支刷新。
+SanGong_ZongShi_schedule_designation_refresh_effect = {
+    if = {
+        limit = { exists = father }
+        SanGong_ZongShi_refresh_ancestor_heir_branch_effect = yes
+    }
+    trigger_event = {
+        id = SanGong_ZongShi_Rank.300
+        days = 16
+    }
+}
+
+SanGong_ZongShi_rebuild_rank_descendants_effect = {
+    if = {
+        limit = {
+            NOT = { has_character_flag = SanGong_ZongShi_self_stripped }
+        }
+        every_child = {
+            even_if_dead = yes
+            limit = {
+                is_male = yes
+                NOT = { has_trait = bastard }
+                NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+            }
+            trigger_event = {
+                id = SanGong_ZongShi_Rank.100
+                days = 1
+            }
+        }
+    }
+}
+
+# 后宫/实封路径与新自动体系隔离：如果一个原本已进入新体系的角色后来被
+# 改封为藩王，清除其后代残留的下级爵位和继承人状态。遇到太子、亲王、
+# 郡王或已经属于实封路径的节点时停止该分支，保留这些明确的独立身份。
+SanGong_ZongShi_quarantine_feudatory_descendant_branch_effect = {
+    if = {
+        limit = {
+            is_male = yes
+            NOT = { SanGong_ZongShi_protected_target_trigger = yes }
+        }
+        SanGong_ZongShi_reset_rank_state_effect = yes
+        every_child = {
+            even_if_dead = yes
+            limit = { is_male = yes }
+            SanGong_ZongShi_quarantine_feudatory_descendant_branch_effect = yes
+        }
+    }
+}
+
+# 后宫册封/实封藩王：保留旧王爵路径，并把角色从新自动体系中隔离。
+SanGong_ZongShi_mark_feudatory_wang_effect = {
+    SanGong_ZongShi_remove_rank_traits_effect = yes
+    SanGong_ZongShi_clear_self_stripped_source_flags_effect = yes
+    SanGong_ZongShi_clear_disinherit_refresh_flag_effect = yes
+    add_trait = $WANG$
+    add_character_flag = SanGong_ZongShi_feudatory_root
+    remove_character_flag = SanGong_ZongShi_lineage_member
+    remove_character_flag = SanGong_ZongShi_manual_root
+    remove_character_flag = SanGong_ZongShi_manual_lower_rank_root
+    remove_character_flag = SanGong_ZongShi_neutral_royal_rank_source
+    remove_character_flag = SanGong_ZongShi_self_stripped
+    remove_character_flag = SanGong_ZongShi_lineage_stripped
+    every_child = {
+        even_if_dead = yes
+        limit = { is_male = yes }
+        SanGong_ZongShi_quarantine_feudatory_descendant_branch_effect = yes
+    }
+    # 不重算头衔、封臣或政府；只让原宗室父支放弃把该人物视作虚封继承候选。
+    if = {
+        limit = { exists = father }
+        SanGong_ZongShi_refresh_ancestor_heir_branch_effect = yes
+    }
+}
+
+# 按父亲的当前爵位计算目标角色的自动爵位。
+SanGong_ZongShi_resolve_from_father_effect = {
+    save_scope_as = SanGong_ZongShi_rank_target
+    if = {
+        limit = {
+            is_male = yes
+            is_adult = yes
+            NOT = { has_trait = bastard }
+            NOT = { SanGong_ZongShi_protected_target_trigger = yes }
+            NOT = { SanGong_ZongShi_rank_suppressed_trigger = yes }
+            # 继承人特质本身已经代表其等价爵位；重建/领地变更入口
+            # 不能再给同一角色叠加一枚自动下级爵位特质。
+            NOT = { SanGong_ZongShi_heir_trait_trigger = yes }
+            NOT = { has_trait = disinherited }
+        }
+        if = {
+            limit = {
+                father = {
+                    SanGong_ZongShi_parent_scope_compatible_trigger = yes
+                    OR = {
+                        SanGong_ZongShi_crown_line_source_trigger = yes
+                        SanGong_ZongShi_neutral_royal_rank_source_trigger = yes
+                        has_trait = SanGong_FanWang
+                        has_trait = SanGong_JunWang
+                    }
+                }
+            }
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_ZhenGuoJiangJun }
+        }
+        else_if = {
+            limit = {
+                father = {
+                    SanGong_ZongShi_parent_scope_compatible_trigger = yes
+                    OR = {
+                        has_trait = SanGong_ZongShi_FanWangShiZi
+                        has_trait = SanGong_ZongShi_JunWangShiZi
+                    }
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                }
+            }
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FuGuoJiangJun }
+        }
+        else_if = {
+            limit = {
+                father = {
+                    SanGong_ZongShi_parent_scope_compatible_trigger = yes
+                    has_trait = SanGong_ZongShi_ZhenGuoJiangJunZhangZi
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                }
+            }
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FengGuoJiangJun }
+        }
+        else_if = {
+            limit = {
+                father = {
+                    SanGong_ZongShi_parent_scope_compatible_trigger = yes
+                    has_trait = SanGong_ZongShi_FuGuoJiangJunZhangZi
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                }
+            }
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_ZhenGuoZhongWei }
+        }
+        else_if = {
+            limit = {
+                father = {
+                    SanGong_ZongShi_parent_scope_compatible_trigger = yes
+                    has_trait = SanGong_ZongShi_FengGuoJiangJunZhangZi
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                }
+            }
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FuGuoZhongWei }
+        }
+        else_if = {
+            limit = {
+                father = {
+                    SanGong_ZongShi_parent_scope_compatible_trigger = yes
+                    has_trait = SanGong_ZongShi_ZhenGuoZhongWeiZhangZi
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                }
+            }
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FengGuoZhongWei }
+        }
+        else_if = {
+            limit = {
+                father = {
+                    SanGong_ZongShi_parent_scope_compatible_trigger = yes
+                    OR = {
+                        has_trait = SanGong_ZongShi_FuGuoZhongWeiZhangZi
+                        has_trait = SanGong_ZongShi_FengGuoZhongWeiZhangZi
+                    }
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                }
+            }
+            SanGong_ZongShi_remove_rank_traits_effect = yes
+        }
+        else_if = {
+            limit = {
+                father = {
+                    SanGong_ZongShi_parent_scope_compatible_trigger = yes
+                    has_character_flag = SanGong_ZongShi_self_stripped
+                    OR = {
+                        has_character_flag = SanGong_ZongShi_self_stripped_source_FanWang
+                        has_character_flag = SanGong_ZongShi_self_stripped_source_JunWang
+                    }
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                }
+            }
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_ZhenGuoJiangJun }
+        }
+        else_if = {
+            limit = {
+                father = {
+                    SanGong_ZongShi_parent_scope_compatible_trigger = yes
+                    has_character_flag = SanGong_ZongShi_self_stripped
+                    has_character_flag = SanGong_ZongShi_self_stripped_source_ZhenGuoJiangJun
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                }
+            }
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FuGuoJiangJun }
+        }
+        else_if = {
+            limit = {
+                father = {
+                    SanGong_ZongShi_parent_scope_compatible_trigger = yes
+                    has_character_flag = SanGong_ZongShi_self_stripped
+                    has_character_flag = SanGong_ZongShi_self_stripped_source_FuGuoJiangJun
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                }
+            }
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FengGuoJiangJun }
+        }
+        else_if = {
+            limit = {
+                father = {
+                    SanGong_ZongShi_parent_scope_compatible_trigger = yes
+                    has_character_flag = SanGong_ZongShi_self_stripped
+                    has_character_flag = SanGong_ZongShi_self_stripped_source_FengGuoJiangJun
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                }
+            }
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_ZhenGuoZhongWei }
+        }
+        else_if = {
+            limit = {
+                father = {
+                    SanGong_ZongShi_parent_scope_compatible_trigger = yes
+                    has_character_flag = SanGong_ZongShi_self_stripped
+                    has_character_flag = SanGong_ZongShi_self_stripped_source_ZhenGuoZhongWei
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                }
+            }
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FuGuoZhongWei }
+        }
+        else_if = {
+            limit = {
+                father = {
+                    SanGong_ZongShi_parent_scope_compatible_trigger = yes
+                    has_character_flag = SanGong_ZongShi_self_stripped
+                    has_character_flag = SanGong_ZongShi_self_stripped_source_FuGuoZhongWei
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                }
+            }
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FengGuoZhongWei }
+        }
+        else_if = {
+            limit = {
+                father = {
+                    SanGong_ZongShi_parent_scope_compatible_trigger = yes
+                    has_trait = SanGong_ZongShi_ZhenGuoJiangJun
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                }
+            }
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FuGuoJiangJun }
+        }
+        else_if = {
+            limit = {
+                father = {
+                    SanGong_ZongShi_parent_scope_compatible_trigger = yes
+                    has_trait = SanGong_ZongShi_FuGuoJiangJun
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                }
+            }
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FengGuoJiangJun }
+        }
+        else_if = {
+            limit = {
+                father = {
+                    SanGong_ZongShi_parent_scope_compatible_trigger = yes
+                    has_trait = SanGong_ZongShi_FengGuoJiangJun
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                }
+            }
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_ZhenGuoZhongWei }
+        }
+        else_if = {
+            limit = {
+                father = {
+                    SanGong_ZongShi_parent_scope_compatible_trigger = yes
+                    has_trait = SanGong_ZongShi_ZhenGuoZhongWei
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                }
+            }
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FuGuoZhongWei }
+        }
+        else_if = {
+            limit = {
+                father = {
+                    SanGong_ZongShi_parent_scope_compatible_trigger = yes
+                    has_trait = SanGong_ZongShi_FuGuoZhongWei
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                }
+            }
+            SanGong_ZongShi_set_derived_rank_effect = { RANK = SanGong_ZongShi_FengGuoZhongWei }
+        }
+        else_if = {
+            limit = {
+                father = {
+                    SanGong_ZongShi_parent_scope_compatible_trigger = yes
+                    has_trait = SanGong_ZongShi_FengGuoZhongWei
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                }
+            }
+            # 终级爵位的非继承人只保留宗室世系前缀，不发放另一枚爵位特质。
+            # 继承人仍由 refresh_heir_branch_effect 单独授予“奉国中尉长子”。
+            SanGong_ZongShi_remove_rank_traits_effect = yes
+        }
+        else = {
+            SanGong_ZongShi_remove_rank_traits_effect = yes
+        }
+    }
+}
+
+# 出生时只登记男性宗室世系；爵位统一等到成年时计算。
+SanGong_ZongShi_register_birth_member_effect = {
+    if = {
+        limit = {
+            is_male = yes
+            NOT = { has_trait = bastard }
+            exists = father
+            father = {
+                NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                OR = {
+                    has_character_flag = SanGong_ZongShi_lineage_member
+                    has_character_flag = SanGong_ZongShi_manual_root
+                    has_trait = SanGong_Taizi
+                    has_trait = SanGong_TaiSun
+                    SanGong_ZongShi_crown_line_source_trigger = yes
+                    SanGong_ZongShi_neutral_royal_rank_source_trigger = yes
+                    SanGong_ZongShi_rank_trait_trigger = yes
+                    SanGong_ZongShi_heir_trait_trigger = yes
+                }
+            }
+        }
+        add_character_flag = SanGong_ZongShi_lineage_member
+        # 王储支系的未成年节点不能等到父亲死亡后才猜测代际爵位；
+        # pending 标记会在成年时兑现，也会被下一代继续读取。
+        if = {
+            limit = {
+                father = {
+                    SanGong_ZongShi_crown_line_source_trigger = yes
+                }
+            }
+            add_character_flag = SanGong_ZongShi_crown_pending_ZhenGuoJiangJun
+        }
+        else_if = {
+            limit = {
+                father = {
+                    has_character_flag = SanGong_ZongShi_crown_pending_ZhenGuoJiangJun
+                }
+            }
+            add_character_flag = SanGong_ZongShi_crown_pending_FuGuoJiangJun
+        }
+        else_if = {
+            limit = {
+                father = {
+                    has_character_flag = SanGong_ZongShi_crown_pending_FuGuoJiangJun
+                }
+            }
+            add_character_flag = SanGong_ZongShi_crown_pending_FengGuoJiangJun
+        }
+        else_if = {
+            limit = {
+                father = {
+                    has_character_flag = SanGong_ZongShi_crown_pending_FengGuoJiangJun
+                }
+            }
+            add_character_flag = SanGong_ZongShi_crown_pending_ZhenGuoZhongWei
+        }
+        else_if = {
+            limit = {
+                father = {
+                    has_character_flag = SanGong_ZongShi_crown_pending_ZhenGuoZhongWei
+                }
+            }
+            add_character_flag = SanGong_ZongShi_crown_pending_FuGuoZhongWei
+        }
+        else_if = {
+            limit = {
+                father = {
+                    has_character_flag = SanGong_ZongShi_crown_pending_FuGuoZhongWei
+                }
+            }
+            add_character_flag = SanGong_ZongShi_crown_pending_FengGuoZhongWei
+        }
+        if = {
+            limit = { father = { has_character_flag = SanGong_ZongShi_lineage_stripped } }
+            add_character_flag = SanGong_ZongShi_lineage_stripped
+        }
+    }
+}
+
+# 父系关系被 Mod 内部效果改写后，刷新改写前的父支。
+# 调用方应在 set_father 前把原父亲保存为
+# scope:SanGong_ZongShi_previous_father；没有该 scope 时自然跳过。
+SanGong_ZongShi_refresh_previous_parent_branch_effect = {
+    if = {
+        limit = { exists = scope:SanGong_ZongShi_previous_father }
+        scope:SanGong_ZongShi_previous_father = {
+            if = {
+                limit = { SanGong_ZongShi_inheritable_rank_holder_trigger = yes }
+                SanGong_ZongShi_refresh_heir_branch_effect = yes
+            }
+            else_if = {
+                limit = {
+                    NOT = { has_trait = SanGong_Taizi }
+                    NOT = { has_trait = SanGong_TaiSun }
+                    NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+                    OR = {
+                        has_character_flag = SanGong_ZongShi_lineage_member
+                        has_character_flag = SanGong_ZongShi_manual_root
+                        has_character_flag = SanGong_ZongShi_self_stripped
+                        has_character_flag = SanGong_ZongShi_lineage_stripped
+                        SanGong_ZongShi_rank_trait_trigger = yes
+                        SanGong_ZongShi_heir_trait_trigger = yes
+                    }
+                }
+                SanGong_ZongShi_refresh_ancestor_heir_branch_effect = yes
+            }
+        }
+    }
+}
+
+# 父系改写后，当前角色的男性子孙不能继续沿用旧父爵。
+# 受保护的太子/亲王/郡王、高爵独立分支，以及只夺本人/世系压制分支
+# 都是明确状态，递归在这些节点停止；普通自动支系则按新父亲重新解析。
+SanGong_ZongShi_reconcile_parent_change_descendants_effect = {
+    if = {
+        limit = {
+            is_male = yes
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+            NOT = { SanGong_ZongShi_protected_target_trigger = yes }
+            NOT = { SanGong_ZongShi_rank_suppressed_trigger = yes }
+        }
+        if = {
+            limit = { father = { SanGong_ZongShi_automatic_parent_trigger = yes } }
+            remove_character_flag = SanGong_ZongShi_lineage_stripped
+            add_character_flag = SanGong_ZongShi_lineage_member
+            SanGong_ZongShi_remove_heir_traits_effect = yes
+            if = {
+                limit = { is_adult = yes }
+                SanGong_ZongShi_resolve_from_father_effect = yes
+            }
+            else = {
+                SanGong_ZongShi_remove_lower_rank_traits_effect = yes
+                SanGong_ZongShi_clear_pending_rank_flags_effect = yes
+            }
+        }
+        else = {
+            SanGong_ZongShi_reset_rank_state_effect = yes
+        }
+        every_child = {
+            even_if_dead = yes
+            limit = { is_male = yes }
+            SanGong_ZongShi_reconcile_parent_change_descendants_effect = yes
+        }
+    }
+}
+
+# 过继、嗣子承袭或后宫过继改写父系后，重新决定目标是否仍属于新宗室体系。
+# 手动王爵、太子、实封路径及“只夺本人/世系夺爵”是明确状态，自动入口不覆盖它们。
+SanGong_ZongShi_reconcile_parent_change_effect = {
+    if = {
+        limit = {
+            is_male = yes
+            NOT = { has_trait = bastard }
+        }
+        if = {
+            limit = {
+                father = { SanGong_ZongShi_feudatory_path_trigger = yes }
+            }
+            if = {
+                limit = { NOT = { SanGong_ZongShi_protected_target_trigger = yes } }
+                SanGong_ZongShi_reset_rank_state_effect = yes
+            }
+        }
+        else_if = {
+            limit = {
+                father = { SanGong_ZongShi_automatic_parent_trigger = yes }
+            }
+            if = {
+                limit = {
+                    NOT = { SanGong_ZongShi_protected_target_trigger = yes }
+                    NOT = { SanGong_ZongShi_rank_suppressed_trigger = yes }
+                }
+                remove_character_flag = SanGong_ZongShi_lineage_stripped
+                add_character_flag = SanGong_ZongShi_lineage_member
+                if = {
+                    limit = { father = { has_character_flag = SanGong_ZongShi_lineage_stripped } }
+                    add_character_flag = SanGong_ZongShi_lineage_stripped
+                }
+                if = {
+                    limit = { is_adult = yes }
+                    SanGong_ZongShi_resolve_from_father_effect = yes
+                }
+                else = {
+                    SanGong_ZongShi_remove_lower_rank_traits_effect = yes
+                    SanGong_ZongShi_remove_heir_traits_effect = yes
+                    SanGong_ZongShi_clear_pending_rank_flags_effect = yes
+                }
+            }
+        }
+        else = {
+            if = {
+                limit = {
+                    NOT = { SanGong_ZongShi_protected_target_trigger = yes }
+                    NOT = { SanGong_ZongShi_rank_suppressed_trigger = yes }
+                }
+                SanGong_ZongShi_reset_rank_state_effect = yes
+            }
+        }
+        SanGong_ZongShi_reconcile_parent_change_descendants_effect = yes
+        if = {
+            limit = { exists = father }
+            SanGong_ZongShi_refresh_ancestor_heir_branch_effect = yes
+        }
+        SanGong_ZongShi_refresh_previous_parent_branch_effect = yes
+    }
+}
+
+# 显式手动册封会清除世系压制标记；事件从目标的男性子代开始重算。
+SanGong_ZongShi_rebuild_rank_node_effect = {
+    if = {
+        limit = {
+            is_male = yes
+            NOT = { has_trait = bastard }
+            exists = father
+            NOT = {
+                OR = {
+                    has_trait = SanGong_Taizi
+                    has_trait = SanGong_TaiSun
+                    has_trait = SanGong_FanWang
+                    has_trait = SanGong_JunWang
+                }
+            }
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+        # “只夺本人”是该人物的持续性豁免；祖先重新册封时只解除世系夺爵，
+        # 不能顺手把本人明确放弃的爵位恢复。
+        remove_character_flag = SanGong_ZongShi_lineage_stripped
+        add_character_flag = SanGong_ZongShi_lineage_member
+        if = {
+            limit = { is_adult = yes }
+            SanGong_ZongShi_resolve_from_father_effect = yes
+        }
+        else = {
+            SanGong_ZongShi_remove_lower_rank_traits_effect = yes
+            if = {
+                limit = {
+                    father = {
+                        SanGong_ZongShi_neutral_royal_rank_source_trigger = yes
+                    }
+                }
+                add_character_flag = SanGong_ZongShi_pending_ZhenGuoJiangJun
+            }
+            else_if = {
+                limit = {
+                    father = {
+                        SanGong_ZongShi_crown_line_source_trigger = yes
+                    }
+                }
+                add_character_flag = SanGong_ZongShi_crown_pending_ZhenGuoJiangJun
+            }
+            else_if = {
+                limit = {
+                    father = {
+                        has_character_flag = SanGong_ZongShi_crown_pending_ZhenGuoJiangJun
+                    }
+                }
+                add_character_flag = SanGong_ZongShi_crown_pending_FuGuoJiangJun
+            }
+            else_if = {
+                limit = {
+                    father = {
+                        has_character_flag = SanGong_ZongShi_crown_pending_FuGuoJiangJun
+                    }
+                }
+                add_character_flag = SanGong_ZongShi_crown_pending_FengGuoJiangJun
+            }
+            else_if = {
+                limit = {
+                    father = {
+                        has_character_flag = SanGong_ZongShi_crown_pending_FengGuoJiangJun
+                    }
+                }
+                add_character_flag = SanGong_ZongShi_crown_pending_ZhenGuoZhongWei
+            }
+            else_if = {
+                limit = {
+                    father = {
+                        has_character_flag = SanGong_ZongShi_crown_pending_ZhenGuoZhongWei
+                    }
+                }
+                add_character_flag = SanGong_ZongShi_crown_pending_FuGuoZhongWei
+            }
+            else_if = {
+                limit = {
+                    father = {
+                        has_character_flag = SanGong_ZongShi_crown_pending_FuGuoZhongWei
+                    }
+                }
+                add_character_flag = SanGong_ZongShi_crown_pending_FengGuoZhongWei
+            }
+        }
+    }
+}
+
+# 最高领主变化后的局部收敛：不解除“只夺本人/世系夺爵”压制，
+# 但让仍处于普通宗室路径的节点按新的父系和最高领主边界重算。
+SanGong_ZongShi_reconcile_realm_branch_effect = {
+    if = {
+        limit = {
+            is_male = yes
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+            NOT = { SanGong_ZongShi_rank_suppressed_trigger = yes }
+            NOT = { SanGong_ZongShi_protected_target_trigger = yes }
+        }
+        if = {
+            limit = { is_adult = yes }
+            SanGong_ZongShi_resolve_from_father_effect = yes
+        }
+        else = {
+            SanGong_ZongShi_remove_lower_rank_traits_effect = yes
+        }
+    }
+    if = {
+        limit = {
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+        every_child = {
+            even_if_dead = yes
+            limit = { is_male = yes }
+            SanGong_ZongShi_reconcile_realm_branch_effect = yes
+        }
+    }
+}
+
+# 只夺本人爵位：不递归、不触碰子孙，也不改变土地和封臣。
+SanGong_ZongShi_strip_self_effect = {
+    # 旧王号前缀由 flag_SanGong_title_* / d_SanGong_title_* 驱动；
+    # 只清理旧显示 Flag，不调用会销毁头衔的 remove_ZongWang_all_effect。
+    remove_HuangZi_WangHao_effects = yes
+    if = {
+        limit = {
+            has_character_flag = SanGong_ZongShi_manual_root
+            OR = {
+                has_trait = SanGong_FanWang
+                has_trait = SanGong_JunWang
+            }
+            exists = father
+            father = { SanGong_ZongShi_automatic_parent_trigger = yes }
+        }
+        # 手动王爵只是覆盖父支的自动身份；撤销覆盖后，允许父支重新选回
+        # 世子/长子，而不是把这个角色永久视为主动放弃世系。
+        SanGong_ZongShi_remove_rank_traits_effect = yes
+        SanGong_ZongShi_clear_self_stripped_source_flags_effect = yes
+        SanGong_ZongShi_clear_disinherit_refresh_flag_effect = yes
+        remove_character_flag = SanGong_ZongShi_manual_root
+        remove_character_flag = SanGong_ZongShi_manual_lower_rank_root
+        remove_character_flag = SanGong_ZongShi_self_stripped
+        remove_character_flag = SanGong_ZongShi_lineage_stripped
+        add_character_flag = SanGong_ZongShi_lineage_member
+        SanGong_ZongShi_refresh_ancestor_heir_branch_effect = yes
+        # 父支刷新后，若本人没有成为新的世子/长子，成年角色仍需回到
+        # 父亲当前爵位对应的自动等级；否则撤销手动覆盖会留下空爵位。
+        if = {
+            limit = { is_adult = yes }
+            SanGong_ZongShi_resolve_from_father_effect = yes
+        }
+        # 撤销王爵覆盖后，本人的新世子/长子身份或自动爵位也会改变其子代
+        # 的派生基点；必须在父支刷新后重建当前节点的男性后代。
+        SanGong_ZongShi_refresh_heir_branch_effect = yes
+    }
+    else = {
+        SanGong_ZongShi_remember_self_stripped_source_effect = yes
+        SanGong_ZongShi_remove_rank_traits_effect = yes
+        SanGong_ZongShi_clear_disinherit_refresh_flag_effect = yes
+        remove_character_flag = SanGong_ZongShi_manual_root
+        remove_character_flag = SanGong_ZongShi_manual_lower_rank_root
+        add_character_flag = SanGong_ZongShi_self_stripped
+        add_character_flag = SanGong_ZongShi_lineage_member
+        if = {
+            limit = { exists = father }
+            SanGong_ZongShi_refresh_ancestor_heir_branch_effect = yes
+        }
+    }
+}
+
+# 世系夺爵节点：保留宗室前缀标记，但清除该节点的爵位和所有来源状态。
+SanGong_ZongShi_strip_lineage_node_effect = {
+    remove_HuangZi_WangHao_effects = yes
+    if = {
+        limit = {
+            is_male = yes
+            NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+        SanGong_ZongShi_remove_rank_traits_effect = yes
+        SanGong_ZongShi_clear_self_stripped_source_flags_effect = yes
+        SanGong_ZongShi_clear_disinherit_refresh_flag_effect = yes
+        remove_character_flag = SanGong_ZongShi_manual_root
+        remove_character_flag = SanGong_ZongShi_manual_lower_rank_root
+        remove_character_flag = SanGong_ZongShi_self_stripped
+        add_character_flag = SanGong_ZongShi_lineage_member
+        add_character_flag = SanGong_ZongShi_lineage_stripped
+        if = {
+            limit = { exists = father }
+            SanGong_ZongShi_refresh_ancestor_heir_branch_effect = yes
+        }
+    }
+}
+
+SanGong_ZongShi_strip_lineage_effect = {
+    SanGong_ZongShi_strip_lineage_node_effect = yes
+        every_child = {
+            even_if_dead = yes
+            limit = {
+                is_male = yes
+                NOT = { has_trait = bastard }
+                NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
+        }
+        trigger_event = {
+            id = SanGong_ZongShi_Rank.200
+            days = 1
+        }
+    }
+}

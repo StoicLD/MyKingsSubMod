@@ -1,0 +1,657 @@
+﻿
+
+ai_character_list_effect = {
+	ordered_in_list = {
+		$LIST_TYPE$ = $LIST$
+		order_by = age
+		max = $MAX$
+		save_scope_as = ai_char
+	}
+}
+
+SanGong_PinFei_list_effect = {
+	clear_variable_list = SanGong_PinFei_list
+	top_liege = {
+		ordered_consort = {
+			order_by = {
+				value = 0
+				if = {
+					limit = { this = top_liege.primary_spouse }
+					add = 99
+				}
+				if = {
+					limit = { has_trait = SanGong_GongWei_1 }
+					add = 50
+				}
+				if = {
+					limit = { has_trait = SanGong_GongWei_2 }
+					add = 45
+				}
+				if = {
+					limit = { has_trait = SanGong_GongWei_3 }
+					add = 40
+				}
+				if = {
+					limit = { has_trait = SanGong_GongWei_4 }
+					add = 35
+				}
+				if = {
+					limit = { has_trait = SanGong_GongWei_5 }
+					add = 30
+				}
+				if = {
+					limit = { has_trait = SanGong_GongWei_6 }
+					add = 25
+				}
+				if = {
+					limit = { has_trait = SanGong_GongWei_7 }
+					add = 20
+				}
+				if = {
+					limit = { has_trait = SanGong_GongWei_8 }
+					add = 15
+				}
+			}
+			max = 100
+			root = {
+				add_to_variable_list = {
+					name = SanGong_PinFei_list
+					target = prev
+				}
+			}
+		}
+	}
+}
+
+SanGong_TaiFei_list_effect = {
+	clear_variable_list = SanGong_TaiFei_list
+	top_liege = {
+		ordered_courtier_or_guest = {
+			limit = {
+				OR = {
+					# has_trait = SanGong_Taihou
+					# has_trait = SanGong_TaiHuangTaihou
+					has_trait = SanGong_GongWei_10
+					has_trait = SanGong_GongWei_11
+					has_trait = SanGong_GongWei_12
+					has_trait = SanGong_GongWei_13
+					has_trait = SanGong_GongWei_14
+				}
+			}
+			order_by = {
+				value = 0
+				if = {
+					limit = { has_trait = SanGong_GongWei_10 }
+					add = 50
+				}
+				if = {
+					limit = { has_trait = SanGong_GongWei_11 }
+					add = 45
+				}
+				if = {
+					limit = { has_trait = SanGong_GongWei_12 }
+					add = 40
+				}
+				if = {
+					limit = { has_trait = SanGong_GongWei_13 }
+					add = 35
+				}
+				if = {
+					limit = { has_trait = SanGong_GongWei_14 }
+					add = 30
+				}
+			}
+			max = 100
+			root = {
+				add_to_variable_list = {
+					name = SanGong_TaiFei_list
+					target = prev
+				}
+			}
+		}
+	}
+}
+
+SanGong_HuangZi_list_effect = {
+	clear_variable_list = SanGong_HuangZi_list
+	top_liege = {
+		ordered_child = {
+			limit = {
+				is_male = yes
+			}
+			order_by = {
+				value = age
+                if = {
+                    limit = { has_trait = SanGong_Taizi }
+                    add = 9999
+                }
+                if = {
+                    limit = { has_trait = SanGong_TaiSun }
+                    add = 9990
+                }
+				if = {
+					limit = { has_trait = SanGong_FanWang }
+					add = 888
+				}
+				if = {
+					limit = { SanGong_QinWang_trigger = yes }
+					add = 888
+				}
+				if = {
+					limit = { has_trait = SanGong_JunWang }
+					add = 66
+				}
+				if = {
+					limit = { SanGong_JunWang_trigger = yes }
+					add = 66
+				}
+			}
+			max = 100
+			root = {
+				add_to_variable_list = {
+					name = SanGong_HuangZi_list
+					target = prev
+				}
+			}
+		}
+	}    
+}
+
+SanGong_GongZhu_list_effect = {
+	clear_variable_list = SanGong_GongZhu_list
+	top_liege = {
+		ordered_child = {
+			limit = {
+				is_female = yes
+			}
+			order_by = {
+				value = age
+				if = {
+					limit = { has_trait = SanGong_GongZhu }
+					add = 99
+				}
+				if = {
+					limit = { is_married = no }
+					add = 509
+				}
+			}
+			max = 100
+			root = {
+				add_to_variable_list = {
+					name = SanGong_GongZhu_list
+					target = prev
+				}
+			}
+		}
+		house ?= {
+			ordered_house_member = {
+				limit = {
+					is_female = yes
+					OR = {
+						has_trait = SanGong_GongZhu
+						has_trait = SanGong_JunZhu
+					}
+				}
+				order_by = {
+					value = 0
+					if = {
+						limit = { has_trait = SanGong_GongZhu }
+						add = 99
+					}
+					if = {
+						limit = { is_married = no }
+						add = 509
+					}
+				}
+				max = 100
+				root = {
+					add_to_variable_list = {
+						name = SanGong_GongZhu_list
+						target = prev
+					}
+				}
+			}
+		}
+	}
+}
+
+SanGong_ZongWang_list_effect = {
+	clear_variable_list = SanGong_ZongWang_list
+	dynasty ?= {
+		ordered_dynasty_member = {
+			limit = {  
+				OR = {
+					has_trait = SanGong_JunWang
+					has_trait = SanGong_FanWang
+				}
+			}
+			order_by = {
+				value = age
+				if = {
+					limit = { has_government = zongfan_government }
+					add = 100000
+				}
+				if = {
+					limit = { is_landed = yes }
+					add = 5000
+				}
+				if = {
+					limit = { has_trait = SanGong_FanWang }
+					add = 1000
+				}
+				if = {
+					limit = { has_trait = SanGong_JunWang }
+					add = 200
+				}
+			}
+			min = 0
+			max = 500
+			root = {
+				add_to_variable_list = {
+					name = SanGong_ZongWang_list
+					target = prev
+				}
+			}
+		}
+	}
+}
+
+XunGui_GongJue_List_effect = {
+	clear_variable_list = XunGui_GongJue_List
+	top_liege = {
+		ordered_vassal_or_below = {
+			limit = {
+				has_trait = SanGong_Juewei_GongJue
+			}
+			order_by = age
+			min = 0
+			max = 30
+			root = {
+				add_to_variable_list = {
+					name = XunGui_GongJue_List
+					target = prev
+				}
+			}
+		}
+		ordered_courtier = {
+			limit = {
+				has_trait = SanGong_Juewei_GongJue
+			}
+			order_by = age
+			max = 30
+			root = {
+				add_to_variable_list = {
+					name = XunGui_GongJue_List
+					target = prev
+				}
+			}
+		}
+		every_vassal_or_below = {
+			ordered_courtier = {
+				limit = {
+					has_trait = SanGong_Juewei_GongJue
+				}
+				order_by = primary_heir.tier
+				max = 30
+				root = {
+					add_to_variable_list = {
+						name = XunGui_GongJue_List
+						target = prev
+					}
+				}
+			}
+		}
+	}
+}
+
+XunGui_HouJue_List_effect = {
+		clear_variable_list = XunGui_HouJue_List
+		top_liege = {
+            ordered_vassal_or_below = {
+                limit = {
+					has_trait = SanGong_Juewei_HouJue
+                }
+                order_by = primary_heir.tier
+                min = 0
+                max = 30
+                root = {
+                    add_to_variable_list = {
+                        name = XunGui_HouJue_List
+                        target = prev
+                    }
+                }
+            }
+			ordered_courtier = {
+				limit = {
+					has_trait = SanGong_Juewei_HouJue
+                }
+				order_by = primary_heir.tier
+				max = 30
+				root = {
+					add_to_variable_list = {
+						name = XunGui_HouJue_List
+						target = prev
+					}
+				}
+			}
+			every_vassal_or_below = {
+				ordered_courtier = {
+					limit = {
+						has_trait = SanGong_Juewei_HouJue
+					}
+					order_by = primary_heir.tier
+					max = 30
+					root = {
+						add_to_variable_list = {
+							name = XunGui_HouJue_List
+							target = prev
+						}
+					}
+				}
+			}
+		}	
+}
+
+
+XunGui_BoJue_List_effect = {
+	clear_variable_list = XunGui_BoJue_List
+	top_liege = {
+		ordered_vassal_or_below = {
+			limit = {
+				has_trait = SanGong_Juewei_BoJue
+			}
+			order_by = primary_heir.tier
+			min = 0
+			max = 300
+			root = {
+				add_to_variable_list = {
+					name = XunGui_BoJue_List
+					target = prev
+				}
+			}
+		}
+		ordered_courtier = {
+			limit = {
+				has_trait = SanGong_Juewei_BoJue
+			}
+			order_by = primary_heir.tier
+			max = 300
+			root = {
+				add_to_variable_list = {
+					name = XunGui_BoJue_List
+					target = prev
+				}
+			}
+		}
+		every_vassal_or_below = {
+			ordered_courtier = {
+				limit = {
+					has_trait = SanGong_Juewei_BoJue
+				}
+				order_by = primary_heir.tier
+				max = 30
+				root = {
+					add_to_variable_list = {
+						name = XunGui_BoJue_List
+						target = prev
+					}
+				}
+			}
+		}
+	}
+}
+
+XunGui_ZiJue_List_effect = {
+	clear_variable_list = XunGui_ZiJue_List
+	top_liege = {
+		ordered_vassal_or_below = {
+			limit = {
+				has_trait = SanGong_Juewei_ZiJue
+			}
+			order_by = primary_heir.tier
+			min = 0
+			max = 30
+			root = {
+				add_to_variable_list = {
+					name = XunGui_ZiJue_List
+					target = prev
+				}
+			}
+		}
+		ordered_courtier = {
+			limit = {
+				has_trait = SanGong_Juewei_ZiJue
+			}
+			order_by = primary_heir.tier
+			max = 30
+			root = {
+				add_to_variable_list = {
+					name = XunGui_ZiJue_List
+					target = prev
+				}
+			}
+		}
+		every_vassal_or_below = {
+			ordered_courtier = {
+				limit = {
+					has_trait = SanGong_Juewei_ZiJue
+				}
+				order_by = primary_heir.tier
+				max = 30
+				root = {
+					add_to_variable_list = {
+						name = XunGui_ZiJue_List
+						target = prev
+					}
+				}
+			}
+		}
+	}
+}
+
+WaiQi_TaiHou_list_gui = {
+	clear_variable_list = WaiQi_TaiHou_list
+	top_liege = {
+		ordered_relation = {
+			type = waiqi_relation
+			limit = {
+				house = top_liege.mother.house
+			}
+			order_by = primary_title.tier
+			max = 500
+			root = {
+				add_to_variable_list = {
+					name = WaiQi_TaiHou_list
+					target = prev
+				}
+			}
+		}
+	}
+    
+}
+
+WaiQi_HuangHou_list_gui = {
+        clear_variable_list = WaiQi_HuangHou_list
+		top_liege = {
+			ordered_relation = {
+				type = waiqi_relation
+				limit = {
+					house = top_liege.primary_spouse.house
+					NOT = { house = top_liege.mother.house }
+				}
+				order_by = primary_title.tier
+				max = 500
+				root = {
+					add_to_variable_list = {
+						name = WaiQi_HuangHou_list
+						target = prev
+					}
+				}
+			}
+		}
+}
+
+WaiQi_PinFei_list_gui = {
+        clear_variable_list = WaiQi_PinFei_list
+		top_liege = {
+			ordered_relation = {
+				type = waiqi_relation
+				limit = {
+					NOT = { house = top_liege.primary_spouse.house }
+					NOT = { house = top_liege.mother.house }
+				}
+				order_by = primary_title.tier
+				max = 500
+				root = {
+					add_to_variable_list = {
+						name = WaiQi_PinFei_list
+						target = prev
+					}
+				}
+			}
+		}	 
+}
+
+
+ShouFu_PaiXi_List_effect = {
+		clear_variable_list = ShouFu_PaiXi_List
+		top_liege = {
+            ordered_vassal = {
+                limit = {
+					XiangQuan_Paixi_trigger = yes
+                }
+                order_by = var:movement_power
+                min = 0
+                max = 30
+                root = {
+                    add_to_variable_list = {
+                        name = ShouFu_PaiXi_List
+                        target = prev
+                    }
+                }
+            }
+			ordered_courtier = {
+				limit = {
+					XiangQuan_Paixi_trigger = yes
+                }
+				order_by = var:movement_power
+				max = 30
+				root = {
+					add_to_variable_list = {
+						name = ShouFu_PaiXi_List
+						target = prev
+					}
+				}
+			}
+		}
+	
+}
+
+ZunWang_PaiXi_List_effect = {
+		clear_variable_list = ZunWang_PaiXi_List
+		top_liege = {
+            ordered_vassal = {
+                limit = {
+					HuangQuan_Paixi_trigger = yes
+                }
+                order_by = var:movement_power
+                min = 0
+                max = 30
+                root = {
+                    add_to_variable_list = {
+                        name = ZunWang_PaiXi_List
+                        target = prev
+                    }
+                }
+            }
+			ordered_courtier = {
+				limit = {
+					HuangQuan_Paixi_trigger = yes
+                }
+				order_by = var:movement_power
+				max = 30
+				root = {
+					add_to_variable_list = {
+						name = ZunWang_PaiXi_List
+						target = prev
+					}
+				}
+			}
+		}
+	
+}
+
+XunGui_WuChen_List_effect = {
+		clear_variable_list = XunGui_WuChen_List
+		top_liege = {
+            ordered_vassal_or_below = {
+                limit = {
+					WuXun_var >= 10
+					has_trait = official_seniority
+                }
+                order_by = WuXun_var
+                min = 0
+                max = 30
+                root = {
+                    add_to_variable_list = {
+                        name = XunGui_WuChen_List
+                        target = prev
+                    }
+                }
+            }
+			ordered_courtier = {
+				limit = {
+					WuXun_var >= 10
+					has_trait = official_seniority
+                }
+				order_by = WuXun_var
+				max = 30
+				root = {
+					add_to_variable_list = {
+						name = XunGui_WuChen_List
+						target = prev
+					}
+				}
+			}
+		}
+	
+}
+
+XunGui_WenChen_List_effect = {
+	clear_variable_list = XunGui_WenChen_List
+	top_liege = {
+		ordered_vassal_or_below = {
+			limit = {
+				has_trait = official_seniority
+				WenZhi_var > WuXun_var
+				WenZhi_var >= 10
+			}
+			order_by = WenZhi_var
+			min = 0
+			max = 30
+			root = {
+				add_to_variable_list = {
+					name = XunGui_WenChen_List
+					target = prev
+				}
+			}
+		}
+		ordered_courtier = {
+			limit = {
+				has_trait = official_seniority
+				WenZhi_var > WuXun_var
+				WenZhi_var >= 10
+			}
+			order_by = WenZhi_var
+			max = 30
+			root = {
+				add_to_variable_list = {
+					name = XunGui_WenChen_List
+					target = prev
+				}
+			}
+		}
+	}
+}
+
+

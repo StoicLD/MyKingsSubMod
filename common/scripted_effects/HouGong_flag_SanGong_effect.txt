@@ -1,0 +1,229 @@
+﻿remove_sangong_pinfeijiahao_effect = { # 移除后宫嘉号
+    if = { limit = { has_character_flag = FengHao_xian } remove_character_flag = FengHao_xian }
+    if = { limit = { has_character_flag = FengHao_shu } remove_character_flag = FengHao_shu }
+    if = { limit = { has_character_flag = FengHao_de } remove_character_flag = FengHao_de }
+    if = { limit = { has_character_flag = FengHao_zhuang } remove_character_flag = FengHao_zhuang }
+    if = { limit = { has_character_flag = FengHao_hui } remove_character_flag = FengHao_hui }
+    if = { limit = { has_character_flag = FengHao_duan } remove_character_flag = FengHao_duan }
+    if = { limit = { has_character_flag = FengHao_liang } remove_character_flag = FengHao_liang }
+    if = { limit = { has_character_flag = FengHao_yi } remove_character_flag = FengHao_yi }
+    if = { limit = { has_character_flag = FengHao_shen } remove_character_flag = FengHao_shen }
+    if = { limit = { has_character_flag = FengHao_gong } remove_character_flag = FengHao_gong }
+    if = { limit = { has_character_flag = FengHao_jing } remove_character_flag = FengHao_jing }
+    if = { limit = { has_character_flag = FengHao_yong } remove_character_flag = FengHao_yong }
+    if = { limit = { has_character_flag = FengHao_an } remove_character_flag = FengHao_an }
+    if = { limit = { has_character_flag = FengHao_ning } remove_character_flag = FengHao_ning }
+    if = { limit = { has_character_flag = FengHao_he } remove_character_flag = FengHao_he }
+    if = { limit = { has_character_flag = FengHao_kang } remove_character_flag = FengHao_kang }
+    if = { limit = { has_character_flag = FengHao_xiang } remove_character_flag = FengHao_xiang }
+    if = { limit = { has_character_flag = FengHao_xi } remove_character_flag = FengHao_xi }
+    if = { limit = { has_character_flag = FengHao_fu } remove_character_flag = FengHao_fu }
+    if = { limit = { has_character_flag = FengHao_shun } remove_character_flag = FengHao_shun }
+    if = { limit = { has_character_flag = FengHao_rui } remove_character_flag = FengHao_rui }
+    if = { limit = { has_character_flag = FengHao_ji } remove_character_flag = FengHao_ji }
+    if = { limit = { has_character_flag = FengHao_qing } remove_character_flag = FengHao_qing }
+    if = { limit = { has_character_flag = FengHao_yia } remove_character_flag = FengHao_yia }
+    if = { limit = { has_character_flag = FengHao_xian2 } remove_character_flag = FengHao_xian2 }
+    if = { limit = { has_character_flag = FengHao_jing2 } remove_character_flag = FengHao_jing2 }
+    if = { limit = { has_character_flag = FengHao_wan } remove_character_flag = FengHao_wan }
+    if = { limit = { has_character_flag = FengHao_rou } remove_character_flag = FengHao_rou }
+    if = { limit = { has_character_flag = FengHao_chun } remove_character_flag = FengHao_chun }
+    if = { limit = { has_character_flag = FengHao_tian } remove_character_flag = FengHao_tian }
+    if = { limit = { has_character_flag = FengHao_mu } remove_character_flag = FengHao_mu }
+    if = { limit = { has_character_flag = FengHao_qing2 } remove_character_flag = FengHao_qing2 }
+    if = { limit = { has_character_flag = FengHao_su } remove_character_flag = FengHao_su }
+    if = { limit = { has_character_flag = FengHao_shu2 } remove_character_flag = FengHao_shu2 }
+    if = { limit = { has_character_flag = FengHao_wen } remove_character_flag = FengHao_wen }
+    if = { limit = { has_character_flag = FengHao_ya } remove_character_flag = FengHao_ya }
+    if = { limit = { has_character_flag = FengHao_fang } remove_character_flag = FengHao_fang }
+    if = { limit = { has_character_flag = FengHao_lan } remove_character_flag = FengHao_lan }
+    if = { limit = { has_character_flag = FengHao_zhen } remove_character_flag = FengHao_zhen }
+    if = { limit = { has_character_flag = FengHao_yu } remove_character_flag = FengHao_yu }
+    if = { limit = { has_character_flag = FengHao_hua } remove_character_flag = FengHao_hua }
+    if = { limit = { has_character_flag = FengHao_ying } remove_character_flag = FengHao_ying }
+    if = { limit = { has_character_flag = FengHao_lin } remove_character_flag = FengHao_lin }
+    if = { limit = { has_character_flag = FengHao_shu3 } remove_character_flag = FengHao_shu3 }
+    if = { limit = { has_character_flag = FengHao_yan } remove_character_flag = FengHao_yan }
+    if = { limit = { has_character_flag = FengHao_xin } remove_character_flag = FengHao_xin }
+    if = { limit = { has_character_flag = FengHao_qiong } remove_character_flag = FengHao_qiong }
+    if = { limit = { has_character_flag = FengHao_yao } remove_character_flag = FengHao_yao }
+    if = { limit = { has_character_flag = FengHao_hui2 } remove_character_flag = FengHao_hui2 }
+    if = { limit = { has_character_flag = FengHao_wen2 } remove_character_flag = FengHao_wen2 }
+    if = { limit = { has_character_flag = FengHao_ling } remove_character_flag = FengHao_ling }
+    if = { limit = { has_character_flag = FengHao_ying2 } remove_character_flag = FengHao_ying2 }
+    if = { limit = { has_character_flag = FengHao_zhi } remove_character_flag = FengHao_zhi }
+    if = { limit = { has_character_flag = FengHao_qiao } remove_character_flag = FengHao_qiao }
+    if = { limit = { has_character_flag = FengHao_ming } remove_character_flag = FengHao_ming }
+    if = { limit = { has_character_flag = FengHao_zhe } remove_character_flag = FengHao_zhe }
+    if = { limit = { has_character_flag = FengHao_min } remove_character_flag = FengHao_min }
+    if = { limit = { has_character_flag = FengHao_si } remove_character_flag = FengHao_si }
+    if = { limit = { has_character_flag = FengHao_da } remove_character_flag = FengHao_da }
+    if = { limit = { has_character_flag = FengHao_rui2 } remove_character_flag = FengHao_rui2 }
+    if = { limit = { has_character_flag = FengHao_rong } remove_character_flag = FengHao_rong }
+    if = { limit = { has_character_flag = FengHao_gui } remove_character_flag = FengHao_gui }
+    if = { limit = { has_character_flag = FengHao_chong } remove_character_flag = FengHao_chong }
+    if = { limit = { has_character_flag = FengHao_xian3 } remove_character_flag = FengHao_xian3 }
+    if = { limit = { has_character_flag = FengHao_xi2 } remove_character_flag = FengHao_xi2 }
+    if = { limit = { has_character_flag = FengHao_long } remove_character_flag = FengHao_long }
+    if = { limit = { has_character_flag = FengHao_chang } remove_character_flag = FengHao_chang }
+    if = { limit = { has_character_flag = FengHao_sheng } remove_character_flag = FengHao_sheng }
+    if = { limit = { has_character_flag = FengHao_yao2 } remove_character_flag = FengHao_yao2 }
+    if = { limit = { has_character_flag = FengHao_chen } remove_character_flag = FengHao_chen }
+    if = { limit = { has_character_flag = FengHao_xi3 } remove_character_flag = FengHao_xi3 }
+    if = { limit = { has_character_flag = FengHao_hao } remove_character_flag = FengHao_hao }
+    if = { limit = { has_character_flag = cefeng_Guifei } remove_character_flag = cefeng_Guifei }
+    if = { limit = { has_character_flag = cefeng_feizi } remove_character_flag = cefeng_feizi }
+    if = { limit = { has_character_flag = cefeng_pinfei } remove_character_flag = cefeng_pinfei }
+    if = { limit = { has_character_flag = cefeng_guiren } remove_character_flag = cefeng_guiren }
+    if = { limit = { has_character_flag = cefeng_changzai } remove_character_flag = cefeng_changzai }
+    if = { limit = { has_character_flag = cefeng_daying } remove_character_flag = cefeng_daying }
+    if = { limit = { has_character_flag = FengHao_Xingshi } remove_character_flag = FengHao_Xingshi }
+}
+
+remove_gongtingtrait_effect = { # 移除宫廷所有特质
+    if = { limit = { has_character_flag = GongWei_HuangHou } remove_character_flag = GongWei_HuangHou }
+    if = { limit = { has_character_flag = GongWei_HuangGuiFei } remove_character_flag = GongWei_HuangGuiFei }
+    if = { limit = { has_character_flag = GongWei_Guifei } remove_character_flag = GongWei_Guifei }
+    if = { limit = { has_character_flag = GongWei_Fei } remove_character_flag = GongWei_Fei }
+    if = { limit = { has_character_flag = GongWei_Pin } remove_character_flag = GongWei_Pin }
+    if = { limit = { has_character_flag = GongWei_Guiren } remove_character_flag = GongWei_Guiren }
+    if = { limit = { has_character_flag = GongWei_Changzai } remove_character_flag = GongWei_Changzai }
+    if = { limit = { has_character_flag = GongWei_Daying } remove_character_flag = GongWei_Daying }
+    if = { limit = { has_character_flag = GongWei_XiuNv } remove_character_flag = GongWei_XiuNv }
+    if = { limit = { has_trait = SanGong_GongWei_1 } remove_trait = SanGong_GongWei_1 }    # 中宫皇后
+    if = { limit = { has_trait = SanGong_GongWei_2 } remove_trait = SanGong_GongWei_2 }    # 皇贵妃
+    if = { limit = { has_trait = SanGong_GongWei_3 } remove_trait = SanGong_GongWei_3 }    # 贵妃
+    if = { limit = { has_trait = SanGong_GongWei_4 } remove_trait = SanGong_GongWei_4 }    # 妃
+    if = { limit = { has_trait = SanGong_GongWei_5 } remove_trait = SanGong_GongWei_5 }    # 嫔
+    if = { limit = { has_trait = SanGong_GongWei_6 } remove_trait = SanGong_GongWei_6 }    # 昭仪
+    if = { limit = { has_trait = SanGong_GongWei_7 } remove_trait = SanGong_GongWei_7 }    # 美人
+    if = { limit = { has_trait = SanGong_GongWei_8 } remove_trait = SanGong_GongWei_8 }    # 选侍
+    if = { limit = { has_trait = SanGong_GongWei_9 } remove_trait = SanGong_GongWei_9 }    # 淑女
+    if = { limit = { has_trait = SanGong_GongWei_10 } remove_trait = SanGong_GongWei_10 }   # 太妃
+    if = { limit = { has_trait = SanGong_GongWei_11 } remove_trait = SanGong_GongWei_11 }   # 太嫔
+    if = { limit = { has_trait = SanGong_GongWei_12 } remove_trait = SanGong_GongWei_12 }   # 皇考昭仪
+    if = { limit = { has_trait = SanGong_GongWei_13 } remove_trait = SanGong_GongWei_13 }   # 皇考美人
+    if = { limit = { has_trait = SanGong_GongWei_14 } remove_trait = SanGong_GongWei_14 }   # 皇考选侍
+    if = { limit = { has_trait = SanGong_LengGongi_1 } remove_trait = SanGong_LengGongi_1 }
+    SanGong_remove_cefeng_merit_modifiers_effect = yes
+    if = { limit = { has_trait = SanGong_LengGongi_2 } remove_trait = SanGong_LengGongi_2 }
+    if = { limit = { has_trait = SanGong_LengGongi_3 } remove_trait = SanGong_LengGongi_3 }
+    if = { limit = { has_trait = SanGong_LengGongi_4 } remove_trait = SanGong_LengGongi_4 }
+    if = {
+        limit = {
+            OR = {
+                has_trait = SanGong_Taizi
+                has_trait = SanGong_TaiSun
+            }
+        }
+        SanGong_ZongShi_remove_crown_line_effect = yes
+    }
+    if = { limit = { has_trait = SanGong_Taihou } remove_trait = SanGong_Taihou }
+    if = { limit = { has_trait = SanGong_TaiHuangTaihou } remove_trait = SanGong_TaiHuangTaihou }
+    if = { limit = { has_trait = SanGong_FanWang } remove_trait = SanGong_FanWang }
+    if = { limit = { has_trait = SanGong_JunWang } remove_trait = SanGong_JunWang }
+    if = { limit = { has_trait = SanGong_GongZhu } remove_trait = SanGong_GongZhu }
+    #if = { limit = { has_trait = ChuShen_1 } remove_trait = ChuShen_1 }
+    #if = { limit = { has_trait = ChuShen_2 } remove_trait = ChuShen_2 }
+    #if = { limit = { has_trait = ChuShen_3 } remove_trait = ChuShen_3 }
+    #if = { limit = { has_trait = ChuShen_4 } remove_trait = ChuShen_4 }
+    if = { limit = { has_trait = SanGong_HuangSi } remove_trait = SanGong_HuangSi }
+}
+
+set_change_GongWei = { #保存变化前宫位
+    if = {
+        limit = { has_character_flag = GongWei_HuangHou }
+        add_character_flag = set_chang_gongwei1
+    }
+    if = {
+        limit = { has_character_flag = GongWei_HuangGuiFei }
+        add_character_flag = set_chang_gongwei2
+    }
+    if = {
+        limit = { has_character_flag = GongWei_Guifei }
+        add_character_flag = set_chang_gongwei3
+    }
+    if = {
+        limit = { has_character_flag = GongWei_Fei }
+        add_character_flag = set_chang_gongwei4
+    }
+    if = {
+        limit = { has_character_flag = GongWei_Pin }
+        add_character_flag = set_chang_gongwei5
+    }
+    if = {
+        limit = { has_character_flag = GongWei_Guiren }
+        add_character_flag = set_chang_gongwei6
+    }
+    if = {
+        limit = { has_character_flag = GongWei_Changzai }
+        add_character_flag = set_chang_gongwei7
+    }
+    if = {
+        limit = { has_character_flag = GongWei_Daying }
+        add_character_flag = set_chang_gongwei8
+    }
+    if = {
+        limit = { has_character_flag = GongWei_XiuNv }
+        add_character_flag = set_chang_gongwei9
+    }
+}
+
+remove_change_gongwei = { #清除变化前宫位
+    remove_character_flag = set_chang_gongwei1
+    remove_character_flag = set_chang_gongwei2
+    remove_character_flag = set_chang_gongwei3
+    remove_character_flag = set_chang_gongwei4
+    remove_character_flag = set_chang_gongwei5
+    remove_character_flag = set_chang_gongwei6
+    remove_character_flag = set_chang_gongwei7
+    remove_character_flag = set_chang_gongwei8
+    remove_character_flag = set_chang_gongwei9
+}
+
+add_GongWei_flag_effect = {# 宫位标记
+    remove_character_flag = cefeng_huangguifei  
+    remove_character_flag = cefeng_guifei    
+    remove_character_flag = cefeng_fei       
+    remove_character_flag = cefeng_pin       
+    remove_character_flag = cefeng_guiren
+    remove_character_flag = cefeng_changzai
+    remove_character_flag = cefeng_daying
+    if = {
+        limit = { has_trait = SanGong_GongWei_1 }
+        add_character_flag = GongWei_HuangHou
+    }
+    if = {
+        limit = { has_trait = SanGong_GongWei_2 }
+        add_character_flag = GongWei_HuangGuiFei
+    }
+    if = {
+        limit = { has_trait = SanGong_GongWei_3 }
+        add_character_flag = GongWei_Guifei
+    }
+    if = {
+        limit = { has_trait = SanGong_GongWei_4 }
+        add_character_flag = GongWei_Fei       
+    }
+    if = {
+        limit = { has_trait = SanGong_GongWei_5 }
+        add_character_flag = GongWei_Pin       
+    }
+    if = {
+        limit = { has_trait = SanGong_GongWei_6 }
+        add_character_flag = GongWei_Guiren    
+    }
+    if = {
+        limit = { has_trait = SanGong_GongWei_7 }
+        add_character_flag = GongWei_Changzai  
+    }
+    if = {
+        limit = { has_trait = SanGong_GongWei_8 }
+        add_character_flag = GongWei_Daying    
+    }
+    if = {
+        limit = { has_trait = SanGong_GongWei_9 }
+        add_character_flag = GongWei_XiuNv   
+    }
+}
+

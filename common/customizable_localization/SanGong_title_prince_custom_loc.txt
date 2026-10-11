@@ -1,0 +1,316 @@
+﻿SanGong_hegemony_prince_male_name = {#霸权儿子风味化
+    type = character
+    text = {#太孙
+        trigger = {
+            this != top_liege
+            has_trait = SanGong_TaiSun
+        }
+        localization_key = SanGong_hegemony_prince_male_9
+    }
+    text = {
+        trigger = {#太子
+            this != top_liege
+            father = top_liege
+            has_trait = SanGong_Taizi
+        }
+        localization_key = SanGong_hegemony_prince_male_1
+    }
+    text = {
+        trigger = {#太子death
+            is_alive = no
+            has_trait = SanGong_Taizi
+        }
+        localization_key = SanGong_hegemony_prince_male_1
+    }
+
+    text = {
+        trigger = {#亲王
+            this != top_liege
+            SanGong_QinWang_trigger = yes
+        }
+        localization_key = SanGong_hegemony_prince_male_6
+    }
+    text = {
+        trigger = {#郡王
+            this != top_liege
+            SanGong_JunWang_trigger = yes
+        }
+        localization_key = SanGong_hegemony_prince_male_7
+    }
+    text = {
+        trigger = {#郡王
+            this != top_liege
+            has_character_flag = SanGong_ZongShi_JueWei_ZDY
+        }
+        localization_key = SanGong_hegemony_prince_male_8
+    }
+    text = {
+        trigger = {#皇子
+            this != top_liege
+            father = top_liege
+        }
+        localization_key = SanGong_hegemony_prince_male_2
+    }
+    text = {
+        trigger = {#皇子death
+            is_alive = no
+            has_trait = SanGong_HuangSi
+        }
+        localization_key = SanGong_hegemony_prince_male_2
+    }
+    text = {
+        trigger = {#近亲
+            this != top_liege
+            is_close_family_of = top_liege
+        }
+        localization_key = SanGong_hegemony_prince_male_3
+    }
+    text = {
+        fallback = yes
+        localization_key = SanGong_hegemony_prince_male_5
+    }
+}
+
+SanGong_hegemony_prince_female_name = {#霸权女儿风味化
+    type = character
+    text = {#皇太女
+        trigger = {
+            this != top_liege
+            is_primary_heir_of = liege
+            father = top_liege
+        }
+        localization_key = SanGong_hegemony_prince_female_1
+    }
+    text = {#封号公主
+        trigger = {
+            SanGong_GongZhu_trigger = yes
+        }
+        localization_key = SanGong_hegemony_prince_female_2
+    }
+    text = {#公主
+        trigger = {
+            father = top_liege
+            age < 16
+        }
+        localization_key = SanGong_hegemony_prince_female_3
+    }
+    text = {
+        trigger = {#皇女death
+            has_trait = SanGong_HuangSi
+        }
+        localization_key = SanGong_hegemony_prince_female_3
+    }
+    text = {
+        fallback = yes
+        localization_key = SanGong_hegemony_prince_female_5
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SanGong_kingdom_prince_male_name = {#宗藩王国儿子风味化
+    text = {
+        trigger = {
+            this != top_liege
+            is_primary_heir_of = liege
+            liege = {
+                is_independent_ruler = no 
+            }
+        }
+        localization_key = SanGong_kingdom_prince_male_1
+    }
+    text = {
+        trigger = {
+            this != top_liege
+            liege = {
+                is_independent_ruler = no 
+            }
+        }
+        localization_key = SanGong_kingdom_prince_male_2
+    }
+
+    text = {
+        trigger = {
+            this != top_liege
+            is_primary_heir_of = liege
+            liege = {
+                is_independent_ruler = yes 
+            }
+        }
+        localization_key = SanGong_kingdom_prince_male_3
+    }
+    text = {
+        trigger = {
+            this != top_liege
+            liege = {
+                is_independent_ruler = yes 
+            }
+        }
+        localization_key = SanGong_kingdom_prince_male_4
+    }
+    text = {
+        fallback = yes
+        localization_key = SanGong_kingdom_prince_male_5
+    }
+}
+
+SanGong_kingdom_prince_female_name = {#宗藩王国女儿风味化
+    text = {
+        trigger = {
+            this != top_liege
+            is_primary_heir_of = liege
+            liege = {
+                is_independent_ruler = no 
+            }
+        }
+        localization_key = SanGong_kingdom_prince_female_1
+    }
+    text = {
+        trigger = {
+            this != top_liege
+            liege = {
+                is_independent_ruler = no 
+            }
+        }
+        localization_key = SanGong_kingdom_prince_female_2
+    }
+
+    text = {
+        trigger = {
+            this != top_liege
+            is_primary_heir_of = liege
+            liege = {
+                is_independent_ruler = yes 
+            }
+        }
+        localization_key = SanGong_kingdom_prince_female_3
+    }
+    text = {
+        trigger = {
+            this != top_liege
+            liege = {
+                is_independent_ruler = yes 
+            }
+        }
+        localization_key = SanGong_kingdom_prince_female_4
+    }
+    text = {
+        fallback = yes
+        localization_key = SanGong_kingdom_prince_female_5
+    }
+}
+SanGong_duchy_prince_male_name = {#宗藩公国儿子风味化
+    type = character
+    text = {
+        trigger = {
+            this != top_liege
+            is_primary_heir_of = liege
+            liege = {
+                is_independent_ruler = no 
+            }
+        }
+        localization_key = SanGong_duchy_prince_male_1
+    }
+    text = {
+        trigger = {
+            this != top_liege
+            liege = {
+                is_independent_ruler = no 
+            }
+        }
+        localization_key = SanGong_duchy_prince_male_2
+    }
+    text = {
+        trigger = {
+            this != top_liege
+            is_primary_heir_of = liege
+            liege = {
+                is_independent_ruler = yes 
+            }
+        }
+        localization_key = SanGong_duchy_prince_male_3
+    }
+    text = {
+        trigger = {
+            this != top_liege
+            liege = {
+                is_independent_ruler = yes 
+            }
+        }
+        localization_key = SanGong_duchy_prince_male_4
+    }
+    
+    text = {
+        fallback = yes
+        localization_key = SanGong_duchy_prince_male_5
+    }
+}
+SanGong_duchy_prince_female_name = {#宗藩公国女儿风味化
+    type = character
+    text = {
+        trigger = {
+            this != top_liege
+            is_primary_heir_of = liege
+            liege = {
+                is_independent_ruler = no 
+            }
+        }
+        localization_key = SanGong_duchy_prince_female_1
+    }
+    text = {
+        trigger = {
+            this != top_liege
+            liege = {
+                is_independent_ruler = no 
+            }
+        }
+        localization_key = SanGong_duchy_prince_female_2
+    }
+    text = {
+        trigger = {
+            this != top_liege
+            is_primary_heir_of = liege
+            liege = {
+                is_independent_ruler = yes 
+            }
+        }
+        localization_key = SanGong_duchy_prince_female_3
+    }
+    text = {
+        trigger = {
+            this != top_liege
+            liege = {
+                is_independent_ruler = yes 
+            }
+        }
+        localization_key = SanGong_duchy_prince_female_4
+    }
+    
+    text = {
+        fallback = yes
+        localization_key = SanGong_duchy_prince_female_5
+    }
+}

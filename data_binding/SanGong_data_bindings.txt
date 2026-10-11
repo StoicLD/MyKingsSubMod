@@ -1,0 +1,28 @@
+﻿
+macro = {#三宫六院按钮可见条件
+	definition = "ShouldShowSanGong"
+	replace_with = "And(GetPlayer.IsValid, GetScriptedGui('is_HuangDi').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))"
+}
+macro = {#朝堂按钮可见条件
+	definition = "ShouldShowSanGongChaoTang"
+	replace_with = "And(GetPlayer.IsValid, GetScriptedGui('Topliege_is_HuangDi').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))"
+}
+
+
+macro = {#三宫六院按钮可见条件
+	definition = "THIS_IS_HUANGDI"
+	replace_with = "And(GetPlayer.IsValid, GetScriptedGui('is_HuangDi').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))"
+}
+
+
+
+
+macro = {#无后妃时显示
+	definition = "ShouldShowGUANGGUN"
+	replace_with = "GetScriptedGui('HouGong_outliner_VS').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)"
+}
+
+macro = {#无孩子时显示
+	definition = "ShouldShowJUESI"
+	replace_with = "GetScriptedGui('JUESI_outliner_VS').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)"
+}

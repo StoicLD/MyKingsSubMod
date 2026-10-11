@@ -1,0 +1,346 @@
+﻿SanGong_chakan_juewei_jichengren_interaction = { #查看爵位继承人（宗室）
+    category = interaction_category_diplomacy
+    use_diplomatic_range = yes
+    interface_priority = 100
+    common_interaction = yes
+    icon = waiqi
+    desc = SanGong_chakan_juewei_jichengren_desc
+    auto_accept = yes
+    is_shown = {
+        scope:actor = {
+            SanGong_huangdi_trigger = yes
+        }
+        scope:recipient = {
+            top_liege = scope:actor
+            OR = { 
+                AND = {
+                    is_child_of = scope:actor
+                    is_male = yes
+                }
+                has_trait = SanGong_FanWang 
+                has_trait = SanGong_JunWang 
+                SanGong_ZongShi_lower_rank_trigger = yes
+            }
+            
+        }
+    }
+    on_accept = {
+        scope:recipient = {
+            custom_tooltip = SanGong_chakan_juewei_holder_tooltip          #这是爵位的拥有者
+            if = {
+                limit = { SanGong_ZongShi_inheritable_rank_holder_trigger = yes }
+                SanGong_ZongShi_find_heir_for_view_effect = yes
+                if = {
+                    limit = { exists = scope:New_FanWang }
+                    scope:New_FanWang = {
+                        custom_tooltip = SanGong_chakan_juewei_heir_tooltip
+                    }
+                }
+                else = {
+                    custom_tooltip = SanGong_chakan_juewei_no_heir_tooltip
+                }
+            }
+            else_if = {
+                limit = {
+                    any_child = {
+                        is_male = yes
+                        top_liege = scope:recipient.top_liege
+                        is_imprisoned = no
+                        NOT = { OR = { has_trait = SanGong_FanWang has_trait = SanGong_JunWang } }
+                        has_JueWei_trigger = no
+                    }
+                }
+                ordered_child = {
+                    limit = {
+                        top_liege = scope:recipient.top_liege
+                        is_male = yes
+                        is_imprisoned = no
+                        NOT = { OR = { has_trait = SanGong_FanWang has_trait = SanGong_JunWang } }
+                        has_JueWei_trigger = no
+                    }
+                    order_by = {
+                        value = age
+                        if = {
+                            limit = { SanGong_ZongShi_designated_heir_trigger = yes }
+                            add = 1000
+                        }
+                    }
+                    save_scope_as = New_FanWang
+                }
+                scope:New_FanWang = {
+                    custom_tooltip = SanGong_chakan_juewei_heir_tooltip     #这是爵位的继承人
+                }
+            }
+            else = {
+                scope:recipient = {
+                    custom_tooltip = SanGong_chakan_juewei_no_heir_tooltip  #没有满足条件的继承人，死后夺爵除国
+                }
+            }
+        }
+    }
+    ai_will_do = 0
+}
+
+
+
+SanGong_chakan_xungui_jichengren_interaction = {                     #查看爵位继承人（勋贵/大臣）
+    category = interaction_category_diplomacy
+    use_diplomatic_range = yes
+    interface_priority = 100
+    common_interaction = yes
+    icon = waiqi
+    desc = SanGong_chakan_juewei_jichengren_desc
+    auto_accept = yes
+
+    is_shown = {
+        scope:actor = { SanGong_huangdi_trigger = yes }
+        scope:recipient = {
+            top_liege = scope:actor
+            OR = {
+                has_trait = SanGong_Juewei_GongJue
+                has_trait = SanGong_Juewei_HouJue
+                has_trait = SanGong_Juewei_BoJue
+                has_trait = SanGong_Juewei_ZiJue
+            }
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            custom_tooltip = SanGong_chakan_juewei_holder_tooltip          #此乃爵位之现任持有者
+
+            if = {                                                         #不准袭爵，死后除爵
+                limit = { has_character_flag = BuYunShiXi_flag }
+                custom_tooltip = SanGong_buyun_shixi_tooltip
+            }
+            else_if = {                                                    #优先级1：指定袭爵
+                limit = {
+                    any_close_family_member = {
+                        dynasty = scope:recipient.dynasty
+                        top_liege = scope:actor
+                        is_male = yes is_alive = yes
+                        has_character_flag = SanGong_zhiding_xijue_flag
+                    }
+                }
+                every_close_family_member = {
+                    limit = {
+                        dynasty = scope:recipient.dynasty
+                        top_liege = scope:actor
+                        is_male = yes is_alive = yes
+                        has_character_flag = SanGong_zhiding_xijue_flag
+                    }
+                    save_scope_as = Xungui
+                    custom_tooltip = SanGong_zhiding_xijue_heir_tooltip
+                }
+            }
+            else_if = {                                                    #优先级2：长子
+                limit = {
+                    any_close_family_member = {
+                        dynasty = scope:recipient.dynasty
+                        top_liege = scope:actor
+                        is_male = yes is_alive = yes
+                        is_child_of = scope:recipient
+                        NOT = { has_trait = incapable }
+                    }
+                }
+                ordered_close_family_member = {
+                    limit = {
+                        dynasty = scope:recipient.dynasty
+                        top_liege = scope:actor
+                        is_male = yes is_alive = yes
+                        is_child_of = scope:recipient
+                        NOT = { has_trait = incapable }
+                    }
+                    order_by = age
+                    max = 1
+                    save_scope_as = Xungui
+                    custom_tooltip = SanGong_zhangzi_heir_tooltip
+                }
+            }
+            else_if = {                                                    #优先级3：长孙
+                limit = {
+                    NOT = {
+                        any_close_family_member = {
+                            dynasty = scope:recipient.dynasty
+                            top_liege = scope:actor
+                            is_male = yes is_alive = yes
+                            is_child_of = scope:recipient
+                        }
+                    }
+                    any_close_family_member = {
+                        dynasty = scope:recipient.dynasty
+                        top_liege = scope:actor
+                        is_male = yes is_alive = yes
+                        is_grandchild_of = scope:recipient
+                        NOT = { has_trait = incapable }
+                    }
+                }
+                ordered_close_family_member = {
+                    limit = {
+                        dynasty = scope:recipient.dynasty
+                        top_liege = scope:actor
+                        is_male = yes is_alive = yes
+                        is_grandchild_of = scope:recipient
+                        NOT = { has_trait = incapable }
+                    }
+                    order_by = age
+                    max = 1
+                    save_scope_as = Xungui
+                    custom_tooltip = SanGong_zhangsun_heir_tooltip
+                }
+            }
+            else_if = {                                                    #优先级4：曾孙
+                limit = {
+                    NOT = {
+                        any_close_family_member = {
+                            dynasty = scope:recipient.dynasty
+                            top_liege = scope:actor
+                            is_male = yes is_alive = yes
+                            is_child_of = scope:recipient
+                        }
+                    }
+                    NOT = {
+                        any_close_family_member = {
+                            dynasty = scope:recipient.dynasty
+                            top_liege = scope:actor
+                            is_male = yes is_alive = yes
+                            is_grandchild_of = scope:recipient
+                        }
+                    }
+                    any_close_family_member = {
+                        dynasty = scope:recipient.dynasty
+                        top_liege = scope:actor
+                        is_male = yes is_alive = yes
+                        is_great_grandchild_of = scope:recipient
+                        NOT = { has_trait = incapable }
+                    }
+                }
+                ordered_close_family_member = {
+                    limit = {
+                        dynasty = scope:recipient.dynasty
+                        top_liege = scope:actor
+                        is_male = yes is_alive = yes
+                        is_great_grandchild_of = scope:recipient
+                        NOT = { has_trait = incapable }
+                    }
+                    order_by = age
+                    max = 1
+                    save_scope_as = Xungui
+                    custom_tooltip = SanGong_zengsun_heir_tooltip
+                }
+            }
+            else_if = {                                                    #优先级5：同族近亲
+                ordered_close_family_member = {
+                    limit = {
+                        dynasty = scope:recipient.dynasty
+                        top_liege = scope:actor
+                        is_male = yes is_alive = yes
+                    }
+                    order_by = age
+                    max = 1
+                    save_scope_as = Xungui
+                    custom_tooltip = SanGong_jinqin_heir_tooltip
+                }
+            }
+            else = {                                                       #无继承人
+                custom_tooltip = SanGong_chakan_juewei_no_heir_tooltip
+            }
+        }
+    }
+    ai_will_do = 0
+}
+
+
+SanGong_ShiXi_interaction = {#查看世系
+    category = interaction_category_diplomacy
+    use_diplomatic_range = yes
+    interface_priority = 100
+    common_interaction = yes
+    icon = waiqi
+    desc = SanGong_ShiXi_interaction_desc
+    auto_accept = yes
+    is_shown = {
+        scope:recipient = {
+            OR = {
+                has_trait = SanGong_Juewei_GongJue
+                has_trait = SanGong_Juewei_HouJue
+                has_trait = SanGong_Juewei_BoJue
+                has_trait = SanGong_Juewei_ZiJue
+            }
+            any_ancestor = {
+                even_if_dead = yes
+                dynasty ?= scope:recipient.dynasty
+                OR = {
+                    has_trait = SanGong_Juewei_GongJue
+                    has_trait = SanGong_Juewei_HouJue
+                    has_trait = SanGong_Juewei_BoJue
+                    has_trait = SanGong_Juewei_ZiJue
+                }  
+            }
+        }
+    }
+    on_accept = {
+        scope:actor = {
+            clear_variable_list = xungui_alive
+            clear_variable_list = xungui_list
+        }
+        scope:recipient = {
+            clear_variable_list = temp_xungui_list
+            clear_variable_list = xungui_list
+            scope:actor = { 
+                add_to_variable_list = { name = xungui_alive target = prev } 
+            }
+            save_scope_as = collector
+            every_ancestor = {
+                every_close_or_extended_family_member = {
+                    even_if_dead = yes
+                    limit = { 
+                        dynasty ?= scope:recipient.dynasty
+                        OR = {
+                            has_trait = SanGong_Juewei_GongJue
+                            has_trait = SanGong_Juewei_HouJue
+                            has_trait = SanGong_Juewei_BoJue
+                            has_trait = SanGong_Juewei_ZiJue
+                        }
+                    }
+                    scope:collector = {
+                        add_to_variable_list = { name = temp_xungui_list target = prev }
+                    }
+                }
+            }
+            every_close_or_extended_family_member = {
+                even_if_dead = yes
+                limit = { 
+                    dynasty ?= scope:recipient.dynasty
+                    OR = {
+                        has_trait = SanGong_Juewei_GongJue
+                        has_trait = SanGong_Juewei_HouJue
+                        has_trait = SanGong_Juewei_BoJue
+                        has_trait = SanGong_Juewei_ZiJue
+                    }
+                }
+                scope:collector = {
+                    add_to_variable_list = { name = temp_xungui_list target = prev }
+                }
+            }
+            add_to_variable_list = { name = temp_xungui_list target = scope:collector }
+
+            ordered_in_list = {
+                variable = temp_xungui_list
+                limit = {
+                    JueWeiShiXi_tirgger = yes
+                }
+                order_by = days_since_death
+                max = 100
+                scope:actor = {
+                    add_to_variable_list = {  
+                        name = xungui_list
+                        target = prev
+                    }
+                }
+            }
+        }
+        set_global_variable = SanGong_shixi_Gobal
+    }
+    ai_will_do = 0
+}

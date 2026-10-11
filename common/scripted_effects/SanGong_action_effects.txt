@@ -1,0 +1,450 @@
+﻿remove_HuangZi_WangHao_effects = {#清除皇子王号
+    remove_character_flag = SanGong_ZongShi_JueWei_ZDY
+    SanGong_remove_cefeng_merit_modifiers_effect = yes
+    remove_character_flag = flag_SanGong_title_1
+    remove_character_flag = flag_SanGong_title_2
+    remove_character_flag = flag_SanGong_title_3
+    remove_character_flag = flag_SanGong_title_4
+    remove_character_flag = flag_SanGong_title_5
+    remove_character_flag = flag_SanGong_title_6
+    remove_character_flag = flag_SanGong_title_7
+    remove_character_flag = flag_SanGong_title_8
+    remove_character_flag = flag_SanGong_title_9
+    remove_character_flag = flag_SanGong_title_10
+    remove_character_flag = flag_SanGong_title_11
+    remove_character_flag = flag_SanGong_title_12
+    remove_character_flag = flag_SanGong_title_13
+    remove_character_flag = flag_SanGong_title_14
+    remove_character_flag = flag_SanGong_title_15
+    remove_character_flag = flag_SanGong_title_16
+    remove_character_flag = flag_SanGong_title_17
+    remove_character_flag = flag_SanGong_title_18
+    remove_character_flag = flag_SanGong_title_19
+    remove_character_flag = flag_SanGong_title_20
+    remove_character_flag = flag_SanGong_title_21
+    remove_character_flag = flag_SanGong_title_22
+    remove_character_flag = flag_SanGong_title_23
+    remove_character_flag = flag_SanGong_title_24
+    remove_character_flag = flag_SanGong_title_25
+    remove_character_flag = flag_SanGong_title_26
+    remove_character_flag = flag_SanGong_title_27
+    remove_character_flag = flag_SanGong_title_28
+    remove_character_flag = flag_SanGong_title_29
+    remove_character_flag = flag_SanGong_title_30
+    remove_character_flag = flag_SanGong_title_31
+    remove_character_flag = flag_SanGong_title_32
+    remove_character_flag = flag_SanGong_title_33
+    remove_character_flag = flag_SanGong_title_34
+    remove_character_flag = flag_SanGong_title_35
+    remove_character_flag = flag_SanGong_title_36
+    remove_character_flag = flag_SanGong_title_37
+    remove_character_flag = flag_SanGong_title_38
+    remove_character_flag = flag_SanGong_title_39
+    remove_character_flag = flag_SanGong_title_40
+    remove_character_flag = flag_SanGong_title_41
+    remove_character_flag = flag_SanGong_title_42
+    remove_character_flag = flag_SanGong_title_43
+    remove_character_flag = flag_SanGong_title_44
+    remove_character_flag = flag_SanGong_title_45
+    remove_character_flag = flag_SanGong_title_46
+    remove_character_flag = flag_SanGong_title_47
+    remove_character_flag = flag_SanGong_title_48
+    remove_character_flag = flag_SanGong_title_49
+    remove_character_flag = flag_SanGong_title_50
+    remove_character_flag = flag_SanGong_title_51
+    remove_character_flag = flag_SanGong_title_52
+    remove_character_flag = flag_SanGong_title_53
+    remove_character_flag = flag_SanGong_title_54
+    remove_character_flag = flag_SanGong_title_55
+    remove_character_flag = flag_SanGong_title_56
+    remove_character_flag = flag_SanGong_title_57
+    remove_character_flag = flag_SanGong_title_58
+    remove_character_flag = flag_SanGong_title_59
+    remove_character_flag = flag_SanGong_title_60
+    remove_character_flag = flag_SanGong_title_61
+    remove_character_flag = flag_SanGong_title_62
+    remove_character_flag = flag_SanGong_title_63
+    remove_character_flag = flag_SanGong_title_64
+    remove_character_flag = flag_SanGong_title_65
+    remove_character_flag = flag_SanGong_title_66
+    remove_character_flag = flag_SanGong_title_67
+    remove_character_flag = flag_SanGong_title_68
+    remove_character_flag = flag_SanGong_title_69
+    remove_character_flag = flag_SanGong_title_70
+    remove_character_flag = flag_SanGong_title_71
+    remove_character_flag = flag_SanGong_title_72
+    remove_character_flag = flag_SanGong_title_73
+    remove_character_flag = flag_SanGong_title_74
+    remove_character_flag = flag_SanGong_title_75
+    remove_character_flag = flag_SanGong_title_76
+    remove_character_flag = flag_SanGong_title_77
+    remove_character_flag = flag_SanGong_title_78
+    remove_character_flag = flag_SanGong_title_79
+    remove_character_flag = flag_SanGong_title_80
+    remove_character_flag = flag_SanGong_title_81
+    remove_character_flag = flag_SanGong_title_82
+    remove_character_flag = flag_SanGong_title_83
+    remove_character_flag = flag_SanGong_title_84
+    remove_character_flag = flag_SanGong_title_85
+    remove_character_flag = flag_SanGong_title_86
+    remove_character_flag = flag_SanGong_title_87
+    remove_character_flag = flag_SanGong_title_88
+    remove_character_flag = flag_SanGong_title_89
+    remove_character_flag = flag_SanGong_title_90
+    remove_character_flag = flag_SanGong_title_91
+    remove_character_flag = flag_SanGong_title_92
+    remove_character_flag = flag_SanGong_title_93
+    remove_character_flag = flag_SanGong_title_94
+    remove_character_flag = flag_SanGong_title_95
+    remove_character_flag = flag_SanGong_title_96
+    remove_character_flag = flag_SanGong_title_97
+    remove_character_flag = flag_SanGong_title_98
+    remove_character_flag = flag_SanGong_title_99
+    remove_character_flag = flag_SanGong_title_100
+    remove_character_flag = flag_SanGong_title_ZiDingYi
+    remove_character_flag = flag_d_SanGong_title_ZiDingYi
+    remove_character_flag = d_SanGong_title_1
+    remove_character_flag = d_SanGong_title_2
+    remove_character_flag = d_SanGong_title_3
+    remove_character_flag = d_SanGong_title_4
+    remove_character_flag = d_SanGong_title_5
+    remove_character_flag = d_SanGong_title_6
+    remove_character_flag = d_SanGong_title_7
+    remove_character_flag = d_SanGong_title_8
+    remove_character_flag = d_SanGong_title_9
+    remove_character_flag = d_SanGong_title_10
+    remove_character_flag = d_SanGong_title_11
+    remove_character_flag = d_SanGong_title_12
+    remove_character_flag = d_SanGong_title_13
+    remove_character_flag = d_SanGong_title_14
+    remove_character_flag = d_SanGong_title_15
+    remove_character_flag = d_SanGong_title_16
+    remove_character_flag = d_SanGong_title_17
+    remove_character_flag = d_SanGong_title_18
+    remove_character_flag = d_SanGong_title_19
+    remove_character_flag = d_SanGong_title_20
+    remove_character_flag = d_SanGong_title_21
+    remove_character_flag = d_SanGong_title_22
+    remove_character_flag = d_SanGong_title_23
+    remove_character_flag = d_SanGong_title_24
+    remove_character_flag = d_SanGong_title_25
+    remove_character_flag = d_SanGong_title_26
+    remove_character_flag = d_SanGong_title_27
+    remove_character_flag = d_SanGong_title_28
+    remove_character_flag = d_SanGong_title_29
+    remove_character_flag = d_SanGong_title_30
+    remove_character_flag = d_SanGong_title_31
+    remove_character_flag = d_SanGong_title_32
+    remove_character_flag = d_SanGong_title_33
+    remove_character_flag = d_SanGong_title_34
+    remove_character_flag = d_SanGong_title_35
+    remove_character_flag = d_SanGong_title_36
+    remove_character_flag = d_SanGong_title_37
+    remove_character_flag = d_SanGong_title_38
+    remove_character_flag = d_SanGong_title_39
+    remove_character_flag = d_SanGong_title_40
+    remove_character_flag = d_SanGong_title_41
+    remove_character_flag = d_SanGong_title_42
+    remove_character_flag = d_SanGong_title_43
+    remove_character_flag = d_SanGong_title_44
+    remove_character_flag = d_SanGong_title_45
+    remove_character_flag = d_SanGong_title_46
+    remove_character_flag = d_SanGong_title_47
+    remove_character_flag = d_SanGong_title_48
+    remove_character_flag = d_SanGong_title_49
+    remove_character_flag = d_SanGong_title_50
+    remove_character_flag = d_SanGong_title_51
+    remove_character_flag = d_SanGong_title_52
+    remove_character_flag = d_SanGong_title_53
+    remove_character_flag = d_SanGong_title_54
+    remove_character_flag = d_SanGong_title_55
+    remove_character_flag = d_SanGong_title_56
+    remove_character_flag = d_SanGong_title_57
+    remove_character_flag = d_SanGong_title_58
+    remove_character_flag = d_SanGong_title_59
+    remove_character_flag = d_SanGong_title_60
+    remove_character_flag = d_SanGong_title_61
+    remove_character_flag = d_SanGong_title_62
+    remove_character_flag = d_SanGong_title_63
+    remove_character_flag = d_SanGong_title_64
+    remove_character_flag = d_SanGong_title_65
+    remove_character_flag = d_SanGong_title_66
+    remove_character_flag = d_SanGong_title_67
+    remove_character_flag = d_SanGong_title_68
+    remove_character_flag = d_SanGong_title_69
+    remove_character_flag = d_SanGong_title_70
+    remove_character_flag = d_SanGong_title_71
+    remove_character_flag = d_SanGong_title_72
+    remove_character_flag = d_SanGong_title_73
+    remove_character_flag = d_SanGong_title_74
+    remove_character_flag = d_SanGong_title_75
+    remove_character_flag = d_SanGong_title_76
+    remove_character_flag = d_SanGong_title_77
+    remove_character_flag = d_SanGong_title_78
+    remove_character_flag = d_SanGong_title_79
+    remove_character_flag = d_SanGong_title_80
+    remove_character_flag = d_SanGong_title_81
+    remove_character_flag = d_SanGong_title_82
+    remove_character_flag = d_SanGong_title_83
+    remove_character_flag = d_SanGong_title_84
+    remove_character_flag = d_SanGong_title_85
+    remove_character_flag = d_SanGong_title_86
+    remove_character_flag = d_SanGong_title_87
+    remove_character_flag = d_SanGong_title_88
+    remove_character_flag = d_SanGong_title_89
+    remove_character_flag = d_SanGong_title_90
+    remove_character_flag = d_SanGong_title_91
+    remove_character_flag = d_SanGong_title_92
+    remove_character_flag = d_SanGong_title_93
+    remove_character_flag = d_SanGong_title_94
+    remove_character_flag = d_SanGong_title_95
+    remove_character_flag = d_SanGong_title_96
+    remove_character_flag = d_SanGong_title_97
+    remove_character_flag = d_SanGong_title_98
+    remove_character_flag = d_SanGong_title_99
+    remove_character_flag = d_SanGong_title_100
+}
+
+SanGong_remove_cefeng_merit_modifiers_effect = {
+    remove_character_modifier = SanGong_manual_wangjue_merit_modifier
+    remove_character_modifier = SanGong_player_taizi_merit_modifier
+}
+
+remove_MiaoShi_effect = {#清除庙号
+    remove_trait = SanGong_miaohao_zdy
+    remove_trait = SanGong_miaohao_01
+    remove_trait = SanGong_miaohao_02
+    remove_trait = SanGong_miaohao_03
+    remove_trait = SanGong_miaohao_04
+    remove_trait = SanGong_miaohao_05
+    remove_trait = SanGong_miaohao_06
+    remove_trait = SanGong_miaohao_07
+    remove_trait = SanGong_miaohao_08
+    remove_trait = SanGong_miaohao_09
+    remove_trait = SanGong_miaohao_10
+    remove_trait = SanGong_miaohao_11
+    remove_trait = SanGong_miaohao_12
+    remove_trait = SanGong_miaohao_13
+    remove_trait = SanGong_miaohao_14
+    remove_trait = SanGong_miaohao_15
+    remove_trait = SanGong_miaohao_16
+    remove_trait = SanGong_miaohao_17
+    remove_trait = SanGong_miaohao_18
+    remove_trait = SanGong_miaohao_19
+    remove_trait = SanGong_miaohao_20
+    remove_trait = SanGong_miaohao_21
+    remove_trait = SanGong_miaohao_22
+    remove_trait = SanGong_miaohao_23
+    remove_trait = SanGong_miaohao_24
+    remove_trait = SanGong_miaohao_25
+    remove_trait = SanGong_miaohao_26
+    remove_trait = SanGong_miaohao_27
+    remove_trait = SanGong_miaohao_28
+    remove_trait = SanGong_miaohao_29
+    remove_trait = SanGong_miaohao_30
+    remove_trait = SanGong_miaohao_31
+    remove_trait = SanGong_miaohao_32
+    remove_trait = SanGong_miaohao_33
+    remove_trait = SanGong_miaohao_34
+    remove_trait = SanGong_miaohao_35
+    remove_trait = SanGong_miaohao_36
+    remove_trait = SanGong_miaohao_37
+    remove_trait = SanGong_miaohao_38
+    remove_trait = SanGong_miaohao_39
+    remove_trait = SanGong_miaohao_40
+    remove_trait = SanGong_miaohao_41
+    remove_trait = SanGong_miaohao_42
+    remove_trait = SanGong_miaohao_43
+    remove_trait = SanGong_miaohao_44
+    remove_trait = SanGong_miaohao_45
+    remove_trait = SanGong_miaohao_46
+    remove_trait = SanGong_miaohao_47
+    remove_trait = SanGong_miaohao_48
+    remove_trait = SanGong_miaohao_49
+    remove_trait = SanGong_miaohao_50
+    remove_trait = SanGong_miaohao_51
+    remove_trait = SanGong_miaohao_52
+    remove_trait = SanGong_miaohao_53
+    remove_trait = SanGong_miaohao_54
+    remove_trait = SanGong_miaohao_55
+    remove_trait = SanGong_miaohao_56
+    remove_trait = SanGong_miaohao_57
+    remove_trait = SanGong_miaohao_58
+    remove_trait = SanGong_miaohao_59
+    remove_trait = SanGong_miaohao_60
+    remove_trait = SanGong_miaohao_61
+    remove_trait = SanGong_miaohao_62
+    remove_trait = SanGong_miaohao_63
+    remove_trait = SanGong_miaohao_64
+    remove_trait = SanGong_miaohao_65
+    remove_trait = SanGong_miaohao_66
+    remove_trait = SanGong_miaohao_67
+    remove_trait = SanGong_miaohao_68
+    remove_trait = SanGong_miaohao_69
+    remove_trait = SanGong_miaohao_70
+    remove_trait = SanGong_miaohao_71
+    remove_trait = SanGong_miaohao_72
+    remove_trait = SanGong_miaohao_73
+    remove_trait = SanGong_miaohao_74
+    remove_trait = SanGong_miaohao_75
+    remove_trait = SanGong_miaohao_76
+    remove_trait = SanGong_miaohao_77
+    remove_trait = SanGong_miaohao_78
+    remove_trait = SanGong_miaohao_79
+    remove_trait = SanGong_miaohao_80
+    remove_trait = SanGong_miaohao_81
+    remove_trait = SanGong_miaohao_82
+    remove_trait = SanGong_miaohao_83
+    remove_trait = SanGong_miaohao_84
+    remove_trait = SanGong_miaohao_85
+    remove_trait = SanGong_miaohao_86
+    remove_trait = SanGong_miaohao_87
+    remove_trait = SanGong_miaohao_88
+    remove_trait = SanGong_miaohao_89
+    remove_trait = SanGong_miaohao_90
+    remove_trait = SanGong_miaohao_91
+    remove_trait = SanGong_miaohao_92
+    remove_trait = SanGong_miaohao_93
+    remove_trait = SanGong_miaohao_94
+    remove_trait = SanGong_miaohao_95
+    remove_trait = SanGong_miaohao_96
+    remove_trait = SanGong_miaohao_97
+    remove_trait = SanGong_miaohao_98
+    remove_trait = SanGong_miaohao_99
+    remove_trait = SanGong_miaohao_100
+}
+
+
+
+HuangDi_GaiGuanDingLun_effect = {#皇帝盖棺定论
+    if = {#中兴之主
+        limit = {
+            prestige_level >= 4
+            has_variable = SanGong_Zhongxing_var
+            situation:dynastic_cycle ?= {
+                OR = { 
+                    situation_current_phase = situation_dynastic_cycle_phase_stability_expansion
+                    situation_current_phase = situation_dynastic_cycle_phase_stability_advancement
+                }
+            }      
+        }
+        add_trait = SanGong_ZhongXing
+    }
+    else_if = {#明君
+        limit = {
+            NOT = { has_trait = SanGong_KaiGuo }
+            prestige_level >= 4
+            sub_realm_size >= var:SanGong_XiongZhu_var
+        }
+        add_trait = SanGong_XiongZhu
+    }
+    else_if = {#幼主
+        limit = {
+            NOT = { has_trait = SanGong_KaiGuo }
+            age < 16
+        }
+        add_trait = SanGong_YouZhu
+    }
+    else_if = {#昏君
+        limit = {
+            NOT = { has_trait = SanGong_KaiGuo }
+            OR = {
+                sub_realm_size < var:SanGong_HunJun_var
+                AND = {
+                    has_variable = SanGong_HunJun_var2
+                    situation:dynastic_cycle ?= {
+                        OR = { 
+                            situation_current_phase = situation_dynastic_cycle_phase_chaos            
+                            situation_current_phase = situation_dynastic_cycle_phase_instability_conquest 
+                            situation_current_phase = situation_dynastic_cycle_phase_instability       
+                        }
+                    }
+                }
+            }
+        }
+        add_trait = SanGong_HunJun
+    }
+    else_if = {#兜底：守成
+        limit = {
+            NOT = { has_trait = SanGong_KaiGuo }
+        }
+        add_trait = SanGong_ShouCheng
+    }
+}
+
+
+HuangDi_Dengji_effect = {#皇帝登基变量
+    every_ruler = {
+        if = {
+            limit = {
+                SanGong_huangdi_trigger = yes                    
+            }
+            if = {
+                limit = {
+                    NOT = { exists = story_BenJi }
+                }
+                save_scope_as = HUANGDI
+                create_story = story_BenJi
+                random_owned_story = {
+                    type = story_BenJi
+                    set_variable = {
+                        name = huangdi_character
+                        value = scope:HUANGDI
+                    }
+                }
+            }
+            set_variable = {#储存登基年限
+                name = Dengji_years_var
+                value = 0
+            }
+            set_variable = {#储存登基时领土规模
+                name = Dengji_sub_realm_var
+                value = sub_realm_size
+            }
+            create_character_TianChaoGuoHao_GongJuRen_effect = yes #储存天朝国号
+            #give_nickname = Tianzi_guohao_han
+            set_variable = {#储存达成雄主所需要的领土规模
+                name = SanGong_XiongZhu_var
+                value = SanGong_XiongZhu_value
+            }
+            set_variable = {#储存达成昏君所需要的领土规模
+                name = SanGong_HunJun_var
+                value = SanGong_HunJun_value
+            }
+            every_child = {#孩子添加皇嗣
+                add_trait = SanGong_HuangSi
+            }
+            if = {#开国之君
+                limit = {
+                    scope:previous_holder = {
+                        dynasty != root.dynasty
+                    }
+                }
+                add_trait = SanGong_KaiGuo
+            }
+            if = {#登基时处于不稳定阶段,储存中兴之主变量
+                limit = {
+                    situation:dynastic_cycle ?= {
+                        OR = { 
+                            situation_current_phase = situation_dynastic_cycle_phase_chaos               # 混乱阶段
+                            situation_current_phase = situation_dynastic_cycle_phase_instability_conquest # 不稳定-征服阶段
+                            situation_current_phase = situation_dynastic_cycle_phase_instability          # 基础不稳定阶段
+                        }
+                    }
+                }
+                set_variable = SanGong_Zhongxing_var
+            }
+            else_if = {#登基时处于稳定阶段,储存昏君变量
+                limit = {
+                    situation:dynastic_cycle ?= {
+                        OR = {
+                            situation_current_phase = situation_dynastic_cycle_phase_stability_expansion
+                            situation_current_phase = situation_dynastic_cycle_phase_stability_advancement
+                        }
+                    }
+                }
+                set_variable = SanGong_HunJun_var2
+            } 
+        }
+    }
+}

@@ -1,0 +1,82 @@
+﻿
+
+
+on_birth_father = {#孩子出生时父亲视角
+    on_actions = {
+		SanGong_PinFeiShengZi_action
+        SanGong_HuangSi_action
+        SanGong_PinFei_up_action
+        SanGong_ZongShi_rank_birth_action
+	}
+}
+
+SanGong_HuangSi_action = {#添加皇嗣特质
+    trigger = {
+        scope:father = {
+            SanGong_huangdi_trigger = yes
+        }
+        scope:mother = {
+            is_consort_of = root
+        }
+    }
+    effect = {
+        scope:child = {
+            add_trait = SanGong_HuangSi
+		}
+
+    }		
+}
+
+
+
+
+SanGong_PinFeiShengZi_action = {#嫔妃生皇子奖励
+    trigger = {
+        scope:child = {
+            is_male = yes
+		}
+        scope:father = {
+            SanGong_huangdi_trigger = yes
+        }
+        scope:mother = {
+            is_consort_of = scope:father
+        }
+    }
+    effect = {
+        scope:mother = {
+            save_scope_as = recipient
+        }
+        scope:child = {
+            save_scope_as = first_child
+		}
+        scope:father = {
+            save_scope_as = HuangDi
+            trigger_event = {
+                id = SanGong_JiaLi.017
+                days = 3
+            }
+        }
+    }		
+}
+
+SanGong_PinFei_up_action = {#嫔妃自动晋升奖励
+    trigger = {
+        scope:child = {
+            is_male = yes
+		}
+        scope:father = {
+            is_ai = yes
+            SanGong_huangdi_trigger = yes
+        }
+        scope:mother = {
+            is_consort_of = scope:father
+        }
+    }
+    effect = {
+        scope:mother = { save_scope_as = pinfei }
+        scope:father = { save_scope_as = huangdi }
+        SanGong_Pinfei_up_effect = yes
+    }		
+}
+
+

@@ -1,0 +1,62 @@
+﻿l_simp_chinese:
+#宗族显示
+
+    Loc_SanGong_dynastytreename_ZongShi_FanWangShiZi: "[DynastyTreeItem.GetCharacter.GetFather.Custom('SanGong_ZongShiWangHao')]王世子"
+    Loc_SanGong_dynastytreename_ZongShi_JunWangShiZi: "[DynastyTreeItem.GetCharacter.GetFather.Custom('SanGong_ZongShiWangHao')]郡王世子"
+    Loc_SanGong_dynastytreename_ZongShi_FanWangShiZi_dead_branch: "[DynastyTreeItem.GetCharacter.GetFather.GetFather.Custom('SanGong_ZongShiWangHao')]王世子"
+    Loc_SanGong_dynastytreename_ZongShi_JunWangShiZi_dead_branch: "[DynastyTreeItem.GetCharacter.GetFather.GetFather.Custom('SanGong_ZongShiWangHao')]郡王世子"
+    Loc_SanGong_dynastytreename_ZongShi_FanWangShiZi_dead_branch_2: "[DynastyTreeItem.GetCharacter.GetFather.GetFather.GetFather.Custom('SanGong_ZongShiWangHao')]王世子"
+    Loc_SanGong_dynastytreename_ZongShi_JunWangShiZi_dead_branch_2: "[DynastyTreeItem.GetCharacter.GetFather.GetFather.GetFather.Custom('SanGong_ZongShiWangHao')]郡王世子"
+    Loc_SanGong_dynastytreename_ZongShi_FanWangShiZi_dead_branch_3: "[DynastyTreeItem.GetCharacter.GetFather.GetFather.GetFather.GetFather.Custom('SanGong_ZongShiWangHao')]王世子"
+    Loc_SanGong_dynastytreename_ZongShi_JunWangShiZi_dead_branch_3: "[DynastyTreeItem.GetCharacter.GetFather.GetFather.GetFather.GetFather.Custom('SanGong_ZongShiWangHao')]郡王世子"
+    Loc_SanGong_dynastytreename_ZongShi_ZhenGuoJiangJunZhangZi: "镇国将军长子"
+    Loc_SanGong_dynastytreename_ZongShi_FuGuoJiangJunZhangZi: "辅国将军长子"
+    Loc_SanGong_dynastytreename_ZongShi_FengGuoJiangJunZhangZi: "奉国将军长子"
+    Loc_SanGong_dynastytreename_ZongShi_ZhenGuoZhongWeiZhangZi: "镇国中尉长子"
+    Loc_SanGong_dynastytreename_ZongShi_FuGuoZhongWeiZhangZi: "辅国中尉长子"
+    Loc_SanGong_dynastytreename_ZongShi_FengGuoZhongWeiZhangZi: "奉国中尉长子"
+
+    Loc_SanGong_DynastytChar_Name: "[DynastyTreeItem.GetCharacter.GetFirstNameNoTooltip]"
+    Loc_SanGong_DynastytChar_Name_dead: "[DynastyTreeItem.GetCharacter.GetFullNameNoTooltip]"
+    Loc_SanGong_title: "[DynastyTreeItem.GetCharacter.GetPrimaryTitle.GetBaseNameNoTierNoTooltip]"
+    Loc_SanGong_DynastytChar_title: "#bold [DynastyTreeItem.GetCharacter.GetPrimaryTitle.GetBaseNameNoTierNoTooltip][DynastyTreeItem.GetCharacter.GetTitleTierName]#!"
+    Loc_SanGong_dynastytreename: "$Color_ZanBai$[DynastyTreeItem.GetCharacter.Custom('SanGong_dynastytreename')]#!"
+    Loc_SanGong_SanGong_name_dynastytreename: "$Color_ZanBai$[DynastyTreeItem.GetCharacter.Custom('SanGong_name_dynastytreename')]#!"
+    
+    Loc_SanGong_dynastytreename_TianZi_MiaoShi: "$Color_EHuang$[DynastyTreeItem.GetCharacter.GetNicknameNoTooltip]#!"
+    Loc_SanGong_dynastytreename_TianZi: "#bold [DynastyTreeItem.GetCharacter.GetPrimaryTitle.GetBaseNameNoTierNoTooltip][DynastyTreeItem.GetCharacter.GetTitleTierName]#!"
+    #Loc_SanGong_dynastytreename_TianZi: "$Color_ZanBai$[DynastyTreeItem.GetCharacter.GetFullNameNoTooltip]#!"
+
+
+    Loc_SanGong_dynastytreename_ZunHaoFeiPin_ShiHao: "$Color_ZanBai$[DynastyTreeItem.GetCharacter.GetNicknameNoTooltip]#!"
+    Loc_SanGong_dynastytreename_ZunHaoFeiPin: "$Color_ZanBai$[DynastyTreeItem.GetCharacter.Custom('ZunHao_TaiHou')][DynastyTreeItem.GetCharacter.Custom('GongWei_name')]#!"
+    Loc_SanGong_dynastytreename_FeiPin_ShiHao: "$Color_ZanBai$[DynastyTreeItem.GetCharacter.Custom('GongWei_name')]#!"
+    Loc_SanGong_dynastytreename_FeiPin: "$Color_ZanBai$[DynastyTreeItem.GetCharacter.Custom('GongWei_FengHao')][DynastyTreeItem.GetCharacter.Custom('GongWei_name')]#!"
+
+    Loc_SanGong_dynastytreename_TaiZi: "$Color_ZanBai$太子#!"
+    Loc_SanGong_dynastytreename_Taisun: "$Color_ZanBai$太孙#!"
+
+    Loc_SanGong_dynastytreename_ZongShi: "$Color_ZanBai$[DynastyTreeItem.GetCharacter.GetPrimaryTitle.GetBaseNameNoTierNoTooltip][DynastyTreeItem.GetCharacter.GetTitleTierName]#!"
+    Loc_SanGong_dynastytreename_ZongShi_1: "$Color_ZanBai$[DynastyTreeItem.GetCharacter.Custom('SanGong_ZongShiWangHao')]王#!"
+    Loc_SanGong_dynastytreename_ZongShi_2: "$Color_ZanBai$[DynastyTreeItem.GetCharacter.Custom('SanGong_ZongShiWangHao')]郡王#!"
+    Loc_SanGong_dynastytreename_ZongShi_3: "$Color_ZanBai$$Loc_SanGong_DynastytChar_title$\n[DynastyTreeItem.GetCharacter.Custom('SanGong_ZongShiWangHao')]王#!"
+    Loc_SanGong_dynastytreename_ZongShi_4: "$Color_ZanBai$$Loc_SanGong_DynastytChar_title$\n[DynastyTreeItem.GetCharacter.Custom('SanGong_ZongShiWangHao')]郡王#!"
+    Loc_SanGong_dynastytreename_ZongShi_ZhenGuoJiangJun: "$Color_ZanBai$镇国将军#!"
+    Loc_SanGong_dynastytreename_ZongShi_FuGuoJiangJun: "$Color_ZanBai$辅国将军#!"
+    Loc_SanGong_dynastytreename_ZongShi_FengGuoJiangJun: "$Color_ZanBai$奉国将军#!"
+    Loc_SanGong_dynastytreename_ZongShi_ZhenGuoZhongWei: "$Color_ZanBai$镇国中尉#!"
+    Loc_SanGong_dynastytreename_ZongShi_FuGuoZhongWei: "$Color_ZanBai$辅国中尉#!"
+    Loc_SanGong_dynastytreename_ZongShi_FengGuoZhongWei: "$Color_ZanBai$奉国中尉#!"
+    Loc_SanGong_dynastytreename_ZongShi_ordinary: "$Color_ZanBai$宗室#!"
+
+    Loc_SanGong_dynastytreename_ZongShi_death: "$Color_EHuang$[DynastyTreeItem.GetCharacter.GetNicknameNoTooltip]#!"
+    Loc_SanGong_dynastytreename_TaiZi_ShiHao: "$Color_EHuang$[DynastyTreeItem.GetCharacter.GetNicknameNoTooltip]#!"
+
+
+
+
+
+    Loc_SanGong_dynastytreename_ZongShi_female: "[DynastyTreeItem.GetCharacter.GetTitleTierName]#! #v"
+    Loc_SanGong_dynastytreename_ZongShi_female_1: "$Color_MeiGui$[DynastyTreeItem.GetCharacter.Custom('SanGong_Gongzhu_FengHao')]公主#!"
+    Loc_ruler_dynastytreename: "[DynastyTreeItem.GetCharacter.GetTitleTierName]"
+    Loc_fallback_dynastytreename: ""
