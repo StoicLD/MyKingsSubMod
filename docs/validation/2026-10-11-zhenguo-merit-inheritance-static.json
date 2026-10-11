@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-11",
+  "baseline": "ec2e840 plus preserved prince changes",
+  "passed": true,
+  "checks_passed": 8,
+  "checks_total": 8,
+  "runtime_verified": false,
+  "checks": {
+    "cap -99 unique": true,
+    "inheritance blocker all unique": true,
+    "only two lines changed": true,
+    "UTF-8 BOM preserved": true,
+    "previous prince changes untouched": true,
+    "all other gameplay raw hashes unchanged": true,
+    "manifest hashes and sizes current": true,
+    "diff whitespace": true
+  }
+}

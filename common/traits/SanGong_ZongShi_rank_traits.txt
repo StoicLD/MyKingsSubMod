@@ -12,6 +12,8 @@ SanGong_ZongShi_ZhenGuoJiangJun = { # 镇国将军
     monthly_influence = 3.0
     monthly_income = 6.0
     desc = trait_SanGong_ZongShi_ZhenGuoJiangJun_desc
+    character_max_merit_level_add = -99
+    inheritance_blocker = all
 }
 
 SanGong_ZongShi_FuGuoJiangJun = { # 辅国将军

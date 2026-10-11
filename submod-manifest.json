@@ -257,11 +257,11 @@
     },
     {
       "path": "common/traits/SanGong_JiaZu_traits.txt",
-      "sha256": "ccbf8a0ed94557c66d6b2f98a93fd9a028d4ef11180386736c798755c93a8ee0",
-      "bytes": 17256,
+      "sha256": "7f9912cecc3d78e39540b3d114ebcf11a0555b199d5c99596e1d105b6fbe28c2",
+      "bytes": 17288,
       "mode": "override",
       "upstream_sha256": "1074722b8c6882ef99eba4fcd04bf093077464ac42824351c300a3f9f0c0d279",
-      "reason": "储君、王爵及公侯伯子数值和新宗室身份"
+      "reason": "储君、王爵及公侯伯子数值和新宗室身份；亲王与郡王贤能上限修正 -99，两者禁止正常头衔继承"
     },
     {
       "path": "common/traits/SanGong_Xungui_traits.txt",
@@ -273,11 +273,11 @@
     },
     {
       "path": "common/traits/SanGong_ZongShi_rank_traits.txt",
-      "sha256": "c22bc66cddb459b91b303167b6fc549b4ff95d415d2ccb3f66d46786ccbfcbfa",
-      "bytes": 5133,
+      "sha256": "19f5f29c6c8c75aa22f54e8a19ba126ac3b65c0bf06c55202cccb5f7656c7118",
+      "bytes": 5203,
       "mode": "new",
       "upstream_sha256": null,
-      "reason": "储君、王爵及公侯伯子数值和新宗室身份"
+      "reason": "储君、王爵及公侯伯子数值和新宗室身份；正式镇国将军贤能上限 -99 并禁止正常头衔继承"
     },
     {
       "path": "data_binding/SanGong_data_bindings.txt",
@@ -459,8 +459,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "adbd05fb6bf185b7605e74ba5a0c01078710bf1da82fb396a517947c1222cf52",
-      "bytes": 4627,
+      "sha256": "9bfc8fc82fda6fb9c3bd0bc8b9e0523cc86b01b2ef268f20b9fc31c3724b9dfc",
+      "bytes": 5699,
       "mode": "documentation",
       "upstream_sha256": null,
       "reason": "子 Mod 元数据或使用说明"
@@ -545,5 +545,18 @@
     "scope": "普通册封王爵；仅名字及必要配套",
     "record": "docs/validation/2026-10-11-wanghao.md",
     "runtime_verified": false
+  },
+  "wang_merit_inheritance": {
+    "date": "2026-10-11",
+    "baseline_commit": "ec2e840",
+    "character_max_merit_level_add": -99,
+    "inheritance_blocker": "all",
+    "scope": "所有亲王/郡王特质持有者，包括实封",
+    "runtime_verified": false,
+    "record": "docs/validation/2026-10-11-wang-merit-inheritance.md",
+    "additional_traits": [
+      "SanGong_ZongShi_ZhenGuoJiangJun"
+    ],
+    "additional_record": "docs/validation/2026-10-11-zhenguo-merit-inheritance.md"
   }
 }
