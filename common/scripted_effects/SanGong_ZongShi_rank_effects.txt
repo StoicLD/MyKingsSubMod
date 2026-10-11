@@ -938,30 +938,33 @@ SanGong_ZongShi_set_taizi_effect = {
 }
 
 SanGong_ZongShi_set_taisun_effect = {
-    SanGong_ZongShi_remove_donggong_title_effect = yes
-    SanGong_ZongShi_remove_rank_traits_effect = yes
-    SanGong_ZongShi_clear_self_stripped_source_flags_effect = yes
-    SanGong_ZongShi_clear_disinherit_refresh_flag_effect = yes
-    remove_character_flag = SanGong_ZongShi_manual_root
-    remove_character_flag = SanGong_ZongShi_feudatory_root
-    remove_character_flag = SanGong_ZongShi_manual_lower_rank_root
-    remove_character_flag = SanGong_ZongShi_neutral_royal_rank_source
-    remove_character_flag = SanGong_ZongShi_self_stripped
-    remove_character_flag = SanGong_ZongShi_lineage_stripped
-    remove_character_flag = SanGong_ZongShi_crown_taizi_source
     if = {
-        limit = { has_trait = SanGong_Taizi }
-        add_character_flag = SanGong_ZongShi_former_taizi
-    }
-    remove_trait = SanGong_Taizi
-    add_character_flag = SanGong_ZongShi_lineage_member
-    add_character_flag = SanGong_ZongShi_crown_taisun_source
-    add_trait = SanGong_TaiSun
-    SanGong_ZongShi_rebuild_rank_descendants_effect = yes
-    trigger_event = { id = SanGong_ZongShi_Rank.101 days = 2 }
-    if = {
-        limit = { exists = father }
-        SanGong_ZongShi_refresh_ancestor_heir_branch_effect = yes
+        limit = { SanGong_ZongShi_taisun_enfeoffment_enabled_trigger = yes }
+        SanGong_ZongShi_remove_donggong_title_effect = yes
+        SanGong_ZongShi_remove_rank_traits_effect = yes
+        SanGong_ZongShi_clear_self_stripped_source_flags_effect = yes
+        SanGong_ZongShi_clear_disinherit_refresh_flag_effect = yes
+        remove_character_flag = SanGong_ZongShi_manual_root
+        remove_character_flag = SanGong_ZongShi_feudatory_root
+        remove_character_flag = SanGong_ZongShi_manual_lower_rank_root
+        remove_character_flag = SanGong_ZongShi_neutral_royal_rank_source
+        remove_character_flag = SanGong_ZongShi_self_stripped
+        remove_character_flag = SanGong_ZongShi_lineage_stripped
+        remove_character_flag = SanGong_ZongShi_crown_taizi_source
+        if = {
+            limit = { has_trait = SanGong_Taizi }
+            add_character_flag = SanGong_ZongShi_former_taizi
+        }
+        remove_trait = SanGong_Taizi
+        add_character_flag = SanGong_ZongShi_lineage_member
+        add_character_flag = SanGong_ZongShi_crown_taisun_source
+        add_trait = SanGong_TaiSun
+        SanGong_ZongShi_rebuild_rank_descendants_effect = yes
+        trigger_event = { id = SanGong_ZongShi_Rank.101 days = 2 }
+        if = {
+            limit = { exists = father }
+            SanGong_ZongShi_refresh_ancestor_heir_branch_effect = yes
+        }
     }
 }
 

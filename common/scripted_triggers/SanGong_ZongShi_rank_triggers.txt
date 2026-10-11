@@ -378,3 +378,8 @@ SanGong_ZongShi_final_heir_candidate_trigger = {
     NOT = { SanGong_ZongShi_feudatory_path_trigger = yes }
     NOT = { SanGong_ZongShi_rank_suppressed_trigger = yes }
 }
+
+# 暂停新册封皇太孙；已有身份、待遇及退出清理不受此开关影响。
+SanGong_ZongShi_taisun_enfeoffment_enabled_trigger = {
+    always = no
+}

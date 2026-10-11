@@ -606,6 +606,8 @@ SanGong_DianZhang.013 = {#册立皇后(封臣视角)
 }
 
 SanGong_DianZhang.014 = {#册立太孙
+    # 同时封住旧存档排队事件及内部副作用。
+    trigger = { SanGong_ZongShi_taisun_enfeoffment_enabled_trigger = yes }
     type = character_event
     window = clear_event_window_v2
     title = SanGong_DianZhang.014.t
@@ -618,38 +620,47 @@ SanGong_DianZhang.014 = {#册立太孙
     }
 
     immediate = {
-        scope:taisun = {
-            remove_HuangZi_WangHao_effects = yes
-            SanGong_ZongShi_set_taisun_effect = yes
+        if = {
+            limit = { SanGong_ZongShi_taisun_enfeoffment_enabled_trigger = yes }
+            scope:taisun = {
+                remove_HuangZi_WangHao_effects = yes
+                SanGong_ZongShi_set_taisun_effect = yes
+            }
+            add_legitimacy = 200
         }
-        add_legitimacy = 200
     }
     option = {
         name = SanGong_DianZhang.014.a
-        add_realm_law_skip_effects = SanGong_zongfa_succession_law
-       #if = {
-       #    limit = {
-       #        NOT = { primary_title = { has_title_law = SanGong_zongfa_succession_law } }
-       #    }
-       #    primary_title = {
-       #        hidden_effect = { clear_title_laws = yes }
-       #        add_title_law = SanGong_zongfa_succession_law
-       #    }
-       #}
         if = {
-            limit = {
-                scope:taisun = {
-                    is_landed = no
-                    is_ruler = no
-                    NOT = { is_courtier_of = scope:actor }
+            limit = { SanGong_ZongShi_taisun_enfeoffment_enabled_trigger = yes }
+            add_realm_law_skip_effects = SanGong_zongfa_succession_law
+           #if = {
+           #    limit = {
+           #        NOT = { primary_title = { has_title_law = SanGong_zongfa_succession_law } }
+           #    }
+           #    primary_title = {
+           #        hidden_effect = { clear_title_laws = yes }
+           #        add_title_law = SanGong_zongfa_succession_law
+           #    }
+           #}
+            if = {
+                limit = {
+                    scope:taisun = {
+                        is_landed = no
+                        is_ruler = no
+                        NOT = { is_courtier_of = scope:actor }
+                    }
                 }
+                add_courtier = scope:taisun
             }
-            add_courtier = scope:taisun
         }
     }
     after = {
-        every_vassal_or_below = {
-            trigger_event = SanGong_DianZhang.017
+        if = {
+            limit = { SanGong_ZongShi_taisun_enfeoffment_enabled_trigger = yes }
+            every_vassal_or_below = {
+                trigger_event = SanGong_DianZhang.017
+            }
         }
     }
 }

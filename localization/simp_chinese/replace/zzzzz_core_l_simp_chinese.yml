@@ -38,3 +38,4 @@
 
 
 SG_right_portrait_event: "[Character.Custom('SanGong_view_name')]\n[Character.GetRelationToString( GetPlayer )]"
+ DECISION_VIEW_CHARACTER_PICKER_NAME: "[Character.Custom('SanGong_view_name')]"

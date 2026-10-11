@@ -56,6 +56,8 @@ SanGong_Zongzu.001 = {##收养嗣子
 }
 
 SanGong_Zongzu.002 = {#册立太孙
+    # 同时封住旧存档排队事件及内部副作用。
+    trigger = { SanGong_ZongShi_taisun_enfeoffment_enabled_trigger = yes }
     type = character_event
     #window = big_event_window
     title = SanGong_Zongzu.002.t
@@ -66,40 +68,44 @@ SanGong_Zongzu.002 = {#册立太孙
         character = root
         animation = frontend_left_idle
     }
-	widget = {
-		is_shown = {
-			is_ai = no
-		}
-		gui = "SanGong_character_selection_options"
-		container = "custom_widgets_container"
-	}
+    widget = {
+        is_shown = {
+            SanGong_ZongShi_taisun_enfeoffment_enabled_trigger = yes
+            is_ai = no
+        }
+        gui = "SanGong_character_selection_options"
+        container = "custom_widgets_container"
+    }
     immediate = {
-        scope:Taizi = {
-            ordered_child = {
-                order_by = {
-                    value = 0
-                    add = age
-                }
-                max = 100
-                limit = {
-                    top_liege = root
-                    is_male = yes
-                    is_alive = yes
-                    NOT = { has_trait = bastard }
-                    NOT = { has_trait = disinherited }
-                    NOT = {
-                        OR = {
-                            has_trait = SanGong_Taizi
-                            has_trait = SanGong_TaiSun
-                            has_trait = SanGong_FanWang
-                            has_trait = SanGong_JunWang
+        if = {
+            limit = { SanGong_ZongShi_taisun_enfeoffment_enabled_trigger = yes }
+            scope:Taizi = {
+                ordered_child = {
+                    order_by = {
+                        value = 0
+                        add = age
+                    }
+                    max = 100
+                    limit = {
+                        top_liege = root
+                        is_male = yes
+                        is_alive = yes
+                        NOT = { has_trait = bastard }
+                        NOT = { has_trait = disinherited }
+                        NOT = {
+                            OR = {
+                                has_trait = SanGong_Taizi
+                                has_trait = SanGong_TaiSun
+                                has_trait = SanGong_FanWang
+                                has_trait = SanGong_JunWang
+                            }
                         }
                     }
-                }
-                root = {
-                    add_to_variable_list = {
-                        name = SanGong_list_characters
-                        target = prev
+                    root = {
+                        add_to_variable_list = {
+                            name = SanGong_list_characters
+                            target = prev
+                        }
                     }
                 }
             }
@@ -108,10 +114,13 @@ SanGong_Zongzu.002 = {#册立太孙
     option = {
         name = SanGong_Zongzu.002.a
         if = {
-			limit = { exists = var:SanGong_selected_character }
-		}
-        TaiSun_effect = { TAISUN = root.var:SanGong_selected_character }
-        trigger_event = { id = SanGong_DianZhang.014 days = 1 }
+            limit = { SanGong_ZongShi_taisun_enfeoffment_enabled_trigger = yes }
+            if = {
+                    limit = { exists = var:SanGong_selected_character }
+            }
+            TaiSun_effect = { TAISUN = root.var:SanGong_selected_character }
+            trigger_event = { id = SanGong_DianZhang.014 days = 1 }
+        }
         ai_chance = { base = 0 }
     }
     option = {
@@ -119,10 +128,13 @@ SanGong_Zongzu.002 = {#册立太孙
         ai_chance = { base = 1000 }
     }
     after = {
-		clear_variable_list = SanGong_list_characters
-		var:SanGong_selected_character = { remove_variable = SanGong_selected_character }
-		remove_variable = SanGong_selected_character
-	}
+        if = {
+            limit = { SanGong_ZongShi_taisun_enfeoffment_enabled_trigger = yes }
+            clear_variable_list = SanGong_list_characters
+            var:SanGong_selected_character = { remove_variable = SanGong_selected_character }
+            remove_variable = SanGong_selected_character
+        }
+    }
 }
 
 SanGong_Zongzu.003 = { # 皇帝继承

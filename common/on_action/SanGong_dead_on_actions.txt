@@ -271,6 +271,7 @@ Taizi_Shihao_action = {#太子谥号
 
 CeliTaisun_action = {#立太孙
     trigger = {
+        SanGong_ZongShi_taisun_enfeoffment_enabled_trigger = yes
         has_trait = SanGong_Taizi
         is_independent_ruler = no
         exists = father
@@ -280,28 +281,31 @@ CeliTaisun_action = {#立太孙
         }
 	}
     effect = {
-        save_scope_as = Taizi
         if = {
-            limit = {
-                has_trait = SanGong_Taizi
-                is_independent_ruler = no
-                exists = father
+            limit = { SanGong_ZongShi_taisun_enfeoffment_enabled_trigger = yes }
+            save_scope_as = Taizi
+            if = {
+                limit = {
+                    has_trait = SanGong_Taizi
+                    is_independent_ruler = no
+                    exists = father
+                    father = {
+                        SanGong_huangdi_trigger = yes
+                    }
+                    any_child = {
+                        is_male = yes
+                    }
+                }
                 father = {
-                    SanGong_huangdi_trigger = yes
+                    set_variable = {
+                        name = SanGong_latest_deceased_taizi
+                        value = scope:Taizi
+                    }
+                    trigger_event = { id = SanGong_Zongzu.002 days = 7 }
                 }
-                any_child = {
-                    is_male = yes
-                }
-            }
-            father = {
-                set_variable = {
-                    name = SanGong_latest_deceased_taizi
-                    value = scope:Taizi
-                }
-                trigger_event = { id = SanGong_Zongzu.002 days = 7 }
             }
         }
-	}
+    }
 }
 
 SanGong_ZongShi_record_deceased_taizi_action = {

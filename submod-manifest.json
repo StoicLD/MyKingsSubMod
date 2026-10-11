@@ -6,14 +6,14 @@
   "upstream": {
     "name": "天家宗仪 V0.76",
     "workshop_id": "3684849062",
-    "manifest": "8290132659817644546",
+    "manifest": "5109611154849456445",
     "path": "E:\\Steam\\steamapps\\workshop\\content\\1158310\\3684849062"
   },
   "custom_source": {
     "path": "C:\\Users\\Dong Li\\Documents\\Paradox Interactive\\Crusader Kings III\\mod\\MyKings",
     "commit": "9ee4ac6d6ce432e3e5734d29ce8169a9757bbfd1"
   },
-  "game_version": "1.20.0.3",
+  "game_version": "1.20.0.4",
   "load_order": [
     "天家宗仪 V0.76",
     "天家宗仪拓展"
@@ -32,8 +32,8 @@
     },
     {
       "path": "common/character_interactions/SanGong_ZongShi_interactions.txt",
-      "sha256": "8e456ef234e0e9b17f2c64b5796df22611bd42a30d5c9adade3f7b461c62d330",
-      "bytes": 38944,
+      "sha256": "e85e61dab31e52f8ed7cffbdbc5cc0ac4b0e9c0056889dcdcf64d5d35c4dbf83",
+      "bytes": 39634,
       "mode": "override",
       "upstream_sha256": "aa7d68bd9eb9c20daea1ad3e365d0fb71cae00b35b65e7a3df56836f79d42913",
       "reason": "皇太孙与宗室交互及旧入口隔离"
@@ -80,11 +80,12 @@
     },
     {
       "path": "common/decisions/SanGong_DianZhang_decisions.txt",
-      "sha256": "9f451e7c1fb2062535e0e791f9ec3b49d38554fa2134c66ae027a276a4394675",
-      "bytes": 18138,
+      "sha256": "711270e8ff5a7e5a5ba247fe86fc9a0a68fb909d634c8d4b181ac73bf4a0c8d1",
+      "bytes": 45652,
       "mode": "override",
-      "upstream_sha256": "bf705810405fd95fd54dff26353fe45425cd0b6c9b73e2153eb04c9865ea5a7e",
-      "reason": "原决议候选排除独立皇太孙"
+      "upstream_sha256": "f2a7ccb0065b72f11755fd1970c701ebe62566f1686237f1cdacffb6424e11cd",
+      "reason": "原决议候选排除独立皇太孙",
+      "previous_upstream_sha256": "bf705810405fd95fd54dff26353fe45425cd0b6c9b73e2153eb04c9865ea5a7e"
     },
     {
       "path": "common/modifiers/SanGong_modifiers.txt",
@@ -104,8 +105,8 @@
     },
     {
       "path": "common/on_action/SanGong_dead_on_actions.txt",
-      "sha256": "de329361e181b184cb4f61d72c7458120d5a4a8f977f2088aeede12c81d44d3e",
-      "bytes": 13252,
+      "sha256": "629db75c614a71685d73756d5f0c17bfe4548a34ff76424c5d7ac55f88b37c3f",
+      "bytes": 13510,
       "mode": "override",
       "upstream_sha256": "99fcba7e1e01d0d9849bef2a8bef664d99c4025343e6cd72e7c8934e32681c53",
       "reason": "出生、成年、死亡、继承及局部状态变化接入"
@@ -200,16 +201,16 @@
     },
     {
       "path": "common/scripted_effects/SanGong_ZongShi_effect.txt",
-      "sha256": "01c07f5fb8d57c1e9e722176ec50a6e8587f0d4fe3d9d984cdbb9983c01c062b",
-      "bytes": 17045,
+      "sha256": "7a07782c1af721c6d5d5e9dbf8813db62146cc9fb896f7d01ea39da442a67954",
+      "bytes": 17199,
       "mode": "override",
       "upstream_sha256": "874c4e0cf4951589d1c3cee9d40a85cf49dc084e229eed6577be8f0970926d24",
       "reason": "统一爵位与储君状态、清理、父系重算或新版接入"
     },
     {
       "path": "common/scripted_effects/SanGong_ZongShi_rank_effects.txt",
-      "sha256": "dfd2027697b102ee17890af82f807a603547078fbaa7e4e45109ebf100c53d59",
-      "bytes": 79533,
+      "sha256": "a8c1e43f23f03df054ec5249db62f200e53e3cfc2e6d2fd9532a9160efcb4fc5",
+      "bytes": 79727,
       "mode": "new",
       "upstream_sha256": null,
       "reason": "统一爵位与储君状态、清理、父系重算或新版接入"
@@ -240,8 +241,8 @@
     },
     {
       "path": "common/scripted_triggers/SanGong_ZongShi_rank_triggers.txt",
-      "sha256": "02f645684f396d6fa958abd621273c405f71c19716e8d9019db0ce572254441a",
-      "bytes": 14348,
+      "sha256": "c7daee5d6c11ea611c31a0ba78ca300a570dd86d882703ebb4bf58afb7766866",
+      "bytes": 14512,
       "mode": "new",
       "upstream_sha256": null,
       "reason": "宗室资格、父系、保护状态与称谓条件"
@@ -304,8 +305,8 @@
     },
     {
       "path": "events/SanGong_DianZhang.txt",
-      "sha256": "b7bd3d1c7d5e63339998a50acdd0d7457ebb466c062454d0eab43a4f35984d45",
-      "bytes": 52027,
+      "sha256": "532ded1a92ec4f59571b9fb3459688a8c7d92a32522b807ed53bd70574b8beef",
+      "bytes": 52593,
       "mode": "override",
       "upstream_sha256": "d6f5ec501392f0d84ce19ee97bb45dd893b123d96091e2b32236dbf5db9cac7f",
       "reason": "册封、废立、爵位继承或新旧父系入口的事件适配"
@@ -336,8 +337,8 @@
     },
     {
       "path": "events/SanGong_Zongzu.txt",
-      "sha256": "fc266736cacb8599dfa6d90676ce7c5bff20807d0bb959ddc2f102c24ce5c041",
-      "bytes": 45827,
+      "sha256": "1f16e329d6e67e12daed106c6f32a9f68ee7a05c304ba39ce85a54be4c4b21e8",
+      "bytes": 46581,
       "mode": "override",
       "upstream_sha256": "be59eefe1357653d5421812848cc055f431d5864ccee9eceb576e654e8f2e381",
       "reason": "册封、废立、爵位继承或新旧父系入口的事件适配"
@@ -411,8 +412,9 @@
       "sha256": "a14417cb67a158f33cbb315044d9339155985869ef75479cdc9d0392215b0374",
       "bytes": 16454,
       "mode": "override",
-      "upstream_sha256": "c0f0ecc271cb913fa5aa9674a77c678360311ce1c0a0e6e9078e310afed8b4e4",
-      "reason": "独立皇太孙、宗室爵位的中文名称/描述或既有上下文修复"
+      "upstream_sha256": "ef249a531e568081c6cf3dd6dcb69c9146541f9f52377d877230cd2d61c5b1a7",
+      "reason": "独立皇太孙、宗室爵位的中文名称/描述或既有上下文修复",
+      "previous_upstream_sha256": "c0f0ecc271cb913fa5aa9674a77c678360311ce1c0a0e6e9078e310afed8b4e4"
     },
     {
       "path": "localization/simp_chinese/interactions/SanGong_interactions_l_simp_chinese.yml",
@@ -424,11 +426,12 @@
     },
     {
       "path": "localization/simp_chinese/replace/zzzzz_core_l_simp_chinese.yml",
-      "sha256": "99811d741d7fae2abfdb743dff172144f33df7aed74cd6f6bacc2c90e032da8d",
-      "bytes": 3371,
+      "sha256": "135dbdb789e7b5557c53adcf45dffaa9c9ff34df5ac5646ed3bf2302368c5c23",
+      "bytes": 3451,
       "mode": "override",
-      "upstream_sha256": "07e00433415966bee1a5070d43c64a12abb440a01f9791c74eac127fa50d9a8e",
-      "reason": "去除重复全名键，沿用 V0.76 全局姓名格式"
+      "upstream_sha256": "8acd960ec1936d36ef3ba36b7d25de33e6911542cc79e12b4f0abe663ddf420f",
+      "reason": "去除重复全名键，沿用 V0.76 全局姓名格式",
+      "previous_upstream_sha256": "07e00433415966bee1a5070d43c64a12abb440a01f9791c74eac127fa50d9a8e"
     },
     {
       "path": "localization/simp_chinese/SanGong_modifier_l_simp_chinese.yml",
@@ -456,8 +459,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "df126238c2dcb3ab44e96e2da00750e3d081270cc72af08fa0a79f609cebdeca",
-      "bytes": 2607,
+      "sha256": "8b5251104cddb355b5402bd020373e881805fd6b0344c345189c5a006d4d537f",
+      "bytes": 3680,
       "mode": "documentation",
       "upstream_sha256": null,
       "reason": "子 Mod 元数据或使用说明"
@@ -484,5 +487,13 @@
     "Donggong cleanup moved from broadcast notification to unified crown exit, restricted to marked landless non-noble-family title",
     "Pure rank stripping retains land, vassals and government",
     "V0.76 global name formatting retained, duplicate full-name key removed"
-  ]
+  ],
+  "last_reviewed_date": "2026-10-11",
+  "maintenance_baseline_commit": "75f76f2",
+  "previous_upstream_manifest": "8290132659817644546",
+  "previous_game_version": "1.20.0.3",
+  "taisun_enfeoffment_enabled": false,
+  "existing_taisun_policy": "保留已有身份、待遇、评分、显示及退出清理；只禁止新册封",
+  "maintenance_record": "docs/validation/2026-10-11-maintenance.md",
+  "file_list_scope": "游戏发行内容、descriptor.mod、README.md；不含 Git、开发文档及验证工具；manifest 自身不计入自身哈希"
 }

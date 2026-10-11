@@ -203,53 +203,664 @@ SanGong_ChengDiKaiGuo_decision = { #称帝开国
     ai_will_do = 1000
 }
 
-
-
-SanGong_ZhuiFeng_XianFu_decision = {#追封先父庙谥
-    picture = { reference = "gfx/interface/illustrations/decisions/SanGong_decisions_illustrations_7.dds" }
+SanGong_DaLiYi_decision = {#大礼议（追尊先帝庙谥 · 二王三恪 · 追谥亡国之君）
+    picture = { reference = "gfx/interface/illustrations/decisions/SanGong_decisions_illustrations_15.dds" }
     decision_group_type = SanGongLiuYuan
-    desc = SanGong_ZhuiFeng_XianFu_decision_desc
+    # 三条子决议一律 is_invisible = yes，只从本条带出（effect 里 open_view_data 打开其详情窗口）。
+    # title / selection_tooltip / confirm_text 不写即回落成默认键：
+    #   SanGong_DaLiYi_decision / _tooltip / _confirm
+    desc = SanGong_DaLiYi_decision_desc
     should_create_alert = { always = no }
     sort_order = 6000
+
     is_shown = {
-       SanGong_huangdi_trigger = yes
-       exists = father
-       has_character_flag = dengji_flag
-       dynasty = father.dynasty
-       father = {
-           is_alive = no
-           SanGong_TianZiMiaoShi_trigger = no
-       }
-    }
-    is_valid = {
-        custom_tooltip = {
-            text = SanGong_TianZiMiaoShi_tt1
-            primary_title.title_held_years >= 1
+        # 三条子决议任一「值得出现」即显示本条（与各自原 is_shown 同口径，改一处要三处一起改）
+        OR = {
+            SanGong_huangdi_trigger = yes         # ① 追尊先帝庙谥
+            has_title = title:h_china             # ② 二王三恪
+            AND = {                               # ③ 追谥亡国之君
+                exists = global_var:MoDaiHuangDi
+                has_title = title:h_china
+            }
         }
+    }
+
+    is_valid = {
+        # 决议级只放「至少有一项可选」；各选项自己的门槛见 widget 的 item.is_valid
+        # ⚠ 这两处判定必须同口径，改一处要两处一起改
         custom_tooltip = {
-            text = SanGong_TianZiMiaoShi_tt
-            father = {
+            text = SanGong_DaLiYi_decision_tt
+            OR = {
+                # ① 追尊先帝庙谥
+                AND = {
+                    SanGong_huangdi_trigger = yes
+                    primary_title.title_held_years >= 1
+                }
+                # ② 二王三恪
+                AND = {
+                    has_title = title:h_china
+                    primary_title = {
+                        any_past_holder = {
+                            NOT = { dynasty = root.dynasty }
+                            has_trait = SanGong_WangGuoJunZhu
+                            is_alive = no
+                            NOT = {
+                                dynasty ?= {
+                                    any_dynasty_member = {
+                                        is_alive = yes
+                                        has_trait = SanGong_ErWangSanKe
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                # ③ 追谥亡国之君
+                AND = {
+                    exists = global_var:MoDaiHuangDi
+                    has_title = title:h_china
+                    global_var:MoDaiHuangDi = {
+                        is_alive = no
+                    }
+                    has_trait = SanGong_KaiGuo
+                    has_character_flag = dengji_flag
+                    global_var:MoDaiHuangDi = {
+                        SanGong_TianZiMiaoShi_trigger = no
+                    }
+                }
+            }
+        }
+    }
+
+    widget = {
+        gui = "decision_view_widget_generic_multichoice_with_effects"
+        controller = decision_option_list_controller
+        show_from_start = yes
+        decision_to_second_step_button = "SELECT"
+
+        # ① 追尊先帝庙谥 —— 与 SanGong_ZhuiFeng_XianDi_MiaoHao_decision 同口径
+        item = {
+            value = SanGong_DaLiYi_XianDiMiaoHao
+            icon = "gfx/interface/icons/court_position_types/grand_historian_court_position.dds"
+            is_valid = {
+                SanGong_huangdi_trigger = yes
+                custom_tooltip = {
+                    text = SanGong_TianZiMiaoShi_tt1
+                    primary_title.title_held_years >= 1
+                }
+            }
+            localization = SanGong_DaLiYi_XianDiMiaoHao_option
+            current_description = SanGong_DaLiYi_XianDiMiaoHao_option_desc
+            ai_chance = { value = 10 }
+        }
+
+        # ② 二王三恪 —— 与 SanGong_ErWangSanKe_decision 同口径
+        item = {
+            value = SanGong_DaLiYi_ErWangSanKe
+            icon = "gfx/interface/icons/faith/jingxue.dds"
+            is_valid = {
+                primary_title.tier = tier_hegemony
+              # custom_tooltip = {
+              #     text = SanGong_ErWangSanKe_decision_has_candidate_tt
+              #     primary_title = {
+              #         any_past_holder = {
+              #             NOT = { dynasty = root.dynasty }
+              #             has_trait = SanGong_WangGuoJunZhu
+              #             is_alive = no
+              #             NOT = {
+              #                 dynasty ?= {
+              #                     any_dynasty_member = {
+              #                         is_alive = yes
+              #                         has_trait = SanGong_ErWangSanKe
+              #                     }
+              #                 }
+              #             }
+              #         }
+              #     }
+              # }
+            }
+            localization = SanGong_DaLiYi_ErWangSanKe_option
+            current_description = SanGong_DaLiYi_ErWangSanKe_option_desc
+            ai_chance = { value = 50 }
+        }
+
+        # ③ 追谥亡国之君 —— 与 SanGong_ZhuiFeng_WangGuoJunZhu_decision 同口径
+        item = {
+            value = SanGong_DaLiYi_WangGuoJunZhu
+            icon = "gfx/interface/icons/court_position_types/camp_priest_camp_officer.dds"
+            is_valid = {
+                exists = global_var:MoDaiHuangDi
+                has_title = title:h_china
+                global_var:MoDaiHuangDi = {
+                    is_alive = no
+                }
+                has_trait = SanGong_KaiGuo
+                custom_tooltip = {
+                    text = SanGong_TianZiMiaoShi_tt
+                    has_character_flag = dengji_flag
+                    global_var:MoDaiHuangDi = {
+                        SanGong_TianZiMiaoShi_trigger = no
+                    }
+                }
+            }
+            localization = SanGong_DaLiYi_WangGuoJunZhu_option
+            current_description = SanGong_DaLiYi_WangGuoJunZhu_option_desc
+            ai_chance = { value = 100 }
+        }
+    }
+
+    effect = {
+        # ★ 三条子决议都标了 is_invisible = yes，只从本条带出：
+        #   item 的 value 由引擎写成同名 scope，据此分流。
+        #   玩家 → open_view_data 打开子决议详情窗口，子决议自己的选人 widget 照常弹出
+        #        （本工程同款范式：DM_zufen 的 dm_zufen_bury_decision → dm_zufen_choose_tomb_decision）
+        #   AI   → 开不了界面，改走 execute_decision 直接执行（子决议 effect 里已加兜底择人）
+        if = {
+            limit = { scope:SanGong_DaLiYi_XianDiMiaoHao = yes }
+            # ① 追尊先帝庙谥
+            if = {
+                limit = { is_ai = no }
+                open_view_data = {
+                    view = decision_detail
+                    data = decision:SanGong_ZhuiFeng_XianDi_MiaoHao_decision
+                    player = root
+                }
+            }
+            else = {
+                execute_decision = SanGong_ZhuiFeng_XianDi_MiaoHao_decision
+            }
+        }
+        else_if = {
+            limit = { scope:SanGong_DaLiYi_ErWangSanKe = yes }
+            # ② 二王三恪
+            if = {
+                limit = { is_ai = no }
+                open_view_data = {
+                    view = decision_detail
+                    data = decision:SanGong_ErWangSanKe_decision
+                    player = root
+                }
+            }
+            else = {
+                execute_decision = SanGong_ErWangSanKe_decision
+            }
+        }
+        else_if = {
+            limit = { scope:SanGong_DaLiYi_WangGuoJunZhu = yes }
+            # ③ 追谥亡国之君
+            if = {
+                limit = { is_ai = no }
+                open_view_data = {
+                    view = decision_detail
+                    data = decision:SanGong_ZhuiFeng_WangGuoJunZhu_decision
+                    player = root
+                }
+            }
+            else = {
+                execute_decision = SanGong_ZhuiFeng_WangGuoJunZhu_decision
+            }
+        }
+    }
+
+    ai_check_interval_by_tier = {
+        barony = 0
+        county = 0
+        duchy = 0
+        kingdom = 0
+        empire = 1
+        hegemony = 1
+    }
+    ai_will_do = {
+        # AI 只走「追谥亡国之君」一支 —— 与原先 SanGong_ZhuiFeng_WangGuoJunZhu_decision
+        # 的 ai_will_do = 1000 同口径；庙谥与二王三恪原本就是 ai_will_do = 0，AI 不碰。
+        base = 0
+        modifier = {
+            add = 1000
+            exists = global_var:MoDaiHuangDi
+            has_title = title:h_china
+            global_var:MoDaiHuangDi = {
+                is_alive = no
+            }
+            has_trait = SanGong_KaiGuo
+            has_character_flag = dengji_flag
+            global_var:MoDaiHuangDi = {
                 SanGong_TianZiMiaoShi_trigger = no
             }
         }
     }
+}
+
+
+SanGong_ZhuiFeng_XianDi_MiaoHao_decision = {#修改先帝庙谥
+    picture = { reference = "gfx/interface/illustrations/decisions/SanGong_decisions_illustrations_7.dds" }
+    is_invisible = yes
+    decision_group_type = SanGongLiuYuan
+    desc = SanGong_ZhuiFeng_XianDi_MiaoHao_decision_desc
+    should_create_alert = { always = no }
+    sort_order = 6000
+    is_shown = {
+        SanGong_huangdi_trigger = yes
+       # has_character_flag = dengji_flag
+    }
+    widget = {
+        gui = "decision_view_widget_select_character"
+        controller = select_scope_object
+        show_from_start = yes
+
+        decision_to_second_step_button = "SELECT"
+        setup_items = {
+            scope:actor = {
+                father = {
+                    is_alive = no
+                    add_to_list = item_list
+                }
+				father = {
+                    father = {
+						is_alive = no
+						add_to_list = item_list
+					}
+                }
+				father = {
+                    father = {
+						father = {
+							is_alive = no
+							add_to_list = item_list
+						}
+					}
+                }
+                primary_title = {
+                    ordered_past_holder_reversed = {
+                        limit = {
+                            dynasty = scope:actor.dynasty
+                            year_of_birth < scope:actor.year_of_birth
+                            is_alive = no
+                        }
+                        order_by = year_of_birth
+                        max = 100
+                        add_to_list = item_list
+                    }
+                }
+            }
+        }
+        default_item = {
+            scope:actor = {
+                father = {
+                    is_alive = no
+                    save_scope_as = selected_item
+                }
+                primary_title = {
+                    ordered_past_holder_reversed = {
+                        limit = {
+                            dynasty = scope:actor.dynasty
+                            year_of_birth < scope:actor.year_of_birth
+                            is_alive = no
+                        }
+                        order_by = year_of_birth
+                        max = 100
+                        add_to_list = item_list
+                    }
+                }
+            }
+        }
+        is_item_valid = {
+            always = yes
+        }
+        ai_select_item = {
+            always = no
+        }
+    }
+    is_valid_showing_failures_only = {
+        custom_tooltip = {
+            text = SanGong_TianZiMiaoShi_tt1
+            primary_title.title_held_years >= 1
+        }
+    }
     effect = {
-        father = { save_scope_as = XianDi remove_MiaoShi_effect = yes }
-        trigger_event = HuangDi_miaoshi.002
+        # ★ 兜底择人：由「大礼议」带出而未走选人界面时（AI 分支 execute_decision），
+        #   scope:selected_item 会取不到 ⇒ 按 default_item 同款口径自动择一位先帝
+        #   （父 → 祖父 → 曾祖 → 本朝同宗已故先帝中最晚一位）
+        #   正常从决议面板点进来时 selected_item 已设，整块跳过。
+        if = {
+            limit = { NOT = { exists = scope:selected_item } }
+            if = {
+                limit = { exists = father  father = { is_alive = no } }
+                father = { save_scope_as = selected_item }
+            }
+            else_if = {
+                limit = { father = { exists = father  father = { is_alive = no } } }
+                father = { father = { save_scope_as = selected_item } }
+            }
+            else_if = {
+                limit = { father = { father = { exists = father  father = { is_alive = no } } } }
+                father = { father = { father = { save_scope_as = selected_item } } }
+            }
+            else = {
+                primary_title = {
+                    ordered_past_holder_reversed = {
+                        limit = {
+                            dynasty = root.dynasty
+                            year_of_birth < root.year_of_birth
+                            is_alive = no
+                        }
+                        max = 1
+                        save_scope_as = selected_item
+                    }
+                }
+            }
+        }
+
+        add_character_flag = { flag = zdymiaohao_flag days = 7 }
+        scope:selected_item = { save_scope_as = XianDi remove_MiaoShi_effect = yes }
+        trigger_event = HuangDi_miaoshi.001
     }
     ai_check_interval_by_tier = {
         barony = 0
         county = 0
         duchy = 0
         kingdom = 0
-        empire = 12
-        hegemony = 12
+        empire = 0
+        hegemony = 0
     }
-    ai_will_do = 100
+    ai_will_do = 0
+}
+
+
+SanGong_ErWangSanKe_decision = {#二王三恪 · 册封前代帝王后裔
+    picture = { reference = "gfx/interface/illustrations/decisions/SanGong_decisions_illustrations_11.dds" }
+    is_invisible = yes
+    decision_group_type = SanGongLiuYuan
+    # title / selection_tooltip / confirm_text 不写即回落成默认键：
+    #   SanGong_ErWangSanKe_decision / _tooltip / _confirm
+    desc = SanGong_ErWangSanKe_decision_desc
+    should_create_alert = { always = no }
+    sort_order = 5000
+
+    widget = {
+        gui = "decision_view_widget_select_character"
+        controller = select_scope_object
+        show_from_start = yes
+        decision_to_second_step_button = "SELECT"
+
+        setup_items = {
+            scope:actor = {
+                primary_title = {
+                    ordered_past_holder_reversed = {
+                        limit = {
+                            NOT = { dynasty = scope:actor.dynasty }
+                            has_trait = SanGong_WangGuoJunZhu
+                            is_alive = no
+                        }
+                        order_by = year_of_birth
+                        max = 10
+                        # 宗族已有人受封二王三恪且在世 ⇒ 列表改列那位活着的持有者；
+                        # 否则列这位亡国之君本人（亡国之君走 effect 里的三级递补找后裔）
+                        if = {
+                            limit = {
+                                dynasty ?= {
+                                    any_dynasty_member = {
+                                        is_alive = yes
+                                        has_trait = SanGong_ErWangSanKe
+                                    }
+                                }
+                            }
+                            dynasty ?= {
+                                ordered_dynasty_member = {
+                                    limit = {
+                                        is_alive = yes
+                                        has_trait = SanGong_ErWangSanKe
+                                        NOT = { is_in_list = item_list }
+                                    }
+                                    order_by = { value = age }
+                                    max = 1
+                                    add_to_list = item_list
+                                }
+                            }
+                        }
+                        else = {
+                            if = {
+                                limit = { NOT = { is_in_list = item_list } }
+                                add_to_list = item_list
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        default_item = {
+            scope:actor = {
+                primary_title = {
+                    ordered_past_holder_reversed = {
+                        limit = {
+                            NOT = { dynasty = scope:actor.dynasty }
+                            has_trait = SanGong_WangGuoJunZhu
+                            is_alive = no
+                        }
+                        order_by = year_of_birth
+                        # 与 setup_items 同口径：宗族已有在世二王三恪持有者则默认选那位活人
+                        if = {
+                            limit = {
+                                dynasty ?= {
+                                    any_dynasty_member = {
+                                        is_alive = yes
+                                        has_trait = SanGong_ErWangSanKe
+                                    }
+                                }
+                            }
+                            dynasty ?= {
+                                ordered_dynasty_member = {
+                                    limit = {
+                                        is_alive = yes
+                                        has_trait = SanGong_ErWangSanKe
+                                    }
+                                    order_by = { value = age }
+                                    max = 1
+                                    save_scope_as = selected_item
+                                }
+                            }
+                        }
+                        else = {
+                            save_scope_as = selected_item
+                        }
+                    }
+                }
+            }
+        }
+
+        is_item_valid = {
+            # this = 该列表项本身。
+            # 列表项有两种：已故的亡国之君（可选），或该宗族在世的二王三恪持有者（已受封，不可选）。
+            # 判据只看"这一项自己"：活着 且 持 SanGong_ErWangSanKe ⇒ 灰显，悬浮给出理由。
+            custom_tooltip = {
+                text = SanGong_ErWangSanKe_decision_item_tt
+                NOT = {
+                    is_alive = yes
+                    has_trait = SanGong_ErWangSanKe
+                }
+            }
+        }
+        ai_select_item = {
+            always = no
+        }
+    }
+
+    is_shown = {
+        primary_title.tier = tier_hegemony
+        # 至少要有一位【还能受封】的候选，否则整条决议不显示。
+        # 列表由这些亡国之君派生（见 widget 的 setup_items）：其宗族已有在世二王三恪持有者的，
+        # 那一项改列那位活人 —— 而那位活人在 is_item_valid 里被判"已经受封、不可选"，
+        # 所以这里必须要求「至少有一位宗族尚未受封的亡国之君」，否则会出现整屏灰、无处可点的死角。
+
+    }
+
+    is_valid = {
+        primary_title.tier = tier_hegemony
+        custom_tooltip = {
+            text = SanGong_ErWangSanKe_decision_has_candidate_tt
+            primary_title = {
+                any_past_holder = {
+                    NOT = { dynasty = root.dynasty }
+                    has_trait = SanGong_WangGuoJunZhu
+                    is_alive = no
+                    # 宗族内没有在世的二王三恪持有者 ⇒ 这一族还能受封 ⇒ 决议才值得出现
+                    NOT = {
+                        dynasty ?= {
+                            any_dynasty_member = {
+                                is_alive = yes
+                                has_trait = SanGong_ErWangSanKe
+                            }
+                        }
+                    }
+                    # 列表由这些亡国之君派生：宗族已有在世二王三恪持有者的，列表改列那位活人
+                }
+            }
+        }
+    }
+
+    effect = {
+        # ★ 兜底择人：由「大礼议」带出而未走选人界面时（AI 分支 execute_decision），
+        #   scope:selected_item 会取不到 ⇒ 自动取最近一位异姓亡国之君
+        #   （大礼议的 item 门槛已保证至少有一位候选，这里不会落空）
+        #   正常从决议面板点进来时 selected_item 已设，整块跳过。
+        if = {
+            limit = { NOT = { exists = scope:selected_item } }
+            primary_title = {
+                ordered_past_holder_reversed = {
+                    limit = {
+                        NOT = { dynasty = root.dynasty }
+                        has_trait = SanGong_WangGuoJunZhu
+                        is_alive = no
+                    }
+                    max = 1
+                    save_scope_as = selected_item
+                }
+            }
+        }
+
+        # ══════════════ 一、取出被追封的亡国之君的宗族 / 家族 ══════════════
+        # selected_item 是已故的 past holder ⇒ 一律用 ?= 兜底（本工程既有惯例：
+        # SanGong_Zongzu.001 的 dynasty ?= {...}、SanGong_dead_effect.txt 的 scope:old_holder.dynasty）
+        scope:selected_item = {
+            dynasty ?= { save_scope_as = WangGuo_Dynasty }
+            house   ?= { save_scope_as = WangGuo_House }
+        }
+
+        # ══════════════ 二、三级递补选人 ══════════════
+
+        # ① 首选：宗族族长（dynast）
+        #    可用条件：宗族尚存、有族长、族长在世，且不是"别人的封臣"
+        #    ——无封君者（独立之君、未受封的白身）可用；本身就是本君主之臣也可用
+        #    ⚠ limit 内条件按序短路求值：exists 必须写在 .dynast 被判真之前
+        if = {
+            limit = {
+                exists = scope:WangGuo_Dynasty
+                exists = scope:WangGuo_Dynasty.dynast
+                scope:WangGuo_Dynasty.dynast = {
+                    is_alive = yes
+                    OR = {
+                        NOT = { exists = liege }        # 无封君
+                        liege = root                    # 或已是本君主之臣
+                    }
+                }
+            }
+            scope:WangGuo_Dynasty.dynast = {
+                save_scope_as = XianDi
+            }
+        }
+
+        # ② 次选：宗族内随机一名成年男子
+        #    ⚠ 必须先用 any_dynasty_member 验非空：random_dynasty_member 无命中时不存任何域，
+        #      后面事件里的 scope:XianDi 会取到未设作用域。
+        #      any_ 与 random_ 的 limit 必须逐字一致。
+        else_if = {
+            limit = {
+                exists = scope:WangGuo_Dynasty
+                scope:WangGuo_Dynasty = {
+                    any_dynasty_member = {
+                        is_alive = yes
+                        is_male = yes
+                        is_adult = yes
+                    }
+                }
+            }
+            scope:WangGuo_Dynasty = {
+                random_dynasty_member = {
+                    limit = {
+                        is_alive = yes
+                        is_male = yes
+                        is_adult = yes
+                    }
+                    save_scope_as = XianDi
+                }
+            }
+        }
+
+        # ③ 末选：宗族已绝嗣（无在世成员）⇒ 现造一名成年男子续入其宗族
+        else = {
+            # ③-a 宗族尚存：把新人塞进该亡国之君的家族
+            if = {
+                limit = { exists = scope:WangGuo_House }
+                create_character = {
+                    gender = male
+                    age = { 20 40 }
+                    location = root.capital_province
+                    culture = root.culture        # 不写 culture/faith 会走随机，务必显式给
+                    faith = root.faith
+                    dynasty_house = scope:WangGuo_House   # dynasty_house 收 house 作用域
+                    save_scope_as = XianDi
+                    # trait = SanGong_QianChaoHuangZu     # 若需与宗族其他成员一致，打开此行
+                }
+            }
+            # ③-b 连宗族都没有（低出身）⇒ 只能新起宗族
+            #      ⚠ 不要把 if 塞进 create_character 里，用外层 if/else 各写一整个块最稳
+            else = {
+                create_character = {
+                    gender = male
+                    age = { 20 40 }
+                    location = root.capital_province
+                    culture = root.culture
+                    faith = root.faith
+                    dynasty = generate
+                    save_scope_as = XianDi
+                }
+            }
+        }
+
+        # ══════════════ 三、册封本尊：授「二王三恪」特质 + 无地者纳入本君宫廷 ══════════════
+        # 两步都是幕后动作，整体挂 hidden_effect：
+        #   ① 决议面板/确认按钮生成提示时 scope:XianDi 尚未产生，明写会渲染出未设作用域；
+        #   ② 原版同款见 50_holy_site_decisions.txt 的 demote_holy_site_decision（effect 末尾 hidden_effect）
+        hidden_effect = {
+            scope:XianDi = {
+                add_trait = SanGong_ErWangSanKe
+                # 无领地者（白身 / 流浪者）纳入本君宫廷，好让 090→091 的册封落到实处
+                # is_landed = 持有伯爵领或男爵领；若想连"无任何头衔"一起算，改用 is_ruler = no
+                if = {
+                    limit = { is_landed = no }
+                    set_employer = root
+                }
+            }
+        }
+
+        # ══════════════ 四、进入封号事件 ══════════════
+        # XianDi = 被册封的在世之人（SanGong_CeFeng.090 里 right_portrait / 091 的 change_liege 都用它）
+        trigger_event = SanGong_CeFeng.090
+    }
+
+    ai_check_interval_by_tier = {
+        barony = 0
+        county = 0
+        duchy = 0
+        kingdom = 0
+        empire = 0
+        hegemony = 0
+    }
+    ai_will_do = 0
 }
 
 SanGong_ZhuiFeng_WangGuoJunZhu_decision = {#追封亡国君主谥号
     picture = { reference = "gfx/interface/illustrations/decisions/SanGong_decisions_illustrations_11.dds" }
+    is_invisible = yes
     decision_group_type = SanGongLiuYuan
     desc = SanGong_ZhuiFeng_WangGuoJunZhu_decision_desc
     should_create_alert = { always = no }
@@ -302,217 +913,252 @@ SanGong_ZhuiFeng_WangGuoJunZhu_decision = {#追封亡国君主谥号
         county = 0
         duchy = 0
         kingdom = 0
-        empire = 1
-        hegemony = 1
+        empire = 0
+        hegemony = 0
     }
-    ai_will_do = 1000
+    ai_will_do = 0
 }
 
-SanGong_ZunFengTaiHou_decisions = {#尊封太后
+
+SanGong_CeFengZongQin_decisions = {#册封宗亲（尊封太后 · 大封诸皇子 · 大封诸公主）
+    title = SanGong_CeFengZongQin_decisions
     picture = { reference = "gfx/interface/illustrations/decisions/SanGong_decisions_illustrations_12.dds" }
     decision_group_type = SanGongLiuYuan
-    desc = SanGong_ZunFengTaiHou_decisions_desc
+    desc = SanGong_CeFengZongQin_decisions_desc
+    selection_tooltip = SanGong_CeFengZongQin_decisions_tooltip
+    confirm_text = SanGong_CeFengZongQin_decisions_confirm
     should_create_alert = { always = no }
     sort_order = 4000
+
     is_shown = {
         SanGong_huangdi_trigger = yes
-        exists = mother
-        father = {
-            is_alive = no
-        }
-        mother = {
-            ZunHaoYiDing_trigger = no
-            ShiHaoYiDing_trigger = no
-        }
-    }
-    is_valid = {
-        can_interact_trigger = yes
-        exists = mother
-        custom_tooltip = {
-            text= SanGong_ZunFengTaiHou_vaild_tt
-            mother = {
-                ZunHaoYiDing_trigger = no
-                ShiHaoYiDing_trigger = no
+        OR = {
+            # 一、尊封太后：先帝已崩，生母在世或已故而尚未上尊号／谥号
+            AND = {
+                exists = mother
+                father = {
+                    is_alive = no
+                }
+                mother = {
+                    ZunHaoYiDing_trigger = no
+                    ShiHaoYiDing_trigger = no
+                }
             }
-        }
-    }
-    effect = {
-        save_scope_as = HuangDi
-        if = {
-            limit = {
-                mother = { is_alive = yes }
-            }
-            mother = {
-                remove_trait = SanGong_GongWei_10
-                remove_trait = SanGong_GongWei_11
-                remove_trait = SanGong_GongWei_12
-                remove_trait = SanGong_GongWei_13
-                remove_trait = SanGong_GongWei_14
-                add_trait = SanGong_Taihou
-                save_scope_as = TaiHou
-            }
-            custom_tooltip = ZunFengTaiHou_decision_t1
-            if = {
-                limit = {
-                    scope:TaiHou ={
-                        NOT = { has_court_position = XiGongTaiHou_court_position }
+            # 二、大封诸皇子：有尚未受封的成年皇子
+            any_child = {
+                is_male = yes
+                is_adult = yes
+                top_liege = root
+                NOT = {
+                    SanGong_QinWang_trigger = yes
+                    OR = {
+                        has_trait = SanGong_FanWang
+                        has_trait = SanGong_JunWang
+                        has_trait = SanGong_Taizi
+                        has_trait = SanGong_TaiSun
                     }
                 }
-                revoke_court_position = {
-                    recipient = court_position:XiGongTaiHou_court_position
-                    court_position = XiGongTaiHou_court_position
+            }
+            # 三、大封诸公主：有尚未册封的成年公主
+            any_child = {
+                is_female = yes
+                is_adult = yes
+                this != top_liege
+                NOT = {
+                    has_trait = SanGong_GongZhu
                 }
-                appoint_court_position = {
-                    recipient = scope:TaiHou
-                    court_position = XiGongTaiHou_court_position
-                }
             }
-            trigger_event = SanGong_CeFeng.080
-        }
-        else = {
-            limit = {
-                mother = { is_alive = no }
-            }
-            mother = {
-                remove_trait = SanGong_GongWei_10
-                remove_trait = SanGong_GongWei_11
-                remove_trait = SanGong_GongWei_12
-                remove_trait = SanGong_GongWei_13
-                remove_trait = SanGong_GongWei_14
-                add_trait = SanGong_Taihou
-                save_scope_as = TaiHou
-                save_scope_as = HuangHou
-            }
-            custom_tooltip = ZunFengTaiHou_decision_t2
-            trigger_event = HouGong_ShiHao.011
         }
     }
+
+    is_valid = {
+        can_interact_trigger = yes
+    }
+
+    widget = {
+        gui = "decision_view_widget_option_list_generic"
+        controller = decision_option_list_controller
+        decision_to_second_step_button = SanGong_CeFengZongQin_decisions_second_step_button
+        show_from_start = yes
+
+        # ---------- 选项一：尊封太后 ----------
+        item = {
+            value = SanGong_ZunFengTaiHou_decisions
+            localization = SanGong_ZunFengTaiHou_decisions
+            current_description = SanGong_ZunFengTaiHou_decisions_desc
+            icon = "gfx/interface/icons/traits/SanGong_Taihou.dds"
+            is_valid = {
+                exists = mother
+                custom_tooltip = {
+                    text = SanGong_ZunFengTaiHou_vaild_tt
+                    mother = {
+                        ZunHaoYiDing_trigger = no
+                        ShiHaoYiDing_trigger = no
+                    }
+                }
+            }
+            ai_chance = { value = 100 }
+        }
+
+        # ---------- 选项二：大封诸皇子 ----------
+        item = {
+            value = SanGong_DaFengZhuWang_decisions
+            localization = SanGong_DaFengZhuWang_decisions
+            current_description = SanGong_DaFengZhuWang_decisions_desc
+            icon = "gfx/interface/icons/traits/SanGong_FanWang.dds"
+            is_valid = {
+                custom_tooltip = {
+                    text = SanGong_DaFengZhuWang_vaild_tt
+                    any_child = {
+                        is_male = yes
+                        is_adult = yes
+                        top_liege = root
+                        NOT = {
+                            SanGong_QinWang_trigger = yes
+                            OR = {
+                                has_trait = SanGong_FanWang
+                                has_trait = SanGong_JunWang
+                                has_trait = SanGong_Taizi
+                                has_trait = SanGong_TaiSun
+                            }
+                        }
+                    }
+                }
+            }
+            ai_chance = { value = 100 }
+        }
+
+        # ---------- 选项三：大封诸公主 ----------
+        item = {
+            value = SanGong_DaFengGongZhu_decisions
+            localization = SanGong_DaFengGongZhu_decisions
+            current_description = SanGong_DaFengGongZhu_decisions_desc
+            icon = "gfx/interface/icons/traits/SanGong_GongZhu.dds"
+            is_valid = {
+                custom_tooltip = {
+                    text = SanGong_DaFengGongZhu_valid_tt
+                    any_child = {
+                        is_female = yes
+                        is_adult = yes
+                        top_liege = root
+                        NOT = {
+                            has_trait = SanGong_GongZhu
+                        }
+                    }
+                }
+            }
+            ai_chance = { value = 100 }
+        }
+    }
+
+    effect = {
+        # ---------- 选项一：尊封太后 ----------
+        if = {
+            limit = { scope:SanGong_ZunFengTaiHou_decisions = yes }
+            save_scope_as = HuangDi
+            if = {
+                limit = {
+                    mother = { is_alive = yes }
+                }
+                mother = {
+                    remove_trait = SanGong_GongWei_10
+                    remove_trait = SanGong_GongWei_11
+                    remove_trait = SanGong_GongWei_12
+                    remove_trait = SanGong_GongWei_13
+                    remove_trait = SanGong_GongWei_14
+                    add_trait = SanGong_Taihou
+                    save_scope_as = TaiHou
+                }
+                custom_tooltip = ZunFengTaiHou_decision_t1
+                if = {
+                    limit = {
+                        scope:TaiHou ={
+                            NOT = { has_court_position = XiGongTaiHou_court_position }
+                        }
+                    }
+                    revoke_court_position = {
+                        recipient = court_position:XiGongTaiHou_court_position
+                        court_position = XiGongTaiHou_court_position
+                    }
+                    appoint_court_position = {
+                        recipient = scope:TaiHou
+                        court_position = XiGongTaiHou_court_position
+                    }
+                }
+                trigger_event = SanGong_CeFeng.080
+            }
+            else = {
+                limit = {
+                    mother = { is_alive = no }
+                }
+                mother = {
+                    remove_trait = SanGong_GongWei_10
+                    remove_trait = SanGong_GongWei_11
+                    remove_trait = SanGong_GongWei_12
+                    remove_trait = SanGong_GongWei_13
+                    remove_trait = SanGong_GongWei_14
+                    add_trait = SanGong_Taihou
+                    save_scope_as = TaiHou
+                    save_scope_as = HuangHou
+                }
+                custom_tooltip = ZunFengTaiHou_decision_t2
+                trigger_event = HouGong_ShiHao.011
+            }
+        }
+
+        # ---------- 选项二：大封诸皇子 ----------
+        if = {
+            limit = { scope:SanGong_DaFengZhuWang_decisions = yes }
+            custom_tooltip = SanGong_DaFengZhuWang_decisions_TT
+            every_child = {
+                limit = {
+                    is_male = yes
+                    is_adult = yes
+                    top_liege = root
+                    NOT = {
+                        SanGong_QinWang_trigger = yes
+                        OR = {
+                            has_trait = SanGong_FanWang
+                            has_trait = SanGong_JunWang
+                            has_trait = SanGong_Taizi
+                            has_trait = SanGong_TaiSun
+                        }
+                    }
+                }
+                save_scope_as = HuangZi
+                father = {
+                    trigger_event = SanGong_CeFeng.011
+                }
+            }
+        }
+
+        # ---------- 选项三：大封诸公主 ----------
+        if = {
+            limit = { scope:SanGong_DaFengGongZhu_decisions = yes }
+            custom_tooltip = SanGong_DaFengGongZhu_decisions_TT
+            every_child = {
+                limit = {
+                    is_female = yes
+                    is_adult = yes
+                    top_liege = root
+                    NOT = {
+                        has_trait = SanGong_GongZhu
+                    }
+                }
+                save_scope_as = GongZhu
+                add_trait = SanGong_GongZhu
+                father = {
+                    trigger_event = SanGong_CeFeng.030
+                }
+            }
+        }
+    }
+
     ai_check_interval = 6
     ai_will_do = 1000
 }
 
 
-
-SanGong_DaFengZhuWang_decisions = {#大封诸皇子
-    picture = { reference = "gfx/interface/illustrations/decisions/SanGong_decisions_illustrations_9.dds" }
-    decision_group_type = SanGongLiuYuan
-    desc = SanGong_DaFengZhuWang_decisions_desc
-    should_create_alert = { always = no }
-    sort_order = 500
-    is_shown = {
-        SanGong_huangdi_trigger = yes
-        any_child = {
-            is_male = yes
-            is_adult = yes
-            top_liege = root
-            NOT = {
-                SanGong_QinWang_trigger = yes
-                OR = {
-                    has_trait = SanGong_FanWang
-                    has_trait = SanGong_JunWang
-                    has_trait = SanGong_Taizi
-                    has_trait = SanGong_TaiSun
-                }
-            }
-        }
-    }
-    is_valid = {
-        can_interact_trigger = yes
-        custom_tooltip = {
-            text = SanGong_DaFengZhuWang_vaild_tt
-            any_child = {
-                is_male = yes
-                is_adult = yes
-                top_liege = root
-                NOT = {
-                    SanGong_QinWang_trigger = yes
-                    OR = {
-                        has_trait = SanGong_FanWang
-                        has_trait = SanGong_JunWang
-                        has_trait = SanGong_Taizi
-                        has_trait = SanGong_TaiSun
-                    }
-                }
-            }
-        }
-
-    }
-    effect = {
-        custom_tooltip = SanGong_DaFengZhuWang_decisions_TT
-        every_child = {
-            limit = {
-                is_male = yes
-                is_adult = yes
-                top_liege = root
-                NOT = {
-                    SanGong_QinWang_trigger = yes
-                    OR = {
-                        has_trait = SanGong_FanWang
-                        has_trait = SanGong_JunWang
-                        has_trait = SanGong_Taizi
-                        has_trait = SanGong_TaiSun
-                    }
-                }
-            }
-            save_scope_as = HuangZi
-            father = {
-                trigger_event = SanGong_CeFeng.011
-            }
-        }
-    }
-    ai_check_interval = 12
-    ai_will_do = 1000
-}
-
-SanGong_DaFengGongZhu_decisions = {#大封诸公主
-    picture = { reference = "gfx/interface/illustrations/decisions/SanGong_decisions_illustrations_10.dds" }
-    decision_group_type = SanGongLiuYuan
-    desc = SanGong_DaFengGongZhu_decisions_desc
-    should_create_alert = { always = no }
-    sort_order = 100
-    is_shown = {
-        SanGong_huangdi_trigger = yes
-        any_child = {
-            is_female = yes
-            is_adult = yes
-            this != top_liege
-            NOT = {
-                has_trait = SanGong_GongZhu
-            }
-        }
-    }
-    is_valid = {
-        can_interact_trigger = yes
-        custom_tooltip = {
-            text = SanGong_DaFengGongZhu_valid_tt
-            any_child = {
-                is_female = yes
-                is_adult = yes
-                top_liege = root
-                NOT = { has_trait = SanGong_GongZhu }
-            }
-        }
-
-    }
-    effect = {
-        custom_tooltip = SanGong_DaFengGongZhu_decisions_TT
-        every_child = {
-            limit = {
-                is_female = yes
-                is_adult = yes
-                top_liege = root
-                NOT = { has_trait = SanGong_GongZhu }
-            }
-            save_scope_as = GongZhu
-            add_trait = SanGong_GongZhu
-            father = {
-                trigger_event = SanGong_CeFeng.030
-            }
-        }
-    }
-    ai_check_interval = 12
-    ai_will_do = 1000
-}
 
 SanGong_FanWangBanJia_decision = {# 将荣誉级头衔的法理首都迁至当前领地首都
     picture = { reference = "gfx/interface/illustrations/decisions/SanGong_decisions_illustrations_8.dds" }

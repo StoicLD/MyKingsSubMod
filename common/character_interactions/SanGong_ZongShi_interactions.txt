@@ -66,6 +66,7 @@ CeLi_taisun_interaction = {#册封皇太孙（Gui）
     icon = heir
     hidden = yes
     is_shown = {
+        SanGong_ZongShi_taisun_enfeoffment_enabled_trigger = yes
         scope:actor = {
             SanGong_huangdi_trigger = yes
             NOT = {
@@ -84,6 +85,7 @@ CeLi_taisun_interaction = {#册封皇太孙（Gui）
         }
     }
     is_valid_showing_failures_only = {
+        SanGong_ZongShi_taisun_enfeoffment_enabled_trigger = yes
         custom_tooltip = {
             text = CeLi_taisun_interaction_tt1
             scope:actor = {
@@ -92,94 +94,100 @@ CeLi_taisun_interaction = {#册封皇太孙（Gui）
         }
     }
     populate_recipient_list = {
-        scope:actor = {
-            if = {
-                limit = {
-                    any_child = {
-                        is_alive = yes
-                        has_trait = SanGong_Taizi
-                    }
-                }
-                # 存活皇太子最多一名；这里必须用 effect 迭代器，any_child 是触发器
-                every_child = {
+        if = {
+            limit = { SanGong_ZongShi_taisun_enfeoffment_enabled_trigger = yes }
+            scope:actor = {
+                if = {
                     limit = {
-                        is_alive = yes
-                        has_trait = SanGong_Taizi
+                        any_child = {
+                            is_alive = yes
+                            has_trait = SanGong_Taizi
+                        }
                     }
+                    # 存活皇太子最多一名；这里必须用 effect 迭代器，any_child 是触发器
                     every_child = {
                         limit = {
-                            is_male = yes
                             is_alive = yes
-                            NOT = { has_trait = bastard }
-                            NOT = { has_trait = disinherited }
-                            NOT = {
-                                OR = {
-                                    has_trait = SanGong_Taizi
-                                    has_trait = SanGong_TaiSun
-                                    has_trait = SanGong_FanWang
-                                    has_trait = SanGong_JunWang
-                                }
-                            }
-                            top_liege = scope:actor
+                            has_trait = SanGong_Taizi
                         }
-                        add_to_list = characters
+                        every_child = {
+                            limit = {
+                                is_male = yes
+                                is_alive = yes
+                                NOT = { has_trait = bastard }
+                                NOT = { has_trait = disinherited }
+                                NOT = {
+                                    OR = {
+                                        has_trait = SanGong_Taizi
+                                        has_trait = SanGong_TaiSun
+                                        has_trait = SanGong_FanWang
+                                        has_trait = SanGong_JunWang
+                                    }
+                                }
+                                top_liege = scope:actor
+                            }
+                            add_to_list = characters
+                        }
                     }
                 }
-            }
-            else_if = {
-                limit = { exists = var:SanGong_latest_deceased_taizi }
-                var:SanGong_latest_deceased_taizi = {
-                    every_child = {
-                        limit = {
-                            is_male = yes
-                            is_alive = yes
-                            NOT = { has_trait = bastard }
-                            NOT = { has_trait = disinherited }
-                            NOT = {
-                                OR = {
-                                    has_trait = SanGong_Taizi
-                                    has_trait = SanGong_TaiSun
-                                    has_trait = SanGong_FanWang
-                                    has_trait = SanGong_JunWang
+                else_if = {
+                    limit = { exists = var:SanGong_latest_deceased_taizi }
+                    var:SanGong_latest_deceased_taizi = {
+                        every_child = {
+                            limit = {
+                                is_male = yes
+                                is_alive = yes
+                                NOT = { has_trait = bastard }
+                                NOT = { has_trait = disinherited }
+                                NOT = {
+                                    OR = {
+                                        has_trait = SanGong_Taizi
+                                        has_trait = SanGong_TaiSun
+                                        has_trait = SanGong_FanWang
+                                        has_trait = SanGong_JunWang
+                                    }
                                 }
+                                top_liege = scope:actor
                             }
-                            top_liege = scope:actor
+                            add_to_list = characters
                         }
-                        add_to_list = characters
                     }
                 }
             }
         }
     }
     on_accept = {
-        custom_tooltip = CeLi_taisun_interaction_tooltip
-        scope:secondary_recipient = {
-            save_scope_as = taisun
-        }
-        scope:actor = {
-            if = {
-                limit = {
-                    any_child = {
-                        is_alive = yes
-                        has_trait = SanGong_Taizi
-                    }
-                }
-                ordered_child = {
+        if = {
+            limit = { SanGong_ZongShi_taisun_enfeoffment_enabled_trigger = yes }
+            custom_tooltip = CeLi_taisun_interaction_tooltip
+            scope:secondary_recipient = {
+                save_scope_as = taisun
+            }
+            scope:actor = {
+                if = {
                     limit = {
-                        is_alive = yes
-                        has_trait = SanGong_Taizi
+                        any_child = {
+                            is_alive = yes
+                            has_trait = SanGong_Taizi
+                        }
                     }
-                    max = 1
-                    save_scope_as = Taizi
+                    ordered_child = {
+                        limit = {
+                            is_alive = yes
+                            has_trait = SanGong_Taizi
+                        }
+                        max = 1
+                        save_scope_as = Taizi
+                    }
                 }
-            }
-            else_if = {
-                limit = { exists = var:SanGong_latest_deceased_taizi }
-                var:SanGong_latest_deceased_taizi = {
-                    save_scope_as = Taizi
+                else_if = {
+                    limit = { exists = var:SanGong_latest_deceased_taizi }
+                    var:SanGong_latest_deceased_taizi = {
+                        save_scope_as = Taizi
+                    }
                 }
+                trigger_event = SanGong_DianZhang.014
             }
-            trigger_event = SanGong_DianZhang.014
         }
     }
     ai_will_do = 0

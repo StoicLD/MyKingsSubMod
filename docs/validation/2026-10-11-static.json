@@ -1,0 +1,987 @@
+{
+  "date": "2026-10-11",
+  "baseline": "75f76f2",
+  "passed": true,
+  "checks_passed": 240,
+  "checks_total": 240,
+  "runtime_verified": false,
+  "identity_writes": [
+    [
+      "common/scripted_effects/SanGong_ZongShi_effect.txt",
+      "taisun_flag",
+      true
+    ],
+    [
+      "common/scripted_effects/SanGong_ZongShi_rank_effects.txt",
+      "SanGong_ZongShi_crown_taisun_source",
+      true
+    ],
+    [
+      "common/scripted_effects/SanGong_ZongShi_rank_effects.txt",
+      "SanGong_TaiSun",
+      true
+    ]
+  ],
+  "checks": [
+    {
+      "check": "BOM preserved: common/character_interactions/SanGong_JueWei_interactions.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/character_interactions/SanGong_JueWei_interactions.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/character_interactions/SanGong_JueWei_interactions.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/character_interactions/SanGong_JueWei_interactions.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/character_interactions/SanGong_ZongShi_interactions.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/character_interactions/SanGong_ZongShi_interactions.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/character_interactions/SanGong_ZongShi_interactions.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/character_interactions/SanGong_ZongShi_rank_interactions.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/character_interactions/SanGong_ZongShi_rank_interactions.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/character_interactions/SanGong_ZongShi_rank_interactions.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/customizable_localization/SanGong_dynasty_custom.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/customizable_localization/SanGong_dynasty_custom.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/customizable_localization/SanGong_dynasty_custom.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/customizable_localization/SanGong_dynasty_custom.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/customizable_localization/SanGong_title_prince_custom_loc.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/customizable_localization/SanGong_title_prince_custom_loc.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/customizable_localization/SanGong_title_prince_custom_loc.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/customizable_localization/SanGong_title_prince_custom_loc.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/customizable_localization/SanGong_trait_custom_loc.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/customizable_localization/SanGong_trait_custom_loc.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/customizable_localization/SanGong_trait_custom_loc.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/customizable_localization/SanGong_trait_custom_loc.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/customizable_localization/SanGong_ZongShi_custom.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/customizable_localization/SanGong_ZongShi_custom.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/customizable_localization/SanGong_ZongShi_custom.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/customizable_localization/SanGong_ZongShi_custom.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/decisions/SanGong_DianZhang_decisions.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/decisions/SanGong_DianZhang_decisions.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/decisions/SanGong_DianZhang_decisions.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/modifiers/SanGong_modifiers.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/modifiers/SanGong_modifiers.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/modifiers/SanGong_modifiers.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/modifiers/SanGong_modifiers.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/on_action/SanGong_birth_actions.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/on_action/SanGong_birth_actions.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/on_action/SanGong_birth_actions.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/on_action/SanGong_birth_actions.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/on_action/SanGong_dead_on_actions.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/on_action/SanGong_dead_on_actions.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/on_action/SanGong_dead_on_actions.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/on_action/SanGong_JueWei_inherit_actions.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/on_action/SanGong_JueWei_inherit_actions.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/on_action/SanGong_JueWei_inherit_actions.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/on_action/SanGong_JueWei_inherit_actions.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/on_action/SanGong_on_birthday.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/on_action/SanGong_on_birthday.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/on_action/SanGong_on_birthday.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/on_action/SanGong_on_birthday.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/on_action/SanGong_ZongShi_rank_actions.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/on_action/SanGong_ZongShi_rank_actions.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/on_action/SanGong_ZongShi_rank_actions.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/scripted_effects/HouGong_flag_SanGong_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/scripted_effects/HouGong_flag_SanGong_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/scripted_effects/HouGong_flag_SanGong_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/scripted_effects/HouGong_flag_SanGong_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/scripted_effects/SanGong_action_effects.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/scripted_effects/SanGong_action_effects.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/scripted_effects/SanGong_action_effects.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/scripted_effects/SanGong_action_effects.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/scripted_effects/SanGong_ChaoTang_effects.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/scripted_effects/SanGong_ChaoTang_effects.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/scripted_effects/SanGong_ChaoTang_effects.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/scripted_effects/SanGong_ChaoTang_effects.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/scripted_effects/SanGong_DianZhang_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/scripted_effects/SanGong_DianZhang_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/scripted_effects/SanGong_DianZhang_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/scripted_effects/SanGong_DianZhang_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/scripted_effects/SanGong_effect_to_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/scripted_effects/SanGong_effect_to_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/scripted_effects/SanGong_effect_to_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/scripted_effects/SanGong_effect_to_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/scripted_effects/SanGong_FanWang_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/scripted_effects/SanGong_FanWang_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/scripted_effects/SanGong_FanWang_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/scripted_effects/SanGong_FanWang_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/scripted_effects/SanGong_gui_list_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/scripted_effects/SanGong_gui_list_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/scripted_effects/SanGong_gui_list_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/scripted_effects/SanGong_gui_list_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/scripted_effects/SanGong_remove_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/scripted_effects/SanGong_remove_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/scripted_effects/SanGong_remove_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/scripted_effects/SanGong_remove_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/scripted_effects/SanGong_ZongShi_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/scripted_effects/SanGong_ZongShi_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/scripted_effects/SanGong_ZongShi_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/scripted_effects/SanGong_ZongShi_rank_effects.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/scripted_effects/SanGong_ZongShi_rank_effects.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/scripted_guis/character_lists_sgui.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/scripted_guis/character_lists_sgui.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/scripted_guis/character_lists_sgui.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/scripted_guis/character_lists_sgui.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/scripted_guis/SanGong_CuanWei_guis.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/scripted_guis/SanGong_CuanWei_guis.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/scripted_guis/SanGong_CuanWei_guis.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/scripted_guis/SanGong_CuanWei_guis.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/scripted_triggers/SanGong_name_view_triggers.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/scripted_triggers/SanGong_name_view_triggers.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/scripted_triggers/SanGong_name_view_triggers.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/scripted_triggers/SanGong_name_view_triggers.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/scripted_triggers/SanGong_ZongShi_rank_triggers.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/scripted_triggers/SanGong_ZongShi_rank_triggers.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/succession_appointment/SanGong_Jichengren.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/succession_appointment/SanGong_Jichengren.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/succession_appointment/SanGong_Jichengren.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/succession_appointment/SanGong_Jichengren.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/traits/SanGong_JiaZu_traits.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/traits/SanGong_JiaZu_traits.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/traits/SanGong_JiaZu_traits.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/traits/SanGong_JiaZu_traits.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/traits/SanGong_Xungui_traits.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/traits/SanGong_Xungui_traits.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/traits/SanGong_Xungui_traits.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: common/traits/SanGong_Xungui_traits.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: common/traits/SanGong_ZongShi_rank_traits.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: common/traits/SanGong_ZongShi_rank_traits.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: common/traits/SanGong_ZongShi_rank_traits.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: data_binding/SanGong_data_bindings.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: data_binding/SanGong_data_bindings.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: data_binding/SanGong_data_bindings.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: data_binding/SanGong_data_bindings.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: descriptor.mod",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: descriptor.mod",
+      "passed": true
+    },
+    {
+      "check": "untouched file: descriptor.mod",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: events/SanGong_CeFeng.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: events/SanGong_CeFeng.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: events/SanGong_CeFeng.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: events/SanGong_CeFeng.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: events/SanGong_DianZhang.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: events/SanGong_DianZhang.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: events/SanGong_DianZhang.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: events/SanGong_JueWei_event.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: events/SanGong_JueWei_event.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: events/SanGong_JueWei_event.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: events/SanGong_JueWei_event.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: events/SanGong_Quanchen_event.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: events/SanGong_Quanchen_event.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: events/SanGong_Quanchen_event.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: events/SanGong_Quanchen_event.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: events/SanGong_ZongShi_rank_events.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: events/SanGong_ZongShi_rank_events.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: events/SanGong_ZongShi_rank_events.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: events/SanGong_Zongzu.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: events/SanGong_Zongzu.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: events/SanGong_Zongzu.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: gfx/portraits/portrait_modifiers/SanGong_portrait_ZongZu.txt",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: gfx/portraits/portrait_modifiers/SanGong_portrait_ZongZu.txt",
+      "passed": true
+    },
+    {
+      "check": "untouched file: gfx/portraits/portrait_modifiers/SanGong_portrait_ZongZu.txt",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: gfx/portraits/portrait_modifiers/SanGong_portrait_ZongZu.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: gui/SanGong.gui",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: gui/SanGong.gui",
+      "passed": true
+    },
+    {
+      "check": "untouched file: gui/SanGong.gui",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: gui/SanGong.gui",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: gui/SanGong_view.gui",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: gui/SanGong_view.gui",
+      "passed": true
+    },
+    {
+      "check": "untouched file: gui/SanGong_view.gui",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: gui/SanGong_view.gui",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: localization/simp_chinese/customizable_localization/SanGong_customizable_localization_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: localization/simp_chinese/customizable_localization/SanGong_customizable_localization_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "untouched file: localization/simp_chinese/customizable_localization/SanGong_customizable_localization_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: localization/simp_chinese/customizable_localization/SanGong_customizable_localization_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: localization/simp_chinese/customizable_localization/SanGong_Dynasty_customizable_localization_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: localization/simp_chinese/customizable_localization/SanGong_Dynasty_customizable_localization_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "untouched file: localization/simp_chinese/customizable_localization/SanGong_Dynasty_customizable_localization_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: localization/simp_chinese/customizable_localization/SanGong_Dynasty_customizable_localization_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: localization/simp_chinese/customizable_localization/SanGong_ZongShi_customizable_localization_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: localization/simp_chinese/customizable_localization/SanGong_ZongShi_customizable_localization_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "untouched file: localization/simp_chinese/customizable_localization/SanGong_ZongShi_customizable_localization_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: localization/simp_chinese/customizable_localization/SanGong_ZongShi_customizable_localization_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: localization/simp_chinese/event/DianZhangZhiDu_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: localization/simp_chinese/event/DianZhangZhiDu_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "untouched file: localization/simp_chinese/event/DianZhangZhiDu_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: localization/simp_chinese/event/DianZhangZhiDu_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: localization/simp_chinese/event/GongDian_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: localization/simp_chinese/event/GongDian_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "untouched file: localization/simp_chinese/event/GongDian_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: localization/simp_chinese/event/GongDian_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: localization/simp_chinese/gui/SanGong_gui_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: localization/simp_chinese/gui/SanGong_gui_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "untouched file: localization/simp_chinese/gui/SanGong_gui_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: localization/simp_chinese/gui/SanGong_gui_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: localization/simp_chinese/interactions/SanGong_interactions_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: localization/simp_chinese/interactions/SanGong_interactions_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "untouched file: localization/simp_chinese/interactions/SanGong_interactions_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: localization/simp_chinese/interactions/SanGong_interactions_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: localization/simp_chinese/replace/zzzzz_core_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: localization/simp_chinese/replace/zzzzz_core_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: localization/simp_chinese/replace/zzzzz_core_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: localization/simp_chinese/SanGong_modifier_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: localization/simp_chinese/SanGong_modifier_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "untouched file: localization/simp_chinese/SanGong_modifier_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: localization/simp_chinese/SanGong_modifier_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: localization/simp_chinese/trait/SanGong_GongWei_trait_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: localization/simp_chinese/trait/SanGong_GongWei_trait_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "untouched file: localization/simp_chinese/trait/SanGong_GongWei_trait_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "current upstream hash: localization/simp_chinese/trait/SanGong_GongWei_trait_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: localization/simp_chinese/trait/SanGong_ZongShi_rank_trait_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: localization/simp_chinese/trait/SanGong_ZongShi_rank_trait_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "untouched file: localization/simp_chinese/trait/SanGong_ZongShi_rank_trait_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "BOM preserved: README.md",
+      "passed": true
+    },
+    {
+      "check": "manifest hash: README.md",
+      "passed": true
+    },
+    {
+      "check": "only reversible gate additions: common/character_interactions/SanGong_ZongShi_interactions.txt",
+      "passed": true
+    },
+    {
+      "check": "only reversible gate additions: common/on_action/SanGong_dead_on_actions.txt",
+      "passed": true
+    },
+    {
+      "check": "only reversible gate additions: common/scripted_effects/SanGong_ZongShi_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "only reversible gate additions: common/scripted_effects/SanGong_ZongShi_rank_effects.txt",
+      "passed": true
+    },
+    {
+      "check": "only reversible gate additions: events/SanGong_Zongzu.txt",
+      "passed": true
+    },
+    {
+      "check": "only reversible gate additions: events/SanGong_DianZhang.txt",
+      "passed": true
+    },
+    {
+      "check": "gate always false",
+      "passed": true
+    },
+    {
+      "check": "all previous triggers unchanged",
+      "passed": true
+    },
+    {
+      "check": "closed interaction is_shown",
+      "passed": true
+    },
+    {
+      "check": "closed interaction is_valid_showing_failures_only",
+      "passed": true
+    },
+    {
+      "check": "closed interaction populate_recipient_list",
+      "passed": true
+    },
+    {
+      "check": "closed interaction on_accept",
+      "passed": true
+    },
+    {
+      "check": "AI interaction remains disabled",
+      "passed": true
+    },
+    {
+      "check": "death action cannot schedule",
+      "passed": true
+    },
+    {
+      "check": "closed entire effect TaiSun_effect",
+      "passed": true
+    },
+    {
+      "check": "closed entire effect SanGong_ZongShi_set_taisun_effect",
+      "passed": true
+    },
+    {
+      "check": "event blocked SanGong_Zongzu.002",
+      "passed": true
+    },
+    {
+      "check": "pending event no side effects SanGong_Zongzu.002/immediate",
+      "passed": true
+    },
+    {
+      "check": "pending event no side effects SanGong_Zongzu.002/after",
+      "passed": true
+    },
+    {
+      "check": "pending event no option side effects SanGong_Zongzu.002/0",
+      "passed": true
+    },
+    {
+      "check": "pending event no option side effects SanGong_Zongzu.002/1",
+      "passed": true
+    },
+    {
+      "check": "event blocked SanGong_DianZhang.014",
+      "passed": true
+    },
+    {
+      "check": "pending event no side effects SanGong_DianZhang.014/immediate",
+      "passed": true
+    },
+    {
+      "check": "pending event no side effects SanGong_DianZhang.014/after",
+      "passed": true
+    },
+    {
+      "check": "pending event no option side effects SanGong_DianZhang.014/0",
+      "passed": true
+    },
+    {
+      "check": "old picker hidden",
+      "passed": true
+    },
+    {
+      "check": "all upstream decision semantics preserved",
+      "passed": true
+    },
+    {
+      "check": "TaiSun excluded once in is_shown",
+      "passed": true
+    },
+    {
+      "check": "TaiSun excluded once in widget",
+      "passed": true
+    },
+    {
+      "check": "TaiSun excluded once in effect",
+      "passed": true
+    },
+    {
+      "check": "only picker localization appended",
+      "passed": true
+    },
+    {
+      "check": "global name key unique",
+      "passed": true
+    },
+    {
+      "check": "gate has exactly one effective definition",
+      "passed": true
+    },
+    {
+      "check": "all three effective identity writes are gated",
+      "passed": true
+    },
+    {
+      "check": "updated decision event references resolve",
+      "passed": true
+    },
+    {
+      "check": "tracked diff scope",
+      "passed": true
+    },
+    {
+      "check": "whitespace and conflict check",
+      "passed": true
+    },
+    {
+      "check": "upstream manifest refreshed",
+      "passed": true
+    },
+    {
+      "check": "runtime still unverified",
+      "passed": true
+    }
+  ]
+}

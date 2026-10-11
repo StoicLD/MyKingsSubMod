@@ -53,19 +53,22 @@ GuoJiZiNvGuanXi_effect = {#过继子女关系
 
 TaiSun_effect = {#太孙
     if = {
-        limit = {
-            $TAISUN$ = {
-                is_landed = no
-                is_ruler = no
-                NOT = { is_courtier_of = root }
+        limit = { SanGong_ZongShi_taisun_enfeoffment_enabled_trigger = yes }
+        if = {
+            limit = {
+                $TAISUN$ = {
+                    is_landed = no
+                    is_ruler = no
+                    NOT = { is_courtier_of = root }
+                }
             }
+            add_courtier = $TAISUN$
         }
-        add_courtier = $TAISUN$
-    }
-    $TAISUN$ = {
-        add_character_flag = taisun_flag
-        SanGong_ZongShi_set_taisun_effect = yes
-        save_scope_as = taisun
+        $TAISUN$ = {
+            add_character_flag = taisun_flag
+            SanGong_ZongShi_set_taisun_effect = yes
+            save_scope_as = taisun
+        }
     }
 }
 
