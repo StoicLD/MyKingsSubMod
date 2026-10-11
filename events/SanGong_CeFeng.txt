@@ -216,6 +216,158 @@ SanGong_CeFeng.012 = {#皇子王号分类
     trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_SanGong_title_48 } } } } scope:HuangZi = { add_character_flag = flag_SanGong_title_48 } }
     option = { name = SanGong_CeFeng.012.aw
     trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_SanGong_title_49 } } } } scope:HuangZi = { add_character_flag = flag_SanGong_title_49 } }
+    # BEGIN MyKingsSubMod wanghao additions
+    option = {
+        name = MyKingsSubMod_wanghao_xi
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_xi } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_xi }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_chao
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_chao } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_chao }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_teng
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_teng } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_teng }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_huo
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_huo } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_huo }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_deng
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_deng } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_deng }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_shu
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_shu } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_shu }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_zou
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_zou } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_zou }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_shen
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_shen } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_shen }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_ji_state
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_ji_state } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_ji_state }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_qi_state
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_qi_state } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_qi_state }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_ge
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_ge } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_ge }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_yin
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_yin } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_yin }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_xia
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_xia } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_xia }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_e
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_e } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_e }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_peng
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_peng } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_peng }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_bian
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_bian } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_bian }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_mi
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_mi } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_mi }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_ze
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_ze } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_ze }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_lu
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_lu } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_lu }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_pei
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_pei } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_pei }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_xiang_state
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_xiang_state } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_xiang_state }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_xiang
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_xiang } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_xiang }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_heng
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_heng } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_heng }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_qi_prefecture
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_qi_prefecture } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_qi_prefecture }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_shan
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_shan } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_shan }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_yan
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_yan } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_yan }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_ji_prefecture
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_ji_prefecture } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_ji_prefecture }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_jing
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_jing } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_jing }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_zhang
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_zhang } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_zhang }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_ye
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_ye } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_ye }
+    }
+    # END MyKingsSubMod wanghao additions
 }
 
 SanGong_CeFeng.013 = {#皇子美德王号册封
@@ -294,6 +446,128 @@ SanGong_CeFeng.013 = {#皇子美德王号册封
     option = { name = SanGong_CeFeng.013.av trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_SanGong_title_98 } } } } scope:HuangZi = { add_character_flag = flag_SanGong_title_98 } }
     option = { name = SanGong_CeFeng.013.aw trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_SanGong_title_99 } } } } scope:HuangZi = { add_character_flag = flag_SanGong_title_99 } }
     option = { name = SanGong_CeFeng.013.ax trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_SanGong_title_100 } } } } scope:HuangZi = { add_character_flag = flag_SanGong_title_100 } }
+    # BEGIN MyKingsSubMod wanghao additions
+    option = {
+        name = MyKingsSubMod_wanghao_zhong
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_zhong } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_zhong }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_rong
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_rong } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_rong }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_guang
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_guang } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_guang }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_yi_ritual
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_yi_ritual } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_yi_ritual }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_huai
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_huai } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_huai }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_yong
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_yong } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_yong }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_shou
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_shou } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_shou }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_sheng
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_sheng } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_sheng }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_xin
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_xin } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_xin }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_yi_righteous
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_yi_righteous } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_yi_righteous }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_xing
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_xing } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_xing }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_en
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_en } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_en }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_jia
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_jia } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_jia }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_duan
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_duan } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_duan }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_zhao_light
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_zhao_light } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_zhao_light }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_qin
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_qin } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_qin }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_zhen
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_zhen } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_zhen }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_he
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_he } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_he }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_fu
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_fu } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_fu }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_jing_auspicious
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_jing_auspicious } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_jing_auspicious }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_zhao_bright
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_zhao_bright } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_zhao_bright }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_kang
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_kang } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_kang }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_ji_auspicious
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_ji_auspicious } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_ji_auspicious }
+    }
+    option = {
+        name = MyKingsSubMod_wanghao_hui
+        trigger = { NOT = { dynasty = { any_dynasty_member = { has_character_flag = flag_MyKingsSubMod_wanghao_hui } } } }
+        scope:HuangZi = { add_character_flag = flag_MyKingsSubMod_wanghao_hui }
+    }
+    # END MyKingsSubMod wanghao additions
 }
 
 SanGong_CeFeng.014 = { # 郡王号册封

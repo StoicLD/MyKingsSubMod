@@ -145,11 +145,11 @@
     },
     {
       "path": "common/scripted_effects/SanGong_action_effects.txt",
-      "sha256": "ef51085977ac03598da252a19f7051079c879f12f839510a1c680a9aa754519a",
-      "bytes": 18892,
+      "sha256": "d252a663620ef1b4fa5dad436e63111083c742f906d066e2ebc9cb3668bd6382",
+      "bytes": 22270,
       "mode": "override",
       "upstream_sha256": "d5d9df45fce1fa83b8e1a986ead4d3a7ab52c29b7550f531133357986cbdf9fc",
-      "reason": "统一爵位与储君状态、清理、父系重算或新版接入"
+      "reason": "统一爵位与储君状态、清理、父系重算或新版接入；原王号清除清单追加 54 个新名字"
     },
     {
       "path": "common/scripted_effects/SanGong_ChaoTang_effects.txt",
@@ -297,11 +297,11 @@
     },
     {
       "path": "events/SanGong_CeFeng.txt",
-      "sha256": "c4bf62946976132f58fcc57940a53d1de8563de7706c1784392b6b60388cfb07",
-      "bytes": 234512,
+      "sha256": "064976db4e39b78381cea403db94e279ce1f327400b1902a01980c9b00eea229",
+      "bytes": 249312,
       "mode": "override",
       "upstream_sha256": "366145904ac43cf0cefa2a600b571f9ecd2a410c8db962478ff3a964c91640fa",
-      "reason": "册封、废立、爵位继承或新旧父系入口的事件适配"
+      "reason": "册封、废立、爵位继承或新旧父系入口的事件适配；普通册封追加 30 个地名与 24 个雅称王号，保持其他事件"
     },
     {
       "path": "events/SanGong_DianZhang.txt",
@@ -459,11 +459,51 @@
     },
     {
       "path": "README.md",
-      "sha256": "8b5251104cddb355b5402bd020373e881805fd6b0344c345189c5a006d4d537f",
-      "bytes": 3680,
+      "sha256": "adbd05fb6bf185b7605e74ba5a0c01078710bf1da82fb396a517947c1222cf52",
+      "bytes": 4627,
       "mode": "documentation",
       "upstream_sha256": null,
       "reason": "子 Mod 元数据或使用说明"
+    },
+    {
+      "path": "common/customizable_localization/SanGong_flag_custom_loc.txt",
+      "sha256": "1533a1b263ff5b97fc7f6e076a940ed2876a08481b23b9e2a30ee9248088179e",
+      "bytes": 67014,
+      "mode": "override",
+      "upstream_sha256": "59260eee344d1c7f5746d19e7866426f3bf96b00df3d9b7c7a2ddce72d63793c",
+      "reason": "原王号显示清单追加 54 个新名字"
+    },
+    {
+      "path": "common/scripted_effects/SanGong_dead_effect.txt",
+      "sha256": "182d10fcdfb08fc8aebf1dae3fd40d525c183fc67eefb811c3f185f91aaf8dbf",
+      "bytes": 66955,
+      "mode": "override",
+      "upstream_sha256": "e6e321efad2627a87b2bfce4ce3d89c502cfb7a351104cbb2d8aa0cafa6b7418",
+      "reason": "原王号继承复制清单追加 54 个新名字，保留继承规则"
+    },
+    {
+      "path": "common/scripted_triggers/SanGong_HuangShi_trigger.txt",
+      "sha256": "0f56609958c23c67cb6e9bf06cfa61577860d345a06c3188c49810704c20a197",
+      "bytes": 21522,
+      "mode": "override",
+      "upstream_sha256": "7717f2045ffb5ec3ab4b8d22c452baa7d72f899e75964670bbd1242dd468e070",
+      "reason": "原亲王王号识别清单追加 54 个新名字"
+    },
+    {
+      "path": "localization/simp_chinese/event/MyKingsSubMod_wanghao_l_simp_chinese.yml",
+      "sha256": "e438de5257695104dafca1927435a1780da8486cd4484b1c9b83e9657e9ee2bf",
+      "bytes": 7627,
+      "mode": "new",
+      "upstream_sha256": null,
+      "reason": "54 个新王号与选项的中文本地化"
+    },
+    {
+      "path": "localization/simp_chinese/replace/MyKingsSubMod_wanghao_categories_l_simp_chinese.yml",
+      "sha256": "7d38581e842cdac8f074cd76368c8cac45d5026b32bc29c873984193a5b10263",
+      "bytes": 217,
+      "mode": "new",
+      "upstream_sha256": null,
+      "reason": "仅覆盖普通册封的两条王号分类文字"
     }
   ],
   "launcher_file": {
@@ -478,7 +518,8 @@
   "limitations": [
     "CK3 runtime matrix R1-R6 pending",
     "Upstream SanGong_CuanWei_effect.txt has a pre-existing unmatched closing brace near line 105",
-    "Upstream SanGong_miaohao_90 through 100 references have no active trait definition"
+    "Upstream SanGong_miaohao_90 through 100 references have no active trait definition",
+    "54-name ordinary wanghao expansion: runtime matrix R1-R5 pending"
   ],
   "integration_choices": [
     "V0.76 cadet-house eligibility in common virtual candidate",
@@ -495,5 +536,14 @@
   "taisun_enfeoffment_enabled": false,
   "existing_taisun_policy": "保留已有身份、待遇、评分、显示及退出清理；只禁止新册封",
   "maintenance_record": "docs/validation/2026-10-11-maintenance.md",
-  "file_list_scope": "游戏发行内容、descriptor.mod、README.md；不含 Git、开发文档及验证工具；manifest 自身不计入自身哈希"
+  "file_list_scope": "游戏发行内容、descriptor.mod、README.md；不含 Git、开发文档及验证工具；manifest 自身不计入自身哈希",
+  "wanghao_expansion": {
+    "date": "2026-10-11",
+    "baseline_commit": "fd95957",
+    "geographic_names": 30,
+    "virtue_names": 24,
+    "scope": "普通册封王爵；仅名字及必要配套",
+    "record": "docs/validation/2026-10-11-wanghao.md",
+    "runtime_verified": false
+  }
 }

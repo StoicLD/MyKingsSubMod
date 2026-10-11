@@ -1,0 +1,199 @@
+{
+  "date": "2026-10-11",
+  "baseline": "fd95957",
+  "passed": true,
+  "checks_passed": 44,
+  "checks_total": 44,
+  "runtime_verified": false,
+  "new_names": {
+    "geographic": "息巢滕霍邓舒邹申纪杞葛殷夏鄂彭汴密泽潞沛相襄恒岐陕延济泾漳邺",
+    "virtue": "忠荣光仪怀永寿盛信义兴恩嘉端照钦珍和福景昭康吉辉"
+  },
+  "game_files_changed": [
+    "common/customizable_localization/SanGong_flag_custom_loc.txt",
+    "common/scripted_effects/SanGong_action_effects.txt",
+    "common/scripted_effects/SanGong_dead_effect.txt",
+    "common/scripted_triggers/SanGong_HuangShi_trigger.txt",
+    "events/SanGong_CeFeng.txt",
+    "localization/simp_chinese/event/MyKingsSubMod_wanghao_l_simp_chinese.yml",
+    "localization/simp_chinese/replace/MyKingsSubMod_wanghao_categories_l_simp_chinese.yml"
+  ],
+  "checks": [
+    {
+      "check": "approved count and unique identifiers",
+      "passed": true
+    },
+    {
+      "check": "approved lists match plan",
+      "passed": true
+    },
+    {
+      "check": "old content byte-identical events/SanGong_CeFeng.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM and newline style events/SanGong_CeFeng.txt",
+      "passed": true
+    },
+    {
+      "check": "addition block count events/SanGong_CeFeng.txt",
+      "passed": true
+    },
+    {
+      "check": "old content byte-identical common/scripted_effects/SanGong_action_effects.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM and newline style common/scripted_effects/SanGong_action_effects.txt",
+      "passed": true
+    },
+    {
+      "check": "addition block count common/scripted_effects/SanGong_action_effects.txt",
+      "passed": true
+    },
+    {
+      "check": "upstream hash common/customizable_localization/SanGong_flag_custom_loc.txt",
+      "passed": true
+    },
+    {
+      "check": "old content byte-identical common/customizable_localization/SanGong_flag_custom_loc.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM and newline style common/customizable_localization/SanGong_flag_custom_loc.txt",
+      "passed": true
+    },
+    {
+      "check": "addition block count common/customizable_localization/SanGong_flag_custom_loc.txt",
+      "passed": true
+    },
+    {
+      "check": "upstream hash common/scripted_triggers/SanGong_HuangShi_trigger.txt",
+      "passed": true
+    },
+    {
+      "check": "old content byte-identical common/scripted_triggers/SanGong_HuangShi_trigger.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM and newline style common/scripted_triggers/SanGong_HuangShi_trigger.txt",
+      "passed": true
+    },
+    {
+      "check": "addition block count common/scripted_triggers/SanGong_HuangShi_trigger.txt",
+      "passed": true
+    },
+    {
+      "check": "upstream hash common/scripted_effects/SanGong_dead_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "old content byte-identical common/scripted_effects/SanGong_dead_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "BOM and newline style common/scripted_effects/SanGong_dead_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "addition block count common/scripted_effects/SanGong_dead_effect.txt",
+      "passed": true
+    },
+    {
+      "check": "new options use existing eligibility and grant template SanGong_CeFeng.012",
+      "passed": true
+    },
+    {
+      "check": "new options use existing eligibility and grant template SanGong_CeFeng.013",
+      "passed": true
+    },
+    {
+      "check": "new display entries clone old format",
+      "passed": true
+    },
+    {
+      "check": "new recognition entries only",
+      "passed": true
+    },
+    {
+      "check": "new cleanup entries only",
+      "passed": true
+    },
+    {
+      "check": "inheritance copies names using existing scope and condition",
+      "passed": true
+    },
+    {
+      "check": "localization BOM localization/simp_chinese/event/MyKingsSubMod_wanghao_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "language and quoted values localization/simp_chinese/event/MyKingsSubMod_wanghao_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "unique localization keys localization/simp_chinese/event/MyKingsSubMod_wanghao_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "localization BOM localization/simp_chinese/replace/MyKingsSubMod_wanghao_categories_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "language and quoted values localization/simp_chinese/replace/MyKingsSubMod_wanghao_categories_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "unique localization keys localization/simp_chinese/replace/MyKingsSubMod_wanghao_categories_l_simp_chinese.yml",
+      "passed": true
+    },
+    {
+      "check": "54 name and 54 option keys complete",
+      "passed": true
+    },
+    {
+      "check": "only two category labels overridden",
+      "passed": true
+    },
+    {
+      "check": "new names do not duplicate old names",
+      "passed": true
+    },
+    {
+      "check": "game file inventory has exactly five new files",
+      "passed": true
+    },
+    {
+      "check": "all other gameplay files byte-identical to baseline",
+      "passed": true
+    },
+    {
+      "check": "effective overwritten definition IDs unique",
+      "passed": true
+    },
+    {
+      "check": "effective new localization keys unique",
+      "passed": true
+    },
+    {
+      "check": "manifest inventory complete and unique",
+      "passed": true
+    },
+    {
+      "check": "manifest hashes and byte counts",
+      "passed": true
+    },
+    {
+      "check": "new upstream provenance pinned",
+      "passed": true
+    },
+    {
+      "check": "runtime not claimed",
+      "passed": true
+    },
+    {
+      "check": "diff whitespace",
+      "passed": true
+    }
+  ]
+}

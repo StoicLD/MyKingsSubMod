@@ -1,0 +1,1589 @@
+﻿death_WangChaoFuMie = {#王朝覆灭死亡方式
+    remove_gongtingtrait_effect = yes
+    random_list = {
+        15 = {
+            custom_tooltip = SanGong_death21
+            hidden_effect = { death = { death_reason = SanGong_death21 } }
+        }
+        15 = {
+            custom_tooltip = SanGong_death22
+            hidden_effect = { death = { death_reason = SanGong_death22 } }
+        }
+        15 = {
+            custom_tooltip = SanGong_death23
+            hidden_effect = { death = { death_reason = SanGong_death23 } }
+        }
+        50 = {
+            custom_tooltip = SanGong_death24
+        }
+    }
+}
+
+old_holder_inherit_effect = {
+    # 目标：离世的勋贵角色
+    scope:old_holder = {
+        if = {
+            limit = {
+                any_close_family_member = {
+                    dynasty = scope:old_holder.dynasty
+                    top_liege = scope:liege
+                    is_male = yes
+                    is_child_of = scope:old_holder            # 是死者亲生儿子
+                    not_has_JueWei_trigger = yes
+                }
+            }
+            ordered_close_family_member = {
+                limit = {
+                    dynasty = scope:old_holder.dynasty
+                    top_liege = scope:liege
+                    is_male = yes
+                    is_child_of = scope:old_holder
+                    not_has_JueWei_trigger = yes
+                }
+                order_by = age                                  # 按年龄排序
+                max = 1                                         # 只取最年长1人
+                save_scope_as = new_holder
+                QianChaOHuangShi_JueWei_inherit_effect = yes
+            }
+        }
+        
+        # ==============================================
+        # 继承优先级 3：无亲生儿子 → 【长孙】继承
+        # ==============================================
+        else_if = {
+            limit = {
+                # 无儿子
+                NOT = {
+                    any_close_family_member = {
+                        dynasty = scope:old_holder.dynasty
+                        top_liege = scope:liege
+                        is_male = yes
+                        is_child_of = scope:old_holder
+                        not_has_JueWei_trigger = yes
+                    }
+                }
+                # 但有孙子
+                any_close_family_member = {
+                    dynasty = scope:old_holder.dynasty
+                    top_liege = scope:liege
+                    is_male = yes
+                    is_alive = yes
+                    is_grandchild_of = scope:old_holder        # 是死者孙子
+                    not_has_JueWei_trigger = yes
+                }
+            }
+            
+            # 取最年长的孙子
+            ordered_close_family_member = {
+                limit = {
+                    dynasty = scope:old_holder.dynasty
+                    top_liege = scope:liege
+                    is_male = yes
+                    is_grandchild_of = scope:old_holder
+                    not_has_JueWei_trigger = yes
+                }
+                order_by = age
+                max = 1
+                save_scope_as = new_holder
+                QianChaOHuangShi_JueWei_inherit_effect = yes
+            }
+        }
+        
+        # ==============================================
+        # 继承优先级 4：无儿孙 → 【曾孙】继承
+        # ==============================================
+        else_if = {
+            limit = {
+                # 无儿子
+                NOT = {
+                    any_close_family_member = {
+                        dynasty = scope:old_holder.dynasty
+                        top_liege = scope:liege
+                        is_male = yes
+                        is_child_of = scope:old_holder
+                        not_has_JueWei_trigger = yes
+                    }
+                }
+                # 无孙子
+                NOT = {
+                    any_close_family_member = {
+                        dynasty = scope:old_holder.dynasty
+                        top_liege = scope:liege
+                        is_male = yes
+                        is_grandchild_of = scope:old_holder
+                        not_has_JueWei_trigger = yes
+                    }
+                }
+                # 有曾孙
+                any_close_family_member = {
+                    dynasty = scope:old_holder.dynasty
+                    top_liege = scope:liege
+                    is_male = yes
+                    is_great_grandchild_of = scope:old_holder  # 是死者曾孙
+                    not_has_JueWei_trigger = yes
+                }
+            }
+            
+            # 取最年长的曾孙
+            ordered_close_family_member = {
+                limit = {
+                    dynasty = scope:old_holder.dynasty
+                    top_liege = scope:liege
+                    is_male = yes
+                    is_great_grandchild_of = scope:old_holder
+                    not_has_JueWei_trigger = yes
+                }
+                order_by = age
+                max = 1
+                save_scope_as = new_holder
+                QianChaOHuangShi_JueWei_inherit_effect = yes
+            }
+        }
+        
+        # ==============================================
+        # 继承优先级 5：无直系后代 → 【同族近亲】继承
+        # ==============================================
+        else_if = {
+            # 选取同王朝、同君主、存活男性
+            ordered_close_family_member = {
+                limit = {
+                    dynasty = scope:old_holder.dynasty
+                    top_liege = scope:liege
+                    is_male = yes
+                    not_has_JueWei_trigger = yes
+                }
+                order_by = age                                  # 年长者优先
+                max = 1
+                save_scope_as = new_holder
+                QianChaOHuangShi_JueWei_inherit_effect = yes
+            }
+        }
+    }
+}
+
+QianChaOHuangShi_JueWei_inherit_effect = {
+    add_trait = SanGong_ErWangSanKe
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_anlegong } }
+        add_character_flag = Feidi_anlegong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_guiyigong } }
+        add_character_flag = Feidi_guiyigong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_huaidegong } }
+        add_character_flag = Feidi_huaidegong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_shunzhenggong } }
+        add_character_flag = Feidi_shunzhenggong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_qinshungong } }
+        add_character_flag = Feidi_qinshungong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_baodegong } }
+        add_character_flag = Feidi_baodegong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_jiangong } }
+        add_character_flag = Feidi_jiangong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_fengchenggong } }
+        add_character_flag = Feidi_fengchenggong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_muyigong } }
+        add_character_flag = Feidi_muyigong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_ningjigong } }
+        add_character_flag = Feidi_ningjigong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_hundegong } }
+        add_character_flag = Feidi_hundegong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_huangzonggong } }
+        add_character_flag = Feidi_huangzonggong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_mimiugong } }
+        add_character_flag = Feidi_mimiugong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_jiaobaogong } }
+        add_character_flag = Feidi_jiaobaogong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_beimangong } }
+        add_character_flag = Feidi_beimangong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_qingwugong } }
+        add_character_flag = Feidi_qingwugong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_qidegong } }
+        add_character_flag = Feidi_qidegong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_shidaogong } }
+        add_character_flag = Feidi_shidaogong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_manminggong } }
+        add_character_flag = Feidi_manminggong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_beidegong } }
+        add_character_flag = Feidi_beidegong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_guiminghou } }
+        add_character_flag = Feidi_guiminghou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_shunhuahou } }
+        add_character_flag = Feidi_shunhuahou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_huaininghou } }
+        add_character_flag = Feidi_huaininghou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_anyuanhou } }
+        add_character_flag = Feidi_anyuanhou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_mudehou } }
+        add_character_flag = Feidi_mudehou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_fengyihou } }
+        add_character_flag = Feidi_fengyihou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_huairenhou } }
+        add_character_flag = Feidi_huairenhou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_ningbianhou } }
+        add_character_flag = Feidi_ningbianhou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_baoyihou } }
+        add_character_flag = Feidi_baoyihou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_guishunhou } }
+        add_character_flag = Feidi_guishunhou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_weiminghou } }
+        add_character_flag = Feidi_weiminghou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_zhonghunhou } }
+        add_character_flag = Feidi_zhonghunhou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_haichunhou } }
+        add_character_flag = Feidi_haichunhou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_fudehou } }
+        add_character_flag = Feidi_fudehou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_beiyihou } }
+        add_character_flag = Feidi_beiyihou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_manshanghou } }
+        add_character_flag = Feidi_manshanghou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_shizhonghou } }
+        add_character_flag = Feidi_shizhonghou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_kuangbeihou } }
+        add_character_flag = Feidi_kuangbeihou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_yuanhou } }
+        add_character_flag = Feidi_yuanhou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_huangmihou } }
+        add_character_flag = Feidi_huangmihou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_ZDY_wang } }
+        add_character_flag = Feidi_ZDY_wang
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_ZDY_gong } }
+        add_character_flag = Feidi_ZDY_gong
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_ZDY_hou } }
+        add_character_flag = Feidi_ZDY_hou
+    }
+    if = {
+        limit = { scope:old_holder = { has_character_flag = Feidi_ZDY } }
+        add_character_flag = Feidi_ZDY
+    }
+    copy_localized_text = {
+        key = SanGong_miaohao_zdy_text
+        target = scope:old_holder
+    }
+    store_localized_text_in_death = SanGong_miaohao_zdy_text
+}
+
+
+
+SanGong_old_holder_juewei_address_effect = {#死后爵位显示
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_anlegong has_dead_character_variable = Feidi_anlegong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_anlegong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_guiyigong has_dead_character_variable = Feidi_guiyigong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_guiyigong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_huaidegong has_dead_character_variable = Feidi_huaidegong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_huaidegong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_shunzhenggong has_dead_character_variable = Feidi_shunzhenggong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_shunzhenggong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_qinshungong has_dead_character_variable = Feidi_qinshungong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_qinshungong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_baodegong has_dead_character_variable = Feidi_baodegong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_baodegong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_jiangong has_dead_character_variable = Feidi_jiangong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_jiangong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_fengchenggong has_dead_character_variable = Feidi_fengchenggong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_fengchenggong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_muyigong has_dead_character_variable = Feidi_muyigong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_muyigong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_ningjigong has_dead_character_variable = Feidi_ningjigong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_ningjigong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_hundegong has_dead_character_variable = Feidi_hundegong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_hundegong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_huangzonggong has_dead_character_variable = Feidi_huangzonggong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_huangzonggong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_mimiugong has_dead_character_variable = Feidi_mimiugong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_mimiugong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_jiaobaogong has_dead_character_variable = Feidi_jiaobaogong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_jiaobaogong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_beimangong has_dead_character_variable = Feidi_beimangong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_beimangong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_qingwugong has_dead_character_variable = Feidi_qingwugong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_qingwugong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_qidegong has_dead_character_variable = Feidi_qidegong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_qidegong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_shidaogong has_dead_character_variable = Feidi_shidaogong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_shidaogong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_manminggong has_dead_character_variable = Feidi_manminggong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_manminggong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_beidegong has_dead_character_variable = Feidi_beidegong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_beidegong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_guiminghou has_dead_character_variable = Feidi_guiminghou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_guiminghou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_shunhuahou has_dead_character_variable = Feidi_shunhuahou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_shunhuahou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_huaininghou has_dead_character_variable = Feidi_huaininghou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_huaininghou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_anyuanhou has_dead_character_variable = Feidi_anyuanhou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_anyuanhou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_mudehou has_dead_character_variable = Feidi_mudehou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_mudehou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_fengyihou has_dead_character_variable = Feidi_fengyihou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_fengyihou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_huairenhou has_dead_character_variable = Feidi_huairenhou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_huairenhou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_ningbianhou has_dead_character_variable = Feidi_ningbianhou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_ningbianhou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_baoyihou has_dead_character_variable = Feidi_baoyihou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_baoyihou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_guishunhou has_dead_character_variable = Feidi_guishunhou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_guishunhou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_weiminghou has_dead_character_variable = Feidi_weiminghou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_weiminghou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_zhonghunhou has_dead_character_variable = Feidi_zhonghunhou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_zhonghunhou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_haichunhou has_dead_character_variable = Feidi_haichunhou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_haichunhou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_fudehou has_dead_character_variable = Feidi_fudehou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_fudehou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_beiyihou has_dead_character_variable = Feidi_beiyihou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_beiyihou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_manshanghou has_dead_character_variable = Feidi_manshanghou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_manshanghou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_shizhonghou has_dead_character_variable = Feidi_shizhonghou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_shizhonghou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_kuangbeihou has_dead_character_variable = Feidi_kuangbeihou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_kuangbeihou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_yuanhou has_dead_character_variable = Feidi_yuanhou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_yuanhou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_huangmihou has_dead_character_variable = Feidi_huangmihou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_huangmihou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_ZDY_wang has_dead_character_variable = Feidi_ZDY_wang } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_ZDY_wang } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_ZDY_gong has_dead_character_variable = Feidi_ZDY_gong } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_ZDY_gong } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_ZDY_hou has_dead_character_variable = Feidi_ZDY_hou } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_ZDY_hou } }
+    }
+    if = {
+        limit = { scope:new_holder = { OR = { has_character_flag = Feidi_ZDY has_dead_character_variable = Feidi_ZDY } } }
+        scope:old_holder = { SanGong_death_Xungui_address = { XUNGUI_JUEWEI = Feidi_ZDY } }
+    }
+}
+
+QianChaOHuangShi_JueWei_not_inherit_effect = {
+    top_liege = {
+        create_character = {
+            age = 16
+            gender_female_chance = 100
+            culture = root.culture
+            faith = root.faith
+            dynasty = generate
+            random_traits = yes
+            save_scope_as = new_holder
+        }
+    }
+    scope:new_holder = {
+        QianChaOHuangShi_JueWei_inherit_effect = yes
+    }
+    top_liege = {
+        trigger_event = {
+            id = SanGong_hidden.012
+            days = 1
+        }
+    }
+}
+
+SanGong_WangJue_juehao_inherit_effect = {#王爵爵号继承
+    if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_1 } }
+      add_character_flag = flag_SanGong_title_1
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_2 } }
+      add_character_flag = flag_SanGong_title_2
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_3 } }
+      add_character_flag = flag_SanGong_title_3
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_4 } }
+      add_character_flag = flag_SanGong_title_4
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_5 } }
+      add_character_flag = flag_SanGong_title_5
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_6 } }
+      add_character_flag = flag_SanGong_title_6
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_7 } }
+      add_character_flag = flag_SanGong_title_7
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_8 } }
+      add_character_flag = flag_SanGong_title_8
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_9 } }
+      add_character_flag = flag_SanGong_title_9
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_10 } }
+      add_character_flag = flag_SanGong_title_10
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_11 } }
+      add_character_flag = flag_SanGong_title_11
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_12 } }
+      add_character_flag = flag_SanGong_title_12
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_13 } }
+      add_character_flag = flag_SanGong_title_13
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_14 } }
+      add_character_flag = flag_SanGong_title_14
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_15 } }
+      add_character_flag = flag_SanGong_title_15
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_16 } }
+      add_character_flag = flag_SanGong_title_16
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_17 } }
+      add_character_flag = flag_SanGong_title_17
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_18 } }
+      add_character_flag = flag_SanGong_title_18
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_19 } }
+      add_character_flag = flag_SanGong_title_19
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_20 } }
+      add_character_flag = flag_SanGong_title_20
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_21 } }
+      add_character_flag = flag_SanGong_title_21
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_22 } }
+      add_character_flag = flag_SanGong_title_22
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_23 } }
+      add_character_flag = flag_SanGong_title_23
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_24 } }
+      add_character_flag = flag_SanGong_title_24
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_25 } }
+      add_character_flag = flag_SanGong_title_25
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_26 } }
+      add_character_flag = flag_SanGong_title_26
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_27 } }
+      add_character_flag = flag_SanGong_title_27
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_28 } }
+      add_character_flag = flag_SanGong_title_28
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_29 } }
+      add_character_flag = flag_SanGong_title_29
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_30 } }
+      add_character_flag = flag_SanGong_title_30
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_31 } }
+      add_character_flag = flag_SanGong_title_31
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_32 } }
+      add_character_flag = flag_SanGong_title_32
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_33 } }
+      add_character_flag = flag_SanGong_title_33
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_34 } }
+      add_character_flag = flag_SanGong_title_34
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_35 } }
+      add_character_flag = flag_SanGong_title_35
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_36 } }
+      add_character_flag = flag_SanGong_title_36
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_37 } }
+      add_character_flag = flag_SanGong_title_37
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_38 } }
+      add_character_flag = flag_SanGong_title_38
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_39 } }
+      add_character_flag = flag_SanGong_title_39
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_40 } }
+      add_character_flag = flag_SanGong_title_40
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_41 } }
+      add_character_flag = flag_SanGong_title_41
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_42 } }
+      add_character_flag = flag_SanGong_title_42
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_43 } }
+      add_character_flag = flag_SanGong_title_43
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_44 } }
+      add_character_flag = flag_SanGong_title_44
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_45 } }
+      add_character_flag = flag_SanGong_title_45
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_46 } }
+      add_character_flag = flag_SanGong_title_46
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_47 } }
+      add_character_flag = flag_SanGong_title_47
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_48 } }
+      add_character_flag = flag_SanGong_title_48
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_49 } }
+      add_character_flag = flag_SanGong_title_49
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_50 } }
+      add_character_flag = flag_SanGong_title_50
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_51 } }
+      add_character_flag = flag_SanGong_title_51
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_52 } }
+      add_character_flag = flag_SanGong_title_52
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_53 } }
+      add_character_flag = flag_SanGong_title_53
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_54 } }
+      add_character_flag = flag_SanGong_title_54
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_55 } }
+      add_character_flag = flag_SanGong_title_55
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_56 } }
+      add_character_flag = flag_SanGong_title_56
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_57 } }
+      add_character_flag = flag_SanGong_title_57
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_58 } }
+      add_character_flag = flag_SanGong_title_58
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_59 } }
+      add_character_flag = flag_SanGong_title_59
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_60 } }
+      add_character_flag = flag_SanGong_title_60
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_61 } }
+      add_character_flag = flag_SanGong_title_61
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_62 } }
+      add_character_flag = flag_SanGong_title_62
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_63 } }
+      add_character_flag = flag_SanGong_title_63
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_64 } }
+      add_character_flag = flag_SanGong_title_64
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_65 } }
+      add_character_flag = flag_SanGong_title_65
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_66 } }
+      add_character_flag = flag_SanGong_title_66
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_67 } }
+      add_character_flag = flag_SanGong_title_67
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_68 } }
+      add_character_flag = flag_SanGong_title_68
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_69 } }
+      add_character_flag = flag_SanGong_title_69
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_70 } }
+      add_character_flag = flag_SanGong_title_70
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_71 } }
+      add_character_flag = flag_SanGong_title_71
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_72 } }
+      add_character_flag = flag_SanGong_title_72
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_73 } }
+      add_character_flag = flag_SanGong_title_73
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_74 } }
+      add_character_flag = flag_SanGong_title_74
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_75 } }
+      add_character_flag = flag_SanGong_title_75
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_76 } }
+      add_character_flag = flag_SanGong_title_76
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_77 } }
+      add_character_flag = flag_SanGong_title_77
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_78 } }
+      add_character_flag = flag_SanGong_title_78
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_79 } }
+      add_character_flag = flag_SanGong_title_79
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_80 } }
+      add_character_flag = flag_SanGong_title_80
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_81 } }
+      add_character_flag = flag_SanGong_title_81
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_82 } }
+      add_character_flag = flag_SanGong_title_82
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_83 } }
+      add_character_flag = flag_SanGong_title_83
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_84 } }
+      add_character_flag = flag_SanGong_title_84
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_85 } }
+      add_character_flag = flag_SanGong_title_85
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_86 } }
+      add_character_flag = flag_SanGong_title_86
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_87 } }
+      add_character_flag = flag_SanGong_title_87
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_88 } }
+      add_character_flag = flag_SanGong_title_88
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_89 } }
+      add_character_flag = flag_SanGong_title_89
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_90 } }
+      add_character_flag = flag_SanGong_title_90
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_91 } }
+      add_character_flag = flag_SanGong_title_91
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_92 } }
+      add_character_flag = flag_SanGong_title_92
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_93 } }
+      add_character_flag = flag_SanGong_title_93
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_94 } }
+      add_character_flag = flag_SanGong_title_94
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_95 } }
+      add_character_flag = flag_SanGong_title_95
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_96 } }
+      add_character_flag = flag_SanGong_title_96
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_97 } }
+      add_character_flag = flag_SanGong_title_97
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_98 } }
+      add_character_flag = flag_SanGong_title_98
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_99 } }
+      add_character_flag = flag_SanGong_title_99
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_100 } }
+      add_character_flag = flag_SanGong_title_100
+    }
+    # BEGIN MyKingsSubMod wanghao additions
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_xi } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_xi
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_chao } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_chao
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_teng } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_teng
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_huo } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_huo
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_deng } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_deng
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_shu } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_shu
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_zou } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_zou
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_shen } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_shen
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_ji_state } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_ji_state
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_qi_state } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_qi_state
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_ge } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_ge
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_yin } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_yin
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_xia } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_xia
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_e } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_e
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_peng } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_peng
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_bian } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_bian
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_mi } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_mi
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_ze } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_ze
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_lu } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_lu
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_pei } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_pei
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_xiang_state } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_xiang_state
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_xiang } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_xiang
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_heng } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_heng
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_qi_prefecture } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_qi_prefecture
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_shan } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_shan
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_yan } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_yan
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_ji_prefecture } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_ji_prefecture
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_jing } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_jing
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_zhang } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_zhang
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_ye } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_ye
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_zhong } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_zhong
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_rong } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_rong
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_guang } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_guang
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_yi_ritual } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_yi_ritual
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_huai } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_huai
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_yong } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_yong
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_shou } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_shou
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_sheng } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_sheng
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_xin } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_xin
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_yi_righteous } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_yi_righteous
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_xing } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_xing
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_en } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_en
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_jia } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_jia
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_duan } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_duan
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_zhao_light } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_zhao_light
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_qin } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_qin
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_zhen } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_zhen
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_he } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_he
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_fu } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_fu
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_jing_auspicious } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_jing_auspicious
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_zhao_bright } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_zhao_bright
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_kang } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_kang
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_ji_auspicious } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_ji_auspicious
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_MyKingsSubMod_wanghao_hui } }
+      add_character_flag = flag_MyKingsSubMod_wanghao_hui
+    }
+    # END MyKingsSubMod wanghao additions
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_SanGong_title_ZiDingYi } }
+      copy_localized_text = { key = flag_SanGong_title_ZiDingYi target = scope:Dead_FanWang }
+      add_character_flag = flag_SanGong_title_ZiDingYi
+    }
+  
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = flag_d_SanGong_title_ZiDingYi } }
+      copy_localized_text = { key = flag_d_SanGong_title_ZiDingYi target = scope:Dead_FanWang }
+      add_character_flag = flag_d_SanGong_title_ZiDingYi
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_1 } }
+      add_character_flag = d_SanGong_title_1
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_2 } }
+      add_character_flag = d_SanGong_title_2
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_3 } }
+      add_character_flag = d_SanGong_title_3
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_4 } }
+      add_character_flag = d_SanGong_title_4
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_5 } }
+      add_character_flag = d_SanGong_title_5
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_6 } }
+      add_character_flag = d_SanGong_title_6
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_7 } }
+      add_character_flag = d_SanGong_title_7
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_8 } }
+      add_character_flag = d_SanGong_title_8
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_9 } }
+      add_character_flag = d_SanGong_title_9
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_10 } }
+      add_character_flag = d_SanGong_title_10
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_11 } }
+      add_character_flag = d_SanGong_title_11
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_12 } }
+      add_character_flag = d_SanGong_title_12
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_13 } }
+      add_character_flag = d_SanGong_title_13
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_14 } }
+      add_character_flag = d_SanGong_title_14
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_15 } }
+      add_character_flag = d_SanGong_title_15
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_16 } }
+      add_character_flag = d_SanGong_title_16
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_17 } }
+      add_character_flag = d_SanGong_title_17
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_18 } }
+      add_character_flag = d_SanGong_title_18
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_19 } }
+      add_character_flag = d_SanGong_title_19
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_20 } }
+      add_character_flag = d_SanGong_title_20
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_21 } }
+      add_character_flag = d_SanGong_title_21
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_22 } }
+      add_character_flag = d_SanGong_title_22
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_23 } }
+      add_character_flag = d_SanGong_title_23
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_24 } }
+      add_character_flag = d_SanGong_title_24
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_25 } }
+      add_character_flag = d_SanGong_title_25
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_26 } }
+      add_character_flag = d_SanGong_title_26
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_27 } }
+      add_character_flag = d_SanGong_title_27
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_28 } }
+      add_character_flag = d_SanGong_title_28
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_29 } }
+      add_character_flag = d_SanGong_title_29
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_30 } }
+      add_character_flag = d_SanGong_title_30
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_31 } }
+      add_character_flag = d_SanGong_title_31
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_32 } }
+      add_character_flag = d_SanGong_title_32
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_33 } }
+      add_character_flag = d_SanGong_title_33
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_34 } }
+      add_character_flag = d_SanGong_title_34
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_35 } }
+      add_character_flag = d_SanGong_title_35
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_36 } }
+      add_character_flag = d_SanGong_title_36
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_37 } }
+      add_character_flag = d_SanGong_title_37
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_38 } }
+      add_character_flag = d_SanGong_title_38
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_39 } }
+      add_character_flag = d_SanGong_title_39
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_40 } }
+      add_character_flag = d_SanGong_title_40
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_41 } }
+      add_character_flag = d_SanGong_title_41
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_42 } }
+      add_character_flag = d_SanGong_title_42
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_43 } }
+      add_character_flag = d_SanGong_title_43
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_44 } }
+      add_character_flag = d_SanGong_title_44
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_45 } }
+      add_character_flag = d_SanGong_title_45
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_46 } }
+      add_character_flag = d_SanGong_title_46
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_47 } }
+      add_character_flag = d_SanGong_title_47
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_48 } }
+      add_character_flag = d_SanGong_title_48
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_49 } }
+      add_character_flag = d_SanGong_title_49
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_50 } }
+      add_character_flag = d_SanGong_title_50
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_51 } }
+      add_character_flag = d_SanGong_title_51
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_52 } }
+      add_character_flag = d_SanGong_title_52
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_53 } }
+      add_character_flag = d_SanGong_title_53
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_54 } }
+      add_character_flag = d_SanGong_title_54
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_55 } }
+      add_character_flag = d_SanGong_title_55
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_56 } }
+      add_character_flag = d_SanGong_title_56
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_57 } }
+      add_character_flag = d_SanGong_title_57
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_58 } }
+      add_character_flag = d_SanGong_title_58
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_59 } }
+      add_character_flag = d_SanGong_title_59
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_60 } }
+      add_character_flag = d_SanGong_title_60
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_61 } }
+      add_character_flag = d_SanGong_title_61
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_62 } }
+      add_character_flag = d_SanGong_title_62
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_63 } }
+      add_character_flag = d_SanGong_title_63
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_64 } }
+      add_character_flag = d_SanGong_title_64
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_65 } }
+      add_character_flag = d_SanGong_title_65
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_66 } }
+      add_character_flag = d_SanGong_title_66
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_67 } }
+      add_character_flag = d_SanGong_title_67
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_68 } }
+      add_character_flag = d_SanGong_title_68
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_69 } }
+      add_character_flag = d_SanGong_title_69
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_70 } }
+      add_character_flag = d_SanGong_title_70
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_71 } }
+      add_character_flag = d_SanGong_title_71
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_72 } }
+      add_character_flag = d_SanGong_title_72
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_73 } }
+      add_character_flag = d_SanGong_title_73
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_74 } }
+      add_character_flag = d_SanGong_title_74
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_75 } }
+      add_character_flag = d_SanGong_title_75
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_76 } }
+      add_character_flag = d_SanGong_title_76
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_77 } }
+      add_character_flag = d_SanGong_title_77
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_78 } }
+      add_character_flag = d_SanGong_title_78
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_79 } }
+      add_character_flag = d_SanGong_title_79
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_80 } }
+      add_character_flag = d_SanGong_title_80
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_81 } }
+      add_character_flag = d_SanGong_title_81
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_82 } }
+      add_character_flag = d_SanGong_title_82
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_83 } }
+      add_character_flag = d_SanGong_title_83
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_84 } }
+      add_character_flag = d_SanGong_title_84
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_85 } }
+      add_character_flag = d_SanGong_title_85
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_86 } }
+      add_character_flag = d_SanGong_title_86
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_87 } }
+      add_character_flag = d_SanGong_title_87
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_88 } }
+      add_character_flag = d_SanGong_title_88
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_89 } }
+      add_character_flag = d_SanGong_title_89
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_90 } }
+      add_character_flag = d_SanGong_title_90
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_91 } }
+      add_character_flag = d_SanGong_title_91
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_92 } }
+      add_character_flag = d_SanGong_title_92
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_93 } }
+      add_character_flag = d_SanGong_title_93
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_94 } }
+      add_character_flag = d_SanGong_title_94
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_95 } }
+      add_character_flag = d_SanGong_title_95
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_96 } }
+      add_character_flag = d_SanGong_title_96
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_97 } }
+      add_character_flag = d_SanGong_title_97
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_98 } }
+      add_character_flag = d_SanGong_title_98
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_99 } }
+      add_character_flag = d_SanGong_title_99
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = d_SanGong_title_100 } }
+      add_character_flag = d_SanGong_title_100
+    }
+    else_if = {
+      limit = {scope:Dead_FanWang = { has_character_flag = SanGong_ZongShi_JueWei_ZDY } }
+      copy_localized_text = { key = SanGong_ZongShi_JueWei_ZDY target = scope:Dead_FanWang }
+      add_character_flag = SanGong_ZongShi_JueWei_ZDY
+    }
+  }
+  
