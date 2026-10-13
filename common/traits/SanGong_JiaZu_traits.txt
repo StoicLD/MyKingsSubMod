@@ -25,7 +25,7 @@
     monthly_prestige = 12.0
     monthly_influence = 7.5
     monthly_income = 15.0
-    character_max_merit_level_add = 10
+    character_max_merit_level_add = -99
 }
 SanGong_TaiSun = {
     name = SanGong_TaiSun

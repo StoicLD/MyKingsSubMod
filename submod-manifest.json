@@ -257,11 +257,11 @@
     },
     {
       "path": "common/traits/SanGong_JiaZu_traits.txt",
-      "sha256": "7f9912cecc3d78e39540b3d114ebcf11a0555b199d5c99596e1d105b6fbe28c2",
-      "bytes": 17288,
+      "sha256": "3d4bcb036dd8278cd43cc8522b89318c4c7ac219bc0d660970b4be510a1a4ba4",
+      "bytes": 17289,
       "mode": "override",
       "upstream_sha256": "1074722b8c6882ef99eba4fcd04bf093077464ac42824351c300a3f9f0c0d279",
-      "reason": "储君、王爵及公侯伯子数值和新宗室身份；亲王与郡王贤能上限修正 -99，两者禁止正常头衔继承"
+      "reason": "储君、王爵及公侯伯子数值和新宗室身份；亲王与郡王贤能上限修正 -99，两者禁止正常头衔继承；皇太子贤能上限修正 -99，原继承资格保持"
     },
     {
       "path": "common/traits/SanGong_Xungui_traits.txt",
@@ -459,8 +459,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "9bfc8fc82fda6fb9c3bd0bc8b9e0523cc86b01b2ef268f20b9fc31c3724b9dfc",
-      "bytes": 5699,
+      "sha256": "149c8677d5b0618380f42980314e2b334e2ba415408fa3ad146d1a2a4e08caf8",
+      "bytes": 6054,
       "mode": "documentation",
       "upstream_sha256": null,
       "reason": "子 Mod 元数据或使用说明"
@@ -558,5 +558,12 @@
       "SanGong_ZongShi_ZhenGuoJiangJun"
     ],
     "additional_record": "docs/validation/2026-10-11-zhenguo-merit-inheritance.md"
+  },
+  "taizi_merit_update": {
+    "date": "2026-10-12",
+    "baseline": "8f42434",
+    "character_max_merit_level_add": -99,
+    "runtime_verified": false,
+    "record": "docs/validation/2026-10-12-taizi-merit.md"
   }
 }

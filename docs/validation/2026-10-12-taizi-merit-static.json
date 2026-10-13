@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-12",
+  "baseline": "8f42434",
+  "passed": true,
+  "checks_passed": 7,
+  "checks_total": 7,
+  "runtime_verified": false,
+  "checks": {
+    "taizi cap -99 unique": true,
+    "no added inheritance blocker": true,
+    "only one value changed": true,
+    "BOM preserved": true,
+    "all other gameplay hashes unchanged": true,
+    "manifest current": true,
+    "diff whitespace": true
+  }
+}

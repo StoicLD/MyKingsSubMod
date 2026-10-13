@@ -1,4 +1,18 @@
-# 当前任务：亲王、郡王贤能上限与实际头衔继承限制
+# 当前任务：皇太子贤能等级上限修正
+
+2026-10-13 用户进一步明确：只有原版天家宗仪的皇太子禁止继承头衔时，拓展才同步禁止。现场复查本地 Workshop 3684849062、天家宗仪 V0.76，`common/traits/SanGong_JiaZu_traits.txt` 中唯一的 `SanGong_Taizi` 定义有 `character_max_merit_level_add = -99`，没有 `inheritance_blocker` 或 `cannot_inherit_titles` 标记。因此本次条件未满足，不新增继承限制；拓展保持 -99 上限修正与原继承资格。本轮只补充核验记录，不改游戏文件，也不表示已核验远端最新版本。
+
+2026-10-13 只读分析：用户询问太子若增加继承禁止是否只影响天朝任命。复查工作树仍为 `8f42434` 加本轮太子 -99 未提交改动，太子无 `inheritance_blocker`。本机游戏 `_traits.info` 定义 `inheritance_blocker = all` 为广泛继承阻断，并未限定地方任命；天家宗仪的 `SanGong_zongfa_succession_law` 自身也是 `order_of_succession = appointment`，调用 `SanGong_Jichengren`，符合条件的太子加 5000 分。两种原版天朝文武任命分别使用 `celestial_civic_governor` / `celestial_military_governor`，均有 `level = merit`；本 Mod 宗法候选按持有者家族取人，没有该贤能等级门槛。故不能将任命制一概当作地方官职，也不能假定全局禁止继承会保留皇位；具体引擎候选过滤未经游戏验证，不能声称该太子个案必然失去或保留皇位。保持当前仅上限 -99 的实现；若未来仅禁地方文武任命，应另行针对这些任命规则设计，明确豁免皇位/中华霸权和宗法继承。本轮未改玩法。
+
+实施结果：仅改太子特质的一处数值；[静态 7/7 通过](../docs/validation/2026-10-12-taizi-merit-static.json)，其他游戏内容保持。README、需求、manifest 与验证记录已同步，未提交。已达静态交付停止点，游戏内按下方清单由用户验证。
+
+2026-10-12，用户要求“皇太子也应该贤能等级-99”，沿用前述上限修正语义，仅将 `common/traits/SanGong_JiaZu_traits.txt` 的 `SanGong_Taizi` 中 `character_max_merit_level_add = 10` 改为 -99。不添加继承禁止，不改皇太孙、亲王/郡王/镇国将军、太子其他待遇、5000 继承评分、册立奖励或保地逻辑。
+
+目标仍为天家宗仪拓展 `MyKingsSubMod`。当前分支 `main`，HEAD `8f42434`（宗室最高三等贤能等级-99），开始时工作树干净；前轮修改已提交，下面为历史记录。本次仅一个字段，完成一次静态检查后停止：还原该值后文件与基准一致，其余游戏文件按基准 manifest 哈希保持，检查编码、结构、manifest 和 diff。游戏内由用户完整重启后核对旧/新太子特质的 -99 上限修正、既有继承资格及待遇；失败反馈角色 ID、修正明细、继承顺序及新日志。回滚只恢复本次字段，不撤回其他爵位修改；不自动提交或操作游戏。交付记录见[太子验证](../docs/validation/2026-10-12-taizi-merit.md)。
+
+---
+
+# 上一任务：亲王、郡王贤能上限与实际头衔继承限制
 
 2026-10-11 追加授权：“镇国将军也一样的改动，直接实施”。已在 `common/traits/SanGong_ZongShi_rank_traits.txt` 的正式镇国将军特质中增加上限修正 -99 与 `inheritance_blocker = all`，保留前一轮亲王/郡王改动。镇国将军长子、辅国将军等其余特质及脚本不变。当前未提交游戏文件合计两份，基准仍为 `ec2e840`；追加验证与用户人工清单见[交付记录](../docs/validation/2026-10-11-zhenguo-merit-inheritance.md)，游戏内待验证。
 
